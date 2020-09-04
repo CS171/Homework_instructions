@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Lab 1
+# Week 2 Lab
 
 Welcome to the first lab of CS171! 
 
