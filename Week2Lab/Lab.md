@@ -1,13 +1,13 @@
----
+<!-----
 layout: lab
 exclude: true
----
+----->
 
 <img src="cs171-logo.png" width="200">
 
 &nbsp;
 
-# Lab 1
+# Week 2 - Lab
 
 Welcome to the first lab of CS171! 
 
@@ -370,7 +370,7 @@ In the last activity you will download and include the Bootstrap JavaScript libr
 
 3. **Bootstrap JS**
 
-	Bootstrap provides some JavaScript components too. In this lab our focus is on CSS, but you should include the *Bootstrap JavaScript* and the required *jQuery JavaScript library* too, otherwise there may be problems with some components. 
+	Bootstrap provides some JavaScript components, too. In this lab our focus is on CSS, but you should include the *Bootstrap JavaScript* and the required *jQuery JavaScript library* too, otherwise there may be problems with some components. 
     	
     Just like you did with bootstrap's CSS file, copy-paste bootstrap's JS files and load them in your ```basics.html```. Once again, use the ```Copy``` button in the upper right to avoid errors. Place the three ```<script>``` near the end of your pages, right before the closing ```</body>``` tag, to enable them. jQuery must come first, then Popper.js, and then our JavaScript plugins.
     In your header link to the bootstrap minified CSS: ```bootstrap.min.css```
@@ -386,7 +386,7 @@ In the last activity you will download and include the Bootstrap JavaScript libr
     
     Let's make use of bootstrap, shall we? Once of the most basic but at the same time most useful feature is bootstrap's grid system. Here's the link to the documentation: [https://getbootstrap.com/docs/4.5/layout/grid/](https://getbootstrap.com/docs/4.5/layout/grid/) 
 
-    Below, you will find an example of the bootrap grid. It is important to understand the hierarchy that the grid system uses: A div-container, i.e. ```<div class="container">``` serves as a parent for one or more div-rows, i.e. ```<div class="row">```, while a div-row serves as the parent for multiple div-columns, i.e. ```<div class="col">```. 
+    Below, you will find an example of the bootstrap grid. It is important to understand the hierarchy that the grid system uses: A div-container, i.e. ```<div class="container">``` serves as a parent for one or more div-rows, i.e. ```<div class="row">```, while a div-row serves as the parent for multiple div-columns, i.e. ```<div class="col">```. 
     ```
    <div class="container">
        <div class="row">
