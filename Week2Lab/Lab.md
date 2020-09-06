@@ -330,7 +330,7 @@ In this activity you will use CSS to add custom styles to your HTML file.
 &nbsp;
 ## HTML, CSS & JS Frameworks
 
-Rather than coding from scratch, frameworks enable you to utilize ready made blocks of code to help you get started. They give you a solid foundation for what a typical web project requires and usually they are also flexible enough for customization.
+Rather than coding from scratch, frameworks enable you to utilize ready-made blocks of code to help you get started. They give you a solid foundation for what a typical web project requires and usually they are also flexible enough for customization.
 
 In CS171 we use ***Bootstrap*** as an example open source HTML, JS and CSS framework. It is one of the most widely used frameworks, it is easy to understand and it provides a great documentation with many examples. 
 
@@ -441,7 +441,7 @@ These bonus activities are not required, but we recommend that you try them!
 	
 2. **Try other Bootstrap components**
 
-	Go back to the Bootstrap website and look at their [examples](https://getbootstrap.com/docs/3.3/getting-started/#examples). Include some other Bootstrap components in your ```basics.html``` file.
+	Go back to the Bootstrap website and look at their [examples](https://getbootstrap.com/docs/4.5/examples/). Include some other Bootstrap components in your ```basics.html``` file.
 	
 	*Just copy and paste the respective boilerplate codes and play around with the styles.*
 
