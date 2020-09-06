@@ -42,7 +42,7 @@ After completing this lab you will be able to:
 &nbsp;
 ## Setup
 During the next weeks, you will be working through the book *D3 - Interactive Data Visualization for the Web* (Second Edition) by Scott Murray.
-The book provides a lot of sample code (see page 5 of the book, *Using Sample Code*). The book is written for D3 v4 (the latest version is v6 as of Aug 2020). We will go over the changes in syntax for v5 as we progress through the book. 
+The book provides a lot of sample code (see page 5 of the book, *Using Sample Code*). The book is written for D3 v4 (the latest version is v6 as of Aug 2020). We will go over the changes in syntax for v6 as we progress through the book. 
 
 - Download and extract the sample code for the book now. It can be found [here](https://github.com/alignedleft/d3-book/releases). 
 - Set up a directory on your computer for the sample code and remember its location. 
