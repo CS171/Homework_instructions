@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Homework 2
+# Week 2 Homework
 
 In the first part of this homework, you will create a simple webpage with HTML and CSS.
 
