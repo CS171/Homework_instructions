@@ -139,7 +139,7 @@ c. **Extend your previously created** `index.html` **file and add the following:
 ***Add this information to your two-column layout.*** *In the left column the screenshot and in the right column the answers to the questions above*
 
 
-## 4. Submit Homework on Canvas
+## 3. Submit Homework on Canvas
 
 **Name your folder appropriately. Go to Canvas and click on the HW 2 - Submission link in the week's modules. Next, upload a zipped folder containing your homework files.**
 
