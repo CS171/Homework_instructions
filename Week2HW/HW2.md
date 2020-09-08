@@ -113,7 +113,7 @@ You should use the empty containers in the following exercise (*Infographic Desi
 
 *As a general rule, only use html `<table>` tags in an html layout to display data that can be well-represented in rows and columns (i.e., tabular data). Do not use it as a general layouting device!*
 
-####Bonus
+#### Bonus (1 point)
 
 In case you've finished all the tasks above as well as the Infographic Design Critique you can earn a bonus point by also implementing a slideshow/carousel component. We'd recommend that you examine the bootstrap documentation for some helpful sample code. As for the content of the carousel, we'd like you to include your examples for good or bad visualizations in the slideshow that you identified in last week's HW (Week 1). Make sure to use a proper headline for the slideshow.
 
