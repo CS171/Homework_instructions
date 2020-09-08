@@ -449,11 +449,11 @@ These bonus activities are not required, but we recommend that you try them!
 
 #### Submission of lab
 
-You have now completed the activities of Lab 1 and should have a basic understanding of HTML, CSS, and how you can style your webpage based on CSS selectors and libraries like Bootstrap. This knowledge will enable you to complete Homework 1!
+You have now completed the activities of Week 2 Lab and should have a basic understanding of HTML, CSS, and how you can style your webpage based on CSS selectors and libraries like Bootstrap. This knowledge will enable you to complete Homework 2!
 
-If you are done early, please help others around your table. If your entire table is done, feel free to get started on the homework.
+If you are done early, please help others in your breakout room. If your entire room is done, feel free to get started on the homework.
 
-Please submit your completed lab 1 together with your homework submission on Canvas.
+Please submit your completed Week 2 Lab together with your homework submission on Canvas.
 
 *See you next week!*
 
