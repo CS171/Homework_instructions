@@ -161,12 +161,12 @@ The data (arrays with JSON objects) are already stored in these two global varia
 In last week's homework, you had a chance to familiarize yourself with the following infographic. This week, we want you to get creative!
  
 [![Creative Commons License](cs171-hw2-infographic.png)](https://www.jobvine.co.za/what-does-it-take-to-get-a-job-at-google/)
-- Create a sketch of a redesign for the Google salary visualization. 
+- **Create a sketch of a redesign for the Google salary visualization.**
 - Name and justify all your changes you made using C.R.A.P. and Gestalt principles that you've learned class.
 - We expect you to write a text in the range of 200-400 words.
-- write the text with your computer! (you wouldn't believe what people have handed in...)
-- take a picture of your sketch or scan it.
-- create a PDF (creation.pdf) that contains both the sketch and your explanation/justification.
+- Write the text with your computer.
+- Take a picture of your sketch or scan it.
+- Create a PDF (creation.pdf) that contains both the sketch and your explanation/justification.
 
 ## 5. Bonus Task (1 points)
 
@@ -192,7 +192,11 @@ You can use the same script as in HW1 to make your table sortable:
 [https://github.com/CS171/Homework_instructions/blob/master/Week2HW/assets/sortable.js](https://github.com/CS171/Homework_instructions/blob/master/Week2HW/assets/sortable.js) *(Hint: use the class name 'sortable')*
 
 
-## 6. Submit Homework in Canvas
+## 6. Teaser / Prospect
+
+Next week, there will be a bonus task for the design portion of the homework. It is part of the 'Dear Data' - you'll learn everything yo need to know in the lecture this week, i.e. week 3. That said, if you feel like earning three extra points next week, you better start collecting some personal data over the week. 
+
+## 7. Submit Homework in Canvas
 
 a. Put your JS homework in the folder structure 'submission_FirstnameLastname/hw/implementation'.
 
