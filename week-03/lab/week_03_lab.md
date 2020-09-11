@@ -61,7 +61,7 @@ This lab includes three activities and covers JS basics. It is intended to solid
 
 *The result of this lab may look like the following screenshot. Among other things, you will work with data from amusement parks and museums and do some array manipulations and filtering. At the end you will use JS to call a function that will render a pre-configured bar chart.*
 
-![Lab 2 - Preview](week-03_lab2_preview.png?raw=true "Lab 2 - Preview")
+![Lab 2 - Preview](week-03_lab_preview.png?raw=true "Lab 2 - Preview")
 
 ### A short reiteration of the basic concepts of JavaScript (JS)
 
@@ -600,7 +600,8 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 1. **Download template for 'week 03 lab', unzip it and open it as a new project in Webstorm:**
 
 	[https://canvas.harvard.edu/courses/74834/files/folder/labs](https://canvas.harvard.edu/courses/74834/files/folder/labs)
-
+    (download week-03_lab.zip)
+    
 2. **Familiarize yourself with the provided HTML document: ```index.html```**
 
 	Look at the source code, its HTML elements, and which files (JS, CSS) are included.
