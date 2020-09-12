@@ -7,8 +7,6 @@ exclude: true
 
 &nbsp;
 
-
-
 # Week 03 | Homework
 
 In this assignment, you’ll use HTML, CSS and JavaScript to create a small dashboard for a local pizza delivery company. It should help the company to get meaningful insights into their collected data and to evaluate their performance. We provide a template that will serve as your point of departure code.
@@ -32,7 +30,8 @@ Please complete the lab - ideally before you start with this homework. It is due
 
 ### Template
 
-We are providing a small template (*Bootstrap* already included) for this homework. It is quite similar to the framework which we have used in this week's lab and should help you to get started. You can download the framework for this week's homework [here](https://canvas.harvard.edu/courses/74834/files/folder/homeworks/week-03-hw-template).
+We are providing a small template (*Bootstrap* already included) for this homework. It is quite similar to the framework which we have used in this week's lab and should help you to get started. You can download the framework for this week's homework via canvas: 
+ [here's the link](https://canvas.harvard.edu/courses/74834/files/10574103?module_item_id=752111)
 
 When exploring the folder structure and its contents you will notice that we are providing all the files you need. Your only job is to 1) understand the code and 2) to extend the following files:
 

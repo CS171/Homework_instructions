@@ -598,8 +598,8 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 1. **Download template for 'week 03 lab', unzip it and open it as a new project in Webstorm:**
 
-	[https://canvas.harvard.edu/courses/74834/files/folder/labs](https://canvas.harvard.edu/courses/74834/files/folder/labs)
-    (download week-03_lab.zip)
+	[here's the link to the canvas module](https://canvas.harvard.edu/courses/74834/files/10568860?module_item_id=752107)
+	(you can also just browse there via canvas -> modules)
     
 2. **Familiarize yourself with the provided HTML document: ```index.html```**
 
