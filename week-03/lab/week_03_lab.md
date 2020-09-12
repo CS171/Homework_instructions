@@ -663,7 +663,7 @@ In the last activity you have implemented a function which reacts to the user in
 
 #### Submission of lab
 
-Congratulations, you have now completed the activities of Lab 2. 
+Congratulations, you have now completed the activities of Week 3 Lab.
 
 *See you next week!*
 
