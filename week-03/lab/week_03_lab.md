@@ -263,7 +263,7 @@ You should already be familiar with **control structures**, **loops** and **func
 
 #### Control Structures & Loops
 
-##### IF-STATEMENT
+##### IF-STATEMENTS
 
 ```javascript
 let numericData = 10;
@@ -283,7 +283,7 @@ let result = (numericData >= 10) ? "greater than or equal to 10" : "less than 10
 let result = (numericData % 2 === 0) ? "even" : "odd";
 ```
 
-##### FOR-LOOP
+##### FOR-LOOPS
 
 ```javascript
 // (1) Loop through a block of code 5 times (printing the value of i each time to the console)
@@ -318,7 +318,7 @@ arrayWithNames.forEach( (element, index) => {
 ```
 
 *Result:*
-![Lab 2 - For-Loops](cs171-for-loop-examples.png?raw=true "Lab 2 - For-Loops")
+![For-Loops](cs171-for-loop-examples.png?raw=true)
 
 
 #### Functions
