@@ -310,14 +310,13 @@ for (let property in person) {
 // and the element itself are available inside the loop via an anonymous callback function.
 // That's definitely a lot to wrap your head around, but once you get used to it, this loop is pure magic.
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # #
 arrayWithNames.forEach( (element, index) => {
 	console.log(index + ": " + element);
 });
-# # # # # # # # # # # # # # # # # # # # # # # # # # #
 ```
 
-*Result:*
+*Here are the console logs for the examples:*
+
 ![For-Loops](cs171-for-loop-examples.png?raw=true)
 
 
