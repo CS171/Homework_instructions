@@ -82,7 +82,7 @@ let day = 4;
 let temperature = 34.36;
 
 // Boolean
-var winter = true;
+let winter = true;
 ```
 
 
@@ -667,7 +667,7 @@ Congratulations, you have now completed the activities of Lab 2.
 
 *See you next week!*
 
-Please upload the code of your completed lab on Canvas!
+Please upload the code of your completed lab together with the code your completed homework for this week on Canvas!
 
 &nbsp;
 
