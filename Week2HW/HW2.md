@@ -91,7 +91,7 @@ You can choose your design parameters freely (i.e., decisions about fonts, color
 
 *Keeping your CSS rules separate means that you can use styles multiple times and your HTML documents remain clean and understandable.*
 
-h. **Download and include the given JavaScript file `sorttable.js` at the bottom of the `body` element.**
+h. **Download and include the given JavaScript file `sortable.js` at the bottom of the `body` element.**
 
 [https://github.com/CS171/Homework_instructions/blob/master/Week2HW/assets/sortable.js](https://github.com/CS171/Homework_instructions/blob/master/Week2HW/assets/sortable.js)
 
