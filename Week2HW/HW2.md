@@ -98,7 +98,7 @@ h. **Download and include the given JavaScript file `sortable.js` at the bottom 
 Make sure to save the contents of this file as .js file! This script provides some additional functionality and makes your table sortable. Over the course of the semester, you will learn more about integrating interactive components with JavaScript but for this homework, it is fine if you include our given library. Example integration:
 
 ```
-<script src="js/sorttable.js"></script>
+<script src="js/sortable.js"></script>
 ```
 
 i. **Add the class name `sortable` to the `table` Element**
