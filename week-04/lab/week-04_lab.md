@@ -492,6 +492,7 @@ console.log(`look at that: The browser already interpreted this line, while it's
 *The result below shows that the execution order is different than what you might have expected:*
 
 The callback function - the inner function of *d3.csv()* - is called only after the dataset is loaded completely to browser memory. In the meantime other scripts are executed.
+
 ![D3 - Data Loading 1](cs171-d3-load-data-1.png "Data Loading 1")
 
 
