@@ -1,9 +1,9 @@
----
+<!-----
 layout: lab
 exclude: true
----
+----->
 
-<img src="../../../2020-Labs-Homework/week-04/hw/cs171-logo.png" width="200">
+<img src="cs171-logo.png" width="200">
 
 &nbsp;
 
@@ -19,7 +19,7 @@ In this homework you will implement a horizontal bar chart with D3. Your bar cha
 
 *During development you can base your work on the following screenshot, but the design decisions (colors, fonts, ...) are principally up to you:*
 
-![Homework Preview](../../../2020-Labs-Homework/week-04/hw/final.png "Homework Preview")
+![Homework Preview](final.png "Homework Preview")
 
 ### Data
 
@@ -117,7 +117,7 @@ The ```img``` folder contains an image in portrait format for each building.
 
 "If sorrow were a landscape, here’s how it would look from a cruising altitude of 30,000 feet. This graphic maps the global cost of early mortality—some 1.7 billion years of human life forfeited annually—sorted by cause of death." — [Wired](http://www.wired.com/2013/11/infoporn-causes-of-death/all/1)
 
-![Homework 3 - Design Critique](../../../2020-Labs-Homework/week-04/hw/cs171-hw3-vis.png?raw=true "Homework 3 - Design Critique")
+![Homework 3 - Design Critique](cs171-hw3-vis.png?raw=true "Homework 3 - Design Critique")
 *By Thomas Porostocky | Source: Institute for Health Metrics and Evaluation ([http://www.washingtonpost.com/blogs/wonkblog/files/2013/12/image001-800x742.jpg](http://www.washingtonpost.com/blogs/wonkblog/files/2013/12/image001-800x742.jpg))*
 
 &nbsp;
