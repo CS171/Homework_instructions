@@ -24,7 +24,7 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 ### Prerequisites
 
 - You have read chapter 3 (p. 52-62) and chapter 5 (p. 67-72, p. 79-87)  in *D3 - Interactive Data Visualization for the Web*.
-- You have downloaded the pre-circulated code for this week's lab here.
+- You have downloaded the pre-circulated code/template for this week's lab on canvas. This [link](https://canvas.harvard.edu/courses/74834/files/10628390?module_item_id=756509) should get you there quickly.
 
 &nbsp; 
 
@@ -80,7 +80,6 @@ project/
         ..
     js/
         main.js
-        (my_local_d3_library_if_I_prefer_that.js)
         (other_js_libs.js)
         ..
 ```
@@ -394,8 +393,6 @@ svg.selectAll("rect")
 
 #### Activity II
 
-*Use your files from the first activity. You don't have to create a new project.*
- 
 1. **Navigate to 'activity_2' and create a new D3 project inside the folder.**
 
 2. **Append a new SVG element to your HTML document with D3** (Width: 500px, Height: 500px)
@@ -449,7 +446,7 @@ We'll store the same sandwich price information in a CSV file. Most of the time 
 
 *sandwiches.csv (create this file in a subfolder of your project named "data")*
 
-```javascript
+```csv
 name,price,size
 Thesis,7.95,large
 Dissertation,8.95,large
@@ -500,8 +497,6 @@ The callback function - the inner function of *d3.csv()* - is called only after 
 
 #### Activity III
 
-*Use your files from the previous activity. You don't have to create a new project.*
-
 1. **Navigate to 'activity_3' and create a new D3 project inside the folder.**
     
     *notice that there's already a folder called 'data' that contains your dataset for this exercies, i.e. `cities.csv`*
@@ -519,13 +514,13 @@ The callback function - the inner function of *d3.csv()* - is called only after 
     *You might have noticed that each value of the CSV file is stored as a string, including numerical values.*
     
     - Convert all numerical values to *numbers*. (Otherwise you might see unexpected behavior when making calculations.)
-    - We recommend to iterate over each row to convert strings into floats. You can use this neat line of code:
+    - We recommend iterating over each row to convert strings into floats. You can use this neat line of code:
     
     ```javascript
             d.age = +d.age;
    ```
     
-   - Formerly, you had to write an actual loop to iterate over each element in the array, i.e. each row in the csv. However, ever since switching to promises in d3 v5, [d3.csv](https://github.com/d3/d3-fetch) also allows for a callback during the process of loading the csv row by row:
+   - Formerly, you had to write an actual loop to iterate over each element in the array, i.e. each row in the csv. However, ever since switching to promises in d3 v5, [d3.csv](https://github.com/d3/d3-fetch) also allows for a callback during the process of loading the csv row by row. Thus, Mike Bostock, calls this an 'optional row conversion function':
     
    ```javascript
    d3.csv(url, (row) => {
