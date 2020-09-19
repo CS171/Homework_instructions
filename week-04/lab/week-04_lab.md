@@ -289,7 +289,7 @@ In this example we have included a JS function in the *text()* operator.
 > ```javascript
 > .text( (d) => { return d; } );
 > ``` 
-> There are tons of implications if you change an anonymous ES5 function to an ES6 function. We encourage you to up on the differences [here](https://www.w3schools.com/js/js_arrow_function.asp). One useful feature of arrow functions is their default return value if the function only has one statement. This allows us to shorten our anonymous function even more:
+> There are tons of implications if you change an anonymous ES5 function to an ES6 function. We encourage you to read up on the differences [here](https://www.w3schools.com/js/js_arrow_function.asp). One useful feature of arrow functions is their default return value if the function only has one statement. This allows us to shorten our anonymous function even more:
 > ```javascript
 > .text( d => d );
 > ``` 
