@@ -24,7 +24,7 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 ### Prerequisites
 
 - You have read chapter 3 (p. 52-62) and chapter 5 (p. 67-72, p. 79-87)  in *D3 - Interactive Data Visualization for the Web*.
-- You have downloaded the pre-circulated code/template for this week's lab on canvas. This [link](https://canvas.harvard.edu/courses/74834/files/10628390?module_item_id=756509) should get you there quickly.
+- You have downloaded the pre-circulated code/template for this week's lab on canvas. This [link](https://canvas.harvard.edu/courses/74834/files/10628390?module_item_id=756509) should get you there quickly. 
 
 &nbsp; 
 
@@ -54,7 +54,7 @@ A summary of D3's features and key aspects by *Scott Murray*:
 **CS171 is using D3 version 6!**
 
 Right before the start of the semester, Mike Bostock has released D3 v6. Many of the changes in v5 and v6 address very
-specific issues that are not of relevance fur you, and thus, the examples in the textbook (D3 v.4) still serve as 
+specific issues that are not of relevance for you, and thus, the examples in the textbook (D3 v.4) still serve as 
 excellent references. Also, when looking up code online, be aware that many examples still use older versions and, as
 a consequence, you might not be able to just copy paste the entire code -  you will need to make some changes! (The most
 common one probably being the data loading part - since version 5, D3 uses promises, which makes things a lot smoother!) Check out 
@@ -257,7 +257,7 @@ There are no "p"-elements on the page so the **enter** selection contains placeh
 
 The dataset has been loaded and bound to new paragraphs but all the appended elements contain the same content: *"Array Element"*.
 
-If you want access to the corresponding values from the dataset you have to use *anonymous functions*. For better readability, we'll provide an example in ES5 (JavaScipt v.5) fist, before we rewrite it slightly using an ES6 arrow function.
+If you want access to the corresponding values from the dataset you have to use *anonymous functions*. For better readability, we'll provide an example in ES5 (JavaScipt v.5) first, before we rewrite it slightly using an ES6 arrow function.
 
 ```javascript
 .text( function (d) { return d; } );
@@ -573,11 +573,11 @@ The callback function - the inner function of *d3.csv()* - is called only after 
 
     *Add a **D3 click listener** and write the population of the clicked city (i.e., circle) to the web console.*
     
-    The d3 methode .on() adds or removes a listener to each selected element for the specified event typenames. 
+    The d3 method .on() adds or removes a listener to each selected element for the specified event typenames. 
     The typenames is a string event type, such as click, mouseover, or submit. When a specified event is dispatched 
     on a selected element, the specified listener will be evaluated for the element, being passed the current event 
     (event) and the current datum (d), with this as the current DOM element (event.currentTarget). In order to have access
-    to this, however, we cannot use arrow functions. Have a look at this event lister should look like that:
+    to this, however, we cannot use arrow functions. Have a look at this event listener:
     
     ```javascript
             .on("click", function(event, d){
@@ -585,7 +585,7 @@ The callback function - the inner function of *d3.csv()* - is called only after 
             });
     ```
     
-    Of course, you can do more than just writing sth to the console in here. For example, you could call other functions and pass along
+    Of course, you can do more than just writing something to the console here. For example, you could call other functions and pass along
     some information from the current selection.
 
 *Your result should look similar to this screenshot:*
