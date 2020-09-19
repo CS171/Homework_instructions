@@ -156,4 +156,4 @@ Submission instructions:
 
 4. Also submit the completed lab on Canvas.
 
-**Congratulations for finishing Homework 3! See you in class!**
+**Congratulations for finishing the Homework! See you in class!**
