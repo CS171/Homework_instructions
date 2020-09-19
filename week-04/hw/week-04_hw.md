@@ -19,7 +19,7 @@ In this homework you will implement a horizontal bar chart with D3. Your bar cha
 
 *During development you can base your work on the following screenshot, but the design decisions (colors, fonts, ...) are principally up to you:*
 
-![Homework Preview](final.png "Homework Preview")
+![Homework Preview](cs171-w4hw-preview.png "Homework Preview")
 
 ### Data
 
@@ -100,63 +100,33 @@ The ```img``` folder contains an image in portrait format for each building.
 	
 	> We have used the *Google Font "Roboto"* in our example. If you are interested in using different fonts, this page might be helpful: [https://www.google.com/fonts](https://www.google.com/fonts)
 	
-## 2) Design Critique & Re-Design (3 points)
+## 2) Design Critique (3 points)
 
-**Visualization: Causes of Untimely Death**
+![Homework 3 - Design Critique](cs171-w4hw-dashboard.png?raw=true "Homework 3 - Design Critique")
 
-"If sorrow were a landscape, here’s how it would look from a cruising altitude of 30,000 feet. This graphic maps the global cost of early mortality—some 1.7 billion years of human life forfeited annually—sorted by cause of death." — [Wired](http://www.wired.com/2013/11/infoporn-causes-of-death/all/1)
+*Source: ([http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/](http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/))*
 
-![Homework 3 - Design Critique](cs171-hw3-vis.png?raw=true "Homework 3 - Design Critique")
-*By Thomas Porostocky | Source: Institute for Health Metrics and Evaluation ([http://www.washingtonpost.com/blogs/wonkblog/files/2013/12/image001-800x742.jpg](http://www.washingtonpost.com/blogs/wonkblog/files/2013/12/image001-800x742.jpg))*
+#### Task:
+
+Critique this dashboard using the design principles and terminology we discussed in class (C.R.A.P., Gestalt Principles, Tufte). 
 
 &nbsp;
 
-> From the [Washington Post](https://www.washingtonpost.com/news/wonk/wp/2013/12/27/bill-gatess-graph-of-the-year/):
-> 
-> “For 2013, we asked some of the year's most interesting, important and influential thinkers to name their favorite graph of the year — and why they chose it.” 
-
-> Bill gates writes about this visualization:
-
-> *"I love this graph because it shows that while the number of people dying from communicable diseases is still far too high, those numbers continue to come down. In fact, fewer kids are dying, more kids are going to school and more diseases are on their way to being eliminated. But there remains much to do to cut down the deaths in that yellow block even more dramatically. We have the solutions. But we need to keep up the support where they’re being deployed, and pressure to get them into places where they’re desperately needed."*
-
-
-#### Please answer the following questions for the visualization above:
-
-1. Who is the audience?
-
-2. Which questions does this visualization answer? Name at least three. 
-3. What data is represented in the visualization? Be specific and comprehensive.  
-4. For each data type, describe how it is encoded in the visualization using Bertin’s marks and channels. E.g. color saturation (channel) encodes annual percentage of change between 2005 and 2010. 
-5. How are the perceptual channels contrast and color used in the visualization? Name at least two potential problems.
-6. How are Tufte’s design principles used or violated in this chart? 
-
-*!! You will have to submit your design critique as a PDF document.*
-
-#### Re-Design
-
-1. **Sketch multiple re-designs of the visualization. The re-designs should address the three questions you identified previously (in question 2 from the previous step) more effectively.**
-
-	Do not worry about the specifics of the data or the quality of your sketches! Sketch and submit at least 3-4 designs. 
-
-	*!! Scan your sketches and create a PDF file with all results.*
-
-2. **Pick one of your sketches that you think answers one or more specific questions most effectively and answer these questions for your chosen sketch:**
-
-	- For each data type, describe how it is encoded in your redesign using Bertin’s marks and channels. 
-	- How are the perceptual channels contrast and color used in your chosen sketch?
-	- How are Tufte’s design principles used or violated in your sketch?
-
-	*!! Create an additional PDF file with the answers.*
-
-
-## 3) Bonus Task (1 point)
+## 3) Bonus Task I | Implementation (1 point)
 
 Please make sure to finish all previous tasks before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who already have more experience with HTML, CSS and JS.
 
 When the user clicks on a bar or on a text label you are currently displaying, additional information about the selected building in the right column should appear. Include a link below the table that leads to the building's Wikipedia page. The URLs should be generated automatically from your data and the page should open in a new browser tab.
 
+&nbsp;
 
-## 4) Submit Homework in Canvas
+## 4) Bonus Task II | Design (3 points)
+
+Over the past week, you've collected all sorts of personal data. For this bonus task, we ask you to create a 'Dear Data' postcard sketch, including an explanation of the visual encodings. Use the marks and channels terminology from class in your explanation.   
+
+&nbsp;
+
+## 5) Submit Homework in Canvas
 
 Submission instructions:
 
