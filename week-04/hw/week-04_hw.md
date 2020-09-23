@@ -131,7 +131,6 @@ Over the past week, you've collected all sorts of personal data. For this bonus 
 Submission instructions:
 
 1. Use the following recommended folder structure:
-* (Please submit your lab _separately_).
 
 ```
 /submission_week-04_FirstnameLastname	
