@@ -222,9 +222,7 @@ Submission instructions:
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
-	    design/         ...folder for your sketches
-	        ...
-		...
+
 	lab/
 ```
 
