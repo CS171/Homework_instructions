@@ -143,9 +143,9 @@ Look at this previous CS 171 final project about the war in Syria [http://www.sy
 
 In your analysis, include answers to the following questions: 
 
-* 1. What is the message? What is the narrative?
-* 2. In particular, analyze the main storytelling arc elements (Setting/Hook, Rising Insights, Aha Moment, Solution & Next Steps)
-* 3. What did you think worked well? What did not?
+* What is the message? What is the narrative?
+* In particular, analyze the main storytelling arc elements (Setting/Hook, Rising Insights, Aha Moment, Solution & Next Steps)
+* What did you think worked well? What did not?
 
 
 
