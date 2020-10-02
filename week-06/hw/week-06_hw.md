@@ -137,26 +137,16 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	Maintain good spacing between UI components, overall layout, font size, color scheme, etc. Also, make sure that transitions are intuitive and clear.
 
 
+## 2) Design - Analyze a Data Story (3 points)
 
-<!--## 2) Interaction Design (3 points)
+Look at this previous CS 171 final project about the war in Syria [http://www.syria-visualized.com/](http://www.syria-visualized.com/) and analyze its storytelling components.
 
-1. **Chose a visualization**
+In your analysis, include answers to the following questions: 
 
-	Chose one of your designs from last week. If you don’t think they are sufficient for this task, please provide a new one. You can also use a different dataset, but only if you can provide a link to the data source (no artificial data).
+* 1. What is the message? What is the narrative?
+* 2. In particular, analyze the main storytelling arc elements (Setting/Hook, Rising Insights, Aha Moment, Solution & Next Steps)
+* 3. What did you think worked well? What did not?
 
-2. **Create an interaction storyboard**
-
-	Design an interaction storyboard (branching storyboard) that uses at least three interaction strategies for data and view specification or/and view manipulation. Imagine yourself in a situation where you have to present your interaction concepts to a client. Please use pen and paper.
-
-3. **Answer the following questions/tasks for EACH interaction:**
-
-	- Which questions can you answer by using your interactions?
-	- Use the *Heer & Shneiderman* taxonomy to classify every interaction.
-
-4. **Create a PDF with ALL your results**
-
-	- Scan your branching interaction storyboards.-->
-	
 
 
 ## 3) Bonus Task (1 point)
@@ -184,6 +174,7 @@ Submission instructions:
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
+		
 	lab/
 	    ...
 ```
