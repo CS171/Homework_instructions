@@ -9,7 +9,7 @@
 # Lab 6
 
 ### Pre-Reading Quiz
-Please fill out the pre-reading quiz on Canvas at the beginning of class!
+Please fill out the pre-reading quiz on Canvas before the beginning of class!
 
 ### Learning Objectives
 
