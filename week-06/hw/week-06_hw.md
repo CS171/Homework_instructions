@@ -174,6 +174,7 @@ Submission instructions:
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
+		design_analysis.txt ... analysis for the Design section 
 		
 	lab/
 	    ...
