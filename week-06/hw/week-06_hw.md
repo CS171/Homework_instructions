@@ -83,7 +83,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 6. **Emphasize the data points on the D3 line graph**
 
 	- Append an SVG circle on each x/y intersection *(20 tournaments = 20 circles)*
-	- The points are meant to highlight the individual events and will be used as an anchor point for the tooltips later
+	- The points are meant to highlight the individual events.
 	- Use the D3 update pattern: enter, update, exit
 
 7. **Implement a dynamic y-axis**
@@ -106,8 +106,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	
 9. **Implement tooltips**
 
-	- The provided template contains the D3 tooltip library ***d3-tip*** (CSS and JS): [https://github.com/VACLab/d3-tip](https://github.com/VACLab/d3-tip). The library was created for D3v4, but also works with the latest D3v6.
-	- You can use the libray or create your own tooltips
+	- You can use a pre-existing library or create your own tooltips
 	- Display the tooltip whenever the user hovers over a circle in the line chart (circle = specific world cup instance)
 	- The tooltip should include the ***edition*** (year, country) and the respective ***y-axis value***, which depends on the users selection
 	
