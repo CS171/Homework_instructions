@@ -37,7 +37,7 @@ When exploring the folder structure and its contents you will notice that we are
 
 - ```index.html```
 - ```css/style.css```
-- ```js/main.js```
+- ```js/main_presentation.js```
 
 
 ### Data
@@ -49,7 +49,7 @@ The data (arrays with JSON objects) are already stored in these two global varia
 - ```deliveryData```
 - ```feedbackData```
 
-*The variables are accesible in the JS file ```main.js```*
+*The variables are accesible in the JS file ```main_presentation.js```*
 
 *To get started, write the variables to the web console and inspect them.*
 
@@ -84,7 +84,7 @@ The data (arrays with JSON objects) are already stored in these two global varia
 	
 2. **Display dataset summary**
 
-	Open ```main.js```. You'll find an empty function ```createVisualization()``` that you'll populate in order to update the DOM dynamically.
+	Open ```main_presentation.js```. You'll find an empty function ```createVisualization()``` that you'll populate in order to update the DOM dynamically.
 	Start by extracting the following numbers from the provided data and append them with 
 	meaningful labels to the HTML document:	
 	* Number of pizza deliveries

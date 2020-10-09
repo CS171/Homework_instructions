@@ -79,7 +79,7 @@ project/
         style.css
         ..
     js/
-        main.js
+        main_presentation.js
         (other_js_libs.js)
         ..
 ```
@@ -131,9 +131,9 @@ project/
 
 In previous labs and homeworks, you have already worked with dynamic content and added new elements to the DOM tree, most likely with plain JavaScript or jQuery.
 
-Now, we want to generate new page elements with D3. After loading the D3 library we can add our own script (e.g., main.js).
+Now, we want to generate new page elements with D3. After loading the D3 library we can add our own script (e.g., main_presentation.js).
 
-Our JS script (main.js) consists actually only of one line of code:
+Our JS script (main_presentation.js) consists actually only of one line of code:
 
 ```
 d3.select("body").append("p").text("Hello World!");
@@ -208,7 +208,7 @@ d3.select("body")
 
 4. **Use D3 to add a ```div```-container with the text "Dynamic Content" to the DOM**
     
-    *do this task in a separate JS file (e.g. main.js) that you embed in your HTML document*
+    *do this task in a separate JS file (e.g. main_presentation.js) that you embed in your HTML document*
 
 -----
 
@@ -477,7 +477,7 @@ d3.csv("data/sandwiches.csv").then(function(data) {
 > 
 
 
-*Updated main.js*
+*Updated main_presentation.js*
 
 ```javascript
 d3.csv("data/sandwiches.csv").then(function(data) {

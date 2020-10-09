@@ -99,7 +99,7 @@ In this lab you will work on a scatterplot with flexible scales and axes. You wi
 
 	[week-05\_lab\_template.zip](week-05_lab_template.zip)
 	
-	We have included *Bootstrap*, *D3* and the dataset *wealth-health-2014.csv*. The HTML document contains an empty *div* container for the scatterplot and the CSV import is implemented in the JS file ```main.js```.
+	We have included *Bootstrap*, *D3* and the dataset *wealth-health-2014.csv*. The HTML document contains an empty *div* container for the scatterplot and the CSV import is implemented in the JS file ```main_presentation.js```.
  
 2. **Analyze and prepare the data**
 
