@@ -12,7 +12,7 @@ This homework requires that you have read and **programmed** along with:
 -  [Scope and *this* in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
 
-## 1) A survey about the diffusion of microfinance loans (8 points)
+## 1) A survey about the diffusion of microfinance loans (10 points)
 
 In this homework you will work with survey data on microfinance loans. Banerjee et al [1] collected the data in order to develop a model of information diffusion in social networks. To come right to the point: you don't need any knowledge or additional information on microfinance. We will only cover a very small part of the collected data to demonstrate you how to visualize survey results efficiently with JS and D3.
 
@@ -220,20 +220,6 @@ You should now apply what you have learned to create an interactive visualizatio
 
 	Maintain good spacing between UI components, overall layout, font size, color scheme, etc.
 	
-## 2) Design (2 points)
-
-
-In class this week you performed a Think-Aloud Study which included: 
-
-	- Transcribing the study in the process book
-	- Reflecting on the comments you received and how to use them to improve your visualization dashboard
-	- Picking a few concrete ideas for improving your dashboard and explain why
-	
-For this portion of the homework, implement the suggested changes that arose from the the Think Aloud Study. 
-
-
-
-Hand in the final Design Sprint
 
 
 ## 3) Bonus Task (1 point)
@@ -259,13 +245,12 @@ Submission instructions:
                 index.html
                 css/ 		...folder with all CSS files
                 js/ 		...folder with all JavaScript files
-            design/         ...folder for your sketches
         lab/ 
     
             ...
     ```
 
-2. Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
+2. Make sure to keep the overall size of your submission under 5MB! 
 
 3. Upload a single .zip file.
 
