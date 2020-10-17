@@ -549,12 +549,25 @@ In the second part of the lab, you will create a choropleth (world)map. You will
         code for it:
         
     ```javascript
+   // sphere
    vis.svg.append("path")
         .datum({type: "Sphere"})
         .attr("class", "graticule")
         .attr('fill', '#ADDEFF')
         .attr("stroke","rgba(129,129,129,0.35)")
         .attr("d", vis.path);
+   ```
+   
+   You can also do sth more fancy and add a graticule:
+   
+   ```javascript
+   // graticule
+   vis.svg.append("path")
+       .datum(d3.geoGraticule())
+       .attr("class", "graticule")
+       .attr('fill', '#ADDEFF')
+       .attr("stroke","rgba(129,129,129,0.35)")
+       .attr("d", vis.path);
     ```
    
    &nbsp;
