@@ -172,14 +172,13 @@ arcs.enter()
       
 3. **Complete the class PieChart and its methods**
     
-    Using the sample code for a pie chart that we provided, finish writing the class PieChart
-    . Notice, that the code we provided works fine if you would copy-paste it in a plain js file
-     and embed it in your website (feel free to try it out!) However, we want to do something
-      more sophisticated by using classes. Thus, you might want to go through the sample code
-       line by line and adapt the code snippets in the appropriate methods, i.e. ```initVis
-       ()```   vs. ```updateVis()```. Make sure that you are using the keyword ```this/vis
-       ``` properly
-       , i.e. that you store your key variables in properties so that your object can access them
+    Use the sample code that we provided to complete the class PieChart. Notice, that the code we
+     provided works fine if you would copy-paste it in a plain js file and embed it into your
+      website (feel free to try it out!). However, we want to do something more sophisticated and
+       thus, we will be using classes. You might want to go through the sample code line by line
+        and adapt the code snippets in the appropriate methods, i.e. ```initVis()```   vs
+          ```updateVis()```. Make sure that you are using the keyword ```this/vis``` properly, 
+          i.e. that you store your key variables as properties so that your object can access them
         across methods.
         
     In short, these are the steps that you probably want to do in initVis():
