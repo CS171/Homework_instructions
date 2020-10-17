@@ -7,6 +7,8 @@ exclude: true
 
 # Week 08 | Lab
 
+![Preview](cs171_w8_lab_preview.png?raw=true "D3 Projections")
+
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas at the beginning of class!
 
@@ -580,7 +582,7 @@ In the second part of the lab, you will create a choropleth (world)map. You will
        with less complex data.
        
     These are the steps to complete the task:
-    - start by creating a legend group. translate it to wherever you want it to be.
+    - start by creating a legend group and translate it to wherever you want it to be.
     
     ```javascript
     vis.legend = vis.svg.append("g")
