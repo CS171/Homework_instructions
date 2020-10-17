@@ -10,7 +10,7 @@ exclude: true
 ![Preview](cs171_w8_lab_preview.png?raw=true "D3 Projections")
 
 ### Pre-Reading Quiz
-Please fill out the pre-reading quiz on Canvas at the beginning of class!
+Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
 
 ### Learning Objectives
 
@@ -58,7 +58,7 @@ Each shape may have distinct features not shared by others, so make sure to cons
 ### Pie Shape
 
 In his week's lab, we will introduce you to d3 shapes by creating a simple pie chart. We will
- make use of make use of the pie shape generator, i.e. the ***d3.pie()*** method, which computes
+ make use of the pie shape generator, i.e. the ***d3.pie()*** method, which computes
   the start and end angles of arcs that comprise a pie or donut chart.
 
 *Example:*
@@ -392,7 +392,7 @@ let path = d3.geoPath()
 #### Map TopoJSON data to geo path elements
 
 After defining the SVG area, the projection and the path generator, we can load the TopoJSON
- data, convert it to GeoJSON and finally map it to SVG paths. Here's a on-liner converting
+ data, convert it to GeoJSON and finally map it to SVG paths. Here's a one-liner converting
   TopoJSON data for the US to GeoJSON. The data structure you end up with will allow you to draw a
    path for each state in the US.
 
@@ -407,7 +407,7 @@ let usa = topojson.feature(data, data.objects.states).features
 
 ![Preview Activity II](cs171_w8_lab_activity2.png?raw=true "D3 Projections")
 
-In the second part of the lab, you will create a choropleth (world)map. You will implement a
+In the second part of the lab, you will create a choropleth (world) map. You will implement a
  feature that updates the colors of the countries as well as a feature that allows users to
   rotate the globe. Lastly, you'll also implement a tooltip that appears when a user hovers a
    country.
@@ -433,7 +433,7 @@ In the second part of the lab, you will create a choropleth (world)map. You will
 	.all to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
 	 all the data inside ```.then()```. Notice, that since we are loading two data sets, the data
 	  structure is an array with two elements. You have to access them by index if you want to
-	   pass on only on as an argument. 
+	   pass on only one as an argument. 
 	
 	```javascript
     let promises = [
@@ -516,9 +516,13 @@ In the second part of the lab, you will create a choropleth (world)map. You will
 5. **Understand what's going on in wrangleData**
 
     Just like in the pieChart, we use wrangleData to create some random data. in this case, we
-     create a dictionary with all countries as keys and random colors from an array of 4 colours
-      that we defined in the constructor. We will use this dictionary as lookup table when
-       assigning colors to the countries in ```updateVis()```, which is your next task.
+     create a dictionary with all countries as keys. As values, each country has an object with
+      information. This information is randomly generated but consistent for each state. What
+       does that mean? Each country has a value between 0-100 (whatever that might measure), a
+        category, that reflects in which quarter 'bin' a country is in, based on its value (i.e
+        . 0-25, 26-50, etc.). We will use the dictionary ```vis.stateInfo``` as lookup table when
+         generating the tooltip and when assigning colors to the countries in ```updateVis()```, 
+          which is your next task.
        
     &nbsp;
 
@@ -537,7 +541,8 @@ In the second part of the lab, you will create a choropleth (world)map. You will
 
     Similar to the pieChart, add a tooltip when hovering over a country path. Also, change the
      color while hovering to have a nice hover effect. If you don't know the code by heart, just
-      look it up in activity I. (Don't forget to append an actual tooltip div!)
+      look it up in activity I. (Don't forget to append an actual tooltip div!) Make sure to
+       include all information that you have access to in the tooltip.
       
     &nbsp;
           
@@ -545,7 +550,8 @@ In the second part of the lab, you will create a choropleth (world)map. You will
 
     You might have been playing around with the fill attribute and maybe you have wondered how to
      change the color of the ocean. Well, that is actually not that easy because we only have the
-      paths for the countries. Of course, on could try to reverse/inverse-engineer the paths for the
+      paths for the countries. Of course, one could try to reverse/inverse-engineer the paths for
+       the
        ocean but there's an easier way out. Let's just put a sphere behind the map. Here's the
         code for it:
         
@@ -575,11 +581,15 @@ In the second part of the lab, you will create a choropleth (world)map. You will
         
 9. **Add legend**
 
-    The map/globe looks nice now, but you are missing one important piece - a legend. For now, we
-     would like you to implement a legend with four steps reflecting the four different colors in
-      the color array in the constructor. Think of this task as producing a very small barchart
-       with less complex data.
-       
+    The map/globe looks nice now, but you are missing one important piece - a legend. Check out
+     the sample data to decide what legend you want to use. In general, you always have to make
+      the decision whether to use a continuous color scale or discrete color steps. 
+      
+    In this case, we would like you to implement a legend using discrete color steps first. 
+     You can make use of the ```color``` key value pair for each state in the ```stateInfo
+     ``` data structure. ```color``` reflects the ```category``` a country is in, which signifies
+      in which ```value``` range a state is in, i.e. 0-25, 26-50, 51-75, 76-100. 
+             
     These are the steps to complete the task:
     - start by creating a legend group and translate it to wherever you want it to be.
     
@@ -596,16 +606,19 @@ In the second part of the lab, you will create a choropleth (world)map. You will
         .enter()
         ...
     ```
-    - create a legendScale (linear, band, time - whatever you need)
+    - create a legendScale
     - create a legend axis group
     - create a legend axis
     - call the legend axis inside the legend axis group
- 
+    
+   If you want to play around with a continuous color legend, feel free to do so. Here,s a useful
+    [link]: (https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient)
+    
    &nbsp;
  
 10. **Make the map draggable / rotatable** 
 
-    You made it this far! Now you've earned some free code. THe following lines allow your to
+    You made it this far! Now you've earned some free code. The following lines allow your to
      drag your map which will result in the globe to rotate. In short, what the code does is to
       get the values where you started dragging and where you ended and computes the change in
        pixel values. Together with the information from the projection we can then update the
