@@ -64,7 +64,7 @@ his client by **Sunday, October 25, 11:59 pm (EST)**.
 ![W08HW-templatePreview](cs171_w8_hw_template.png?raw=true "W08HW-templatePreview")
 
 Before Fraya left to pursue her dream to live off-grid in a lighthouse in
- Iceland, she finished some mayor parts of the projects. Most prominently, she created: 
+ Iceland, she finished some major parts of the project. Most prominently, she created: 
 
 - a responsive html grid for all the components,
 - a brush component (brushable timeline), which allows users to filter the dataset by dates, and
@@ -324,7 +324,7 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
 ### Design Critique (2 points):
 
 For the coding portion, you had to write a legend for the map. As mentioned in the lab, there are
- two routes you can choose: You can either chpose a continuous color scale or discrete color steps
+ two routes you can choose: You can either choose a continuous color scale or discrete color steps
  . There's a big debate in the field when to use one color solution over the other. Read the
   following two articles ([Article one](https://www.axismaps.com/guide/univariate/choropleth/#:~:text=You%20can%20use%20a%20choropleth,could%20conceptually%20measure%20the%20phenomena
 ), [Article Two](https://policyviz.com/2017/11/02/choosing-map-bins/)) and reflect what scale would
