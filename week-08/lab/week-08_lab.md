@@ -189,6 +189,18 @@ arcs.enter()
     - define pie layout
     - set up your path generator
     
+    When defining your layout, i.e. your pie shape generator, you will need to make sure that you
+     account for the more complex data structure (in contrast to the example). Try the following
+      lines of code and make sure to understand what's going on:
+      
+    ```javascript
+    vis.pie = d3.pie()
+        .value(function(d){
+            console.log(d)
+            return d.value
+        });
+    ```
+    
     Next up is wrangleData(). Here, you don't need to do anything except to understand what's
      going on. We are creating a very simple data structure for you. It is an array of objects
      . Each object has a random value (between 0-100) and a fixed color. This should help you
