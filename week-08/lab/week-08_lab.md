@@ -227,8 +227,8 @@ arcs.enter()
         .attr('fill', 'rgba(173,222,255,0.62)')
     ```
     
-    Inside your you ```.on()``` event listener, change the attributes of your tooltip so that it
-     moves to the current mouse position and displays the propper information. Here's a tooltip
+    Inside your ```.on()``` event listener, change the attributes of your tooltip so that it
+     moves to the current mouse position and displays the proper information. Here's a tooltip
       that should display all information that you have access to:
       
    ```javascript
