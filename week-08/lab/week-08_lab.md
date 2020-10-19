@@ -429,8 +429,8 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 	    e.g. d3.csv(), but how would this be done with multiple files? Check out ```main.js``` to
 	     find out.
 	     
-	Since functions are first class objects, we can store them in an array and then use Promise
-	.all to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
+	Since functions are first class objects, we can store them in an array and then use `Promise.all()` 
+	to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
 	 all the data inside ```.then()```. Notice, that since we are loading two data sets, the data
 	  structure is an array with two elements. You have to access them by index if you want to
 	   pass on only one as an argument. 
