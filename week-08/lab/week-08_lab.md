@@ -696,7 +696,7 @@ submit your folder structure as part of your homework submission.
 
 &nbsp;
 
-####Resource
+### Resource
 
 - Chapters 13 (p. 267-289) and 14 (p. 291-325) in *D3 - Interactive Data Visualization for the Web* by Scott Murray
 - [http://bost.ocks.org/mike/map/](http://bost.ocks.org/mike/map/)
