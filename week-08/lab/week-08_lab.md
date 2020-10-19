@@ -47,7 +47,7 @@ After drawing an interactive pie-chart as a warm-up, the main task of the lab wi
 
 Visualizations typically consist of discrete graphical marks, such as symbols, arcs, lines and areas. While the rectangles 
 of a bar chart may be easy enough to generate directly using SVG or Canvas, other shapes are complex, such as rounded annular 
-sectors and centripetal Catmull–Rom splines. he d3 shape module provides a variety of shape generators for your convenience.
+sectors and centripetal Catmull–Rom splines. The d3 shape module provides a variety of shape generators for your convenience.
 
 ![D3 Shapes](cs171-d3-layouts.png?raw=true "D3 Shapes")
  
