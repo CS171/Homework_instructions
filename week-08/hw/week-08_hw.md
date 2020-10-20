@@ -57,7 +57,8 @@ applications in the healthcare sector. He tells you that he's got your number fr
  colleague Hanspeter Pfister. 
 Wiesel is desperately looking for a data visualization expert with proficiency in the JavaScript library D3. Recently, 
 his star senior developer Fraya Vogel has left his team, but Wiesel has promised to deliver a new Coronavirus dashboard to 
-his client by **Sunday, October 25, 11:59 pm (EST)**. 
+his client by  **Wednesday, October 28, 11:59 pm (EST)**. 
+
 
 #### Template
 
@@ -342,6 +343,8 @@ In addition, please reflect on the issue of displaying absolute values in a chor
 &nbsp;
 
 ### Bonus (3 points)
+
+#### graduate students do not need to complete the bonus to receive full credit for this homework!
 
 * Now that you've critiqued your implementation, it is time to improve your dashboard. Implement
  your solution when a user selects absolute values. Leave the initial choropleth style for relative
