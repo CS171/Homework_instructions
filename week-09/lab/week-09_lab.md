@@ -262,7 +262,8 @@ D3 is an extremely flexible library, thus, there are multiple ways to draw matri
 
 For this step, you do not need to pass in the raw data again, but can instead leverage the data that is already bound to each `row` element as such: 
 
-```	let edgeCells = rows.selectAll(".matrix-cell-marriage")
+```	
+let edgeCells = rows.selectAll(".matrix-cell-marriage")
 			.data(d=>d.marriageValues)
 			.enter()
 			.append...
