@@ -174,15 +174,14 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 5) When creating an instance of your Matrix class, make sure and pass in all the necessary data to the constructor (graph edges for family, graph edges for business, and graph attributes).
 
-***Extra hints***
+#### Extra Hints
 
+1) D3 project template: [d3ProjectTemplate.zip](d3ProjectTemplate.zip)
 
-1. D3 project template: [d3ProjectTemplate.zip](d3ProjectTemplate.zip)
+2) Adjacency matrices: There are two different strategies to handle this data: 
 
-2. Adjacency matrices: There are two different strategies to handle this data: 
-
-	- a) Create one csv file per adjacency matrix, read in the files, and convert each matrix into a JS variable (a 2D array). This is the cleanest solution, and allows you to easily use different matrices. 
-	- b) This is the quick and dirty solution, which is sufficient if you are sure that the data will never really change. You can store the matrices directly as JS variables in your JS file. Just initialize a 2D array directly with the values listed above.
+	a) Create one csv file per adjacency matrix, read in the files, and convert each matrix into a JS variable (a 2D array). This is the cleanest solution, and allows you to easily use different matrices. 
+	b) This is the quick and dirty solution, which is sufficient if you are sure that the data will never really change. You can store the matrices directly as JS variables in your JS file. Just initialize a 2D array directly with the values listed above.
 
 
 ---
@@ -223,14 +222,14 @@ let data = [
 
 ***Free hints:*** In many projects you can make your life a lot easier by making sure that you have converted the data into a format that is ideal for your further processing/visualization tasks. Especially for smaller datasets it often pays of to create a different datastructure that allows you to easily access all of it. 
 
-***Extra hints***
+#### Extra Hints
 
-1. Create an empty array ```displayData``` in ```initVis```
-1. In ```wrangleData``` you can use a ```forEach``` loop to go over all families (this can be either the marriage or the business matrix, since both contain one row per family). The important thing is that you are looping over all families.
+1) Create an empty array ```displayData``` in ```initVis```
+2) In ```wrangleData``` you can use a ```forEach``` loop to go over all families (this can be either the marriage or the business matrix, since both contain one row per family). The important thing is that you are looping over all families.
  
-2. Inside the loop create a ```let family = {...``` and add all attributes you want to store to it. This will include information from both marriage and business matrices, as well as the attributes data. 
+3) Inside the loop create a ```let family = {...``` and add all attributes you want to store to it. This will include information from both marriage and business matrices, as well as the attributes data. 
 
-3. Inside the loop, add that object to your ```displayData``` array.
+4) Inside the loop, add that object to your ```displayData``` array.
 
 
 ---
@@ -276,15 +275,14 @@ Check that your visualization roughly looks like the picture 1 shown above.
 
 ***Free hint:*** Try to always split your approach into smaller tasks that you can tackle one after the other. For example, first make sure you can draw rows. You could start with just drawing a text label per row, just for debugging. Once that works, work on drawing something for each element. Once that works, work on drawing the actual visual element (colored triangle) for that data. 
 
-***Extra hints***
+#### Extra Hints
 
+1) Create a ```matrix.js``` file for your matrix visualization. Init it after you have finished loading in the data in ```main.js```
+2) In ```initVis()``` you should set your margins, SVG drawing area, and other init values you might need, and call ```wrangleData()```.
 
-1. Create a ```matrix.js``` file for your matrix visualization. Init it after you have finished loading in the data in ```main.js```
-2. In ```initVis()``` you should set your margins, SVG drawing area, and other init values you might need, and call ```wrangleData()```.
-
-3. In ```updateVis()```: Draw the matrix rows: assign a class (e.g. ```.matrix-row```), append a svg group element per row, translate its height, and append a text field (basically the y-axis label of that row). You should now see a column of labels showing numbers from 0 - 15. 
-4. In ```updateVis()```: Draw all matrix elements: Assign classes (e.g., matrix-cell, matrix-cell-marriage), draw a small rectangle, and set its color depending on the data properties (matrix value 0 or 1)
-5. Draw x-axis labels: Append text for each column. Remember that the numbers of columns and rows is equal! Translate the labels to their correct position.
+3) In ```updateVis()```: Draw the matrix rows: assign a class (e.g. ```.matrix-row```), append a svg group element per row, translate its height, and append a text field (basically the y-axis label of that row). You should now see a column of labels showing numbers from 0 - 15. 
+4) In ```updateVis()```: Draw all matrix elements: Assign classes (e.g., matrix-cell, matrix-cell-marriage), draw a small rectangle, and set its color depending on the data properties (matrix value 0 or 1)
+5) Draw x-axis labels: Append text for each column. Remember that the numbers of columns and rows is equal! Translate the labels to their correct position.
 
 
 ---
@@ -383,16 +381,16 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 
 5) Add a legend to explain the two different types of family ties being shown.
 
+#### Extra Hints
 
-***Extra hints***
 
-1. In your select-box callback function, make sure to execute ```updateVis()``` and to also pass the value of the selected sorting order as a function parameter.
+1) In your select-box callback function, make sure to execute ```updateVis()``` and to also pass the value of the selected sorting order as a function parameter.
 
-2. In ```updateVis()``` first sort your ```displayData``` array based on the selected sorting order. Print the result to the console to verify the sorting!
+2) In ```updateVis()``` first sort your ```displayData``` array based on the selected sorting order. Print the result to the console to verify the sorting!
 
-3. Specify a key function, based on the family's name, to support animated transitions.
+3) Specify a key function, based on the family's name, to support animated transitions.
 
-4. Make sure you follow the *enter, update, exit* pattern. 
+4) Make sure you follow the *enter, update, exit* pattern. 
 
 
 ---
