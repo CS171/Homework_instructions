@@ -226,7 +226,6 @@ let data = [
 ***Free hint:*** In many projects you can make your life a lot easier by making sure that you have converted the data into a format that is ideal for your further processing/visualization tasks. Especially for smaller datasets it often pays of to create a different datastructure that allows you to easily access all of it. 
 
 <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
-<p>
 
 1. Create an empty array ```displayData``` in ```initVis```
 1. In ```wrangleData``` you can use a ```forEach``` loop to go over all families (this can be either the marriage or the business matrix, since both contain one row per family). The important thing is that you are looping over all families.
@@ -235,7 +234,7 @@ let data = [
 
 3. Inside the loop, add that object to your ```displayData``` array.
 
-</p>
+
 </details>
 ---
 
