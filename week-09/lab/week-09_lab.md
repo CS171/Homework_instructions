@@ -48,7 +48,7 @@ Storing attributes/metadata for the edges can only be stored in an edgelist, and
 
 For this lab, the structure of the network is stored in two adjacency matrices (one containing edges for marriages, another for business ties), while the attributes are stored in an external csv file:
 
-1. Dataset: Meta data **[```florentine-family-attributes.csv```](http://www.cs171.org/2019/assets/scripts/lab8/florentine-familiy-attributes.csv)**
+1. Dataset: Meta data **[```florentine-family-attributes.csv```](http://www.cs171.org/2019/assets/scripts/lab8/florentine-family-attributes.csv)**
 
 	- Family
 	- Wealth (each family's net wealth in thousands of lira; in 1427)
@@ -177,7 +177,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
 <p>
 
-1. D3 project template: [d3\_project_template.zip](d3_project_template.zip)
+1. D3 project template: [d3ProjectTemplate.zip](d3ProjectTemplate.zip)
 
 2. Adjacency matrices: There are two different strategies to handle this data: 
 
