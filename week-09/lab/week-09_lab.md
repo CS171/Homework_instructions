@@ -48,7 +48,7 @@ Storing attributes/metadata for the edges can only be stored in an edgelist, and
 
 For this lab, the structure of the network is stored in two adjacency matrices (one containing edges for marriages, another for business ties), while the attributes are stored in an external csv file:
 
-1. Dataset: Meta data **[```florentine-family-attributes.csv```](http://www.cs171.org/2019/assets/scripts/lab8/florentine-family-attributes.csv)**
+1. Dataset: Meta data **[```florentine-family-attributes.csv```](florentine-family-attributes.csv)**
 
 	- Family
 	- Wealth (each family's net wealth in thousands of lira; in 1427)
