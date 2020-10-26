@@ -66,7 +66,7 @@ For this lab, the structure of the network is stored in two adjacency matrices (
 	*You will use the above dataset as a meta information for the networks. The family in the first row in the above dataset corresponds to the family in the first row and column of the adjacency matrices. The family in second row corresponds to the second row/column of the adjacency matrix, etc.*
 
 2. Adjacency matrix: **Marriages**
-
+<a name="adjacency_matrices"></a>
 ```
 let dataMarriages = [
 	[0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0],
@@ -120,7 +120,8 @@ let dataBusiness = [
 
 Networks can be visualized in several different ways, the two most common of which are node-link diagrams and adjacency matrices. Notices that the term `adjacency matrix` can refer to both the data structure that stores the graph, as described in the Data section above, and the visualization approach (which you will be implementing in this lab). 
 
-Node-link diagrams are the most common way of visualizing graphs, but they have a few key limitations:   (1) they do not scale well to large networks,  
+Node-link diagrams are the most common way of visualizing graphs, but they have a few key limitations:  
+(1) they do not scale well to large networks,  
 (2) they can quickly become cluttered for dense networks with several edge crossings (where edges start crossing over each other),  
 (3) they are limited in the amount of attributes that can be encoded for the nodes and particuarly edges. 
 
@@ -140,7 +141,7 @@ In this lab you will build a custom visualization with D3 that will look like th
 ![Lab 8 - Preview](cs171-lab8-preview.gif?raw=true "Lab 8 - Preview")
 
 
-Matrix visualizations are especially appropriate for dense networks, i.e those that have many edges connecting the nodes in the network. This is because every edge is given its own cell in the matrix, and there is never any occulusion/overlap of edges, as is common in a node-link representation. 
+Matrix visualizations are especially appropriate for dense networks, i.e. those that have many edges connecting the nodes in the network. This is because every edge is given its own cell in the matrix, and there is never any occlusion/overlap of edges, as is common in a node-link representation. 
 
 In the sortable matrix visualization you will be implementing in this lab, you will encode two types of edges simultaneously in the matrix cells. 
 
@@ -149,7 +150,7 @@ In the sortable matrix visualization you will be implementing in this lab, you w
 - Create a matrix visualization that visualizes the relations between these 16 families
 - Merge the datasets and label the rows and columns with the corresponding family names
 - Draw two triangles in each cell to encode both relationships (marriages and business ties)
-- Make the matrix sortable (at least the rows but optionally also the columns)
+- Make the matrix sortable (by rows is required, by columns is optional)
 - Include animated transitions to make it easier to follow changes
 - Add a legend to explain the types of relationships
 
@@ -167,11 +168,11 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 2) Please download the CSV file: [florentine-familiy-attributes.csv](florentine-familiy-attributes.csv)
 
-3) The adjacency matrices are only available in the raw text format shown above. Copy the matrices and integrate them into your code so that you can easily access each element with ```matrix[i][j]```.
+3) The adjacency matrices are only available in the raw text format [shown above](#adjacency_matrices). Copy the matrices and integrate them into your code so that you can easily access each element with ```matrix[i][j]```.
 
 4) Sanity check: Print the data of all 3 files with ```console.log()``` to make sure that the data is correct. (You should always check for errors before you continue to the next step in a project.)
 
-5) When creating an instance of your Matrix class, make sure and pass in all the necessary data to the constructor (graph edges for family, graph edges for business, graph attributes).
+5) When creating an instance of your Matrix class, make sure and pass in all the necessary data to the constructor (graph edges for family, graph edges for business, and graph attributes).
 
 <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
 <p>
@@ -343,14 +344,14 @@ trianglePath.attr("d", function(d, index) {
 });
 ```
 
-1) Change your code so that you draw two triangles instead of the previous rectangle. one triangle represents the marriage information, the other one the business information.
+1) Change your code so that you draw two triangles instead of the previous rectangle. One triangle represents the marriage information, the other one the business information.
 
 ---
 
 #### Sortable matrix and legend
 
 By now you have implemented your custom matrix visualization, including triangles. Next, you will improve it with a basic sorting function.
-
+<a name="sorting_options"></a>
 The user should be able to sort the rows by
 
 - Number of business ties
@@ -363,7 +364,7 @@ By default the families should be ordered by their surname.
 
 As already mentioned above, it is very helpful if you merge the datasets and create a JS object for each family. That gives you the possibility to calculate the statistics (e.g. count all business ties for each family) in advance.
 
-Integrate a select-box with the sorting options and react to change events. If you have implemented D3's *enter, update, exit pattern* you can call the ```updateVis()``` function, sort the families and update the visual elements.
+Integrate a select-box with the sorting options and react to change events. If you have implemented D3's *enter, update, exit* pattern you can call the ```updateVis()``` function, sort the families and update the visual elements.
 
 Include animated transitions that make it easier to follow when the sorting of the data is being updated. When the user sorts the data, a particular data point (family in our case) can be tracked visually through the transition. This concept is called *object constancy* and you can adopt it by specifying a **key function**. You have already learned how to implement it:
 
@@ -378,9 +379,9 @@ let row = svg.selectAll(".row")
 
 You can also change the ```fill-opacity``` during the transition for a cleaner animation.
 
-1) Add a select-box to your html file that allows users to select the sorting order. Add all the sorting options listed above.
+1) Add a select-box to your html file that allows users to select the sorting order. Add all the sorting [options](#sorting_options) listed above.
 
-2) Implement a call-back for the select-box to update the visualization.
+2) Implement a callback function for the select-box to update the visualization.
 
 3) Extend ```updateVis``` to support for sorting. Remember, you only want to sort the rows in your matrix view!
 
@@ -393,13 +394,13 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
 <p>
 
-1. In your select-box call back, make sure to execute ```updateVis()``` and also transmits the value of the selected sorting order as a function parameter.
+1. In your select-box callback function, make sure to execute ```updateVis()``` and to also pass the value of the selected sorting order as a function parameter.
 
 2. In ```updateVis()``` first sort your ```displayData``` array based on the selected sorting order. Print the result to the console to verify the sorting!
 
-3. Specify a key function, based on the familiy's name, to support animated transitions.
+3. Specify a key function, based on the family's name, to support animated transitions.
 
-4. Make sure you follow the enter, update, exit pattern. 
+4. Make sure you follow the *enter, update, exit* pattern. 
 
 
 </p>
@@ -409,7 +410,7 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 
 #### Bonus Activity 1 - Flexible layout
 
-You have probably used hard-coded values for all size specifications in your view. Adapt your matrix implementation so that it is possible to define an SVG area (width and height) and the sizes of all other elements and the spacing between them will be calculated automatically.
+You have probably used hard-coded values for all size specifications in your view. Adapt your matrix implementation so that it is possible to define an SVG area (width and height), such that the sizes of all other elements and the spacing between them will be calculated automatically.
 
 ---
 
@@ -435,7 +436,10 @@ Please submit the code of your completed lab (the sortable matrix visualization 
 **Resources**
 
 - Custom visualizations with D3: [http://jsdatav.is/chap07.html#creating-a-unique-visualization](http://jsdatav.is/chap07.html#creating-a-unique-visualization)
-- SVG for beginners: [http://unicorn-ui.com/blog/svg-for-beginners.html](http://unicorn-ui.com/blog/svg-for-beginners.html)
 - D3 object constancy: [https://bost.ocks.org/mike/constancy/](https://bost.ocks.org/mike/constancy/)
 - Padgett Florentines Families: [http://home.uchicago.edu/~jpadgett/papers/unpublished/maelite.pdf](http://home.uchicago.edu/~jpadgett/papers/unpublished/maelite.pdf)
+<!-- DEAD LINK AS OF 10/23/2020
+- SVG for beginners: [http://unicorn-ui.com/blog/svg-for-beginners.html](http://unicorn-ui.com/blog/svg-for-beginners.html)
+)
+-->
  
