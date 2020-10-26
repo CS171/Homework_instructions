@@ -174,8 +174,8 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 5) When creating an instance of your Matrix class, make sure and pass in all the necessary data to the constructor (graph edges for family, graph edges for business, and graph attributes).
 
-<summary>***Extra hints***</summary>
-<p>
+***Extra hints***
+
 
 1. D3 project template: [d3ProjectTemplate.zip](d3ProjectTemplate.zip)
 
@@ -184,7 +184,6 @@ We give you some more pointers and hints below, however, we encourage you to try
 	- a) Create one csv file per adjacency matrix, read in the files, and convert each matrix into a JS variable (a 2D array). This is the cleanest solution, and allows you to easily use different matrices. 
 	- b) This is the quick and dirty solution, which is sufficient if you are sure that the data will never really change. You can store the matrices directly as JS variables in your JS file. Just initialize a 2D array directly with the values listed above.
 
-</p>
 
 ---
 
@@ -224,7 +223,7 @@ let data = [
 
 ***Free hints:*** In many projects you can make your life a lot easier by making sure that you have converted the data into a format that is ideal for your further processing/visualization tasks. Especially for smaller datasets it often pays of to create a different datastructure that allows you to easily access all of it. 
 
-<summary>***Extra hints***</summary>
+***Extra hints***
 
 1. Create an empty array ```displayData``` in ```initVis```
 1. In ```wrangleData``` you can use a ```forEach``` loop to go over all families (this can be either the marriage or the business matrix, since both contain one row per family). The important thing is that you are looping over all families.
@@ -277,8 +276,8 @@ Check that your visualization roughly looks like the picture 1 shown above.
 
 ***Free hint:*** Try to always split your approach into smaller tasks that you can tackle one after the other. For example, first make sure you can draw rows. You could start with just drawing a text label per row, just for debugging. Once that works, work on drawing something for each element. Once that works, work on drawing the actual visual element (colored triangle) for that data. 
 
-<summary>***Extra hints***</summary>
-<p>
+***Extra hints***
+
 
 1. Create a ```matrix.js``` file for your matrix visualization. Init it after you have finished loading in the data in ```main.js```
 2. In ```initVis()``` you should set your margins, SVG drawing area, and other init values you might need, and call ```wrangleData()```.
@@ -287,8 +286,6 @@ Check that your visualization roughly looks like the picture 1 shown above.
 4. In ```updateVis()```: Draw all matrix elements: Assign classes (e.g., matrix-cell, matrix-cell-marriage), draw a small rectangle, and set its color depending on the data properties (matrix value 0 or 1)
 5. Draw x-axis labels: Append text for each column. Remember that the numbers of columns and rows is equal! Translate the labels to their correct position.
 
-
-</p>
 
 ---
 
@@ -387,9 +384,7 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 5) Add a legend to explain the two different types of family ties being shown.
 
 
-
-<summary>***Extra hints***</summary>
-<p>
+***Extra hints***
 
 1. In your select-box callback function, make sure to execute ```updateVis()``` and to also pass the value of the selected sorting order as a function parameter.
 
@@ -399,8 +394,6 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 
 4. Make sure you follow the *enter, update, exit* pattern. 
 
-
-</p>
 
 ---
 
