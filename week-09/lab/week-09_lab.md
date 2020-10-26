@@ -166,7 +166,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 1) Set up a new D3 project (HTML, CSS, JS files). You should already have a template project that you can reuse for that. Create a matrix class (similar to previous homeworks), with a constructor, initVis(), wrangleData() and updateVis() functions.  
 
-2) Please download the CSV file: [florentine-familiy-attributes.csv](florentine-familiy-attributes.csv)
+2) Please download the CSV file: [florentine-family-attributes.csv](florentine-family-attributes.csv)
 
 3) The adjacency matrices are only available in the raw text format [shown above](#adjacency_matrices). Copy the matrices and integrate them into your code so that you can easily access each element with ```matrix[i][j]```.
 
