@@ -147,7 +147,7 @@ arcs.enter()
 
 1. **Download the template for this week's lab**
 
-    The provided [template](Template.zip) includes:
+>     The provided [template](Template.zip) includes:
         
     - a css folder with a very basic ```styles.css``` file that styles your tooltips
     - a data folder with files that we will need for activity II.
