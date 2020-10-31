@@ -124,7 +124,7 @@ result      // Returns: [10, 20, 30, 40]
 
 1. **Download the template**
 
-	[template.zip](template.zip)
+	[Template.zip](Template.zip)
 
 2. **Open the file ```main.js``` and get an overview of the data loading and cleaning procedure**
 
