@@ -47,7 +47,7 @@ After drawing an interactive pie-chart as a warm-up, the main task of the lab wi
 
 Visualizations typically consist of discrete graphical marks, such as symbols, arcs, lines and areas. While the rectangles 
 of a bar chart may be easy enough to generate directly using SVG or Canvas, other shapes are complex, such as rounded annular 
-sectors and centripetal Catmull–Rom splines. he d3 shape module provides a variety of shape generators for your convenience.
+sectors and centripetal Catmull–Rom splines. The d3 shape module provides a variety of shape generators for your convenience.
 
 ![D3 Shapes](cs171-d3-layouts.png?raw=true "D3 Shapes")
  
@@ -239,8 +239,8 @@ arcs.enter()
         .attr('fill', 'rgba(173,222,255,0.62)')
     ```
     
-    Inside your you ```.on()``` event listener, change the attributes of your tooltip so that it
-     moves to the current mouse position and displays the propper information. Here's a tooltip
+    Inside your ```.on()``` event listener, change the attributes of your tooltip so that it
+     moves to the current mouse position and displays the proper information. Here's a tooltip
       that should display all information that you have access to:
       
    ```javascript
@@ -250,7 +250,7 @@ arcs.enter()
         .style("top", event.pageY + "px")
         .html(`
             <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
-                <h3>Arc with index #${d.index}<h3>
+                <h3>Arc with index #${d.index}</h3>
                 <h4> value: ${d.value}</h4>      
                 <h4> startAngle: ${d.startAngle}</h4> 
                 <h4> endAngle: ${d.endAngle}</h4>   
@@ -441,8 +441,8 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 	    e.g. d3.csv(), but how would this be done with multiple files? Check out ```main.js``` to
 	     find out.
 	     
-	Since functions are first class objects, we can store them in an array and then use Promise
-	.all to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
+	Since functions are first class objects, we can store them in an array and then use `Promise.all()` 
+	to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
 	 all the data inside ```.then()```. Notice, that since we are loading two data sets, the data
 	  structure is an array with two elements. You have to access them by index if you want to
 	   pass on only one as an argument. 
@@ -708,7 +708,7 @@ submit your folder structure as part of your homework submission.
 
 &nbsp;
 
-####Resource
+### Resource
 
 - Chapters 13 (p. 267-289) and 14 (p. 291-325) in *D3 - Interactive Data Visualization for the Web* by Scott Murray
 - [http://bost.ocks.org/mike/map/](http://bost.ocks.org/mike/map/)
