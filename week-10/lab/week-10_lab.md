@@ -173,10 +173,7 @@ result      // Returns: [10, 20, 30, 40]
 	
 	→ In ```agevis.js```: Adopt this code snippet for the aggregation of votes, following our visualization pipeline, in the ```wrangleData()``` function. The My World 2015 project collects votes for all ages <= 99. You can use the web console in between to debug your code and to better understand the data transformation.
 
-
-
 	→ Open the webpage in your browser! If everything worked, you should see both area charts. If you get an error message in the web console you should fix it before going further.
-
 
 4. **Implement the *PrioVis* component**
 
@@ -187,7 +184,6 @@ result      // Returns: [10, 20, 30, 40]
 	→ Aggregate the votes for each priority in the ```wrangleData()``` function (basically the same procedure as before in AgeVis, but this time you aggregate over priorities instead of ages).
 
 	→ Open the webpage in your browser and check if all three charts are visible
-
 
 5. **Update the x-axis of the bar chart**
 
@@ -450,7 +446,8 @@ You can read more about D3's zooming component here: [https://github.com/d3/d3-z
 		.on("touchstart.zoom", null);
 	```
 
-	For testing you can omit this and open the webpage in your browser. You will notice the *bumpy* interaction.
+	For testing, you can omit this and open the webpage in your browser. You will notice the
+	 *bumpy* interaction.
 
 4. **Clip all elements that go beyond the borders of your chart area**
 
