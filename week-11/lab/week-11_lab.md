@@ -27,7 +27,7 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 
 In the past few weeks you have worked only with *static* datasets. Either with small arrays or
  external CSV, JSON or GeoJSON files. While we were using online resources in some cases, you
-  could have stored all the files we've used so fare locally. The advantage of storing data
+  could have stored all the files we've used so far locally. The advantage of storing data
    locally is that your application is independent and that the data will not change.
 
 Very often, however, the data sources of visualizations are *dynamic* and you have to deal with a
