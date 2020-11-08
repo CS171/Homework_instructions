@@ -132,7 +132,7 @@ You will notice that in this activity we do not give you as many helpful pointer
 	
 4. **Create a new, empty data structure called `displayData` and populate it with all the stations**
     
-    Look at the format of the data, what are the fields or data attributes? THen, iterate over all the stations, 
+    Look at the format of the data, what are the fields or data attributes? Then, iterate over all the stations, 
     convert the data where necessary, and push each station into your final data structure `displayData`
 
     Unfortunately, there is no good documentation for the API. Thus, the best way to figure out the meanings of 
