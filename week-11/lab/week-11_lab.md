@@ -474,7 +474,7 @@ That means, we can access the properties of each borough (e.g. ```boroName```) a
 ```javascript
 function styleBorough(feature) {
   switch (feature.properties.BoroName) {
-      case 'Staten Island': 	return { color: "#895f9f" };
+      case 'Staten Island': 		return { color: "#895f9f" };
       case 'Manhattan': 		return { color: "#71a552" };
       case 'Queens': 			return { color: "#ea8441" };
       case 'Brooklyn': 			return { color: "#fff560" };
@@ -483,13 +483,13 @@ function styleBorough(feature) {
 }
 ```
 
-> **JavaScript Switch**
-> 
-> The switch expression is similar to an IF-ELSE statement. The value of the expression (e.g. borough name) is compared with the values of each case. If there is a match, the associated block of code is executed.
-> 
-> *Example with IF-statement:*
-> 
-> ```javascript
+#### JavaScript Switch
+
+The switch expression is similar to an IF-ELSE statement. The value of the expression (e.g. borough name) is compared with the values of each case. If there is a match, the associated block of code is executed.
+ 
+*Example with IF-statement:*
+ 
+```javascript
 if(feature.properties.BoroName == 'Staten Island')
 	return { color: "#895f9f" };
 else if(feature.properties.BoroName == 'Manhattan')
@@ -501,7 +501,8 @@ else if(feature.properties.BoroName == 'Brooklyn')
 else
 	return { color: "#cb3f3c" };
 ```
-> The switch block is compact and much easier to read.
+
+The switch block is compact and much easier to read.
 
 *After implementing the individual styles for the GeoJSON layer, the result looks like the following:*
 
