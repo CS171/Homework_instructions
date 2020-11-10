@@ -27,7 +27,7 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 
 In the past few weeks you have worked only with *static* datasets. Either with small arrays or
  external CSV, JSON or GeoJSON files. While we were using online resources in some cases, you
-  could have stored all the files we've used so fare locally. The advantage of storing data
+  could have stored all the files we've used so far locally. The advantage of storing data
    locally is that your application is independent and that the data will not change.
 
 Very often, however, the data sources of visualizations are *dynamic* and you have to deal with a
@@ -132,7 +132,7 @@ You will notice that in this activity we do not give you as many helpful pointer
 	
 4. **Create a new, empty data structure called `displayData` and populate it with all the stations**
     
-    Look at the format of the data, what are the fields or data attributes? THen, iterate over all the stations, 
+    Look at the format of the data, what are the fields or data attributes? Then, iterate over all the stations, 
     convert the data where necessary, and push each station into your final data structure `displayData`
 
     Unfortunately, there is no good documentation for the API. Thus, the best way to figure out the meanings of 
@@ -475,21 +475,21 @@ That means, we can access the properties of each borough (e.g. ```boroName```) a
 function styleBorough(feature) {
   switch (feature.properties.BoroName) {
       case 'Staten Island': 	return { color: "#895f9f" };
-      case 'Manhattan': 		return { color: "#71a552" };
-      case 'Queens': 			return { color: "#ea8441" };
-      case 'Brooklyn': 			return { color: "#fff560" };
-      case 'Bronx': 			return { color: "#cb3f3c" };
+      case 'Manhattan': 	return { color: "#71a552" };
+      case 'Queens': 		return { color: "#ea8441" };
+      case 'Brooklyn': 		return { color: "#fff560" };
+      case 'Bronx': 		return { color: "#cb3f3c" };
   }
 }
 ```
 
-> **JavaScript Switch**
-> 
-> The switch expression is similar to an IF-ELSE statement. The value of the expression (e.g. borough name) is compared with the values of each case. If there is a match, the associated block of code is executed.
-> 
-> *Example with IF-statement:*
-> 
-> ```javascript
+#### JavaScript Switch
+
+The switch expression is similar to an IF-ELSE statement. The value of the expression (e.g. borough name) is compared with the values of each case. If there is a match, the associated block of code is executed.
+ 
+*Example with IF-statement:*
+ 
+```javascript
 if(feature.properties.BoroName == 'Staten Island')
 	return { color: "#895f9f" };
 else if(feature.properties.BoroName == 'Manhattan')
@@ -501,7 +501,8 @@ else if(feature.properties.BoroName == 'Brooklyn')
 else
 	return { color: "#cb3f3c" };
 ```
-> The switch block is compact and much easier to read.
+
+The switch block is compact and much easier to read.
 
 *After implementing the individual styles for the GeoJSON layer, the result looks like the following:*
 
