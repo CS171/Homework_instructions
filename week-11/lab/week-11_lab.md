@@ -474,11 +474,11 @@ That means, we can access the properties of each borough (e.g. ```boroName```) a
 ```javascript
 function styleBorough(feature) {
   switch (feature.properties.BoroName) {
-      case 'Staten Island': 		return { color: "#895f9f" };
-      case 'Manhattan': 		return { color: "#71a552" };
-      case 'Queens': 			return { color: "#ea8441" };
-      case 'Brooklyn': 			return { color: "#fff560" };
-      case 'Bronx': 			return { color: "#cb3f3c" };
+      case 'Staten Island': 	return { color: "#895f9f" };
+      case 'Manhattan': 	return { color: "#71a552" };
+      case 'Queens': 		return { color: "#ea8441" };
+      case 'Brooklyn': 		return { color: "#fff560" };
+      case 'Bronx': 		return { color: "#cb3f3c" };
   }
 }
 ```
