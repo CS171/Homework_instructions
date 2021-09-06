@@ -9,10 +9,10 @@ exclude: true
 
 # Week 2 - Lab
 
-Welcome to the first lab of CS171! 
+Welcome to the first lab of CS171!
 
 ***First step:***
-Please go to Canvas and fill in the pre-reading quiz. The quiz is live until Tuesday, September 8, 11:59am, but you have to submit it before your lab section time.
+Please go to Canvas and fill in the pre-reading quiz. In the future, labs will be due before your lab section time.
 
 Our labs are designed as work-books in the style of a self-guided tutorial. We ask you to read and work through the given example problems, and to hand in the code of your completed lab at the end of each week, together with your homework.
 
@@ -35,17 +35,17 @@ After completing this lab you will be able to:
 - You have installed a code editor such as *Webstorm* ([https://www.jetbrains.com/webstorm/](https://www.jetbrains.com/webstorm/)). The free educational license can be obtained [here](https://www.jetbrains.com/community/education/#students). (You are free to use your own IDE, but we will only officially support Webstorm.)
 - You have read Chapter 3 (up to page 36) in *D3 - Interactive Data Visualization for the Web* (Second Edition) by Scott Murray.
 - We encourage you to use [Google Chrome](https://www.google.com/chrome/browser/desktop/) or [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/) as your primary web browser during all labs and homeworks. Those are the browsers we will use for grading.
-- We also encourage you to take a look at Alex Lex's [interactive lecture on html](http://dataviscourse.net/2015/lectures/lecture-html/) at the University of Utah.
+<!-- We also encourage you to take a look at Alex Lex's [interactive lecture on html](http://dataviscourse.net/2015/lectures/lecture-html/) at the University of Utah.-->
 
 
 
 &nbsp;
 ## Setup
 During the next weeks, you will be working through the book *D3 - Interactive Data Visualization for the Web* (Second Edition) by Scott Murray.
-The book provides a lot of sample code (see page 5 of the book, *Using Sample Code*). The book is written for D3 v4 (the latest version is v6 as of Aug 2020). We will go over the changes in syntax for v6 as we progress through the book. 
+The book provides a lot of sample code (see page 5 of the book, *Using Sample Code*). The book is written for D3 v4 (the latest version is v6 as of Aug 2020). We will go over the changes in syntax for v7 as we progress through the book.
 
-- Download and extract the sample code for the book now. It can be found [here](https://github.com/alignedleft/d3-book/releases). 
-- Set up a directory on your computer for the sample code and remember its location. 
+- Download and extract the sample code for the book now. It can be found [here](https://github.com/alignedleft/d3-book/releases).
+- Set up a directory on your computer for the sample code and remember its location.
 - Starting next week, while working through the book, you should look at and run the sample code. It will help you prepare for labs and homeworks!
 
 For today's lab, you should prepare the following:
@@ -78,7 +78,7 @@ As you have read, HTML is used to structure content for web browsers. It enables
 		When <i>George</i> and the man with the yellow hat stop to shop at a chocolate
 		factory store, George becomes curious about how chocolates are made...
 	</p>
-	
+
 
 *Result as shown in a web browser:*
 
@@ -88,7 +88,7 @@ A comprehensive and well structured list of HTML elements can be found at [MDN](
 
 #### HTML Boilerplate
 
-Every HTML5 document requires a little bit of boilerplate code that you should just copy and past every time you create a new file. A boilerplate is a piece of code that is usually copied with little or no alteration, much like a template, to speed up the creation of new files. In the case of HTML5 this includes several HTML tags (e.g. \<head>, \<html>, ...) that don't have visual equivalents on the website, but that are necessary to define the document's metadata. 
+Every HTML5 document requires a little bit of boilerplate code that you should just copy and past every time you create a new file. A boilerplate is a piece of code that is usually copied with little or no alteration, much like a template, to speed up the creation of new files. In the case of HTML5 this includes several HTML tags (e.g. \<head>, \<html>, ...) that don't have visual equivalents on the website, but that are necessary to define the document's metadata.
 
 Make sure to get familiar with this structure (notice that WebStorm pre-populates new HTML files automatically!):
 
@@ -119,7 +119,7 @@ To solve this problem, we can give the element a unique ID: *book-123*. However,
 
 (3) ```<div class="book content">Visualization Analysis and Design</div>```
 
-Any attribute or styling information that needs to be applied to multiple elements on a page should be done with a *class*. In the above example, we have assigned the div element to the class *book*, that allows us to select all HTML containers of the type *book*. At the same time, we have assigned the div element to the class *content*. 
+Any attribute or styling information that needs to be applied to multiple elements on a page should be done with a *class*. In the above example, we have assigned the div element to the class *book*, that allows us to select all HTML containers of the type *book*. At the same time, we have assigned the div element to the class *content*.
 
 Elements can be assigned multiple classes, simply by separating them with a space.
 
@@ -134,19 +134,19 @@ Elements can be assigned multiple classes, simply by separating them with a spac
 2. **Copy the HTML boilerplate into your empty file**
 
 3. **Add some structure to the *body* of your new document and try different HTML elements. The content should be appropriate for the HTML tags you are using (e.g., a headline vs. a paragraph).**
-	
+
 	Make sure to include at least:
-	
+
 	* A top-level headline
 	* An empty div-container (will be filled with facts later)
 	* A hyperlink to any other page
 	* An image
 	* A button (will trigger the search for a new fact)
-		
+
 	Open your file ```basics.html``` in a web browser to see the results.
 
 4. **Add the following classes and IDs to the elements**
-	
+
 	* Add the ID ```content``` to the div container
 	* Add the ID ```cs171-basics``` to the button
 	* Add the classes ```btn``` and ```btn-primary``` to the button
@@ -169,17 +169,17 @@ The difference between HTML and DOM should be more understandable after the foll
 Every modern-day web browser has built-in *developer tools* that expose the current state of the DOM and help us to better understand what is going on. In this exercise we will use the *Web Inspector* to view the DOM tree of our document.
 
 
-1. **Create a new folder ```js``` in your project, download the file ```dom-example.js``` and save it in your newly created folder** 
+1. **Create a new folder ```js``` in your project, download the file ```dom-example.js``` and save it in your newly created folder**
 
-	[https://github.com/CS171/Homework_instructions/blob/master/Week2Lab/assets/dom-example.js](https://github.com/CS171/Homework_instructions/blob/master/Week2Lab/assets/dom-example.js)
-	
+	[https://www.cs171.org/Homework_instructions/week-02/lab/assets/dom-example.js](https://www.cs171.org/Homework_instructions/week-02/lab/assets/dom-example.js)
+
 
 2. **Include the external JavaScript file that you just downloaded in your HTML document. Add the following line at the bottom of your previously created ```basics.html``` (inside the ```<body></body>```)**
 
 	```
 	<script src="js/dom-example.js"></script>
 	```
-		
+
 	This script will listen to your button (*ID: cs171-basics*). It will automatically deliver random facts if you click on the button.
 
 
@@ -189,15 +189,15 @@ Every modern-day web browser has built-in *developer tools* that expose the curr
 
 	- Chrome: View → Developer → Developer Tools
 	- Firefox: Tools → Web Developer → Inspector
-	
+
 	Make sure to check out the keyboard shortcut of your system to open the developer tools!
 
 4. **Inspecting the DOM with the *Web Inspector***
 
 	In the default mode, the *Web Inspector* should be docked to the bottom of the window and split the page horizontally.
-		
-	We can see something that looks like the source code of the HTML document that you wrote in your editor. Some tags are probably collapsed. Actually, you are **not** viewing the raw content of your HTML document. What you are seeing is the visual representation of the DOM tree (after all scripts have run and potentially modified the original HTML source)!	
-		
+
+	We can see something that looks like the source code of the HTML document that you wrote in your editor. Some tags are probably collapsed. Actually, you are **not** viewing the raw content of your HTML document. What you are seeing is the visual representation of the DOM tree (after all scripts have run and potentially modified the original HTML source)!
+
 	The HTML you write is parsed by the browser and turned into the DOM. In simple cases this will look like your raw HTML, but if any JavaScript code has been executed, the current DOM may be different, as JavaScript commands can add, remove, and adjust the DOM dynamically.
 
 5. **Update the DOM: Click on the previously created button!**
@@ -205,15 +205,15 @@ Every modern-day web browser has built-in *developer tools* that expose the curr
 	Every time you click on the button, a function in the external JavaScript file that we provided for you will be triggered that adds a new paragraph (random fact) to the DOM tree. You can see the new elements in the browser window and the current state of the DOM in the *Web Inspector*.
 
 	Your ```basics.html``` remains unchanged. We have only modified the DOM with JavaScript, not the actual document. Your modifications will be discarded if you reload the page.
-	
+
 	If you have trouble getting this step to work you should double check that you have added the appropriate IDs to your HTML tags!
-	
+
 6. **Update the DOM: Delete nodes from the DOM tree**
 
 	You can also use the *Web Inspector* to modify your DOM directly. You can edit the content, add attributes or delete nodes. Try it out and delete some paragraphs!
 
 	The developer tools of modern browsers usually include many other tools to make the life of a web developer easier. In the next activity we will use the Web Inspector to modify CSS and next week we will use the JavaScript Console for debugging.
-	
+
 	**From now on, whenever you are programming HTML, CSS, JavaScript, or D3, you should always have the developer console open. This helps you in debugging and figuring out what is going on in the code!**
 
 -----
@@ -223,9 +223,9 @@ Every modern-day web browser has built-in *developer tools* that expose the curr
 
 With HTML you define the structure and content of the page and with CSS you set its style - things like fonts, colors, margins, backgrounds etc.
 
-A stylesheet will usually consist of a list of CSS rules that are inserted either in a ```<style>``` block in your HTML header, or, more often, stored in an external file and included via the below line of code. Make sure to include an external style sheet always in the HTML header (inside the ```<head></head>``` elements of your HTML file). 
+A stylesheet will usually consist of a list of CSS rules that are inserted either in a ```<style>``` block in your HTML header, or, more often, stored in an external file and included via the below line of code. Make sure to include an external style sheet always in the HTML header (inside the ```<head></head>``` elements of your HTML file).
 
-	<link rel="stylesheet" href="css/style.css"> 
+	<link rel="stylesheet" href="css/style.css">
 
 This assumes that you have a separate file ```style.css``` in the folder ```css```.
 
@@ -274,12 +274,12 @@ As you can see in the example below, IDs are preceded with a hash mark (*#articl
 	<body>
 
 	<div class="article" id="article-1">Some text</div>
-	
+
 	<div class="article">
 		Some other text
 		<div class="warning">and a warning</div>
 	</div>
-	
+
 	<div class="article error">Error!</div>
 
 	</body>
@@ -309,19 +309,19 @@ In this activity you will use CSS to add custom styles to your HTML file.
 	- *Color* or *Background-Color* properties
 
 	You can play around with different CSS parameters, but don't worry too much right now about making your webpage look beautiful, we will come back to the design at the end of the lab.
-	
+
 3. **Inspecting the CSS with the *Web Inspector***
 
 	If you are working on a more sophisticated problem it can be very useful to analyze your CSS rules with the *Web Inspector*. The CSS styles in the right panel match the currently selected DOM element.
-	
+
 	- Click on different lines in the *Elements*-panel to see the respective CSS properties. The rules are collected from inline styles, attached stylesheets and user agent stylesheets. User agent stylesheets are the browser's default properties, such as font-size or margin.
-	
+
 	- Be mindful that rules that are specified later in a CSS file generally override rules that were specified earlier in the file, but not always. The true logic has to do with the specificity of each selector. The *div.content* selector would override the *div* rule even if it were listed first, simply because it is a more specific selector.
-		
+
 		The order of the CSS rules in the right panel helps you to identify the importance of the individual styles.
-	
+
 	- Similar to the DOM tree, you can also modify, add and remove CSS rules and properties in the web inspector. This is a quick and easy way to try different styles directly in the browser (debugging), but keep in mind that the changes will be discarded if you reload the page. Try it out and modify your CSS in the browser!
-	
+
 	- If you include a specific color in your CSS properties the *Web Inspector* shows you a small button, linked to a color picker. This little tool can help you to find the desired color codes. Add a new CSS rule in the *Web Inspector* and change the font color of the headline!
 
 
@@ -332,13 +332,13 @@ In this activity you will use CSS to add custom styles to your HTML file.
 
 Rather than coding from scratch, frameworks enable you to utilize ready-made blocks of code to help you get started. They give you a solid foundation for what a typical web project requires and usually they are also flexible enough for customization.
 
-In CS171 we use ***Bootstrap*** as an example open source HTML, JS and CSS framework. It is one of the most widely used frameworks, it is easy to understand and it provides a great documentation with many examples. 
+In CS171 we use ***Bootstrap*** as an example open source HTML, JS and CSS framework. It is one of the most widely used frameworks, it is easy to understand and it provides a great documentation with many examples.
 
 The question whether a framework can be useful depends on the individual project and on the developer. Therefore, it is up to you to decide if you want to use it in your homeworks or projects.
 
 Here is a summary of the main aspects of *Bootstrap*:
 
-* **Open source** HTML, CSS, and JS framework 
+* **Open source** HTML, CSS, and JS framework
 * Provides a **base styling** for common used HTML elements
 * The **grid system** helps you to create multi-column and nested layouts, especially if your website should work on different devices
 * Extensive list of **pre-styled components** (navigation, dropdown-menu, forms, tables, icons ...)
@@ -351,7 +351,7 @@ Here is a summary of the main aspects of *Bootstrap*:
 #### Activity 4
 
 
-In the last activity you will download and include the Bootstrap JavaScript library in your project. 
+In the last activity you will download and include the Bootstrap JavaScript library in your project.
 
 
 1. **Getting started with Bootstrap**
@@ -359,7 +359,7 @@ In the last activity you will download and include the Bootstrap JavaScript libr
 	[http://getbootstrap.com/](https://getbootstrap.com/)
 
 	Click on ```Get started```
-	
+
 2. **Bootstrap CSS**
 
     Copy-paste the provided stylesheet ```<link>``` into the ```<head>``` of ```basics.html``` to load bootstrap's CSS.Use the ```Copy``` button in the upper right to avoid errors.
@@ -370,23 +370,23 @@ In the last activity you will download and include the Bootstrap JavaScript libr
 
 3. **Bootstrap JS**
 
-	Bootstrap provides some JavaScript components, too. In this lab our focus is on CSS, but you should include the *Bootstrap JavaScript* and the required *jQuery JavaScript library* too, otherwise there may be problems with some components. 
-    	
-    Just like you did with bootstrap's CSS file, copy-paste bootstrap's JS files and load them in your ```basics.html```. Once again, use the ```Copy``` button in the upper right to avoid errors. Place the three ```<script>``` near the end of your pages, right before the closing ```</body>``` tag, to enable them. jQuery must come first, then Popper.js, and then our JavaScript plugins.
+	Bootstrap provides some JavaScript components, too. In this lab our focus is on CSS, but you should include the *Bootstrap JavaScript Bundle*, otherwise there may be problems with some components.
+
+    Just like you did with bootstrap's CSS file, copy-paste bootstrap's JS bundle script tag and load it in your ```basics.html```. Once again, use the ```Copy``` button in the upper right to avoid errors. Place the ```<script>``` near the end of your pages, right before the closing ```</body>``` tag.
     In your header link to the bootstrap minified CSS: ```bootstrap.min.css```
-	
+
    >Note that we are linking to online versions of the CSS and the Javascript libraries. Alternatively, we could download local copies into the project directory, and link to them.
-	 	
+
 4. **Reload ```basics.html```in your browser**
 
 	* Do you notice any changes?
 	* Open the *Web Inspector* and check the different styles
-	
-5. **Bootstrap Grid**
-    
-    Let's make use of bootstrap, shall we? Once of the most basic but at the same time most useful feature is bootstrap's grid system. Here's the link to the documentation: [https://getbootstrap.com/docs/4.5/layout/grid/](https://getbootstrap.com/docs/4.5/layout/grid/) 
 
-    Below, you will find an example of the bootstrap grid. It is important to understand the hierarchy that the grid system uses: A div-container, i.e. ```<div class="container">``` serves as a parent for one or more div-rows, i.e. ```<div class="row">```, while a div-row serves as the parent for multiple div-columns, i.e. ```<div class="col">```. 
+5. **Bootstrap Grid**
+
+    Let's make use of bootstrap, shall we? Once of the most basic but at the same time most useful feature is bootstrap's grid system. Here's the link to the documentation: [https://getbootstrap.com/docs/5.1/layout/grid/](https://getbootstrap.com/docs/5.1/layout/grid/)
+
+    Below, you will find an example of the bootstrap grid. It is important to understand the hierarchy that the grid system uses: A div-container, i.e. ```<div class="container">``` serves as a parent for one or more div-rows, i.e. ```<div class="row">```, while a div-row serves as the parent for multiple div-columns, i.e. ```<div class="col">```.
     ```
    <div class="container">
        <div class="row">
@@ -402,23 +402,23 @@ In the last activity you will download and include the Bootstrap JavaScript libr
        </div>
    </div>
    ```
-   
+
    Bootstrap's grid system allows you to tweak the width of a column and its siblings easily: Underneath the hood, each row is divided into 12 pieces and, thus, you can piece together your rows so that they add up to '12'. For example, two div-columns with the class ```.col-6``` will result in a symmetric two-column-layout. You might want to give that a try.    
 
 6. **Bootstrap components - Navbar & others**
 
 	Now, it's time to explore bootstrap's documentation in depth. Maybe there are some components that could be useful? Go to the official Bootstrap website and skim over the different styles and pre-configured components: [http://getbootstrap.com/components/](http://getbootstrap.com/components/)
-	
+
 	Feel free to add whatever component you like. However, we'd like you to add at least a Navbar with a dropdown-menu. Search for the *Navbar* component, find the proper example, and copy the HTML example code in your ```basics.html```. Try it in your browser afterwards. Adding new Bootstrap elements to your HTML page is often very quick and easy, by using the example code on the bootstrap webpage.
 
 6. **Override Bootstrap styles**
 
 	- Add custom CSS rules to change the *Background-Color* and the Hover-State of the previously created button in your ```style.css```.
 
-	- We assume that you do not know the CSS selectors or properties for changing the background color and the hover-state yet. Search for it online, either in google or at [W3 school](https://www.w3schools.com/cssref/sel_hover.asp). Example search term: CSS background color. 
-	
-	This allows us to make full use of Bootstrap's potential. We can use boilerplates for different components, add custom content and override some styles subsequently. 
-		
+	- We assume that you do not know the CSS selectors or properties for changing the background color and the hover-state yet. Search for it online, either in google or at [W3 school](https://www.w3schools.com/cssref/sel_hover.asp). Example search term: CSS background color.
+
+	This allows us to make full use of Bootstrap's potential. We can use boilerplates for different components, add custom content and override some styles subsequently.
+
 	*Keep in mind: If you have to override too many styles, it can be easier to work without a framework.*
 
 &nbsp;
@@ -429,6 +429,8 @@ Bootstrap is a very popular front-end framework for web projects but there are a
 - [Foundation](http://foundation.zurb.com/)
 - [PureCSS](http://pureCSS.io/)
 
+Additionally, much of the alignment functionality Bootstrap offers is now possible with [CSS3 Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/).
+
 -----
 
 #### Bonus Activities (optional!)
@@ -436,24 +438,24 @@ Bootstrap is a very popular front-end framework for web projects but there are a
 These bonus activities are not required, but we recommend that you try them!
 
 1. **Beautify basics.html**
-	
+
 	Play around with different CSS styles. Think of the design of webpages you like and try to recreate that look. Look at CSS files of pages you like.
-	
+
 2. **Try other Bootstrap components**
 
-	Go back to the Bootstrap website and look at their [examples](https://getbootstrap.com/docs/4.5/examples/). Include some other Bootstrap components in your ```basics.html``` file.
-	
+	Go back to the Bootstrap website and look at their [examples](https://getbootstrap.com/docs/5.1/examples/). Include some other Bootstrap components in your ```basics.html``` file.
+
 	*Just copy and paste the respective boilerplate codes and play around with the styles.*
 
 -----
 
 #### Submission of lab
 
-You have now completed the activities of Week 2 Lab and should have a basic understanding of HTML, CSS, and how you can style your webpage based on CSS selectors and libraries like Bootstrap. This knowledge will enable you to complete Homework 2!
+You have now completed the activities of Lab 1 and should have a basic understanding of HTML, CSS, and how you can style your webpage based on CSS selectors and libraries like Bootstrap. This knowledge will enable you to complete Homework 1!
 
-If you are done early, please help others in your breakout room. If your entire room is done, feel free to get started on the homework.
+If you are done early, please help others around your table. If your entire table is done, feel free to get started on the homework.
 
-Please submit your completed Week 2 Lab together with your homework submission on Canvas.
+Please submit your completed lab 1 together with your homework submission on Canvas.
 
 *See you next week!*
 
@@ -466,5 +468,3 @@ Please submit your completed Week 2 Lab together with your homework submission o
 
 - Chapter 3 (up to page 36) in *D3 - Interactive Data Visualization for the Web* (Second Edition) by Scott Murray
 - [https://developer.mozilla.org/en-US/docs/Web](https://developer.mozilla.org/en-US/docs/Web)
-- University of Utah's visualization course. Interactive introduction to html: [http://dataviscourse.net/2015/lectures/lecture-html/](http://dataviscourse.net/2015/lectures/lecture-html/)
-
