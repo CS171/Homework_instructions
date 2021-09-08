@@ -19,6 +19,9 @@ Our labs are designed as work-books in the style of a self-guided tutorial. We a
 We embrace the concept of learning by doing. To truly master new programming and development skills, you have to spend the time to figure things out and to try different approaches and examples.
 However, you are not alone in this! CS171 staff is available for any questions that pop up along the way. We encourage you to pester them with questions, but at the same time, make sure that you come to the lab prepared and ready to code!
 
+***Second step:***
+Let us know which lab group you are in. Please fill in the names of your lab group [here](https://docs.google.com/spreadsheets/d/1f4aXJabvz2svsVhQ90FZcaiVT7Vul4oQYNOOPNMBwGY/edit#gid=0).
+
 ### Learning Objectives
 
 After completing this lab you will be able to:
