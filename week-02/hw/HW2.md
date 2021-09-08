@@ -141,12 +141,17 @@ c. **Extend your previously created** `index.html` **file and add the following:
 
 ## 3. Submit Homework on Canvas
 
-**Name your folder appropriately. Go to Canvas and click on the `Submission - Week 2 HW & Lab` link in the week's modules. Next, upload a zipped folder containing both your homework files and your lab submission.**
+**First, create a folder containing a) your homework files b) your lab submission and c) a file where you tell us who your lab partner for this week was. Name your folder appropriately, as shown below and follow our naming conventions and file structure.**
+
+**Next, go to Canvas and click on the `Submission - Week 2 HW & Lab` link in the week's modules. Zip your folder and upload it to Canvas.**
+
+****
 
 To upload an entire directory structure please compress your entire local directory into a zip file. Use the following recommended folder structure:
 
 ```
 /submission_week2_FirstnameLastname
+	  lab_partner.txt
     lab/             
         index.html
         css/ 		...folder with all CSS files
