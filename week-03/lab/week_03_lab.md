@@ -38,20 +38,20 @@ This lab is designed to take you **longer than the available in-class time** to 
 
 &nbsp;
 
-> **PLEASE NOTE** 
-> 
+> **PLEASE NOTE**
+>
 > In this course you will learn how to implement interactive, web-based visualizations. We are introducing several techniques and concepts that have a challenging learning curve. We assume that you have taken CS 50 or an equivalent class before and have basic programming knowledge already. If you have little programming experience or had trouble following this week's pre-reading, we strongly encourage you to work through some additional JavaScript tutorials and try out your own examples.
 >  
 > Here are some additional resources for learning JavaScript
-> 
+>
 > - [W3 Schools](http://www.w3schools.com/)
 > - [Code Academy](https://www.codecademy.com/learn/javascript)
 > - [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web)
 
 
- 
+
 &nbsp;
- 
+
 ### Introduction
 
 
@@ -73,7 +73,7 @@ We assume that you have completed the pre-reading on JS, so here we are only sho
 // Variables in JS are loosely typed
 
 // String
-let month = "February";	
+let month = "February";
 
 // Integer
 let day = 4;
@@ -89,12 +89,12 @@ let winter = true;
 #### Data Structures
 
 ##### Arrays
-* Arrays can store a sequence of values, and contain any type of data. 
+* Arrays can store a sequence of values, and contain any type of data.
 * Use bracket notation ```[]``` to define or access an array.
 
 ```javascript
 // Array with integer values
-let numbers = [1, 2, 3, 100, 500, 4];	
+let numbers = [1, 2, 3, 100, 500, 4];
 
 // Array with strings
 let fruits = ["Orange", "Banana", "Apple"];
@@ -157,7 +157,7 @@ courses[1].id; 	// Returns: CS50
 
 ##### JSON (JavaScript Object Notation)
 
-* JSON is a popular data-interchange format for APIs (application program interfaces) and therefore very important for our future tasks. 
+* JSON is a popular data-interchange format for APIs (application program interfaces) and therefore very important for our future tasks.
 * It is basically a JS object, with the only difference being that the property names are surrounded by double quotation marks.
 
 ```javascript
@@ -175,27 +175,27 @@ let course = {
 -----
 
 #### Activity I
- 
+
 1. **Use the JavaScript Web Console**
 
 	As we have already learned in the first lab, there are some developer tools in our web browsers that make programing a bit easier. Normally, we include JS code in HTML files and then open these files in the browser. But we can also use the *Console* to type JS code directy in the browser.
-	
+
 	* Open your developer-tools and switch to the tab ***Console***
-	
+
 	* Create a few variables and try out some mathematical operators to see how it works. The console accepts one line of code at a time.
 
 	* Type in the examples below, line by line.
 
-		Examples: 
-		
+		Examples:
+
 		```javascript		
 		(1) let message = "I am learning JS"
 		(2) message
-		
+
 		(1) let cities = ["Tokio", "Berlin", "San Francisco"]
 		(2) cities[0]
 		(3) cities [2]
-		
+
 		(1) let numeric = 12
 		(2) numeric / (1 + 2)
 		```
@@ -214,38 +214,38 @@ let course = {
 	- List with opening days (some attractions are open only on specific days, like weekends)
 	- Limited access for children (yes / no)
 
-	
+
 	*You can make up the actual values for each of those attributes. We are mainly interested in the following: How would you store this data in code? Which data structure(s) would you use?  We suggest that you start with pen and paper to design your data structure (or your local code editor). Which JS data structure would you use (basic data types, arrays, objects, etc.)? Which data types (string, boolean, etc.) would you use to represent the data? Once you know how you want to implement it, continue to step (3).*
 
 3. **Create a new HTML file and JS file and implement the data structure**
 
-	JS can be included directly in HTML or in a separate file with *.js* suffix and then referenced. Generally, including JS in a separate file is the prefered method:
-	
+	JS can be included directly in HTML or in a separate file with *.js* suffix and then referenced. Generally, including JS in a separate file is the preferred method:
+
 	```javascript
 	// Included directly
 	<script type="text/javascript">
 		let message = "test";
 	</script>
-	
+
 	// Referenced (at the bottom of the <body> tag, below other included javascript libraries)
 	<script type="text/javascript" src="js/myscript.js"></script>
 	```
-	
+
 	Make up some example data (3 amusement rides, with the above described attributes) and implement your data structure in JS.
 
 4. **Write messages to the web console**
 
 	The console is an essential tool for debugging. It shows logged security alerts, warnings, errors, informational messages etc. When you are creating scripts, you can write your own debug messages to the console:
-	
+
 	```javascript
 	console.log("My debug message");
-		
+
 	let debugId = 12;
 	console.log("Another debug message with id: " + debugId);
 	```
-	
+
 	Use ```console.log()``` to print some information of your dataset:
-	
+
 	* Name of the first amusement ride
 	* All days when the second attraction is open
 	* First item of the list of opening days from the second amusement ride
@@ -263,12 +263,12 @@ You should already be familiar with **control structures**, **loops** and **func
 
 #### Control Structures & Loops
 
-##### IF-STATEMENTS
+##### IF-STATEMENT
 
 ```javascript
 let numericData = 10;
 
-// Regular if statement 
+// Regular if statement
 if (numericData >= 10) {
 	console.log("Equal or greater than 10");
 } else if (numericData > 0 && numericData < 10) {
@@ -283,7 +283,7 @@ let result = (numericData >= 10) ? "greater than or equal to 10" : "less than 10
 let result = (numericData % 2 === 0) ? "even" : "odd";
 ```
 
-##### FOR-LOOPS
+##### FOR-LOOP
 
 ```javascript
 // (1) Loop through a block of code 5 times (printing the value of i each time to the console)
@@ -304,20 +304,21 @@ for (let property in person) {
 }
 
 
-// (4) The holy grail of JS loops: 
-// makink use of object oriented JS, the forEach loop is an array methode 
-// that iterates over all elements in the array. The index of the element 
+// (4) The holy grail of JS loops:
+// makink use of object oriented JS, the forEach loop is an array methode
+// that iterates over all elements in the array. The index of the element
 // and the element itself are available inside the loop via an anonymous callback function.
 // That's definitely a lot to wrap your head around, but once you get used to it, this loop is pure magic.
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # #
 arrayWithNames.forEach( (element, index) => {
 	console.log(index + ": " + element);
 });
+# # # # # # # # # # # # # # # # # # # # # # # # # # #
 ```
 
-*Here are the console logs for the examples:*
-
-![For-Loops](cs171-for-loop-examples.png?raw=true)
+*Result:*
+![Lab 2 - For-Loops](cs171-for-loop-examples.png?raw=true "Lab 2 - For-Loops")
 
 
 #### Functions
@@ -341,7 +342,7 @@ let temperature = "Current temperature: " + toCelsius(34) + " Celsius";
 ```
 
 
-> To create a **local variable**, use the keyword ```let```. *Local* refers to the current execution context. When used within a function these variables are **private to that function**, however, when they are declared outside a function they are global. 
+> To create a **local variable**, use the keyword ```let```. *Local* refers to the current execution context. When used within a function these variables are **private to that function**, however, when they are declared outside a function they are global.
 
 &nbsp;
 
@@ -354,39 +355,39 @@ let temperature = "Current temperature: " + toCelsius(34) + " Celsius";
 1. **Create a new function: doublePrices()**
 
 	This function takes your data structure as an input variable. You should loop through all the amusement rides, and modify their prices (*2). (Note: You will be modifying the original data here, but that is fine. You do not need to create a deep copy of the data.)
-	
+
 	```javascript
 	// Calling the function
 	let amusementRidesDouble = doublePrices(amusementRides);
-	
+
 	// Implementation of the function
 	function doublePrices(amusementRides) {
-		
+
 		// TODO: Modify data here ...
-		
+
 	}
 	```
-	
+
 	You can add a ```console.log(amusementRidesDouble);``` at the end to look at the result of your code.
-	
+
 	> Pro tip: In JS, when you pass a primitive type variable (e.g., string or number) to a function, it is passed by value. On the other hand, if you pass an object, it is passed by reference. To try out the difference, check out this [JSFiddle code snippet](https://jsfiddle.net/ywn5vno5/). If you don't know the difference between pass-by-value and pass-by-reference, don't worry about it for now. But you might want to come back to this eventually.
-	
+
 	&nbsp;
 
 2. **Modify the function doublePrices() to double all prices, except for the second item in your list of amusement rides**
-	
+
 	&nbsp;
-	
+
 3. **Create a second function: debugAmusementRides()**
 
 	In this function, loop through the modified list of attractions and write the **name** and the new **price** for each item to the console.
-	
+
 	```javascript
 	// The + operator can be used to concatenate strings/variables.
 	let firstName = "John";
 	let lastName = "Doe";
 	let name = firstName + " " + lastName;
-	
+
 	console.log(name); 	// Returns: John Doe
 	```
 	&nbsp;
@@ -394,19 +395,19 @@ let temperature = "Current temperature: " + toCelsius(34) + " Celsius";
 4. **Changing the DOM with JS**
 
 	Now we want to display some attributes of our amusement rides directly on the website, not just the JS console. To do this, we first have to create a new HTML element and then fill the content of this element dynamically with JS.
-	
+
 	The easiest way to modify the content of an HTML element is by using its *innerHTML* property. This implies that you have to create a string for the HTML snippet you want to insert first, and then set the *innerHTML* property. For example, you can create a new string variable and extend it in a for-loop, before you assign it to the *innerHTML property*.
-	
+
 	Here is an example that you can copy and paste into your HTML file:
-	
+
 	```javascript
 	<div id="content-1"></div>
 	<div id="content-2"></div>
-	
+
 	<script type="text/javascript">
 		// Write HTML with JS
 		document.getElementById("content-1").innerHTML = '<h1>Headline</h1>...and some text';
-		
+
 		// Loop through array, build HTML block and finally display it on the page
 		let fruits = ["Orange", "Banana", "Apple"];
 		let result = '';
@@ -417,9 +418,9 @@ let temperature = "Current temperature: " + toCelsius(34) + " Celsius";
 	</script>
 	```
 	Note that this example includes the JS code directly in the HTML file. Usually it's preferrable to link to an external javascript file. Try it out!
-	
+
 	Now it's your turn! Update the HTML with the following content:
-	
+
 	* **Add a new HTML element to your document with a specific ID** (e.g. ```div```).
 	* **Create a new function** or duplicate debugAmusementRides() that loops through all amusement rides and **displays the name and the new prices on the website**.
 
@@ -464,7 +465,7 @@ console.log(person.message()); // Returns: Hello, I'm Sarah.
 
 In these examples, the current *scope* - the environment in which the function executes in - is important.
 
-> The default scope for executing functions is the *Window Object* which is a browser level object representing the actual browser window/tab. Additionally, we have also used the keyword ```this```. In the global execution context (outside of the function) ```this``` refers to the global object. Inside a function, the value of ```this``` depends on how the function is called. 
+> The default scope for executing functions is the *Window Object* which is a browser level object representing the actual browser window/tab. Additionally, we have also used the keyword ```this```. In the global execution context (outside of the function) ```this``` refers to the global object. Inside a function, the value of ```this``` depends on how the function is called.
 
 So that means, if you run the function in the person's scope (second example), you can access the first name via ```this```. If you use ```this.firstName``` in a function by itself (e.g. without the scope of the person object) it will give you an error, because your window object has no attribute ```firstName```.
 
@@ -479,7 +480,7 @@ If you want to read up on higher-order functions, here is a [link](http://eloque
 The ***filter()*** method creates a new array with the elements that meet a condition implemented by the provided function.
 
 ```javascript
-// ---- Filter Example 1 - Get all cities except London ---- 
+// ---- Filter Example 1 - Get all cities except London ----
 
 let cities = ["Vienna", "Paris", "London", "London"];
 
@@ -496,11 +497,11 @@ filteredCities // Returns: ["Vienna", "Paris"]
 console.log(filteredCities);
 
 
-// ---- Filter Example 2 - Get all numbers which are >= 10 and have array indices > 3 ---- 
+// ---- Filter Example 2 - Get all numbers which are >= 10 and have array indices > 3 ----
 
 let numericData = [1, 20, 3, 40, 5, 60, 7, 80];
 
-// Use an anonymous function in numericData.filter 
+// Use an anonymous function in numericData.filter
 // (the anonymous function takes the array element's current value and index as parameters)
 let filteredNumericData = numericData.filter( (value, index) => {
 	return (value >= 10) && (index > 3);
@@ -517,7 +518,7 @@ For more information on ***filter()*** you can take a look at [this tutorial](ht
 The ***sort()*** method sorts the items in an array. No new array object will be created during execution.
 
 ```javascript
-// ---- Sort Example 1 - Filter array with strings (default sorting) ---- 
+// ---- Sort Example 1 - Filter array with strings (default sorting) ----
 
 let cities = ["Vienna", "Paris", "London", "Munich", "Toronto"];
 cities.sort();
@@ -525,7 +526,7 @@ cities 	// Returns: ["London", "Munich", "Paris", "Toronto", "Vienna"]
 console.log(cities);
 
 
-// ---- Sort Example 2 - Filter array with objects ---- 
+// ---- Sort Example 2 - Filter array with objects ----
 // We are specifying a function that defines the sort order
 
 let products = [
@@ -555,7 +556,7 @@ let roots = numericData.map(Math.sqrt);
 roots	// Returns: [1, 2, 3]
 
 
-// ---- Map Example 2 - Double the prices ---- 
+// ---- Map Example 2 - Double the prices ----
 
 let products = [
 	{ name: "laptop", price: 800 },
@@ -598,36 +599,54 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 1. **Download template for 'week 03 lab', unzip it and open it as a new project in Webstorm:**
 
-	[here's the link to the canvas module](https://canvas.harvard.edu/courses/74834/files/10568860?module_item_id=752107)
-	(you can also just browse there via canvas -> modules)
-    
+	[https://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
+    (download week-03_lab.zip)
+
 2. **Familiarize yourself with the provided HTML document: ```index.html```**
 
 	Look at the source code, its HTML elements, and which files (JS, CSS) are included.
 
-3. **Array filtering**
+3. **Array sorting and using the Chrome DevTools**
 
 	Open the JS file ```week03_lab.js``` (*js* folder). Most of the tasks you need to complete should be implemented in the function: *dataFiltering()*.
-	
+
 	We have included a template of the function, and have created a local variable ```attractions``` from the global variable and we have called the function right before. You should work with the local variable ```attractions``` - don't override the global one.
-	
-	→ ***Filter the array: top 5 global attractions (based on annual visitors)***
-	
-	We want to show the *top five global attractions* with the most annual visitors in a bar chart. There are 60 attractions in the dataset, so you have to create a new array or modify the variable ```attractions```. *Suggestion: sort the JSON array descending by ```Visitors``` and then filter the array to get the first five rows.*
-	
-4. **Call the function: renderBarChart(attractions)**
+
+	In this exercise we're interested in finding the attractions with the most visitors. We've added some code that sorts the ```attractions``` array by the number of advisors. However, if you look at the console log that prints the sorted array, you'll notice that the sorting isn't working.
+
+	**We'll use the Chrome DevTools to debug this issue.**
+
+	* 	Open the Chrome Developer Tools pane (View -> Developer -> Developer Tools)
+	* Click on the `Sources` tab . You'll notice that the HTML/JS/CSS files you're currently working on are listed here. Click on the ```week_03_lab.js`` file.
+
+	<img src="week-03_lab_sources_panel.png" alt="sources" width="400"/>
+
+	* From this file view, we are able to set [breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) that let you step through your code as it executes, which is an incredibly powerful debugging tool. **Add breakpoints on lines 14 and 15 as shown below and refresh the page**
+	<img src="week-03_lab_breakpoint.png" alt="sources" width="400"/>
+	* You'll notice now that your code stops executing at line 14. If you hover over the ```attractions```, you can view the value assigned to the variable.
+	* If you press the blue resume button, you'll see that the execution jumped down to line 15, which is the next breakpoint. By hovering over ```a.visitors``` you can see that the value is undefined. This is our bug.
+	* If you switch to the Console tab and type in ```a``` and pressing enter, you'll notice you can also interact with the local variables from the console. This is a good tool for testing out code without having to reload the page.
+	* From the current value of ```a``` or ```b```, you'll notice there's a property that holds the number of visitors that's capitlized slightly differently than it is in line 15. This is the bug!
+	* Disable your breakpoints by clicking on them. Now go back to WebStorm and update your code so that visitors is capitalized correctly. When you refresh the page the log that prints the array should show that it's sorted.
+
+	<!--Let's begin by sorting this array (in place) by the number of visisors. You'll notice that we've added a console log for you to use to confirm your code sorting the array -->
+
+4. **Filter the array**
+	We want to show the *top five global attractions* with the most annual visitors in a bar chart. There are 60 attractions in the dataset, so you have to create a new array or modify the variable ```attractions```. *Suggestion: Filter your sorted array to get the first five rows.*
+
+5. **Call the function: renderBarChart(attractions)**
 
 	- This function will automatically render a bar chart with the top attractions in the div-container with the id: ```#chart-area```.
 	- You must include a JSON array with attractions as a parameter (array length: 5)
 	- If there is a problem, check the web console and try to debug your code (e.g., by using ```console.log()``` statements)
 	- If you are still in class, don't hesitate to ask TFs for help! Otherwise, you can use Piazza or office hours!
 
-5. **Extend array filtering**
+6. **Extend array filtering**
 
 	As you might have seen already, there is a *select-box* in the HTML document. You can select different categories but right now, nothing happens.
-	
+
 	In the next task you should call a function *dataManipulation()* if someone changes the select-box and then, inside the function, filter the attractions by the selected category:
-	
+
 	* Add the attribute ```onchange="dataManipulation()"``` to the select-box (in the HTML file). The function ```dataManipulation()``` will be automatically called whenever the user changes the value of the select box. However, you will need to create that function!
 	* In your JS file you can use the following code snippet to get the selected category. Make sure to change "SELECT-ID" to the ID of the select-box.
 
@@ -645,7 +664,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 -----
 
-####Bonus Activity (optional!)
+#### Bonus Activity (optional!)
 
 - **Add custom styles (CSS)**
 
@@ -662,11 +681,11 @@ In the last activity you have implemented a function which reacts to the user in
 
 #### Submission of lab
 
-Congratulations, you have now completed the activities of Week 3 Lab.
+Congratulations, you have now completed the activities of Lab 2.
 
 *See you next week!*
 
-Please upload the code of your completed lab together with the code your completed homework for this week on Canvas!
+Please upload the code of your completed lab on Canvas!
 
 &nbsp;
 
@@ -679,5 +698,3 @@ Please upload the code of your completed lab together with the code your complet
 - [https://developer.mozilla.org/en-US/docs/Web](https://developer.mozilla.org/en-US/docs/Web)
 - [http://dataviscourse.net/2015/lectures/lecture-javascript/](http://dataviscourse.net/2015/lectures/lecture-javascript/)
 - [http://hangar.runway7.net/javascript/guide](http://hangar.runway7.net/javascript/guide)
-
-
