@@ -599,7 +599,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 1. **Download template for 'week 03 lab', unzip it and open it as a new project in Webstorm:**
 
-	[https://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip](download week-03_lab.zip)
+	[download week-03_lab.zip](https://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
 
 2. **Familiarize yourself with the provided HTML document: ```index.html```**
 
