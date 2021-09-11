@@ -24,7 +24,7 @@ After completing this lab, you will be able to:
 	* Debugging (Web Console)
 	* Filter, Sort, and Map
 
-- Include and run JavaScript code in your websites
+- Include and run JavaScript code in your websites.
 
 
 
