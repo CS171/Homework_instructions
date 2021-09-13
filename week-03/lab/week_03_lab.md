@@ -599,7 +599,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 1. **Download template for 'week 03 lab', unzip it and open it as a new project in Webstorm:**
 
-	[download week-03_lab.zip](https://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
+	[download week-03_lab.zip](http://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
 
 2. **Familiarize yourself with the provided HTML document: ```index.html```**
 
@@ -624,11 +624,10 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 	<img src="week-03_lab_breakpoint.png" alt="sources" width="400"/>
 	* You'll notice now that your code stops executing at line 14. If you hover over the ```attractions```, you can view the value assigned to the variable.
 	* If you press the blue resume button, you'll see that the execution jumped down to line 15, which is the next breakpoint. By hovering over ```a.visitors``` you can see that the value is undefined. This is our bug.
+	* You can also step forward line-by-line, disable all breakpoints, and step into, out of, and over functions through the buttons at the top right of the debugger by the resume button.
 	* If you switch to the Console tab and type in ```a``` and pressing enter, you'll notice you can also interact with the local variables from the console. This is a good tool for testing out code without having to reload the page.
 	* From the current value of ```a``` or ```b```, you'll notice there's a property that holds the number of visitors that's capitlized slightly differently than it is in line 15. This is the bug!
 	* Disable your breakpoints by clicking on them. Now go back to WebStorm and update your code so that visitors is capitalized correctly. When you refresh the page the log that prints the array should show that it's sorted.
-
-	<!--Let's begin by sorting this array (in place) by the number of visisors. You'll notice that we've added a console log for you to use to confirm your code sorting the array -->
 
 4. **Filter the array**
 	We want to show the *top five global attractions* with the most annual visitors in a bar chart. There are 60 attractions in the dataset, so you have to create a new array or modify the variable ```attractions```. *Suggestion: Filter your sorted array to get the first five rows.*
