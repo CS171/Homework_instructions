@@ -599,7 +599,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 1. **Download template for 'week 03 lab', unzip it and open it as a new project in Webstorm:**
 
-	[download week-03_lab.zip](http://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
+	[download week-03_lab.zip](https://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
 
 2. **Familiarize yourself with the provided HTML document: ```index.html```**
 
@@ -620,7 +620,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 	<img src="week-03_lab_sources_panel.png" alt="sources" width="400"/>
 
-	* From this file view, we are able to set [breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) that let you step through your code as it executes, which is an incredibly powerful debugging tool. **Add breakpoints on lines 14 and 15 as shown below and refresh the page**
+	* From this file view, we are able to set [breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) that let you step through your code as it executes, which is an incredibly powerful debugging tool. **Add breakpoints on lines 14 and 15 as shown below and refresh the page.**
 	<img src="week-03_lab_breakpoint.png" alt="sources" width="400"/>
 	* You'll notice now that your code stops executing at line 14. If you hover over the ```attractions```, you can view the value assigned to the variable.
 	* If you press the blue resume button, you'll see that the execution jumped down to line 15, which is the next breakpoint. By hovering over ```a.visitors``` you can see that the value is undefined. This is our bug.
