@@ -11,7 +11,6 @@ exclude: true
 
 In this assignment, you’ll use HTML, CSS and JavaScript to create a small dashboard for a local pizza delivery company. It should help the company to get meaningful insights into their collected data and to evaluate their performance. We provide a template that will serve as your point of departure code.
 
-In the design part of this homework you have to critique a visualization (you can choose between two given examples) and you have to create a few sketches, similar to our previous lecture.
 
 This homework assumes that you have read and programmed along with chapter 3 (up to page 53) in *D3 - Interactive Data Visualization for the Web* (Second Edition) by Scott Murray.
 
@@ -197,9 +196,8 @@ a. Add your lab work in ```submission_FirstnameLastname/lab``` and add a text fi
 
 b. Put your JS homework in the folder structure ```submission_FirstnameLastname/hw/implementation```.
 
-c. Put your PDF file in the folder structure ```submission_FirstnameLastname/hw/design```
 
-d. Zip your folder and upload it on Canvas for your homework submission.
+c. Zip your folder and upload it on Canvas for your homework submission.
 
 
 Use the following recommended folder structure:
@@ -213,8 +211,6 @@ Use the following recommended folder structure:
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
-	    design/
-	        creation.pdf
 	    ...
 ```
 Note that you should add your name to the filename using CamelCase style, e.g., `submission_JohnDoe.zip` if your name is John Doe.
