@@ -31,13 +31,13 @@ The ```img``` folder contains an image in portrait format for each building.
 
 1. **Download the resources**
 
-	Please download the data (buildings.csv file) as well as the images. You'll find all files in the template ZIP for this week's hw on Canvas. This [link](https://canvas.harvard.edu/courses/74834/files/10629404?module_item_id=756548) should get you there quickly.
+	Please download the data (buildings.csv file) as well as the images. You'll find all files in the template ZIP for this week's hw on Canvas. This [link](http://cs171.org/Homework_instructions/week-04/hw/week-04_hw_template.zip) should get you there quickly.
 	
 2. **Set up a new D3 project and load the CSV file**
 	
 3. **Create a multi-column layout (HTML/CSS)**
 
-	Split your page into multiple columns. The bar chart will be placed on the left side of the page while the right side will consist of a container that displays the dynamic content when the user selects a building in the bar chart. We strongly encourage you to use the *Bootstrap* [grid system](https://getbootstrap.com/docs/4.5/layout/grid/).
+	Split your page into multiple columns. The bar chart will be placed on the left side of the page while the right side will consist of a container that displays the dynamic content when the user selects a building in the bar chart. We strongly encourage you to use the *Bootstrap* [grid system](https://getbootstrap.com/docs/5.1/layout/grid/).
 	
 4. **Draw the SVG bar chart with D3**
 
@@ -100,7 +100,7 @@ The ```img``` folder contains an image in portrait format for each building.
 	
 	> We have used the *Google Font "Roboto"* in our example. If you are interested in using different fonts, this page might be helpful: [https://www.google.com/fonts](https://www.google.com/fonts)
 	
-## 2) Design Critique (3 points)
+<!--## 2) Design Critique (3 points)
 
 ![Homework 3 - Design Critique](cs171-w4hw-dashboard.png?raw=true "Homework 3 - Design Critique")
 
@@ -111,8 +111,63 @@ The ```img``` folder contains an image in portrait format for each building.
 Critique this dashboard using the design principles and terminology we discussed in class (C.R.A.P., Gestalt Principles, Tufte). 
 
 &nbsp;
+-->
 
-## 3) Bonus Task I | Implementation (1 point)
+## 2) Dear Data: Collecting Personal Data (3 points)
+
+Over the next two weeks you will observe, collect, and sketch a visualization inspired by the Dear Data project. This week, you will collect personal data, and next week you will sketch a visualization that encodes this data using creative, artistic, and whimsical visual encodings inspired by the work of Georgia Lupi and Staphanie Posavec. The student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
+
+<img src="dear_data_cover.png" width="400">
+<!--![Dear Data Book](dear_data_cover.png "Dear Data Book")-->
+
+
+Here are some pictures of last year's submissions:
+
+![Dear Data Examples](dear_data_students1.png "Dear Data Student Examples")
+![Dear Data Examples 2](dear_data_students2.png "Dear Data Student Examples 2")
+
+<!--<img src="dear_data_students1.png" width="600">
+<img src="dear_data_students2.png" width="600">-->
+
+
+In determining the winner, the TFs look for creativity (in the type of data you collect, as well in your visual sketch), solid data collection, and good design.
+
+**Why collect personal data?**
+
+There are several reasons for collecting personal data. Spending time with your data will help you better understand yourself. It helps you reflect on what makes you you. The data you collect and the choices you make reflect your personality. It is a way to figure out what is really important to you, since measuring something means that it matters. Finally, collecting personal data is another way to document your life, just as words in a journal and images you capture are documenting your human experience.
+
+**What data to collect**
+
+Think about what personal data you want to collect this week. Anything that can be measured is data, and any measurement that relates to you and your life is personal data. Examples include drinks, sounds, transportation, fitness, indecision, compliments, relationships, mirrors, emotions, workspaces, sports, apologies, things you buy, laughter, complaints, food, etc. In your homework document, write down several options, and then make a final decision. Tell us why you chose to collect this particular data.
+
+**How much data to collect**
+
+You must collect data for **at least 5 days** with **at least 3 observations** per day, so make sure to get started early. Each data item (i.e., rows in your data table) needs to have **at least 5 attributes** (i.e., columns in your data table), including the date and time when you collected each item. More attributes are better, especially if they are used to make connections between different data items (e.g., how people are connected, and who they are connected to).
+
+*Example:* You decide to collect data about butterflies. Each row of your data table will be a butterfly sighting. The first attribute is the day and time of when you saw the butterfly. Other attributes (columns) in your table are where you saw it, its color, what mood you were in (using emojis), what kind of butterfly you think it was. You make sure to keep an eye out for butterflies to hopefully see at least three of them each day. If you don't, you can make a couple of sightings (but do not cheat too much). 
+
+**How to collect your data**
+
+To collect your data we strongly suggest to use pen and paper. You can easily carry them around with you all week long, they never need power, and they are easier and more fun to use. When you are done, transfer your data into a table if it is not already in table form. Put the data items into rows and the attributes into columns.
+
+Make sure to label each column and to **provide additional explanations for your data attributes** below your table, including at least what they mean, how you collected them, and their data type (categorical, ordinal, or quantitative).
+
+_Example: Below is a picture of an example data table for the butterfly data, including a legend that explains each attribute._
+
+![Data Collection Examples](data_collection.png "Dear Data Data Collection Example")
+
+
+**How to submit your data**
+
+If you collected your data on paper, take a picture of your table and submit it with your homework. If you like, you can also transfer your data to a spreadsheet and submit it that way. A spreadsheet allows you to easily compute aggregate statistics, e.g., averages, medians, or percentages, although you can also do that with pen and paper.
+
+## 3) Finish up your Design Sprint tasks
+
+* Create Create at least 10 sketches (per group member) that answer some or all of the questions you came up with during the ‘map’ phase. Upload them to your team's process book.
+* Detailed instructions can be found in the [design sprint instructions](https://docs.google.com/document/d/1cPr0Thr63TwuH5fQevZ1XqMzT5d-emr70SFq7eF-qmI/edit).
+
+
+## 4) Bonus Task (1 point)
 
 Please make sure to finish all previous tasks before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who already have more experience with HTML, CSS and JS.
 
@@ -120,11 +175,6 @@ When the user clicks on a bar or on a text label you are currently displaying, a
 
 &nbsp;
 
-## 4) Bonus Task II | Design (3 points)
-
-Over the past week, you've collected all sorts of personal data. For this bonus task, we ask you to create a 'Dear Data' postcard sketch, including an explanation of the visual encodings. Use the marks and channels terminology from class in your explanation.   
-
-&nbsp;
 
 ## 5) Submit Homework in Canvas
 
@@ -133,8 +183,9 @@ Submission instructions:
 1. Use the following recommended folder structure:
 
 ```
-/submission_week-04_FirstnameLastname	
-    design/         ...folder for your sketches    
+/submission_week-04_FirstnameLastname
+	lab_partner.txt	
+    dear_data/      ...folder for your data that you collected for dear_data    
     implementation/ ...folder for your code
         lab/             
                 index.html

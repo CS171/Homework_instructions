@@ -24,7 +24,7 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 ### Prerequisites
 
 - You have read chapter 3 (p. 52-62) and chapter 5 (p. 67-72, p. 79-87)  in *D3 - Interactive Data Visualization for the Web*.
-- You have downloaded the pre-circulated code/template for this week's lab on canvas. This [link](https://canvas.harvard.edu/courses/74834/files/10628390?module_item_id=756509) should get you there quickly. 
+- You have downloaded the template for this week's lab on canvas. This [link](http://cs171.org/Homework_instructions/week-04/lab/week-04_lab_template.zip) should get you there quickly. 
 
 &nbsp; 
 
@@ -51,9 +51,9 @@ A summary of D3's features and key aspects by *Scott Murray*:
 
 ### D3 Version
 
-**CS171 is using D3 version 6!**
+**CS171 is using D3 version 7!**
 
-Right before the start of the semester, Mike Bostock has released D3 v6. Many of the changes in v5 and v6 address very
+Right before the start of the semester, Mike Bostock released D3 v7. Many of the changes in v5 - v7 address very
 specific issues that are not of relevance for you, and thus, the examples in the textbook (D3 v.4) still serve as 
 excellent references. Also, when looking up code online, be aware that many examples still use older versions and, as
 a consequence, you might not be able to just copy paste the entire code -  you will need to make some changes! (The most
@@ -65,7 +65,7 @@ the different versions here:  [https://github.com/d3/d3/releases](https://github
 
 *This is a brief overview of how to set up a basic D3 project. This should not be completely new but it might help you to solve the activity later.*
 
-Before working with D3 you need to include the D3 JavaScript library first. When embedding it into your html, the source can either be local copy or a secure link to the latest d3 version online, i.e.  ```<script src="https://d3js.org/d3.v6.min.js"></script>```
+Before working with D3 you need to include the D3 JavaScript library first. When embedding it into your html, the source can either be local copy or a secure link to the latest d3 version online, i.e.  ```<script src="https://d3js.org/d3.v7.min.js"></script>```
 
 Your file and folder structure for D3 projects should look like the following:
 
@@ -200,7 +200,7 @@ d3.select("body")
 
 2. **Navigate to 'activity_1' and create a new D3 project inside the folder.**
 
-	*At this point it might also be a good idea to create a boilerplate template project (i.e., directory structure) that you can copy every time you create a new project. The template project should include the directory structure for your project and all the files and boilerplate you usually need (e.g., D3 libraries, Bootstrap and JQuery libraries, etc.). In fact, in the pre-circulated code for this week, we've included a folder named 'boilerplate' that contains such a boilerplate project. Feel free to use this as your starting point for your own custom boilerplate project.*
+	*At this point it might also be a good idea to create a boilerplate template project (i.e., directory structure) that you can copy every time you create a new project. The template project should include the directory structure for your project and all the files and boilerplate you usually need (e.g., D3 libraries, Bootstrap, etc.). In fact, in the template code for this week, we've included a folder named 'boilerplate' that contains such a boilerplate project. Feel free to use this as your starting point for your own custom boilerplate project.*
 
 3. **Add an SVG rectangle to the HTML document**
 
@@ -524,12 +524,12 @@ The callback function - the inner function of *d3.csv()* - is called only after 
     
    ```javascript
    d3.csv(url, (row) => {
-   	// convert
-   	row.value = +row.value
-   	return row
+   		// convert
+   		row.value = +row.value
+   		return row
    }).then( (data) => {
    	// check out the data and do whatever you want with it
-   	console.log(data)
+   		console.log(data)
    })
    ```
 
@@ -615,7 +615,7 @@ Change the **hover style** of the SVG circles.
 
 Congratulations, you have now completed the activities of Lab 3! 
 
-Please upload the code of your completed lab (only activity_3) on Canvas together with this week's homework. More instructions on the homework manual! 
+Please upload the code of your completed lab (only activity_3) on Canvas together with this week's homework. More instructions in the homework manual! 
 
 
 -----
