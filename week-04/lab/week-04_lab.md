@@ -24,7 +24,7 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 ### Prerequisites
 
 - You have read chapter 3 (p. 52-62) and chapter 5 (p. 67-72, p. 79-87)  in *D3 - Interactive Data Visualization for the Web*.
-- You have downloaded the template for this week's lab on canvas. This [link](http://cs171.org/Homework_instructions/week-04/lab/week-04_lab_template.zip) should get you there quickly. 
+- You have downloaded the template for this week's lab on canvas. This [link](https://www.cs171.org/Homework_instructions/week-04/lab/week-04_lab_template.zip) should get you there quickly. 
 
 &nbsp; 
 
