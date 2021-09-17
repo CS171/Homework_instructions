@@ -31,7 +31,7 @@ The ```img``` folder contains an image in portrait format for each building.
 
 1. **Download the resources**
 
-	Please download the data (buildings.csv file) as well as the images. You'll find all files in the template ZIP for this week's hw on Canvas. This [link](http://cs171.org/Homework_instructions/week-04/hw/week-04_hw_template.zip) should get you there quickly.
+	Please download the data (buildings.csv file) as well as the images. You'll find all files in the template ZIP for this week's hw on Canvas. This [link](https://www.cs171.org/Homework_instructions/week-04/hw/week-04_hw_template.zip) should get you there quickly.
 	
 2. **Set up a new D3 project and load the CSV file**
 	
