@@ -157,6 +157,7 @@ The data (arrays with JSON objects) are already stored in these two global varia
             <p><strong>Deliveries</strong></p>
             <p><span id="value"></span></p>
         </div>
+	```   
 
 &nbsp;
 
