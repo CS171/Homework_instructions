@@ -1,5 +1,13 @@
+<!-----
+layout: lab
+exclude: true
+----->
 
 <img src="cs171-logo.png" width="200">
+
+&nbsp;
+
+# Week 05 | Homework
 
 &nbsp;
 
@@ -11,7 +19,7 @@ This homework requires that you have read and programmed along with chapters 7 a
 
 &nbsp;
 
-## 1) Za'atari Refugee Camp (10 points)
+## 1) Za'atari Refugee Camp (7 points)
 
 Za’atari is a refugee camp in Jordan that opened in 2011 to host people fleeing from the Syrian civil war. With around 80,000 refugees it is one of the largest UN-supported camps and over the past few years it transformed from a tent camp to a real city with water and sewage systems, markets, coffee shops etc.
 
@@ -24,7 +32,7 @@ Za’atari is a refugee camp in Jordan that opened in 2011 to host people fleein
 
 As part of this homework assignment we provide a CSV file with population statistics between January 2013 and November 2015. The statistics are based on active registrations in the UNHCR database.
 
-[zaatari-refugee-camp-population.csv](assets/zaatari-refugee-camp-population.csv)
+[zaatari-refugee-camp-population.csv](https://www.cs171.org/Homework_instructions/week-05/hw/assets/zaatari-refugee-camp-population.csv)
 
 #### Type of Shelter
 
@@ -38,7 +46,8 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 
 1. **Download the data**
 
-	Please download the CSV data: [assets/zaatari-refugee-camp-population.csv](assets/zaatari-refugee-camp-population.csv)
+	Please download the CSV data: [zaatari-refugee-camp-population.csv](https://www.cs171.org/Homework_instructions/week-05/hw/assets/zaatari-refugee-camp-population.csv)
+
 
 2. **Set up a new D3 project and create a two-column layout in your HTML file**
 	During the course of this homework you will add an area chart to the left column and a bar chart to the right column.
@@ -75,7 +84,7 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 	b. Draw the area (using an SVG path element)
 	
 	```javascript
-	let path = svg.append("path")
+	var path = svg.append("path")
       .datum(data)
       .attr("class", "area")
       .attr("d", area);
@@ -192,9 +201,43 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 &nbsp;
 
 Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view! 
-	
 
-## 2) Bonus Task (1 point)
+## 2) Dear Data: Week 2 - Sketching your data (3 points)
+
+This week, you will sketch a visualization that encodes the personal data you collected last week using creative, artistic, and whimsical visual encodings inspired by the Dear Data project. Similar to Georgia Lupi and Staphanie Posavec, we want you to sketch your visualizations by hand, either using pen and paper or a tablet and electronic pencil. As you know from last week's homework, the student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
+
+**Why sketches?**
+
+We previously talked about the various advantages of sketches. They are cheap, easy to create, easy to throw away, and they seem to increase the depth of discussions and reflections. Another advantage is that sketches allow you to **iterate on your visualization ideas**. It is never the case that your first sketch is the best you can come up with. As Nadieh Bremer, accomplished visualization designer, says:
+
+It makes me feel more human/normal to think that the people I admire also didn’t come up with their final dataviz in one perfect go. - Nadieh Bremer
+
+
+Sketching allows you to reflect and refine your visualizations. Take a look at some of the blog posts that Nadieh and Shirley Wu wrote for their [Data Sketches](https://www.datasketch.es) project, and you will see many iterations of hand-drawn in addition to code sketches. As an aside, the Data Sketches book would also be a great addition to your visualization library.
+
+**Sketch initial ideas**
+
+In that spirit, we would like you to create **at least five** initial sketches of how to visualize the personal data that you collected. These sketches do not have to be very elaborate or refined. They can each be different, or they can be iterations on the same idea. For each sketch, we would like you to add a written **explanation of the visual encodings for each of your data attributes**.  That could be in the form of handwritten or typed text, a hand-drawn legend, or lines and arrows that make the connection from your visuals to your data. We would like you to use **at least seven** of your collected or aggregate data attributes in your sketches.
+
+**Get inspired**
+
+As discussed in class, we hope that you will avoid design fixation by drawing inspiration for your sketches from paintings, sculptures, architecture, photography, music, advertisements, graphical designs, visualizations, etc. With the internet at your fingertips it should be relatively easy to find cool visuals that you find pleasing, interesting, intriguing, or that simply got your attention. Please **reference at least two inspirations for your sketches** in your writeup, including an image and, if applicable, the URL for each. For each source, let us know why it inspired you, and how you used ideas from it in your sketches.
+
+**Final sketch**
+
+Once you got your inspiration, sketched a few ideas, and iterated on them, it is time to create your final sketch. Again, you can use pen and paper or a tablet and electronic pencil for this. We do not want you to be constrained, so you can **use any page size or format** that you like. Please use thick strokes and bold colors that are easy to see from a distance and that will reproduce well once you take a photo of your sketch (assuming it was done on paper). As before, we want you to use **at least seven** of your data attributes in your final sketch.
+
+Similar to the Dear Data project, we also want you to **create a legend that explains how each of your data attributes is visually encoded**. The legend can be drawn on a separate piece of real or electronic paper. Again, make sure to use thick strokes or large fonts to make the writing easy to read. If you like, you can also add the legend directly to your sketch using lines and arrows that make the connection from your visuals to your data.
+
+**Reflections**
+
+After you are finished with your final sketch we want you to reflect on the overall experience over the two weeks of this project. Some questions to consider include: How difficult was it to collect your data? Did you encounter issues you had not considered before? Was it easy to find inspiration for your initial sketches? Are you happy with the variety of ideas you explored? What insights into your data did you get from your visualizations? Did you learn anything that surprised you? Was this mini-project fun or a chore? Would you do this again for your personal use in the future? Of course you can also write about any other observations and thoughts. Write **at least two paragraphs** of reflections.
+
+**How to submit your project**
+
+If you drew using pen and paper, take pictures of your sketches and legends, and if you used a tablet and electronic pencil you can export the electronic pages. Combine all of the images in a pdf and label them to make it clear what they show. You can use a google doc to collect everthing and then export it to a pdf). Please make sure that your images are big enough to make the visuals and text easily legible. You can include your reflection as typed text after the embedded images in your homework document.
+
+## 3) Bonus Task (1 point)
 
 Please make sure to finish all previous tasks completely before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who have already more experience with JS libraries.
 
@@ -209,20 +252,24 @@ You can either draw two paths (d3 area function) and clip the defined regions or
 Of course the mouse pointer and the dynamic tooltips should remain unchanged.
 
 
-## 3) Submit Homework in Canvas
+## 4) Submit Homework in Canvas
 
 Submission instructions:
 
 1. Use the following recommended folder structure to submit your hw and lab:
 
 ```
-/submission_FirstnameLastname	
+/submission_FirstnameLastname
+	lab_partner.txt 	
 	hw/
+    	dear_data/      ...folder for your dear data sketches   
 	    implementation/ ...folder for your code
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
-
+	    design/         ...folder for your sketches
+	        ...
+		...
 	lab/
 ```
 
