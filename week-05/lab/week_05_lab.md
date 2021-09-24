@@ -1,13 +1,13 @@
----
+<!-----
 layout: lab
 exclude: true
----
+----->
 
 <img src="cs171-logo.png" width="200">
 
 &nbsp;
 
-# Lab 5
+# Week 05 | Lab
 
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas at the beginning of class!
