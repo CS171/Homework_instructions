@@ -1,4 +1,7 @@
-
+---
+layout: lab
+exclude: true
+---
 
 <img src="cs171-logo.png" width="200">
 
@@ -51,7 +54,7 @@ D3 provides scale functions to convert the *input domain* to an *output range*. 
 
 ```javascript
 // Creating a scale function
-let iceCreamScale = d3.scaleLinear()
+var iceCreamScale = d3.scaleLinear()
 	.domain([0, 20000])
 	.range([0, 400]);
 
@@ -61,7 +64,7 @@ iceCreamScale(5000);	// Returns: 100
 This was pretty easy, because we already knew the max value of the data. What if we load data from an external source and don't know the data range the data is going to be in? Instead of specifying fixed values for the domain, we can use the convenient array functions ```d3.min()```, ```d3.max()``` or ```d3.extent()```.
 
 ```javascript
-let quarterlyReport = [
+var quarterlyReport = [
 	{ month: "May", sales: 6900 },
 	{ month: "June", sales: 14240 },
 	{ month: "July", sales: 25000 },
@@ -69,13 +72,19 @@ let quarterlyReport = [
 ];
 
 // Returns the maximum value in a given array (= 25000)
-let max = d3.max(quarterlyReport, d=>d.sales);
+var max = d3.max(quarterlyReport, function(d) {
+	return d.sales;
+});
 
 // Returns the minimum value in a given array (= 6900)
-let min = d3.min(quarterlyReport, d=>d.sales);
+var min = d3.min(quarterlyReport, function(d) {
+	return d.sales;
+});
 
 // Returns the min. and max. value in a given array (= [6900,25000])
-let extent = d3.extent(quarterlyReport, d=>d.sales);
+var extent = d3.extent(quarterlyReport, function(d) {
+	return d.sales;
+});
 ```
 
 &nbsp;
@@ -97,7 +106,7 @@ In this lab you will work on a scatterplot with flexible scales and axes. You wi
 
 1. **Download the framework**
 
-	[week-05\_lab\_template.zip](week-05_lab_template.zip)
+	[template](https://www.cs171.org/Homework_instructions/week-05/lab/week-05_lab_template.zip)
 	
 	We have included *Bootstrap*, *D3* and the dataset *wealth-health-2014.csv*. The HTML document contains an empty *div* container for the scatterplot and the CSV import is implemented in the JS file ```main_presentation.js```.
  
@@ -110,7 +119,7 @@ In this lab you will work on a scatterplot with flexible scales and axes. You wi
 
 	* The ID of the target div container in the html file is ```#chart-area```
 	* Use the variables ```height``` and ```width``` for the SVG element
-	* Save the new D3 selection in a variable (```let svg = d3.select("#chart-area")...```)
+	* Save the new D3 selection in a variable (```var svg = d3.select("#chart-area")...```)
 
 4. 	**Create linear scales by using the D3 scale functions**
 
@@ -138,7 +147,7 @@ In this lab you will work on a scatterplot with flexible scales and axes. You wi
 	
 		```javascript
 		// Ice Cream Example
-		.attr("cx", d=>iceCreamScale(d.sales))
+		.attr("cx", function(d){ return iceCreamScale(d.sales); })
 		```
 
 	* Specify the circle attributes: ```r```, ```stroke``` and ```fill```
@@ -150,15 +159,15 @@ In this lab you will work on a scatterplot with flexible scales and axes. You wi
 	You can use a *padding* variable when setting the *range* of the scales. This is one option to push the elements away from the edges of your SVG drawing area:
 
 	```javascript
-	let padding = 30;
+	var padding = 30;
 	
 	// Modify range for x-axis
-	let xScale = d3.scaleLinear()
+	var xScale = d3.scaleLinear()
 		.domain(...)
 		.range([padding, width - padding]);
 	
 	// Modify range for y-axis
-	let yScale = d3.scaleLinear()
+	var yScale = d3.scaleLinear()
 		.domain(...)
 		.range([height - padding, padding]);
 	```
@@ -174,10 +183,10 @@ In the last lab you have learned how to create basic SVG shapes, like rectangles
 
 ```javascript
 // Create group element
-let group = svg.append("g");
+var group = svg.append("g");
 
 // Append circle to the group
-let circle = group.append("circle")
+var circle = group.append("circle")
 	.attr("r", 4)
 	.attr("fill", "blue");
 ```
@@ -186,7 +195,7 @@ Group elements are invisible but you can apply transformations, for example *tra
 ```javascript
 // Group element with 'transform' attribute
 // x = 70, y = 50 (...moves the whole group 70px to the right and 50px down)
-let group = svg.append("g")
+var group = svg.append("g")
 	.attr("transform", "translate(70, 50)");
 ```
 
@@ -204,7 +213,7 @@ D3 provides four methods to create axes with different orientations and label pl
 
 ```javascript
 // Create a horizontal axis with labels placed below the axis
-let xAxis = d3.axisBottom();
+var xAxis = d3.axisBottom();
 
 // Pass in the scale function
 xAxis.scale(xScale);
@@ -213,7 +222,7 @@ xAxis.scale(xScale);
 The above is equivalent to:
 
 ```javascript
-let xAxis = d3.axisBottom()
+var xAxis = d3.axisBottom()
 	.scale(xScale);
 ```
 
@@ -265,7 +274,7 @@ Additionally, you can use the HTML *class* property as a selector and modify the
 D3 axis functions automatically adjust the spacing and labels for a given scale and range. Depending on the data and the type of the visualization you may want to modify these settings.
 
 ```javascript
-let xAxis = d3.axisBottom()
+var xAxis = d3.axisBottom()
 	.scale(xScale)
 	. ... // Add options here
 ```
@@ -302,8 +311,8 @@ You can read more about D3 axis, ticks and tick formatting in the *D3 API refere
 	```javascript
 	//Ice Cream Example
 	.domain([
-		d3.min(data, d=>d.sales) - 100,
-		d3.max(data, d=> d.sales)+ 100
+		d3.min(data, function(d){ return d.sales }) - 100,
+		d3.max(data, function(d){ return d.sales }) + 100
 	])
 	```
 
@@ -331,7 +340,7 @@ In the previous examples we have used only quantitative scales but D3 also provi
 
 ```javascript
 // Create an ordinal scale function
-let xScale = d3.scaleBand()
+var xScale = d3.scaleBand()
 	.domain(["May", "June", "July", "August"])
 	.range([0, 400]) // D3 fits n (=4) bands within this interval
 	.paddingInnder(0.05);	// Adds spacing between bands
@@ -351,7 +360,7 @@ D3 has built-in color palettes that work like ordinal scales and can also be acc
 
 ```javascript
 // Construct a new ordinal scale with a range of ten categorical colors
-let colorPalette = d3.scaleOrdinal(d3.schemeCategory10);
+var colorPalette = d3.scaleOrdinal(d3.schemeCategory10);
 
 // Print color range
 console.log(colorPalette.range());
@@ -367,7 +376,7 @@ colorPalette("Chocolate") // Returns: #2ca02c
 Instead of using a fixed range of colors you can use linear scale functions to create color gradients: 
 
 ```javascript
-let linearColor = d3.scaleLinear()
+var linearColor = d3.scaleLinear()
   .domain([0,100])
   .range(["darkgreen","lightgreen"]);
 
@@ -427,24 +436,24 @@ Positioning the axes or defining the correct spacing between the components can 
 
 ```javascript
 // Margin object with properties for the four directions
-let margin = {top: 20, right: 10, bottom: 20, left: 10};
+var margin = {top: 20, right: 10, bottom: 20, left: 10};
 
 // Width and height as the inner dimensions of the chart area
-let width = 960 - margin.left - margin.right,
+var width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 // Define 'svg' as a child-element (g) from the drawing area and include spaces
-let svg = d3.select("body").append("svg")
+var svg = d3.select("body").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     
 // All subsequent functions/properties can ignore the margins:
-let x = d3.scaleLinear()
+var x = d3.scaleLinear()
 	.range([0, width]);
 
-let y = d3.scaleLinear()
+var y = d3.scaleLinear()
     .range([height, 0]);
 ```
 
