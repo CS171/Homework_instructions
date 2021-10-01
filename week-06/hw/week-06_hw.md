@@ -1,4 +1,9 @@
 
+<!-----
+layout: lab
+exclude: true
+----->
+
 <img src="cs171-logo.png" width="200">
 
 &nbsp;
@@ -20,13 +25,14 @@ Optional reading: [Mike Bostock's 'Thinking with Joins'](http://bost.ocks.org/mi
 
 ### Template
 
-To help you get started with this homework assignment we have prepared a template that you can use. It is based on the front-end framework *Bootstrap* and it includes the JS libraries: *D3*, *D3-tip* (tooltips) and *jQuery*. Furthermore, a CSV file (```fifa-world-cup.csv```) is stored in the folder *"data"*. Of course, you can also start with an empty project and just copy the dataset.
+To help you get started with this homework assignment we have prepared a template that you can use. It is based on the front-end framework *Bootstrap* and it includes *D3*,
+Furthermore, a CSV file (```fifa-world-cup.csv```) is stored in the folder *"data"*. Of course, you can also start with an empty project and just copy the dataset.
 
-[week-6\_hw\_template.zip](week-6_hw_template.zip)
+[week-6\_hw\_template.zip](https://www.cs171.org/Homework_instructions/week-06/hw/week-6_hw_template.zip)
 
 ### Overview
 
-A D3 line chart will be the core component of your visualization. The x-axis represents the time period and the y-axis will show the attribute of the current user selection: **goals**, **average goals**, **matches**, **teams** or **average attendance.** Additional input fields allow the user to limit the time frame that is shown. If you hover over an event in the line chart, the most important attributes are displayed in a tooltip. If you click on an event, detailed information is visible in a separate container to the right of the chart.
+A D3 line chart will be the core component of your visualization. The x-axis represents the time period and the y-axis will show the attribute of the current user selection: **goals**, **average goals**, **matches**, **teams** or **average attendance.** Additional input fields allow the user to limit the time frame that is shown. If you click on an event, detailed information is visible in a separate container to the right of the chart.
 
 *You can use the following mockup as a guide:*
 
@@ -36,7 +42,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 
 1. **Download the resources**
 
-	Please download the template and the CSV file as a ZIP file: [week-6\_hw\_template.zip](week-6_hw_template.zip)
+	Please download the template and the CSV file as a ZIP file: [week-6\_hw\_template.zip](https://www.cs171.org/Homework_instructions/week-06/hw/week-6_hw_template.zip)
 	
 2. **Familiarize yourself with the provided framework and the FIFA World Cup data**
 
@@ -104,13 +110,8 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	Instead of jumping from one state to another, perform a smooth transition when the user selects a different mode (y-axis value). The duration of the transition should be *800ms*.
 	- Add transitions to the path, the overlayed circles, and the axes
 	
-9. **Implement tooltips**
 
-	- You can use a pre-existing library or create your own tooltips
-	- Display the tooltip whenever the user hovers over a circle in the line chart (circle = specific world cup instance)
-	- The tooltip should include the ***edition*** (year, country) and the respective ***y-axis value***, which depends on the users selection
-	
-10. **Implement a time period filter**
+9. **Implement a time period filter**
 
 	*Enable the user to limit the visible FIFA World Cups to a specific time frame.*
 	
@@ -122,31 +123,35 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	
 	![Time Filtering](time_filtering.gif?raw=true "Time Filtering")
 
-11. **Show the details for a single FIFA World Cup edition**
+10. **Show the details for a single FIFA World Cup edition**
 
 	*If the user clicks on an SVG circle on the line graph, the invidual statistics for this specific event should be displayed in a separate container beside the chart.*
 	
 	- Extend your HTML structure to display the additional information
-	- Create a ***click listener*** for the SVG circles. For this you have to make sure that the tooltip you previously created does not overlap with the circle. You might have to add an offset to the tooltip to accomplish that.
+	- Create a ***click listener*** for the SVG circles.
 	- We have prepared an empty function ```showEdition(d)```. You can call it with the data of the selected event and implement the logic there. Re-factoring code into separate functions is a crucial factor for maintaining the readability and extensibility of your programs. Your D3 update sequence remains compact and you can reuse the functions.
-	- Use *JS functions*, *D3* or *jQuery* to update the HTML content with all the available information for a FIFA World Cup edition: *title, winner, goals, average goals, matches, teams, average attendance*.
+	- Use *JS functions* and *D3* to update the HTML content with all the available information for a FIFA World Cup edition: *title, winner, goals, average goals, matches, teams, average attendance*.
 
-12. **Create a proper style for your webpage**
+11. **Create a proper style for your webpage**
 
 	Maintain good spacing between UI components, overall layout, font size, color scheme, etc. Also, make sure that transitions are intuitive and clear.
 
 
-## 2) Design - Analyze a Data Story (3 points)
+## 2) Design Creation and Explanation (3 points)
 
-Look at this previous CS 171 final project about the war in Syria [http://www.syria-visualized.com/](http://www.syria-visualized.com/) and analyze its storytelling components.
+In a previous homework, you had a chance to familiarize yourself with the following infographic. This week, we want you to get creative!
 
-In your analysis, include answers to the following questions: 
+[![Creative Commons License](cs171-hw2-infographic.png)](https://www.jobvine.co.za/what-does-it-take-to-get-a-job-at-google/)
 
-* What is the message? What is the narrative?
-* In particular, analyze the main storytelling arc elements (Setting/Hook, Rising Insights, Aha Moment, Solution & Next Steps)
-* What did you think worked well? What did not?
-
-
+- **Create 2 sketches that redesign the Google salary visualization.**
+- For each of your two sketches write down which questions your sketch answers
+- Both sketches should cover different aspects of the visual vocabulary (class material of week 5), explain your choices.
+- Name and justify all your changes you made using C.R.A.P. and Gestalt principles that you've learned class.
+- We expect you to write a text in the range of 200-400 words.
+- Write the text with your computer.
+- Take a picture of your sketch or scan it.
+- Create a PDF (creation.pdf) that contains both the sketch and your explanation/justification.
+ß
 
 ## 3) Bonus Task (1 point)
 
@@ -168,20 +173,21 @@ Submission instructions:
 
 ```
 /submission_FirstnameLastname	
+	lab_partner.txt	
 	hw/
 	    implementation/ ...folder for your code
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
-		design_analysis.txt ... analysis for the Design section 
+		design/ ... folder for your design partß 
 		
 	lab/
 	    ...
 ```
 
 2. Make sure to keep the overall size of your submission under 5MB! 
-3. 
 3. Upload a single .zip file.
 
 
 **Congratulations for finishing Homework 6! See you in class!**
+
