@@ -153,7 +153,9 @@ In a previous homework, you had a chance to familiarize yourself with the follow
 - Create a PDF (creation.pdf) that contains both the sketch and your explanation/justification.
 ß
 
-## 3) Bonus Task (1 point)
+## 3) Finish up your Design Sprint tasks
+
+## 4) Bonus Task (1 point)
 
 Please make sure to finish all previous tasks before you start with the bonus activity. Extra credits are only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who have already more experience with web development and JS libraries.
 
@@ -165,7 +167,7 @@ Implement a range slider in your project, instead or in addition to the input fi
 
 
 
-## 4) Submit Homework in Canvas
+## 5) Submit Homework in Canvas
 
 Submission instructions:
 
