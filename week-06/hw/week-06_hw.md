@@ -142,7 +142,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 In a previous homework, you had a chance to familiarize yourself with the following infographic. This week, we want you to get creative!
 
 ![Creative Commons License](cs171-hw2-infographic.png)
-ß
+
 - **Create 2 sketches that redesign the Google salary visualization.**
 - For each of your two sketches write down which questions your sketch answers
 - Both sketches should cover different aspects of the visual vocabulary (class material of week 5), explain your choices.
@@ -151,7 +151,7 @@ In a previous homework, you had a chance to familiarize yourself with the follow
 - Write the text with your computer.
 - Take a picture of your sketch or scan it.
 - Create a PDF (creation.pdf) that contains both the sketch and your explanation/justification.
-ß
+
 
 ## 3) Finish up your Design Sprint tasks
 
