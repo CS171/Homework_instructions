@@ -217,7 +217,7 @@ Sketching allows you to reflect and refine your visualizations. Take a look at s
 
 **Sketch initial ideas**
 
-In that spirit, we would like you to create **at least five** initial sketches of how to visualize the personal data that you collected. These sketches do not have to be very elaborate or refined. They can each be different, or they can be iterations on the same idea. For each sketch, we would like you to add a written **explanation of the visual encodings for each of your data attributes**.  That could be in the form of handwritten or typed text, a hand-drawn legend, or lines and arrows that make the connection from your visuals to your data. We would like you to use **at least seven** of your collected or aggregate data attributes in your sketches.
+In that spirit, we would like you to create **at least five** initial sketches of how to visualize the personal data that you collected. These sketches do not have to be very elaborate or refined. They can each be different, or they can be iterations on the same idea. For each sketch, we would like you to add a written **explanation of the visual encodings for each of your data attributes**.  That could be in the form of handwritten or typed text, a hand-drawn legend, or lines and arrows that make the connection from your visuals to your data. We would like you to use **at least five** of your collected or aggregate data attributes in your sketches.
 
 **Get inspired**
 
@@ -225,7 +225,7 @@ As discussed in class, we hope that you will avoid design fixation by drawing in
 
 **Final sketch**
 
-Once you got your inspiration, sketched a few ideas, and iterated on them, it is time to create your final sketch. Again, you can use pen and paper or a tablet and electronic pencil for this. We do not want you to be constrained, so you can **use any page size or format** that you like. Please use thick strokes and bold colors that are easy to see from a distance and that will reproduce well once you take a photo of your sketch (assuming it was done on paper). As before, we want you to use **at least seven** of your data attributes in your final sketch.
+Once you got your inspiration, sketched a few ideas, and iterated on them, it is time to create your final sketch. Again, you can use pen and paper or a tablet and electronic pencil for this. We do not want you to be constrained, so you can **use any page size or format** that you like. Please use thick strokes and bold colors that are easy to see from a distance and that will reproduce well once you take a photo of your sketch (assuming it was done on paper). As before, we want you to use **at least five** of your data attributes in your final sketch.
 
 Similar to the Dear Data project, we also want you to **create a legend that explains how each of your data attributes is visually encoded**. The legend can be drawn on a separate piece of real or electronic paper. Again, make sure to use thick strokes or large fonts to make the writing easy to read. If you like, you can also add the legend directly to your sketch using lines and arrows that make the connection from your visuals to your data.
 
@@ -237,7 +237,9 @@ After you are finished with your final sketch we want you to reflect on the over
 
 If you drew using pen and paper, take pictures of your sketches and legends, and if you used a tablet and electronic pencil you can export the electronic pages. Combine all of the images in a pdf and label them to make it clear what they show. You can use a google doc to collect everthing and then export it to a pdf). Please make sure that your images are big enough to make the visuals and text easily legible. You can include your reflection as typed text after the embedded images in your homework document.
 
-## 3) Bonus Task (1 point)
+## 3) Finish up your Design Sprint tasks
+
+## 4) Bonus Task (1 point)
 
 Please make sure to finish all previous tasks completely before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who have already more experience with JS libraries.
 
@@ -252,11 +254,11 @@ You can either draw two paths (d3 area function) and clip the defined regions or
 Of course the mouse pointer and the dynamic tooltips should remain unchanged.
 
 
-## 4) Submit Homework in Canvas
+## 5) Submit Homework in Canvas
 
 Submission instructions:
 
-1. Use the following recommended folder structure to submit your hw and lab:
+*  Use the following recommended folder structure to submit your hw and lab:
 
 ```
 /submission_FirstnameLastname
@@ -273,8 +275,8 @@ Submission instructions:
 	lab/
 ```
 
-2. Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
+*  Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
 
-3. Upload a single .zip file.
+*  Upload a single .zip file.
 
 **Congratulations for finishing Homework 5! See you in class!**
