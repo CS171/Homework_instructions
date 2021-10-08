@@ -1,3 +1,7 @@
+<!-----
+layout: lab
+exclude: true
+----->
 
 <img src="cs171-logo.png" width="200">
 
@@ -7,12 +11,12 @@
 
 This homework requires that you have read and **programmed** along with:
 
-- [cs171-lab7-preReading.pdf](https://canvas.harvard.edu/courses/74834/files/folder/pre-reading?preview=10810573) (under week7 in the modules tab in canvas)
+- [cs171-lab7-preReading.pdf](https://www.cs171.org/Homework_instructions/week-07/lab/cs171-lab7-preReading.pdf) (under week7 in the modules tab in canvas)
 - [https://www.w3schools.com/js/js_classes.asp](https://www.w3schools.com/js/js_classes.asp) (repetition of JS classes with more examples)
 -  [Scope and *this* in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
 
-## 1) A survey about the diffusion of microfinance loans (10 points)
+## 1) A survey about the diffusion of microfinance loans (7 points)
 
 In this homework you will work with survey data on microfinance loans. Banerjee et al [1] collected the data in order to develop a model of information diffusion in social networks. To come right to the point: you don't need any knowledge or additional information on microfinance. We will only cover a very small part of the collected data to demonstrate you how to visualize survey results efficiently with JS and D3.
 
@@ -42,7 +46,7 @@ If you are interested in the study you can get the paper here:
 
 To help you get started with this homework assignment we have prepared a template that you can use. It is based on the front-end framework *Bootstrap* and it includes the JS libraries: *D3* and *jQuery*. Furthermore, a CSV file (```household_charateristics.csv```) is stored in the folder *"data"*. Of course, you can also start with an empty project and just copy the dataset.
 
-[Template.zip](Template.zip)
+[Template.zip](http://cs171.org/Homework_instructions/week-07/hw/Template.zip)
 
 
 ### Overview
@@ -166,13 +170,13 @@ You should now apply what you have learned to create an interactive visualizatio
 
 5. **Implement the area chart**
 
+	In the template we've given you code that draws an area chart. However, you'll need to wrangle the data for the visualization and add interactivity to the chart.
+
 	The area chart should display the number of surveys that were conducted over time. Furthermore, it should enable the user to specify a desired time range which automatically influences the bar charts in the right column.
 
-	1. Create a new area chart object
-	2. Define the &nbsp;SVG drawing area and the axes
-	3. Prepare the data in the ```wrangleData()``` function. You can use d3.nest() again to count the number of surveys for each day. Make sure that you have the date variable stored as a date object and that the days are in correct order.
-	4. Initialize D3's path generator for the area (```d3.area()```)
-	5. Call the area function and draw the actual paths
+	1. Prepare the data in the ```wrangleData()``` function. You can use d3.nest() again to count the number of surveys for each day. Make sure that you have the date variable stored as a date object and that the days are in correct order.
+	2. Create an instance of the area chart class in `main.js`, passing in the data and the selector for the parent element you created in `index.html`
+	3. Once done, an area chart should show up. Feel free to style the chart as you wish.
     
     &nbsp;
 
@@ -206,10 +210,10 @@ You should now apply what you have learned to create an interactive visualizatio
  
     You should now be able to display the area and bar charts below each other if the screen is not wide enough. But this doesn't solve the problem of the fixed-sized SVG areas, so you need one further extension. Whenever you initialize a new visualization you can check the width of the parent container and set the SVG width accordingly. The height can remain unchanged.
  
-    *Example for getting the width of a div element with jQuery:*
+    *Example for getting the width of a div element with Javascript:*
  
      ```javascript
-     $("#chart-area").width()
+     document.getElementById('elementId').getBoundingClientRect().width
      ```
  
     Try this concept in your current webpage and make the visualizations more flexible!
@@ -219,10 +223,40 @@ You should now apply what you have learned to create an interactive visualizatio
 10. **Create a proper style for your webpage**
 
 	Maintain good spacing between UI components, overall layout, font size, color scheme, etc.
+
+## 2) Design Critique (3 points)
+
+![Homework 3 - Design Critique](cs171-w4hw-dashboard.png?raw=true "Homework 3 - Design Critique")
+
+*Source: ([http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/](http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/))*
+
+#### Task:
+
+Critique this dashboard using the [design critique rubrik](http://bit.ly/design-critique-rubric). 
+Make sure to use the concepts and terminology we discussed in class (C.R.A.P., Gestalt Principles, Tufte, etc.).
+
+
+&nbsp;
+<!--
+## 2) Design (2 points)
+
+
+In class this week you performed a Think-Aloud Study which included: 
+
+	- Transcribing the study in the process book
+	- Reflecting on the comments you received and how to use them to improve your visualization dashboard
+	- Picking a few concrete ideas for improving your dashboard and explain why
 	
+For this portion of the homework, implement the suggested changes that arose from the the Think Aloud Study. 
 
 
-## 3) Bonus Task (1 point)
+
+Hand in the final Design Sprint
+-->
+
+## 3) Finish up your design sprint tasks!
+
+## 4) Bonus Task (1 point)
 
 Please make sure to finish al previous tasks before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who have more experience with web development and JS.
 
@@ -231,8 +265,7 @@ You have implemented multiple visualization components and made them responsive 
 Think about an efficient way how to handle this and implement it in your current webpage. 
 
 
-
-## 4) Submit Homework in Canvas
+## 5) Submit Homework in Canvas
 
 Submission instructions:
 
@@ -240,17 +273,19 @@ Submission instructions:
 
     ``` markdown
     /submission_FirstnameLastname	
-        hw/
-            implementation/ ...folder for your code
-                index.html
-                css/ 		...folder with all CSS files
-                js/ 		...folder with all JavaScript files
+    	lab_partner.txt
+    	hw/
+    		implementation/ ...folder for your code
+        		index.html
+            	css/ 		...folder with all CSS files
+            	js/ 		...folder with all JavaScript files
+            design/         ...folder for your sketches
         lab/ 
     
             ...
     ```
 
-2. Make sure to keep the overall size of your submission under 5MB! 
+2. Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
 
 3. Upload a single .zip file.
 

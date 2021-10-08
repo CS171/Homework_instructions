@@ -1,3 +1,8 @@
+<!-----
+layout: lab
+exclude: true
+----->
+
 <img src="cs171-logo.png" width="200">
 
 &nbsp;
@@ -18,7 +23,7 @@ Please fill out the pre-reading quiz on Canvas *before* the beginning of lab!
 ### Prerequisites
 
 - You have read and **programmed** along with:
-	- [cs171-lab7-preReading.pdf](https://canvas.harvard.edu/courses/74834/files/folder/pre-reading?preview=10810573) (under week7 in the modules tab in canvas)
+	- [cs171-lab7-preReading.pdf](https://www.cs171.org/Homework_instructions/week-07/lab/cs171-lab7-preReading.pdf) (under week7 in the modules tab in canvas)
 	- [https://www.w3schools.com/js/js_classes.asp](https://www.w3schools.com/js/js_classes.asp) (repetition of JS classes with more examples)
 	- [Scope and *this* in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
@@ -264,7 +269,7 @@ For simplicity reasons, in the example code below, we have not always included t
 
 1. **Download the template**
 
-	[Template.zip](Template.zip)
+	[Template.zip](https://www.cs171.org/Homework_instructions/week-07/lab/Template.zip)
 	
 	Check the ```index.html``` file and get a quick overview of the template.
 
