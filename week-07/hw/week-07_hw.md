@@ -236,24 +236,6 @@ Critique this dashboard using the [design critique rubrik](http://bit.ly/design-
 Make sure to use the concepts and terminology we discussed in class (C.R.A.P., Gestalt Principles, Tufte, etc.).
 
 
-&nbsp;
-<!--
-## 2) Design (2 points)
-
-
-In class this week you performed a Think-Aloud Study which included: 
-
-	- Transcribing the study in the process book
-	- Reflecting on the comments you received and how to use them to improve your visualization dashboard
-	- Picking a few concrete ideas for improving your dashboard and explain why
-	
-For this portion of the homework, implement the suggested changes that arose from the the Think Aloud Study. 
-
-
-
-Hand in the final Design Sprint
--->
-
 ## 3) Finish up your design sprint tasks!
 
 ## 4) Bonus Task (1 point)
