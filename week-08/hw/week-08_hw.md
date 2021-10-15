@@ -1,3 +1,7 @@
+<!---
+layout: lab
+exclude: true
+--->
 
 <img src="cs171-logo.png" width="200">
 
@@ -10,23 +14,11 @@
 
 ## 1) Visualizing Covid Data (8 points)
 
-In prior years, Week 8 was reserved for the mid-term. The midterm usually consists of an in-class design portion as well as a take-home coding component. 
-With the interference of COVID-19, however, there will not be a midterm this year. Instead, we've designed a brand-new homework for you, 
-which doesn't quite reflect the scope of the usual midterm take-home, but should be at least
- rewarding once you're finished. 
-
-Since the coronavirus caused this unique situation and the organizational disruption, what data would be more suited for this week's homework 
-than COVID data in the US since January 2020! 
-
-We are aware that some of you were hoping to create a COVID related final. This homework is not trying to 
-take anything away from you at all! While we want to encourage you to also search for interesting topics beyond COVID 
-for your final projects, we believe that everybody who took CS171 in the fall of 2020 should have at least one coronavirus 
-related data visualization project in their portfolio. 
 
 
 ### Data
 
-- **covid_data** is an official csv file from [HealthData.gov](https://healthdata.gov/dataset/united-states-covid-19-cases-and-deaths-state-over-time) . 
+- **covid_data** is an official csv file from [HealthData.gov](https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36) . 
 The structure of the file is slightly more sophisticated than the ones you've seen so far. There are 13675 rows in the dataset. 
 For each of the 53* states and other jurisdictions in the dataset, there are n
 = 258 rows in the
@@ -57,15 +49,14 @@ applications in the healthcare sector. He tells you that he's got your number fr
  colleague Hanspeter Pfister. 
 Wiesel is desperately looking for a data visualization expert with proficiency in the JavaScript library D3. Recently, 
 his star senior developer Fraya Vogel has left his team, but Wiesel has promised to deliver a new Coronavirus dashboard to 
-his client by  **Wednesday, October 28, 11:59 pm (EST)**. 
-
+his client by **Wednesday, October 27, 11:59 am (EST)**. 
 
 #### Template
 
 ![W08HW-templatePreview](cs171_w8_hw_template.png?raw=true "W08HW-templatePreview")
 
 Before Fraya left to pursue her dream to live off-grid in a lighthouse in
- Iceland, she finished some major parts of the project. Most prominently, she created: 
+ Iceland, she finished some mayor parts of the projects. Most prominently, she created: 
 
 - a responsive html grid for all the components,
 - a brush component (brushable timeline), which allows users to filter the dataset by dates, and
@@ -76,19 +67,17 @@ While the data wrangling algorithms Fraya wrote are very helpful, Helmuth Wiesel
  ugly table. He is hoping that you could implement a choropleth map for him.
 
 Having attended a D3 choropleth bootcamp recently, you think that you're well-equipped for the
- task and agree to help Wiesel. He cries tears of happiness and sends you a [.zip](Template.zip
- ) file with the code
+ task and agree to help Wiesel. He cries tears of happiness and sends you a [.zip](https://www.cs171.org/Homework_instructions/week-08/hw/Template.zip) file with the code
   that Fraya has written so far.
 
 
-
-## Implementation (8 points)
+## Implementation
 
 ### Overview
 
 1. **Download the resources**
 
-	Download the template: [Template.zip](Template.zip)
+	Download the template: [Template.zip](https://www.cs171.org/Homework_instructions/week-08/hw/Template.zip)
 	
 	&nbsp;
 	
@@ -166,9 +155,9 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
        documentation. Also, [this](https://github.com/d3/d3-geo) is the link to the d3.geo() documentation that might come in handy for this task.
       
     In short, there are two different routes you can choose: 1) you can use a geometry
-     that has not been projected (e.g. 'states-10m.json'), and you do the projection
+     that has not been projected (e.g. 'states-albers-10m.json'), and you do the projection
       yourself and play around with ```scale``` and ```transform()```, and 2) alternatively, you can use
-       a map that has already been projected (e.g. 'states-albers-10m.json') to a specific viewpoint
+       a map that has already been projected (e.g. 'states-10m.json') to a specific viewpoint
         (976 on 610) to then just do some basic math to create the perfect fit for your website. You've seen the code for projections in the lab, here's the code for geometries that
          have been projected to exact viewpoints.
 
@@ -276,8 +265,8 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
 
     Set up your standard methods for your new class and define a constructor. Luckily, Fraya has
      already included some code as well as some comments. One thing she tried to solve was how to
-      use only one class for both ascending and descending bar chart instances. She left some
-       comments in the ```wrangleData()``` method.
+      use only one class for both ascending and descending bar chart instances. She copied over her relevant wrangling code from the ```DataTable``` and left some
+       comments in the ```wrangleData()``` method about the reamining work.
        
     If you haven't done so already, this is the time to create two instances of the ```class
      BarVis```. The screenshot should give you an idea of where to position them. 
@@ -289,11 +278,7 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
      
 4. **Complete wrangleData()**
 
-    As mentioned above, there are some helpful comments in the ```wrangleData()``` method. As long as
-     you understand what's going on in the ```wrangleData()``` method of ```DataTable```, you should
-      be able to reuse almost all the code. In addition, include Fraya's ideas, and you should
-       be golden. Console.log your way through the data structure creation if you don't know what
-       's going on. 
+    As mentioned above, there are some helpful comments at the bottom of the ```wrangleData()``` method to help with the sorting and filtering of the data. The code already in the ```wrangleData()``` method is copy and pasted from ```DataTable```, so make sure you understand how it's working in the Table first. 
 
 5. **Draw the bars and axis in updateVis()**
 
@@ -322,7 +307,7 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
 
 &nbsp;
 
-### Design Critique (2 points):
+## 2. Design Critique (2 points):
 
 For the coding portion, you had to write a legend for the map. As mentioned in the lab, there are
  two routes you can choose: You can either choose a continuous color scale or discrete color steps
@@ -342,9 +327,7 @@ In addition, please reflect on the issue of displaying absolute values in a chor
 
 &nbsp;
 
-### Bonus (3 points)
-
-#### graduate students do not need to complete the bonus to receive full credit for this homework!
+## 3. Bonus (1 point)
 
 * Now that you've critiqued your implementation, it is time to improve your dashboard. Implement
  your solution when a user selects absolute values. Leave the initial choropleth style for relative
@@ -364,7 +347,8 @@ Submission instructions:
 1. Use the following recommended folder structure:
 
     ``` markdown
-    /submission_FirstnameLastname	
+    /submission_FirstnameLastname
+       	lab_partner.txt	
         hw/
             implementation/ ...folder for your code
                 index.html

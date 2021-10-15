@@ -7,8 +7,6 @@ exclude: true
 
 # Week 08 | Lab
 
-![Preview](cs171_w8_lab_preview.png?raw=true "D3 Projections")
-
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
 
@@ -47,7 +45,7 @@ After drawing an interactive pie-chart as a warm-up, the main task of the lab wi
 
 Visualizations typically consist of discrete graphical marks, such as symbols, arcs, lines and areas. While the rectangles 
 of a bar chart may be easy enough to generate directly using SVG or Canvas, other shapes are complex, such as rounded annular 
-sectors and centripetal Catmull–Rom splines. The d3 shape module provides a variety of shape generators for your convenience.
+sectors and centripetal Catmull–Rom splines. The D3 shape module provides a variety of shape generators for your convenience.
 
 ![D3 Shapes](cs171-d3-layouts.png?raw=true "D3 Shapes")
  
@@ -57,7 +55,7 @@ Each shape may have distinct features not shared by others, so make sure to cons
 
 ### Pie Shape
 
-In his week's lab, we will introduce you to d3 shapes by creating a simple pie chart. We will
+In this week's lab, we will introduce you to D3 shapes by creating a simple pie chart. We will
  make use of the pie shape generator, i.e. the ***d3.pie()*** method, which computes
   the start and end angles of arcs that comprise a pie or donut chart.
 
@@ -147,15 +145,15 @@ arcs.enter()
 
 1. **Download the template for this week's lab**
 
->     The provided [template](Template.zip) includes:
+    The provided [template](https://www.cs171.org/Homework_instructions/week-08/lab/Template.zip) includes:
         
     - a css folder with a very basic ```styles.css``` file that styles your tooltips
-    - a data folder with files that we will need for activity II.
+    - a data folder with files that we will need for Activity II.
     - a js folder with 
         - ```main.js``` that takes care of loading the data and initializing all the visualizations.
         - ```pieChart.js``` defining the class ```PieChart``` (already containing some code)
         - ```mapVis.js``` that contains some code for class ```MapVis``` that you will create
-             in activity II.  
+             in Activity II.  
     - the HTML file ```index.html``` with a basic document structure
     
     &nbsp;
@@ -172,13 +170,14 @@ arcs.enter()
       
 3. **Complete the class PieChart and its methods**
     
-    Use the sample code that we provided to complete the class PieChart. Notice, that the code we
-     provided works fine if you would copy-paste it in a plain js file and embed it into your
-      website (feel free to try it out!). However, we want to do something more sophisticated and
-       thus, we will be using classes. You might want to go through the sample code line by line
-        and adapt the code snippets in the appropriate methods, i.e. ```initVis()```   vs
-          ```updateVis()```. Make sure that you are using the keyword ```this/vis``` properly, 
-          i.e. that you store your key variables as properties so that your object can access them
+    Using the sample code for a pie chart that we provided, finish writing the class PieChart
+    . Notice, that the code we provided works fine if you would copy-paste it in a plain js file
+     and embed it in your website (feel free to try it out!) However, we want to do something
+      more sophisticated by using classes. Thus, you might want to go through the sample code
+       line by line and adapt the code snippets in the appropriate methods, i.e. ```initVis
+       ()```   vs. ```updateVis()```. Make sure that you are using the keyword ```this/vis
+       ``` properly
+       , i.e. that you store your key variables in properties so that your object can access them
         across methods.
         
     In short, these are the steps that you probably want to do in initVis():
@@ -189,21 +188,8 @@ arcs.enter()
     - define pie layout
     - set up your path generator
     
-    When defining your layout, i.e. your pie shape generator, you will need to make sure that you
-     account for the more complex data structure (in contrast to the example). Try the following
-      lines of code and make sure to understand what's going on:
-      
-    ```javascript
-    vis.pie = d3.pie()
-        .value(function(d){
-            console.log(d)
-            return d.value
-        });
-    ```
-    
     Next up is wrangleData(). Here, you don't need to do anything except to understand what's
-     going on. We are creating a very simple data structure for you. It is an array of objects
-     . Each object has a random value (between 0-100) and a fixed color. This should help you
+     going on. We are creating a very simple data structure for you. It is an array of objects. Each object has a random value (between 0-100) and a fixed color. This should help you
       when defining the fill attribute for the arcs.
       
       Lastly, let's look at updateVis(). Here, you want to draw the arcs that make up the actual
@@ -241,7 +227,7 @@ arcs.enter()
     
     Inside your ```.on()``` event listener, change the attributes of your tooltip so that it
      moves to the current mouse position and displays the proper information. Here's a tooltip
-      that should display all information that you have access to:
+      that should display all the information that you have access to:
       
    ```javascript
    vis.tooltip
@@ -250,7 +236,7 @@ arcs.enter()
         .style("top", event.pageY + "px")
         .html(`
             <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
-                <h3>Arc with index #${d.index}</h3>
+                <h3>Arc with index #${d.index}<h3>
                 <h4> value: ${d.value}</h4>      
                 <h4> startAngle: ${d.startAngle}</h4> 
                 <h4> endAngle: ${d.endAngle}</h4>   
@@ -288,7 +274,7 @@ arcs.enter()
      
     &nbsp;
     
-#### Congrats! You've finished activity I!
+#### Congrats! You've finished Activity I!
 
 > **Important Notice**
 > 
@@ -415,13 +401,13 @@ let usa = topojson.feature(data, data.objects.states).features
 
 -----
 
-## Part II
+## Activity II
 
 ![Preview Activity II](cs171_w8_lab_activity2.png?raw=true "D3 Projections")
 
 In the second part of the lab, you will create a choropleth (world) map. You will implement a
  feature that updates the colors of the countries as well as a feature that allows users to
-  rotate the globe. Lastly, you'll also implement a tooltip that appears when a user hovers a
+  rotate the globe. Lastly, you'll also implement a tooltip that appears when a user hovers over a 
    country.
    
 &nbsp;
@@ -430,19 +416,19 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 
 1. **Familiarize yourself with the constructor of the class MapVis**
 
-    First, notice hat we've already created an instance of MapVis or you. In fact, margin
+    First, notice that we've already created an instance of MapVis for you. In fact, margin
      conventions are already set up for you and even a heading is included. Also, the constructor
       method has been predefined.
 
 	So, let's check out the constructor of class MapVis: Notice, that it has three parameters, i.e
 	. expects three arguments. In addition to the parent element in which the visualization should sit in, it
 	  also wants both data to display as well as geogaphical data. This leads us to the question
-	  : how to load more than one csv file in JS? We were leveraging the idea of promises using
+	  : how do we load more than one csv file in JS? We were leveraging the idea of promises using
 	    e.g. d3.csv(), but how would this be done with multiple files? Check out ```main.js``` to
 	     find out.
 	     
-	Since functions are first class objects, we can store them in an array and then use `Promise.all()` 
-	to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
+	Since functions are first class objects, we can store them in an array and then use Promise
+	.all to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
 	 all the data inside ```.then()```. Notice, that since we are loading two data sets, the data
 	  structure is an array with two elements. You have to access them by index if you want to
 	   pass on only one as an argument. 
@@ -470,7 +456,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
     . Of course, you could append paths for each country every time you call updateVis() and make
      use of ```merge()``` but this is probably overkill. After all, the number of countries won't
       change. Thus, you should consider drawing
-      the map already in initiVis() with a transparent fill. In updateVis() you could then just
+      the map already in initVis() with a transparent fill. In updateVis() you could then just
        grab that selection and change the fill attribute according to the data.
        
     &nbsp;
@@ -528,13 +514,9 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 5. **Understand what's going on in wrangleData**
 
     Just like in the pieChart, we use wrangleData to create some random data. in this case, we
-     create a dictionary with all countries as keys. As values, each country has an object with
-      information. This information is randomly generated but consistent for each state. What
-       does that mean? Each country has a value between 0-100 (whatever that might measure), a
-        category, that reflects in which quarter 'bin' a country is in, based on its value (i.e
-        . 0-25, 26-50, etc.). We will use the dictionary ```vis.stateInfo``` as lookup table when
-         generating the tooltip and when assigning colors to the countries in ```updateVis()```, 
-          which is your next task.
+     create a dictionary with all countries as keys and random colors from an array of 4 colours
+      that we defined in the constructor. We will use this dictionary as lookup table when
+       assigning colors to the countries in ```updateVis()```, which is your next task.
        
     &nbsp;
 
@@ -553,8 +535,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 
     Similar to the pieChart, add a tooltip when hovering over a country path. Also, change the
      color while hovering to have a nice hover effect. If you don't know the code by heart, just
-      look it up in activity I. (Don't forget to append an actual tooltip div!) Make sure to
-       include all information that you have access to in the tooltip.
+      look it up in Activity I. (Don't forget to append an actual tooltip div!)
       
     &nbsp;
           
@@ -562,48 +543,30 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 
     You might have been playing around with the fill attribute and maybe you have wondered how to
      change the color of the ocean. Well, that is actually not that easy because we only have the
-      paths for the countries. Of course, one could try to reverse/inverse-engineer the paths for
-       the
+      paths for the countries. Of course, one could try to reverse/inverse-engineer the paths for the
        ocean but there's an easier way out. Let's just put a sphere behind the map. Here's the
         code for it:
         
     ```javascript
-   // sphere
    vis.svg.append("path")
         .datum({type: "Sphere"})
         .attr("class", "graticule")
         .attr('fill', '#ADDEFF')
         .attr("stroke","rgba(129,129,129,0.35)")
         .attr("d", vis.path);
-   ```
-   
-   You can also do sth more fancy and add a graticule:
-   
-   ```javascript
-   // graticule
-   vis.svg.append("path")
-       .datum(d3.geoGraticule())
-       .attr("class", "graticule")
-       .attr('fill', '#ADDEFF')
-       .attr("stroke","rgba(129,129,129,0.35)")
-       .attr("d", vis.path);
     ```
    
    &nbsp;
         
 9. **Add legend**
 
-    The map/globe looks nice now, but you are missing one important piece - a legend. Check out
-     the sample data to decide what legend you want to use. In general, you always have to make
-      the decision whether to use a continuous color scale or discrete color steps. 
-      
-    In this case, we would like you to implement a legend using discrete color steps first. 
-     You can make use of the ```color``` key value pair for each state in the ```stateInfo
-     ``` data structure. ```color``` reflects the ```category``` a country is in, which signifies
-      in which ```value``` range a state is in, i.e. 0-25, 26-50, 51-75, 76-100. 
-             
+    The map/globe looks nice now, but you are missing one important piece - a legend. For now, we
+     would like you to implement a legend with four steps reflecting the four different colors in
+      the color array in the constructor. Think of this task as producing a very small barchart
+       with less complex data.
+       
     These are the steps to complete the task:
-    - start by creating a legend group and translate it to wherever you want it to be.
+    - start by creating a legend group. translate it to wherever you want it to be.
     
     ```javascript
     vis.legend = vis.svg.append("g")
@@ -618,22 +581,19 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
         .enter()
         ...
     ```
-    - create a legendScale
+    - create a legendScale (linear, band, time - whatever you need)
     - create a legend axis group
     - create a legend axis
     - call the legend axis inside the legend axis group
-    
-   If you want to play around with a continuous color legend, feel free to do so. Here,s a useful
-    [link]: (https://www.visualcinnamon.com/2016/05/smooth-color-legend-d3-svg-gradient)
-    
+ 
    &nbsp;
  
 10. **Make the map draggable / rotatable** 
 
-    You made it this far! Now you've earned some free code. The following lines allow your to
+    You made it this far! Now you've earned some free code. The following lines allow you to
      drag your map which will result in the globe to rotate. In short, what the code does is to
-      get the values where you started dragging and where you ended and computes the change in
-       pixel values. Together with the information from the projection we can then update the
+      get the values of where you started dragging and where you ended dragging. It then computes the change in
+       pixel values. Together with the information from the projection, we can then update the
         path for each country accordingly. We do that both for the countries as well as for the
          graticule. This code can sit in initVis().
 
@@ -704,7 +664,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 
 ### Congratulations! You've completed this week's lab!
 
-submit your folder structure as part of your homework submission. 
+Submit your folder structure as part of your homework submission. 
 
 &nbsp;
 
