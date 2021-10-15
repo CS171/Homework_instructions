@@ -307,7 +307,7 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
 
 &nbsp;
 
-## 2. Design Critique (2 points):
+## 2.) Design Critique (2 points):
 
 For the coding portion, you had to write a legend for the map. As mentioned in the lab, there are
  two routes you can choose: You can either choose a continuous color scale or discrete color steps
@@ -327,7 +327,7 @@ In addition, please reflect on the issue of displaying absolute values in a chor
 
 &nbsp;
 
-## 3. Bonus (1 point)
+## 3.) Bonus (1 point)
 
 * Now that you've critiqued your implementation, it is time to improve your dashboard. Implement
  your solution when a user selects absolute values. Leave the initial choropleth style for relative
