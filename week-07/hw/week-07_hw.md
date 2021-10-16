@@ -174,7 +174,7 @@ You should now apply what you have learned to create an interactive visualizatio
 
 	The area chart should display the number of surveys that were conducted over time. Furthermore, it should enable the user to specify a desired time range which automatically influences the bar charts in the right column.
 
-	1. Prepare the data in the ```wrangleData()``` function. You can use d3.nest() again to count the number of surveys for each day. Make sure that you have the date variable stored as a date object and that the days are in correct order.
+	1. Prepare the data in the ```wrangleData()``` function. You can use d3.rollup() again to count the number of surveys for each day. Make sure that you have the date variable stored as a date object and that the days are in correct order.
 	2. Create an instance of the area chart class in `main.js`, passing in the data and the selector for the parent element you created in `index.html`
 	3. Once done, an area chart should show up. Feel free to style the chart as you wish.
     
