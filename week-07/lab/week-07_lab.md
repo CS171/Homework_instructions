@@ -665,11 +665,11 @@ Great job, you now have a focus-and-context visualization that even allows you t
 
 -----
 
-#### Submission of lab (activity I - IV)
+#### Submission of lab (activity I - V)
 
 Congratulations, you have now completed the activities of this week's lab!
 
-Please submit the code of your completed lab (the final focus-and-context visualization you created in activities I-IV) as usual.
+Please submit the code of your completed lab (the final focus-and-context visualization you created in activities I-V) as usual.
 
 -----
 
