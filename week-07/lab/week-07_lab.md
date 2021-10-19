@@ -558,7 +558,7 @@ You've just learned that for our visualization instances, we're already passing 
 element as argument, so that the class knows where to create that instance. Now, let's use this
 information and go one step further: you can actually grab the height and the width of that parent container 
 and use these measures for your svg drawing area. This can be done using any form of css selector - in
- our example here, we're using jQuery:
+ our example here, we're using javascript:
 
 ```javascript
 
@@ -566,8 +566,8 @@ and use these measures for your svg drawing area. This can be done using any for
     vis.margin = {top: 40, right: 40, bottom: 60, left: 40};
 
     // Set width and height to the height of the parent element - margins
-    vis.width = $('#' + vis.parentElement).width() - vis.margin.left - vis.margin.right; // NEW!!
-    vis.height = $('#' + vis.parentElement).height() - vis.margin.top - vis.margin.bottom; // NEW!!
+    vis.width = document.getElementById(vis.parentElement).getBoundingClientRect().width - vis.margin.left - vis.margin.right; // NEW!!
+    vis.height = document.getElementById(vis.parentElement).getBoundingClientRect().height - vis.margin.top - vis.margin.bottom; // NEW!!
 
     // SVG drawing area
     vis.svg = d3.select("#" + vis.parentElement).append("svg")
@@ -596,7 +596,7 @@ hese measures in greater detail.](https://docs.elementor.com/article/595-differe
 In this lab, we've set up ```index.html``` using such relative units for you. We've used ```vh``` to define the 
 proportions of a 3-row layout (header, graph, brush). Then, we used ```%``` to pass on the height from the rows (parents)
 to their children (the parent elements for the svg drawing areas), so that these elements have a height when 
-you access them using ```$('#' + vis.parentElement).height()```
+you access them using ```document.getElementById(vis.parentElement).getBoundingClientRect().height```
 
 **Your Task**
 
