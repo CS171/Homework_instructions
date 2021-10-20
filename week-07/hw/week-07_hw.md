@@ -259,8 +259,8 @@ Submission instructions:
     	hw/
     		implementation/ ...folder for your code
         		index.html
-            	css/ 		...folder with all CSS files
-            	js/ 		...folder with all JavaScript files
+	            	css/ 		...folder with all CSS files
+	            	js/ 		...folder with all JavaScript files
             design/         ...folder for your sketches
         lab/ 
     
