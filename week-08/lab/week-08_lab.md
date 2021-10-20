@@ -187,7 +187,19 @@ arcs.enter()
     - define inner and outer radius
     - define pie layout
     - set up your path generator
-    
+
+    **Note:** In the code snippet above, we call d3.pie and hand it an array of numbers. However, if you want to generate a pie slice for something more complex than an object, we can tell it how to determine that value by giving it a `value` function. For instance, if we have an array where each element is
+ ``` {'name': name, 'value': value}```
+ we can tell d3.pie where the value is stored like so
+ 
+ ```javascript
+ d3.pie()
+ 		.value(d => d.value);
+ ```
+ 
+ 	This should be helpful for the data in the lab.
+ 	
+ 	
     Next up is wrangleData(). Here, you don't need to do anything except to understand what's
      going on. We are creating a very simple data structure for you. It is an array of objects. Each object has a random value (between 0-100) and a fixed color. This should help you
       when defining the fill attribute for the arcs.
