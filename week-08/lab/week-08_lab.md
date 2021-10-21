@@ -201,12 +201,11 @@ arcs.enter()
  	This should be helpful for the data in the lab.
 
 
-    Next up is wrangleData(). Here, you don't need to do anything except to understand what's
-     going on. We are creating a very simple data structure for you. It is an array of objects. Each object has a random value (between 0-100) and a fixed color. This should help you
-      when defining the fill attribute for the arcs.
+  Next up is wrangleData(). Here, you don't need to do anything except to understand what's going on. We are creating a very simple data structure for you. It is an array of objects. Each object has a random value (between 0-100) and a fixed color. This should help you
+    when defining the fill attribute for the arcs.
 
-      Lastly, let's look at updateVis(). Here, you want to draw the arcs that make up the actual
-       pieChart.
+    Lastly, let's look at updateVis(). Here, you want to draw the arcs that make up the actual
+     pieChart.
 
 4. **Create a tooltip**
 
