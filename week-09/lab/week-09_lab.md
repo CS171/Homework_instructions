@@ -185,9 +185,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 <details>
 <summary>
-
 Shopping list
-
 </summary>
 
 * Vegetables
@@ -217,6 +215,7 @@ print("hello world!")
 </p>
 </details>
 
+{::options parse_block_html="true" /}
 <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
 
 
@@ -227,9 +226,9 @@ print("hello world!")
 	- a) Create one csv file per adjacency matrix, read in the files, and convert each matrix into a JS variable (a 2D array). This is the cleanest solution, and allows you to easily use different matrices.
 	- b) This is the quick and dirty solution, which is sufficient if you are sure that the data will never really change. You can store the matrices directly as JS variables in your JS file. Just initialize a 2D array directly with the values listed above.
 
-
-
 </details>
+
+{::options parse_block_html="false" /}
 
 ---
 
