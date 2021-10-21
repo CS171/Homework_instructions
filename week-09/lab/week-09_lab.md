@@ -185,7 +185,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 <details>
 <summary>
-***Extra hint*** (click me only if you are stuck)
+***Extra hint*** (click me only if you are stuck!)
 </summary>
 
 
@@ -242,16 +242,16 @@ let data = [
 
 <details>
 <summary>***Extra hint*** (click me only if you are stuck)</summary>
-<p>
+
 
 1. Create an empty array ```displayData``` in ```initVis```
-1. In ```wrangleData``` you can use a ```forEach``` loop to go over all families (this can be either the marriage or the business matrix, since both contain one row per family). The important thing is that you are looping over all families.
+2. In ```wrangleData``` you can use a ```forEach``` loop to go over all families (this can be either the marriage or the business matrix, since both contain one row per family). The important thing is that you are looping over all families.
 
-2. Inside the loop create a ```let family = {...``` and add all attributes you want to store to it. This will include information from both marriage and business matrices, as well as the attributes data.
+3. Inside the loop create a ```let family = {...``` and add all attributes you want to store to it. This will include information from both marriage and business matrices, as well as the attributes data.
 
-3. Inside the loop, add that object to your ```displayData``` array.
+4. Inside the loop, add that object to your ```displayData``` array.
 
-</p>
+
 </details>
 
 {::options parse_block_html="false" /}
@@ -301,9 +301,9 @@ Check that your visualization roughly looks like the picture 1 shown above.
 {::options parse_block_html="true" /}
 
 <details>
-<summary markdown="span">***Extra hint*** (click me only if you are stuck)
+<summary>***Extra hint*** (click me only if you are stuck)
 </summary>
-<p>
+
 
 1. Create a ```matrix.js``` file for your matrix visualization. Init it after you have finished loading in the data in ```main.js```
 2. In ```initVis()``` you should set your margins, SVG drawing area, and other init values you might need, and call ```wrangleData()```.
@@ -313,7 +313,6 @@ Check that your visualization roughly looks like the picture 1 shown above.
 5. Draw x-axis labels: Append text for each column. Remember that the numbers of columns and rows is equal! Translate the labels to their correct position.
 
 
-</p>
 </details>
 
 {::options parse_block_html="false" /}
@@ -420,7 +419,7 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 <details>
 <summary>***Extra hint*** (click me only if you are stuck)
 </summary>
-<p>
+
 
 1. In your select-box callback function, make sure to execute ```updateVis()``` and to also pass the value of the selected sorting order as a function parameter.
 
@@ -431,7 +430,6 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 4. Make sure you follow the *enter, update, exit* pattern.
 
 
-</p>
 </details>
 
 {::options parse_block_html="false" /}
