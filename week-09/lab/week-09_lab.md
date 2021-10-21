@@ -181,7 +181,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 #### Example
 
-{::options parse_block_html="true" /}  # Sets parse_block_html option to true
+{::options parse_block_html="true" /}  # Sets parse_block_html option to true, test
 
 <details>
 <summary>Shopping list</summary>
@@ -192,6 +192,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 </details>
 
+{::options parse_block_html="false" /}
 
 ## collapsible markdown?
 
