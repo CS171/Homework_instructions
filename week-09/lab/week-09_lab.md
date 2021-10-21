@@ -420,7 +420,7 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 
 <details>
 <summary>
-***Extra hint*** (click me only if you are stuck)
+***Extra hint*** (click me only if you are stuck!)
 </summary>
 
 
