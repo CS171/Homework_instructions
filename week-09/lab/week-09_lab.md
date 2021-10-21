@@ -281,7 +281,8 @@ D3 is an extremely flexible library, thus, there are multiple ways to draw matri
 
 For this step, you do not need to pass in the raw data again, but can instead leverage the data that is already bound to each `row` element as such:
 
-```	let edgeCells = rows.selectAll(".matrix-cell-marriage")
+```
+	let edgeCells = rows.selectAll(".matrix-cell-marriage")
 			.data(d=>d.marriageValues)
 			.enter()
 			.append...
@@ -301,7 +302,8 @@ Check that your visualization roughly looks like the picture 1 shown above.
 {::options parse_block_html="true" /}
 
 <details>
-<summary>***Extra hint*** (click me only if you are stuck)
+<summary>
+***Extra hint*** (click me only if you are stuck)
 </summary>
 
 
@@ -417,7 +419,8 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 {::options parse_block_html="true" /}
 
 <details>
-<summary>***Extra hint*** (click me only if you are stuck)
+<summary>
+***Extra hint*** (click me only if you are stuck)
 </summary>
 
 
