@@ -53,7 +53,7 @@ Storing attributes/metadata for the edges can only be stored in an edgelist, and
 
 For this lab, the structure of the network is stored in two adjacency matrices (one containing edges for marriages, another for business ties), while the attributes are stored in an external csv file:
 
-1. Dataset: Meta data **[```florentine-family-attributes.csv```](https://www.cs171.org/Homework_instructions/week-09/lab/florentine-familiy-attributes.csv)**
+1. Dataset: Meta data **[```florentine-family-attributes.csv```](https://www.cs171.org/Homework_instructions/week-09/lab/florentine-family-attributes.csv)**
 
 	- Family
 	- Wealth (each family's net wealth in thousands of lira; in 1427)
@@ -171,7 +171,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 1) Set up a new D3 project (HTML, CSS, JS files). You should already have a template project that you can reuse for that. Create a matrix class (similar to previous homeworks), with a constructor, initVis(), wrangleData() and updateVis() functions.  
 
-2) Please download the CSV file: [florentine-familiy-attributes.csv](https://www.cs171.org/Homework_instructions/week-09/lab/florentine-family-attributes.csv)
+2) Please download the CSV file: [florentine-family-attributes.csv](https://www.cs171.org/Homework_instructions/week-09/lab/florentine-family-attributes.csv)
 
 3) The adjacency matrices are only available in the raw text format [shown above](#adjacency_matrices). Copy the matrices and integrate them into your code so that you can easily access each element with ```matrix[i][j]```.
 
