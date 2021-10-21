@@ -179,7 +179,6 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 5) When creating an instance of your Matrix class, make sure and pass in all the necessary data to the constructor (graph edges for family, graph edges for business, and graph attributes).
 
-#### Example
 
 {::options parse_block_html="true" /}
 
@@ -241,7 +240,9 @@ let data = [
 {::options parse_block_html="true" /}
 
 <details>
-<summary>***Extra hint*** (click me only if you are stuck)</summary>
+<summary>
+***Extra hint*** (click me only if you are stuck)
+</summary>
 
 
 1. Create an empty array ```displayData``` in ```initVis```
@@ -250,7 +251,6 @@ let data = [
 3. Inside the loop create a ```let family = {...``` and add all attributes you want to store to it. This will include information from both marriage and business matrices, as well as the attributes data.
 
 4. Inside the loop, add that object to your ```displayData``` array.
-
 
 </details>
 
