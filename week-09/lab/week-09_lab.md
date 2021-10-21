@@ -181,7 +181,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 #### Example
 
-{::options parse_block_html="true" /}  # Sets parse_block_html option to true
+{::options parse_block_html="true" /}  # Sets parse_block_html option to true 1
 
 <details>
 <summary>
@@ -194,10 +194,12 @@ Shopping list
 
 </details>
 
-{::options parse_block_html="false" /}  # Sets parse_block_html option to true
+{::options parse_block_html="false" /}
 
 
 ## collapsible markdown?
+
+{::options parse_block_html="true" /}
 
 <details>
 <summary>
@@ -215,8 +217,14 @@ print("hello world!")
 </p>
 </details>
 
+{::options parse_block_html="false" /}
+
 {::options parse_block_html="true" /}
-<details><summary>***Extra hint*** (click me only if you are stuck)</summary>
+
+<details>
+<summary>
+***Extra hint*** (click me only if you are stuck)
+</summary>
 
 
 1. D3 project template: [d3\_project_template.zip](https://www.cs171.org/Homework_instructions/week-09/lab/d3_project_template.zip)
