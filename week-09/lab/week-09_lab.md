@@ -10,19 +10,19 @@ exclude: true
 # Lab 9
 
 ### Pre-Reading Quiz
-No pre-reading quiz this week, just go ahead and get a head start on the lab so you have questions ready to go during lab time! 
+No pre-reading quiz this week, just go ahead and get a head start on the lab so you have questions ready to go during lab time!
 
 ### Learning Objectives
 
 - Know how to create custom visualizations with D3
 	- Set up a completely new project without templates
 	- Consolidate the official documentation and external materials
-	- Apply the learned web development skills and your deep understanding of D3 to realize your own ideas and to 
+	- Apply the learned web development skills and your deep understanding of D3 to realize your own ideas and to
 	implement unique visualizations (apart from bar and area charts)
 
 
 ***Important Note:***
-In this lab we want to guide you through creating a highly customized visualization in D3, without using typical building blocks like bar charts or line charts. That means that in this lab you will have to deal not just with writing correct D3 syntax, but also with figuring out *in what way* you can implement a certain feature. 
+In this lab we want to guide you through creating a highly customized visualization in D3, without using typical building blocks like bar charts or line charts. That means that in this lab you will have to deal not just with writing correct D3 syntax, but also with figuring out *in what way* you can implement a certain feature.
 
 We give you pointers, but part of this lab is figuring these things out on your own. Do not hesitate to ask for help if you are stuck!
 
@@ -67,7 +67,7 @@ For this lab, the structure of the network is stored in two adjacency matrices (
 	"Bischeri",44,12
 	...
 	```
-	
+
 	*You will use the above dataset as a meta information for the networks. The family in the first row in the above dataset corresponds to the family in the first row and column of the adjacency matrices. The family in second row corresponds to the second row/column of the adjacency matrix, etc.*
 
 2. Adjacency matrix: **Marriages**
@@ -123,14 +123,14 @@ let dataBusiness = [
 
 ## Network Visualization
 
-Networks can be visualized in several different ways, the two most common of which are node-link diagrams and adjacency matrices. Notices that the term `adjacency matrix` can refer to both the data structure that stores the graph, as described in the Data section above, and the visualization approach (which you will be implementing in this lab). 
+Networks can be visualized in several different ways, the two most common of which are node-link diagrams and adjacency matrices. Notices that the term `adjacency matrix` can refer to both the data structure that stores the graph, as described in the Data section above, and the visualization approach (which you will be implementing in this lab).
 
 Node-link diagrams are the most common way of visualizing graphs, but they have a few key limitations:  
 (1) they do not scale well to large networks,  
 (2) they can quickly become cluttered for dense networks with several edge crossings (where edges start crossing over each other),  
-(3) they are limited in the amount of attributes that can be encoded for the nodes and particuarly edges. 
+(3) they are limited in the amount of attributes that can be encoded for the nodes and particuarly edges.
 
-Adjacency Matrices are an alternative visualization approach for networks that address some of these limitations. They are particuarly well suited for dense graphs since every possible edge in a network is allotted a cell in the matrix, ensuring that there are no edge crossings. Additionally, they are well suited for encoding edge attributes directly in the matrix cell. 
+Adjacency Matrices are an alternative visualization approach for networks that address some of these limitations. They are particuarly well suited for dense graphs since every possible edge in a network is allotted a cell in the matrix, ensuring that there are no edge crossings. Additionally, they are well suited for encoding edge attributes directly in the matrix cell.
 
 [You can read all about visualizing multivariate networks here!](https://vdl.sci.utah.edu/publications/2019_eurovis_mvn/)
 
@@ -146,9 +146,9 @@ In this lab you will build a custom visualization with D3 that will look like th
 ![Lab 8 - Preview](cs171-lab8-preview.gif?raw=true "Lab 8 - Preview")
 
 
-Matrix visualizations are especially appropriate for dense networks, i.e. those that have many edges connecting the nodes in the network. This is because every edge is given its own cell in the matrix, and there is never any occlusion/overlap of edges, as is common in a node-link representation. 
+Matrix visualizations are especially appropriate for dense networks, i.e. those that have many edges connecting the nodes in the network. This is because every edge is given its own cell in the matrix, and there is never any occlusion/overlap of edges, as is common in a node-link representation.
 
-In the sortable matrix visualization you will be implementing in this lab, you will encode two types of edges simultaneously in the matrix cells. 
+In the sortable matrix visualization you will be implementing in this lab, you will encode two types of edges simultaneously in the matrix cells.
 
 *Implementation checklist:*
 
@@ -184,7 +184,11 @@ We give you some more pointers and hints below, however, we encourage you to try
 {::options parse_block_html="true" /}  # Sets parse_block_html option to true
 
 <details>
-<summary>Shopping list</summary>
+<summary>
+
+Shopping list
+
+</summary>
 
 * Vegetables
 * Fruits
@@ -192,11 +196,16 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 </details>
 
+{::options parse_block_html="false" /}  # Sets parse_block_html option to true
+
 
 ## collapsible markdown?
 
 <details>
-<summary>CLICK ME</summary>
+<summary>
+
+CLICK ME
+</summary>
 <p>
 
 #### yes, even hidden code blocks!
@@ -213,9 +222,9 @@ print("hello world!")
 
 1. D3 project template: [d3\_project_template.zip](https://www.cs171.org/Homework_instructions/week-09/lab/d3_project_template.zip)
 
-2. Adjacency matrices: There are two different strategies to handle this data: 
+2. Adjacency matrices: There are two different strategies to handle this data:
 
-	- a) Create one csv file per adjacency matrix, read in the files, and convert each matrix into a JS variable (a 2D array). This is the cleanest solution, and allows you to easily use different matrices. 
+	- a) Create one csv file per adjacency matrix, read in the files, and convert each matrix into a JS variable (a 2D array). This is the cleanest solution, and allows you to easily use different matrices.
 	- b) This is the quick and dirty solution, which is sufficient if you are sure that the data will never really change. You can store the matrices directly as JS variables in your JS file. Just initialize a 2D array directly with the values listed above.
 
 
@@ -258,15 +267,15 @@ let data = [
 
 2) Add each family object to an array containing all families.
 
-***Free hint:*** In many projects you can make your life a lot easier by making sure that you have converted the data into a format that is ideal for your further processing/visualization tasks. Especially for smaller datasets it often pays of to create a different datastructure that allows you to easily access all of it. 
+***Free hint:*** In many projects you can make your life a lot easier by making sure that you have converted the data into a format that is ideal for your further processing/visualization tasks. Especially for smaller datasets it often pays of to create a different datastructure that allows you to easily access all of it.
 
 <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
 <p>
 
 1. Create an empty array ```displayData``` in ```initVis```
 1. In ```wrangleData``` you can use a ```forEach``` loop to go over all families (this can be either the marriage or the business matrix, since both contain one row per family). The important thing is that you are looping over all families.
- 
-2. Inside the loop create a ```let family = {...``` and add all attributes you want to store to it. This will include information from both marriage and business matrices, as well as the attributes data. 
+
+2. Inside the loop create a ```let family = {...``` and add all attributes you want to store to it. This will include information from both marriage and business matrices, as well as the attributes data.
 
 3. Inside the loop, add that object to your ```displayData``` array.
 
@@ -278,41 +287,41 @@ let data = [
 
 #### Create a matrix visualization with D3
 
-D3 is an extremely flexible library, thus, there are multiple ways to draw matrix visualizations / heatmaps. Here is the recommended approach for this lab: 
+D3 is an extremely flexible library, thus, there are multiple ways to draw matrix visualizations / heatmaps. Here is the recommended approach for this lab:
 
-1) Use the enter/update/exit approach to create one row `g` element per family object (vis.displayData should contain an array of family objects created in wrangleData()). Let's call this selection `rows`.  Make sure to give the groups a class name like `matrix-row`. 
+1) Use the enter/update/exit approach to create one row `g` element per family object (vis.displayData should contain an array of family objects created in wrangleData()). Let's call this selection `rows`.  Make sure to give the groups a class name like `matrix-row`.
 
-2) transform the row groups vertically as a function of the index of each row in the array and vis.cellHeight + vis.cellPadding (defined in initiVis()) 
+2) transform the row groups vertically as a function of the index of each row in the array and vis.cellHeight + vis.cellPadding (defined in initiVis())
 
-3) Use the `rows` selection to append a text label for each one that contains the family name (d.name in your family data object). 
+3) Use the `rows` selection to append a text label for each one that contains the family name (d.name in your family data object).
 
 ```
 	rows.append("text")
-	.attr('x',...) 
+	.attr('x',...)
 	.text(d=>d.name)
-			
+
 ```
 
-4) Perform a second enter/update/exit selection, (this time starting with the `rows` selection so that it will be applied to each row individually) to create rectangles/triangles for each marriage/business or combination of both (depending on which stage of the lab you are at). 
+4) Perform a second enter/update/exit selection, (this time starting with the `rows` selection so that it will be applied to each row individually) to create rectangles/triangles for each marriage/business or combination of both (depending on which stage of the lab you are at).
 
-For this step, you do not need to pass in the raw data again, but can instead leverage the data that is already bound to each `row` element as such: 
+For this step, you do not need to pass in the raw data again, but can instead leverage the data that is already bound to each `row` element as such:
 
 ```	let edgeCells = rows.selectAll(".matrix-cell-marriage")
 			.data(d=>d.marriageValues)
 			.enter()
 			.append...
-			
+
 ```
 
-Notice that what is happening here is that we are using the array `marriageValues` that is in each row object, to create one edge cell per element in that array. What you append here depends on which stage of the lab you are at, and will start as rects, and end up as triangle paths. 
+Notice that what is happening here is that we are using the array `marriageValues` that is in each row object, to create one edge cell per element in that array. What you append here depends on which stage of the lab you are at, and will start as rects, and end up as triangle paths.
 
 If you are drawing triangles, you will repeat the step above, once with d.marriageValues as the data element, and once with d.businessValues.  Don't forget to color them according to the type of edge (marriage/business)
 
-5) The last step is adding in the column labels. Since these are the same labels (Family name) as the rows, you can simply do an enter/update/exit pattern to create text elements, passing in vis.displayData as the data(). Remember to position each text label with its index in the array and by using vis.cellWidth and vis.cellPadding. 
+5) The last step is adding in the column labels. Since these are the same labels (Family name) as the rows, you can simply do an enter/update/exit pattern to create text elements, passing in vis.displayData as the data(). Remember to position each text label with its index in the array and by using vis.cellWidth and vis.cellPadding.
 
 Check that your visualization roughly looks like the picture 1 shown above.
 
-***Free hint:*** Try to always split your approach into smaller tasks that you can tackle one after the other. For example, first make sure you can draw rows. You could start with just drawing a text label per row, just for debugging. Once that works, work on drawing something for each element. Once that works, work on drawing the actual visual element (colored triangle) for that data. 
+***Free hint:*** Try to always split your approach into smaller tasks that you can tackle one after the other. For example, first make sure you can draw rows. You could start with just drawing a text label per row, just for debugging. Once that works, work on drawing something for each element. Once that works, work on drawing the actual visual element (colored triangle) for that data.
 
 <details><summary markdown="span">***Extra hint*** (click me only if you are stuck)</summary>
 <p>
@@ -320,7 +329,7 @@ Check that your visualization roughly looks like the picture 1 shown above.
 1. Create a ```matrix.js``` file for your matrix visualization. Init it after you have finished loading in the data in ```main.js```
 2. In ```initVis()``` you should set your margins, SVG drawing area, and other init values you might need, and call ```wrangleData()```.
 
-3. In ```updateVis()```: Draw the matrix rows: assign a class (e.g. ```.matrix-row```), append a svg group element per row, translate its height, and append a text field (basically the y-axis label of that row). You should now see a column of labels showing numbers from 0 - 15. 
+3. In ```updateVis()```: Draw the matrix rows: assign a class (e.g. ```.matrix-row```), append a svg group element per row, translate its height, and append a text field (basically the y-axis label of that row). You should now see a column of labels showing numbers from 0 - 15.
 4. In ```updateVis()```: Draw all matrix elements: Assign classes (e.g., matrix-cell, matrix-cell-marriage), draw a small rectangle, and set its color depending on the data properties (matrix value 0 or 1)
 5. Draw x-axis labels: Append text for each column. Remember that the numbers of columns and rows is equal! Translate the labels to their correct position.
 
@@ -370,11 +379,11 @@ trianglePath.enter().append("path")
 trianglePath.attr("d", function(d, index) {
 	// Shift the triangles on the x-axis (columns)
 	let x = (cellWidth + cellPadding) * index;
-	
+
 	// All triangles of the same row have the same y-coordinates
 	// Vertical shifting is already done by transforming the group elements
 	let y = 0;
-	
+
 	return 'M ' + x +' '+ y + ' l ' + cellWidth + ' 0 l 0 ' + cellHeight + ' z';
 });
 ```
@@ -435,7 +444,7 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 
 3. Specify a key function, based on the family's name, to support animated transitions.
 
-4. Make sure you follow the *enter, update, exit* pattern. 
+4. Make sure you follow the *enter, update, exit* pattern.
 
 
 </p>
@@ -451,7 +460,7 @@ You have probably used hard-coded values for all size specifications in your vie
 
 #### Bonus Activity 2 - Highlight cells on *mouseover*
 
-Listen to mouse events: If the user hovers over a cell highlight all elements that are in the same row or in the same column of the matrix. 
+Listen to mouse events: If the user hovers over a cell highlight all elements that are in the same row or in the same column of the matrix.
 
 *Preview:*
 
@@ -462,7 +471,7 @@ Listen to mouse events: If the user hovers over a cell highlight all elements th
 
 #### Submission of lab
 
-Congratulations, you have now completed Lab 9! 
+Congratulations, you have now completed Lab 9!
 
 Please submit the code of your completed lab (the sortable matrix visualization and optionally the bonus activities) on Canvas.
 
@@ -477,4 +486,3 @@ Please submit the code of your completed lab (the sortable matrix visualization 
 - SVG for beginners: [http://unicorn-ui.com/blog/svg-for-beginners.html](http://unicorn-ui.com/blog/svg-for-beginners.html)
 )
 -->
- 
