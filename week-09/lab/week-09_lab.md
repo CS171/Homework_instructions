@@ -238,7 +238,10 @@ let data = [
 
 ***Free hint:*** In many projects you can make your life a lot easier by making sure that you have converted the data into a format that is ideal for your further processing/visualization tasks. Especially for smaller datasets it often pays of to create a different datastructure that allows you to easily access all of it.
 
-<details><summary>***Extra hint*** (click me only if you are stuck)</summary>
+{::options parse_block_html="true" /}
+
+<details>
+<summary>***Extra hint*** (click me only if you are stuck)</summary>
 <p>
 
 1. Create an empty array ```displayData``` in ```initVis```
@@ -250,6 +253,9 @@ let data = [
 
 </p>
 </details>
+
+{::options parse_block_html="false" /}
+
 ---
 
 
@@ -292,7 +298,11 @@ Check that your visualization roughly looks like the picture 1 shown above.
 
 ***Free hint:*** Try to always split your approach into smaller tasks that you can tackle one after the other. For example, first make sure you can draw rows. You could start with just drawing a text label per row, just for debugging. Once that works, work on drawing something for each element. Once that works, work on drawing the actual visual element (colored triangle) for that data.
 
-<details><summary markdown="span">***Extra hint*** (click me only if you are stuck)</summary>
+{::options parse_block_html="true" /}
+
+<details>
+<summary markdown="span">***Extra hint*** (click me only if you are stuck)
+</summary>
 <p>
 
 1. Create a ```matrix.js``` file for your matrix visualization. Init it after you have finished loading in the data in ```main.js```
@@ -305,6 +315,8 @@ Check that your visualization roughly looks like the picture 1 shown above.
 
 </p>
 </details>
+
+{::options parse_block_html="false" /}
 
 ---
 
@@ -403,8 +415,11 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 5) Add a legend to explain the two different types of family ties being shown.
 
 
+{::options parse_block_html="true" /}
 
-<details><summary>***Extra hint*** (click me only if you are stuck)</summary>
+<details>
+<summary>***Extra hint*** (click me only if you are stuck)
+</summary>
 <p>
 
 1. In your select-box callback function, make sure to execute ```updateVis()``` and to also pass the value of the selected sorting order as a function parameter.
@@ -418,6 +433,8 @@ You can also change the ```fill-opacity``` during the transition for a cleaner a
 
 </p>
 </details>
+
+{::options parse_block_html="false" /}
 
 ---
 
