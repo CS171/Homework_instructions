@@ -181,6 +181,8 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 #### Example
 
+{::options parse_block_html="true" /}  # Sets parse_block_html option to true
+
 <details>
 <summary>Shopping list</summary>
 
