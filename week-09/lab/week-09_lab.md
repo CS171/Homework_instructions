@@ -208,7 +208,7 @@ print("hello world!")
 </p>
 </details>
 
-<details><summary>***Extra hint*** (click me only if you are stuck)</summary>
+<details><summary markdown="span">***Extra hint*** (click me only if you are stuck)</summary>
 
 
 1. D3 project template: [d3\_project_template.zip](https://www.cs171.org/Homework_instructions/week-09/lab/d3_project_template.zip)
