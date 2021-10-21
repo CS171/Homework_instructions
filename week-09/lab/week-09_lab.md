@@ -180,7 +180,6 @@ We give you some more pointers and hints below, however, we encourage you to try
 5) When creating an instance of your Matrix class, make sure and pass in all the necessary data to the constructor (graph edges for family, graph edges for business, and graph attributes).
 
 <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
-<p>
 
 1. D3 project template: [d3\_project_template.zip](https://www.cs171.org/Homework_instructions/week-09/lab/d3_project_template.zip)
 
@@ -189,7 +188,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 	- a) Create one csv file per adjacency matrix, read in the files, and convert each matrix into a JS variable (a 2D array). This is the cleanest solution, and allows you to easily use different matrices. 
 	- b) This is the quick and dirty solution, which is sufficient if you are sure that the data will never really change. You can store the matrices directly as JS variables in your JS file. Just initialize a 2D array directly with the values listed above.
 
-</p>
+
 </details>
 
 ---
