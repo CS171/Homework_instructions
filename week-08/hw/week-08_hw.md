@@ -199,8 +199,8 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
     &nbsp; 
          
 8. **Connect your map to the brush**
-
-    On brush, call the ```wrangleData()``` method of your MapVis instance. The map should update when
+     
+    In `brushVis.js`, uncomment line 86, which should call the ```wrangleData()``` method of your MapVis instance. The map should update when
      you brush.
     
     &nbsp; 
@@ -252,12 +252,12 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
 
 1. **Create class BarVis & create two instances**
 
-	Besides the choropleth map, Helmuth Wiesel was also hoping that you could implement a class
-	 that takes care of creating bar charts so that you can include two instances of that class
-	  in the dashboard. Since you have plenty of bar chart code lying around on your computer
-	   from former projects, this shouldn't be too hard. However, Wiesel has a special request
-	   : He wants one bar chart to show the top 10 states for a filtered category, and the other
-	    to show the lowest 10 states for that category. 
+    Besides the choropleth map, Helmuth Wiesel was also hoping that you could implement a class
+     that takes care of creating bar charts so that you can include two instances of that class
+      in the dashboard. Since you have plenty of bar chart code lying around on your computer
+       from former projects, this shouldn't be too hard. However, Wiesel has a special request
+       : He wants one bar chart to show the top 10 states for a filtered category, and the other
+        to show the lowest 10 states for that category. 
 	       
     &nbsp; 
     	  
@@ -286,9 +286,10 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
      enter(), merge(), exit(). 
     
 6. **React to brushing and category change**
-
+    
     As you've done already successfully for the map, have your bar charts react to the user input
-     (brush and category selection). Also, make sure to include transitions!
+     (brush and category selection). In `brushVis.js`, uncomment lines 88 and 89, which should accomplish this task. Also make sure to add transitions.
+
      
 7. **Add a tooltip**
 
