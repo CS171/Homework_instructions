@@ -181,7 +181,7 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 #### Example
 
-{::options parse_block_html="true" /}  # Sets parse_block_html option to true, test
+{::options parse_block_html="true" /}  # Sets parse_block_html option to true
 
 <details>
 <summary>Shopping list</summary>
@@ -192,7 +192,6 @@ We give you some more pointers and hints below, however, we encourage you to try
 
 </details>
 
-{::options parse_block_html="false" /}
 
 ## collapsible markdown?
 
@@ -209,7 +208,7 @@ print("hello world!")
 </p>
 </details>
 
-<details><summary markdown="span">***Extra hint*** (click me only if you are stuck)</summary>
+<details><summary>***Extra hint*** (click me only if you are stuck)</summary>
 
 
 1. D3 project template: [d3\_project_template.zip](https://www.cs171.org/Homework_instructions/week-09/lab/d3_project_template.zip)
@@ -315,7 +314,7 @@ Check that your visualization roughly looks like the picture 1 shown above.
 
 ***Free hint:*** Try to always split your approach into smaller tasks that you can tackle one after the other. For example, first make sure you can draw rows. You could start with just drawing a text label per row, just for debugging. Once that works, work on drawing something for each element. Once that works, work on drawing the actual visual element (colored triangle) for that data. 
 
-<details><summary>***Extra hint*** (click me only if you are stuck)</summary>
+<details><summary markdown="span">***Extra hint*** (click me only if you are stuck)</summary>
 <p>
 
 1. Create a ```matrix.js``` file for your matrix visualization. Init it after you have finished loading in the data in ```main.js```
