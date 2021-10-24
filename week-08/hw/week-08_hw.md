@@ -155,9 +155,9 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
        documentation. Also, [this](https://github.com/d3/d3-geo) is the link to the d3.geo() documentation that might come in handy for this task.
       
     In short, there are two different routes you can choose: 1) you can use a geometry
-     that has not been projected (e.g. 'states-albers-10m.json'), and you do the projection
+     that has not been projected (e.g. 'states-10m.json'), and you do the projection
       yourself and play around with ```scale``` and ```transform()```, and 2) alternatively, you can use
-       a map that has already been projected (e.g. 'states-10m.json') to a specific viewpoint
+       a map that has already been projected (e.g. 'states-albers-10m.json') to a specific viewpoint
         (976 on 610) to then just do some basic math to create the perfect fit for your website. You've seen the code for projections in the lab, here's the code for geometries that
          have been projected to exact viewpoints.
 
@@ -199,7 +199,7 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
     &nbsp; 
          
 8. **Connect your map to the brush**
-     
+
     In `brushVis.js`, uncomment line 86, which should call the ```wrangleData()``` method of your MapVis instance. The map should update when
      you brush.
     
@@ -252,12 +252,12 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
 
 1. **Create class BarVis & create two instances**
 
-    Besides the choropleth map, Helmuth Wiesel was also hoping that you could implement a class
-     that takes care of creating bar charts so that you can include two instances of that class
-      in the dashboard. Since you have plenty of bar chart code lying around on your computer
-       from former projects, this shouldn't be too hard. However, Wiesel has a special request
-       : He wants one bar chart to show the top 10 states for a filtered category, and the other
-        to show the lowest 10 states for that category. 
+	Besides the choropleth map, Helmuth Wiesel was also hoping that you could implement a class
+	 that takes care of creating bar charts so that you can include two instances of that class
+	  in the dashboard. Since you have plenty of bar chart code lying around on your computer
+	   from former projects, this shouldn't be too hard. However, Wiesel has a special request
+	   : He wants one bar chart to show the top 10 states for a filtered category, and the other
+	    to show the lowest 10 states for that category. 
 	       
     &nbsp; 
     	  
@@ -286,7 +286,7 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
      enter(), merge(), exit(). 
     
 6. **React to brushing and category change**
-    
+
     As you've done already successfully for the map, have your bar charts react to the user input
      (brush and category selection). In `brushVis.js`, uncomment lines 88 and 89, which should accomplish this task. Also make sure to add transitions.
 
