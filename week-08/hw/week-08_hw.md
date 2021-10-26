@@ -223,10 +223,10 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
    Also, here's some useful js that goes together with the HTML above.
    
     ```javascript
-    let selectedCategory = $('#categorySelector').val();
+    let selectedCategory =  document.getElementById('categorySelector').value;
     
     function categoryChange() {
-       selectedCategory = $('#categorySelector').val();
+       selectedCategory =  document.getElementById('categorySelector').value;
        myMapVis.wrangleData(); // maybe you need to change this slightly depending on the name of your MapVis instance
     }
     ``` 
