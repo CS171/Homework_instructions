@@ -1,4 +1,7 @@
-
+<!---
+layout: lab
+exclude: true
+--->
 
 
 <img src="cs171-logo.png" width="200">
@@ -18,12 +21,6 @@ Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
 
 
 ### Prerequisites
-
-- You have watched the following videos:
-	- jQuery Tutorial #1 - [https://www.youtube.com/watch?v=hMxGhHNOkCU](https://www.youtube.com/watch?v=hMxGhHNOkCU)
-	- jQuery Tutorial #2 - [https://www.youtube.com/watch?v=G-POtu9J-m4](https://www.youtube.com/watch?v=G-POtu9J-m4)
-	- *[Optional]* jQuery Tutorial #3 - [https://www.youtube.com/watch?v=Cc3K2jDdKTo](https://www.youtube.com/watch?v=Cc3K2jDdKTo)
-	- *[Optional]* jQuery Tutorial #4 - [https://www.youtube.com/watch?v=LYKRkHSLE2E](https://www.youtube.com/watch?v=LYKRkHSLE2E)
 
 - You already have an overview of the *My World 2015* project and the datasets we are going to use today ([cs171-lab10-reading.pdf](cs171-lab10-reading.pdf))
 
@@ -61,7 +58,7 @@ You will implement the visualizations again as reusable components (JS objects) 
 - ```countvis.js```
 - ```priovis.js```
 
-We have also included all the other usual files (index.html, style.css, etc) and libraries (Bootstrap, D3, jQuery), like in our previous labs and homeworks.
+We have also included all the other usual files (index.html, style.css, etc) and libraries (Bootstrap, D3), like in our previous labs and homeworks.
 
 ## Implementation
 
@@ -124,7 +121,7 @@ result      // Returns: [10, 20, 30, 40]
 
 1. **Download the template**
 
-	[Template.zip](Template.zip)
+	[TemplateEasy.zip](TemplateEasy.zip)
 
 2. **Open the file ```main.js``` and get an overview of the data loading and cleaning procedure**
 
@@ -173,7 +170,10 @@ result      // Returns: [10, 20, 30, 40]
 	
 	→ In ```agevis.js```: Adopt this code snippet for the aggregation of votes, following our visualization pipeline, in the ```wrangleData()``` function. The My World 2015 project collects votes for all ages <= 99. You can use the web console in between to debug your code and to better understand the data transformation.
 
+
+
 	→ Open the webpage in your browser! If everything worked, you should see both area charts. If you get an error message in the web console you should fix it before going further.
+
 
 4. **Implement the *PrioVis* component**
 
@@ -184,6 +184,7 @@ result      // Returns: [10, 20, 30, 40]
 	→ Aggregate the votes for each priority in the ```wrangleData()``` function (basically the same procedure as before in AgeVis, but this time you aggregate over priorities instead of ages).
 
 	→ Open the webpage in your browser and check if all three charts are visible
+
 
 5. **Update the x-axis of the bar chart**
 
@@ -255,19 +256,43 @@ Up to now we have always created a global function ```brushed()``` in the ```mai
 
 #### Event handler
 
-We will make use of the event handling capabilities of *jQuery* and we are especially interested in these two functions:
+In Javascript, events are bound to DOM elements. In this lab we propose a global event handler, which binds custom events to the `body` of our HTML document. This event handler has special methods to bind a custom handler to an event (defined by a string) and then trigger that event. 
 
-- ```.bind(eventType, handler)``` - binds the function ```handler``` to an event (the event is specified as the name of the event, as a string ```eventType```). That means, when a certain event occurs (e.g., ```bartTweeted```) the handler function (e.g. ```readBartsTweet```) is being called.
-- ```.trigger(eventType, extraParameters)``` - triggers an event ```eventType``` and calls all functions that are bound to this event. Here, eventType is a string (see above) and extraParameter is an object representing extra data, like e.g., the current location of Bart.
+```javascript
+let eventHandler = {
+	bind: (eventName, handler) => {
+	    document.body.addEventListener(eventName, func);
+	},
+	trigger: (eventName, extraParameters) => {
+	    document.body.dispatchEvent(new CustomEvent(eventName, {
+	        detail: extraParameters
+	    }));
+	}
+}
+```
+
+```.bind(eventName, handler)``` - binds the function ```handler``` to an event (the event is specified as the name of the event, as a string ```eventName```). That means, when a certain event occurs (e.g., ```bartTweeted```) the handler function (e.g. ```readBartsTweet```) is being called.
+- ```.trigger(eventName, extraParameters)``` - triggers an event ```eventType``` and calls all functions that are bound to this event. Here, eventType is a string (see above) and extraParameter is an object representing extra data, like e.g., the current location of Bart. The extraParameters added to an object named `detail` within the event (`event.detail`).
+
+-->
 
 The event handler must be initialized in the controller (```main.js```). We have prepared a small example for a better understanding:
 
 ```javascript
 // 1. Create event handler
-let MyEventHandler = {};
+let eventHandler = {
+	bind: (eventName, handler) => {
+	    document.body.addEventListener(eventName, func);
+	},
+	trigger: (eventName, extraParameters) => {
+	    document.body.dispatchEvent(new CustomEvent(eventName, {
+	        detail: extraParameters
+	    }));
+	}
+}
 
 // 2. Create visualization instances
-let contextVis = new ContextVis("context-vis", data, MyEventHandler);
+let contextVis = new ContextVis("context-vis", data, eventHandler);
 let focusVis = new FocusVis("focus-vis", data);
 ```
 
@@ -282,7 +307,7 @@ let brush = d3.brushX()
 		vis.currentBrushRegion = vis.currentBrushRegion.map(x.invert);
 		
 		// 3. Trigger the event 'selectionChanged' of our event handler
-		$(myEventHandler).trigger("selectionChanged", vis.currentBrushRegion);
+		vis.eventHandler.trigger("selectionChanged", vis.currentBrushRegion);
 	});
 ```
 
@@ -293,7 +318,9 @@ And back in the controller we can bind our event handler to other visualization 
 ```javascript
 // 4. Bind event handler
 // when 'selectionChanged' is triggered, specified function is called
-$(MyEventHandler).bind("selectionChanged", function(event, rangeStart, rangeEnd){
+eventHandler.bind("selectionChanged", function(event){
+	let rangeStart = event.details[0];
+	let rangeEnd = event.details[1];
 	focusVis.onSelectionChange(rangeStart, rangeEnd);
 });
 ```
@@ -446,8 +473,7 @@ You can read more about D3's zooming component here: [https://github.com/d3/d3-z
 		.on("touchstart.zoom", null);
 	```
 
-	For testing, you can omit this and open the webpage in your browser. You will notice the
-	 *bumpy* interaction.
+	For testing you can omit this and open the webpage in your browser. You will notice the *bumpy* interaction.
 
 4. **Clip all elements that go beyond the borders of your chart area**
 
@@ -465,7 +491,7 @@ You can read more about D3's zooming component here: [https://github.com/d3/d3-z
 		.append("rect")
 			.attr("width", width)
 			.attr("height", height);
-		```
+```
 
 Then you apply the clipping in ```updateVis()``` by adding a the clip-path attribute to your path:
 
