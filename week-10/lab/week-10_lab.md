@@ -319,8 +319,8 @@ And back in the controller we can bind our event handler to other visualization 
 // 4. Bind event handler
 // when 'selectionChanged' is triggered, specified function is called
 eventHandler.bind("selectionChanged", function(event){
-	let rangeStart = event.details[0];
-	let rangeEnd = event.details[1];
+	let rangeStart = event.detail[0];
+	let rangeEnd = event.detail[1];
 	focusVis.onSelectionChange(rangeStart, rangeEnd);
 });
 ```
