@@ -1,9 +1,13 @@
+<!---
+layout: lab
+exclude: true
+--->
 
 <img src="cs171-logo.png" width="200">
 
 &nbsp;
 
-# Lab 11
+# Lab 10
 
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas at the beginning of class!
@@ -27,7 +31,7 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 
 In the past few weeks you have worked only with *static* datasets. Either with small arrays or
  external CSV, JSON or GeoJSON files. While we were using online resources in some cases, you
-  could have stored all the files we've used so far locally. The advantage of storing data
+  could have stored all the files we've used so fare locally. The advantage of storing data
    locally is that your application is independent and that the data will not change.
 
 Very often, however, the data sources of visualizations are *dynamic* and you have to deal with a
@@ -54,11 +58,9 @@ A major aspect of these bike-sharing networks is the dynamic "fill level" of the
 
 In the following activities you will have to create a basic overview map to help the user get a rough impression of the local bike-sharing network.
 
-*Blue Bikes provides a JSON feed with live-data of the current filling levels:*  [JSON link](https://member.bluebikes.com/data/stations.json)
+*Blue Bikes has a compex API that provides lots of information:*  [API Documentation](https://www.bluebikes.com/system-data), [System Information JSON](https://gbfs.bluebikes.com/gbfs/en/system_information.json)
 
-*FYI, formerly, it was an XML stream, which is still available. However, it is a pain to work
- with it since we need to convert the xml structure to a json structure anyhow.*  
- [XML link](https://member.bluebikes.com/data/stations/bikeStations.xml)
+
 
 
 
@@ -115,8 +117,7 @@ You will notice that in this activity we do not give you as many helpful pointer
 
 	[Template.zip](Template.zip)
 	
-	The template is based on *Bootstrap* and *jQuery*
-	
+	The template is based on *Bootstrap*	
 	- ```index.html``` contains references to the JS and CSS files. There is also an empty *div* element (ID: ```station-map```) that should be used as parent container for your map.
 
 	- ```main.js``` and ```stationMap.js``` contain only a basic boilerplate. The structure is similar to our previous lab, but with less provided code.
@@ -130,30 +131,18 @@ You will notice that in this activity we do not give you as many helpful pointer
 	Use the dot-notation to navigate and select the necessary data from the tree. 
 	
 	
-4. **Create a new, empty data structure called `displayData` and populate it with all the stations**
+4. **Create a new, empty data structure called `displayData` and populate it with all the stations Information**
     
     Look at the format of the data, what are the fields or data attributes? Then, iterate over all the stations, 
     convert the data where necessary, and push each station into your final data structure `displayData`
 
-    Unfortunately, there is no good documentation for the API. Thus, the best way to figure out the meanings of 
-	the keys in your initial JSON structure is to compare the [JSON file](https://member.bluebikes.com/data/stations.json) with 
-	the [XML file](https://member.bluebikes.com/data/stations/bikeStations.xml)
-     
-    <details><summary>***Extra hint*** (click me only if you are stuck)</summary>
-     
-    - ba = bikes available
-    - da = docks available
-    - s = stationName
-    - la = latitude
-    - log = longitude
-    </details>
+   Specifically, the data we're interested in are station name (`name`), capacity (`capacity`), latitude (`lat`), and longitude (`lon`).
 
-5. **Show the number of stations on the website using jQuery**
+5. **Show the number of stations on the website using Javascript**
 
 	*We have integrated an HTML element ```(id="station-count")``` which should contain the number of stations of Boston's bike-sharing network.*
 	
-	Use the jQuery selector to access the element and to output (```.text()``` or ```.html()```) the current number of stations dynamically.
-	
+	Update the `innerText` of this element to reflect the number of stations.	
 5. **Create an instance of ```StationMap```**
 	
 	*In addition to the ```main.js``` file we have also included a template for the "visualization object".*
@@ -297,7 +286,7 @@ In the course of this lab we will show you a few more features but we encourage 
 	We would recommend you to separate the images from your css directory and stick to this structure:
 	
 	- **index.html** is the default file that appears when a user invokes your webpage. It includes a basic structure and a placeholder for your interactive map. 
-	- **/js** contains the JS libraries (Bootstrap, jQuery, leaflet) and your JS files ```main.js``` and ```stationMap.js```
+	- **/js** contains the JS libraries (Bootstrap, D3, leaflet) and your JS files ```main.js``` and ```stationMap.js```
 	- **/data** contains the data files
 	- **/css** contains the stylesheet files (libraries and custom styles)
 	- **/img** contains all the images
@@ -345,25 +334,23 @@ In the course of this lab we will show you a few more features but we encourage 
 
 5. **Draw a marker (in 	```updateVis()```)**
 
-	At the position of *Maxwell Dworkin* at Harvard University:
-	
+	At the position of the *SEC* at Harvard University:
 	Latitude | Longitude
 	-------- | ---------
-	42.378774 | -71.117303
-
+	42.363230492629455 | -71.12731607927883
 	*Preview:*
 
 	![Leaflet - Marker](cs171-leaflet-single-marker.png?raw=true "Leaflet - Marker")
 
 6. **Draw a marker for each station of the Blue Bikes bike-sharing network (in ```updateVis()```)**
 
-	*If the creation of the single marker worked, reuse the code for this step. You don't necessarily need the Mawell Dworkin marker anymore.*
+	*If the creation of the single marker worked, reuse the code for this step. You don't necessarily need the SEC marker anymore.*
 	
 	→ Loop through the dataset and append a marker for each station. Instead of fixed coordinates, use the individual latitude-longitude pairs of the stations to position the markers. Make sure, the map visualization stays as flexible as possible. For example, it should be easy to reuse the *StationMap* implementation for other bike-sharing networks.
 	
 	*It would also be a good opportunity to try the ```LayerGroup```.* You can create a new, empty LayerGroup in ```initVis()```, then in ```updateVis()``` you will need to clear the LayerGroup, and add all new elements to it.
 	
-	→ Bind a popup to each station marker that indicates the *station name*, *available bikes* and *available docks*.
+	→ Bind a popup to each station marker that indicates the *station name* and *capacity*.
 
 ---
 
@@ -475,21 +462,21 @@ That means, we can access the properties of each borough (e.g. ```boroName```) a
 function styleBorough(feature) {
   switch (feature.properties.BoroName) {
       case 'Staten Island': 	return { color: "#895f9f" };
-      case 'Manhattan': 	return { color: "#71a552" };
-      case 'Queens': 		return { color: "#ea8441" };
-      case 'Brooklyn': 		return { color: "#fff560" };
-      case 'Bronx': 		return { color: "#cb3f3c" };
+      case 'Manhattan': 		return { color: "#71a552" };
+      case 'Queens': 			return { color: "#ea8441" };
+      case 'Brooklyn': 			return { color: "#fff560" };
+      case 'Bronx': 			return { color: "#cb3f3c" };
   }
 }
 ```
 
-#### JavaScript Switch
-
-The switch expression is similar to an IF-ELSE statement. The value of the expression (e.g. borough name) is compared with the values of each case. If there is a match, the associated block of code is executed.
- 
-*Example with IF-statement:*
- 
-```javascript
+> **JavaScript Switch**
+> 
+> The switch expression is similar to an IF-ELSE statement. The value of the expression (e.g. borough name) is compared with the values of each case. If there is a match, the associated block of code is executed.
+> 
+> *Example with IF-statement:*
+> 
+> ```javascript
 if(feature.properties.BoroName == 'Staten Island')
 	return { color: "#895f9f" };
 else if(feature.properties.BoroName == 'Manhattan')
@@ -501,8 +488,7 @@ else if(feature.properties.BoroName == 'Brooklyn')
 else
 	return { color: "#cb3f3c" };
 ```
-
-The switch block is compact and much easier to read.
+> The switch block is compact and much easier to read.
 
 *After implementing the individual styles for the GeoJSON layer, the result looks like the following:*
 
@@ -544,7 +530,9 @@ function onEachBorough(feature, layer) {
 
 ---
 
-#### Bonus (optional) - Custom markers
+#### Additional Information - Custom markers
+
+This information is not needed for the lab but may help in your final projects.
 
 In the following example we will show you how to assign custom icons to Leaflet markers.
 
@@ -590,35 +578,6 @@ let marker = L.marker([40.762188, -73.971606], { icon: redMarker }).addTo(map);
 
 ---
 
-#### Bonus Activity 1 (optional) - Custom markers
-
-*It would be very helpful to see more details about the stations without clicking on every marker to open the popup.*
-
-In this activity you will extend your visualization and show a rough overview of the network's state. If a station of Boston's bike-sharing network is in a critical condition (no bikes available or all docks occupied) you should highlight it.
-
-1. **Download icons**
-
-	[http://cs171.org/2019/assets/scripts/lab10/icons.zip](http://cs171.org/2019/assets/scripts/lab10/icons.zip)
-
-	We are providing a set of different icons. You can choose two different marker styles to communicate the state of each station (*critical*, *regular*).
-	
-	- marker-blue.png
-	- marker-green.png
-	- marker-red.png
-	- marker-yellow.png
-
-2. **Implement dynamic markers**
-
-	→ Initialize the custom icons (in ```initVis()```)
-	
-	→ Specify the icons for the markers depending on the current state of each station: (in ```updateVis()```)
-	
-	- *Critical*: no bikes available **or** all docks occupied
-	- *Regular*: all other cases
-	
-
-	
-*This is just a basic solution to demonstrate how to integrate some dynamic logic into Leaflet maps. It would definetely make sense to distinguish between "no bikes available" and "all docks occupied" and to set different thresholds.*
 
 -----
 
