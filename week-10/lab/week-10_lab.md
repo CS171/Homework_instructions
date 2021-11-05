@@ -261,7 +261,7 @@ In Javascript, events are bound to DOM elements. In this lab we propose a global
 ```javascript
 let eventHandler = {
 	bind: (eventName, handler) => {
-	    document.body.addEventListener(eventName, func);
+	    document.body.addEventListener(eventName, handler);
 	},
 	trigger: (eventName, extraParameters) => {
 	    document.body.dispatchEvent(new CustomEvent(eventName, {
@@ -282,7 +282,7 @@ The event handler must be initialized in the controller (```main.js```). We have
 // 1. Create event handler
 let eventHandler = {
 	bind: (eventName, handler) => {
-	    document.body.addEventListener(eventName, func);
+	    document.body.addEventListener(eventName, handler);
 	},
 	trigger: (eventName, extraParameters) => {
 	    document.body.dispatchEvent(new CustomEvent(eventName, {
