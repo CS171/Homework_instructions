@@ -20,7 +20,7 @@ To complete this homework, you will have to do the following steps (which will b
 5. Fill out our enrollment survey.
 
 ## 1. Course Structure
-**Before you continue, please take a look at our syllabus and our weekly schedule overview on our [Canvas site](https://canvas.harvard.edu/courses/92515)! The syllabus will answer most of your questions!**
+**Before you continue, please take a look at our syllabus and our weekly schedule overview on our [Canvas site](https://canvas.harvard.edu/courses/108108)! The syllabus will answer most of your questions!**
 
 We will always post all materials and assignments for each week as a single module on Canvas (by Saturday of the preceding week).
 
@@ -28,19 +28,19 @@ We will always post all materials and assignments for each week as a single modu
 
 All class meetings will be held live for college students and in Zoom for DCE (Harvard Extension School) students. For zoom, please make sure that you have a working microphone, have turned on your video, and are in a safe and quiet environment.
 
-**Class:** Monday 2:15pm-3:30pm. Our classes are quite interactive and include many group activities. Please make sure that you arrive on time so you can contribute and participate.
-DCE students: You can either watch the lecture live on zoom, or watch a recording of it at a later time.  
+**Lab:** Monday 2:15pm-3:30pm.
 
-**Lab:** Wednesday 2:15pm-3:30pm.
+**Class:** Wednesday 2:15pm-3:30pm. Our classes are quite interactive and include many group activities. Please make sure that you arrive on time so you can contribute and participate.
+DCE students: You can either watch the lecture live on zoom, or watch a recording of it at a later time.  
 
 Classes start on time!
 
 **DCE (Harvard Extension School) Meeting Times**:
 
-Virtual Section: Mondays, 7:00 PM - 7:45 PM ET.
-Virtual Lab: Thursdays, 7:00 PM - 8:30 PM ET.
+Virtual Lab: Mondays, 7:00 PM - 8:30 PM ET.
+Virtual Section: Thursdays, 7:00 PM - 7:45 PM ET.
 
-The virtual meetings are for DCE students only!
+The virtual meetings are for DCE students! However, college students that could not attend the lab in person should attend the virtual lab.
 
 
 
@@ -62,7 +62,7 @@ If you have any questions (administrative or visualization-related), there are s
 
 1. Use our online message board Ed, which is linked in Canvas. Your message can be published either just to the teaching fellows or the entire course.
 2. If you can wait until the next class meeting, ask course staff at the end of class.
-3. Attend office hours. Office hours will be posted on [Canvas](https://canvas.harvard.edu/courses/92515/pages/schedule).
+3. Attend office hours. Office hours will be posted on [Canvas](https://canvas.harvard.edu/courses/108108/pages/schedule).
 4. Email course staff, either the TF that is mentoring your project team or staff@cs171.org.
 
 **Where to find help**
@@ -86,7 +86,7 @@ DCE students will be assigned into studio groups by us and will get an email fro
 -->
 
 ## 3. Ed Discussion Forum
-Click on the Ed Discussion link on our Canvas page or go to [Ed Discussion](https://canvas.harvard.edu/courses/92515/external_tools/78506?display=borderless) and introduce yourself.
+Click on the Ed Discussion link on our Canvas page or go to [Ed Discussion](https://canvas.harvard.edu/courses/108108/external_tools/78506?display=borderless) and introduce yourself.
 
 <!-- [DCE]
 If you are a DCE student and don't have a Harvard e-mail address, please sign up for one [here](http://g.harvard.edu/extension-school-and-summer-school-faq/extension_opt_in).-->
