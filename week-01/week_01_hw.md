@@ -61,7 +61,7 @@ For each of these visualizations, tell us:
 
     * Create a Google Doc and add your name and email address at the top of it.
     * Make the document sharable for everyone with the link but not the public. That way, TFs can access it without having to request access.
-    * Submit the URL of the Google Doc on Canvas as part of your homework (the assignment is in Module Week 1 - Homework - Week 1 | Class Activities).
+    * Submit the URL of the Google Doc on Canvas as part of your homework (the assignment is in Module Week 1 - Homework - Class Activities).
 
 
 * Install Tableau and a first Dataset
