@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Homework 1 - Due Wednesday, Sept. 8, 2021 by noon EDT
+# Homework 1 - Due Monday, Sept. 5, 2022 by noon EDT
 
 In this homework, you will consider different visualizations and analyze their primary purpose, whether they succeed or not, and the critical aspects of what makes visualizations compelling, effective, and impactful.
 
@@ -65,12 +65,9 @@ For each of these visualizations, tell us:
 * Provide some concrete examples of what you saw and how it worked for you.
 * Overall, did his talk have an impact on you? Did you change your mind or did you learn anything new?
 
-## 4. *Design Sprint*
-Please finish up week 1 of the design sprint you started during class. You can find the instructions [here](https://docs.google.com/document/d/1-FBZ3nZZrKcQq80vjo2Ai2cKcn1BZRGRiD-4nK2fCaM/edit). Your design sprint submission is the Google Doc process book of your team. Your design sprint mentor will look at your process book every week and give you feedback, so please make sure that it always is up to date.
-
 ## Lab Reading & Quiz Reminder
 
-Don't forget to complete the lab pre-reading and pre-quiz before lab on Wednesday, Sept. 8. They are posted on Canvas in the *Week 2* module.
+Don't forget to complete the lab pre-reading and pre-quiz before each lab. Next Monday is a holiday, so we ask you to work on your lab alone. We will not have a class on Monday. Therefore, the pre-reading quiz will be open the entire week. Instructions for the lab will be posted on Canvas in the *Week 2* module.
 
 
 ## 4. Submit Homework on Canvas
@@ -79,6 +76,6 @@ You can use a Google doc to answer the HW questions. Include the screenshots of 
 
 **Name your PDF file appropriately (e.g., hw1) and include your name.** Add your name to the filename using CamelCase style, e.g., ```hw1_JohnDoe.pdf``` if your name is John Doe.
 
-**Go to Canvas and click on the HW 1 - Submission link in the *Week 1* module and upload your PDF**
+**Go to Canvas and click on the HW Part 1 - Submission link in the *Week 1* module and upload your PDF**
 
-**Congratulations on finishing Homework 1! Remember that weekly HW will always be due on Wednesdays.**
+**Congratulations on finishing Homework 1! Remember that weekly HW will always be due on Monday.**
