@@ -16,7 +16,7 @@ If you have not done so already, please also complete HW0 on Canvas (Canvas/Modu
 &nbsp;
 
 
-## 1. *Good & Bad* Visualizations (3 points)
+## 1. *Good & Bad* Visualizations (4 points)
 
 
 *The use of visualization to present information is pervasive in the media. A visual representation is a powerful and effective way to make complicated and confusing information more relevant and easy to understand.*
@@ -55,15 +55,40 @@ For each of these visualizations, tell us:
 * Does it have a point of view or a message, and can you describe it?
 
 
-## 3. *Effective* Visualizations (3 points)
+## 3. *Prepare for next Week* (2 points)
 
-**Watch the [Hans Rosling TED talk](https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen#t-280857) (watch until 4:40) and answer the following questions:**
+* Create a Class Activity Notebook
 
-* What does Hans Rosling do and say to communicate his data effectively?
-* Give a comprehensive list with your explanation for each observation.
-* What strikes you about his visualization?
-* Provide some concrete examples of what you saw and how it worked for you.
-* Overall, did his talk have an impact on you? Did you change your mind or did you learn anything new?
+    * Create a Google Doc and add your name and email address at the top of it.
+    * Make the document sharable for everyone with the link but not the public. That way, TFs can access it without having to request access.
+    * Submit the URL of the Google Doc on Canvas as part of your homework (the assignment is in Module Week 1 - Homework - Week 1 | Class Activities).
+
+
+* Install Tableau and a first Dataset
+
+  * STEP 1. DOWNLOADING AND INSTALLING A TABLEAU DESKTOP ACADEMIC LICENSE (REQUIRES AN .EDU EMAIL)
+
+    If you have a .edu email address, download and install the free 1-year academic license for Tableau Desktop by completing the process [here](https://www.tableau.com/academic/students) (using your .edu email). If you have problems getting this to work, see here
+
+  * STEP 2. REGISTER WITH TABLEAU PUBLIC (AND OPTION FOR A FREE, LIMITED, NON-ACADEMIC TABLEAU DESKTOP LICENSE)
+
+    Tableau Public is a platform that allows you to share your visualizations with others (e.g., your professors, TFs, and colleagues). I encourage you to sign up for it [here](https://public.tableau.com/s/) and signing up for a Tableau Public account. Click “Sign In” in the upper right and create an account.
+
+    Note: While registering for Tableau Public, you will be offered the chance to download a Tableau Public Desktop license. If you do not qualify for a Tableau Academic License, go ahead and download this version which offers sufficient capabilities to fully participate in this workshop (please let me know if you end up using this license type for class, some of the instruction would need to be modified). If you were able to download the full-featured license in Step 1, above, you do not want this version. You want to use the version you already have downloaded.
+
+  * STEP 3. START LEARNING
+
+    Once you have installed Tableau, watch the videos and follow along at: [http://public.tableau.com/en-us/s/resources](http://public.tableau.com/en-us/s/resources). That page also provides links to many datasets you can use to learn Tableau or for your final projects. You can also practice with the videos of the Tableau Starter Kit here to begin your journey. We will show you how to use Tableau in class as well.
+
+    Note: Tableau offers free access to the Tableau E-Learning platform for one year to academic license holders. This is a fantastic resource; be on the lookout for an email from Tableau with credentials for this platform after you register!
+
+    In addition to the videos and resources highlighted in the Tableau Starter Kit, Tableau offers free instructor-led interactive web seminars to take you to the next level. See here
+
+  * STEP 4: Download the Dataset
+
+    The Excel file “SuperDrugsPrescriptionsV2.xlsx”, linked [here](https://bit.ly/superdrugsprescriptionsV2) , contains fictitious pharmaceutical sales information. Download the file onto your laptop as an Excel .xlsx file. Make sure that you can load the data into Tableau. If you like, start visualizing the data in Tableau.
+
+
 
 ## Lab Reading & Quiz Reminder
 
