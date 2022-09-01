@@ -12,15 +12,14 @@ exclude: true
 Welcome to the first lab of CS171!
 
 ***First step:***
-Please go to Canvas and fill in the pre-reading quiz. In the future, labs will be due before your lab section time.
+Please go to Canvas and fill in the pre-reading quiz. In the future, reading quizzes will be due Mondays at noon, prior to your lab meeting time.
 
 Our labs are designed as work-books in the style of a self-guided tutorial. We ask you to read and work through the given example problems, and to hand in the code of your completed lab at the end of each week, together with your homework.
 
+This week, you will work on the lab on your own, or in office hours. Usually, you will work on the lab in class and with a pair partner. This week, it is up to you if you want to work on the lab alone or with a pair partner.
+
 We embrace the concept of learning by doing. To truly master new programming and development skills, you have to spend the time to figure things out and to try different approaches and examples.
 However, you are not alone in this! CS171 staff is available for any questions that pop up along the way. We encourage you to pester them with questions, but at the same time, make sure that you come to the lab prepared and ready to code!
-
-***Second step:***
-Let us know which lab group you are in. Please fill in the names of your lab group [here](https://docs.google.com/spreadsheets/d/1f4aXJabvz2svsVhQ90FZcaiVT7Vul4oQYNOOPNMBwGY/edit#gid=0).
 
 ### Learning Objectives
 
@@ -134,7 +133,7 @@ Elements can be assigned multiple classes, simply by separating them with a spac
 
 	In Webstorm you will have to create a new project (empty project), and then add a new basics.html file to your project. You can then not only edit your file in Webstorm, but also view the HTML in a browser by running basics.html from within Webstorm (right-click on basics.html -> run). Internally, Webstorm will start its own web server for serving your basics.html page, which will become important once we start including D3 elements into our HTML pages.
 
-2. **Copy the HTML boilerplate into your empty file**
+2. **Copy the HTML boilerplate from above into your empty file**
 
 3. **Add some structure to the *body* of your new document and try different HTML elements. The content should be appropriate for the HTML tags you are using (e.g., a headline vs. a paragraph).**
 
@@ -387,7 +386,7 @@ In the last activity you will download and include the Bootstrap JavaScript libr
 
 5. **Bootstrap Grid**
 
-    Let's make use of bootstrap, shall we? Once of the most basic but at the same time most useful feature is bootstrap's grid system. Here's the link to the documentation: [https://getbootstrap.com/docs/5.1/layout/grid/](https://getbootstrap.com/docs/5.1/layout/grid/)
+    Let's make use of bootstrap, shall we? Once of the most basic but at the same time most useful feature is bootstrap's grid system. Here's the link to the documentation: [https://getbootstrap.com/docs/5.2/layout/grid/](https://getbootstrap.com/docs/5.2/layout/grid/)
 
     Below, you will find an example of the bootstrap grid. It is important to understand the hierarchy that the grid system uses: A div-container, i.e. ```<div class="container">``` serves as a parent for one or more div-rows, i.e. ```<div class="row">```, while a div-row serves as the parent for multiple div-columns, i.e. ```<div class="col">```.
     ```
@@ -446,7 +445,7 @@ These bonus activities are not required, but we recommend that you try them!
 
 2. **Try other Bootstrap components**
 
-	Go back to the Bootstrap website and look at their [examples](https://getbootstrap.com/docs/5.1/examples/). Include some other Bootstrap components in your ```basics.html``` file.
+	Go back to the Bootstrap website and look at their [examples](https://getbootstrap.com/docs/5.2/examples/). Include some other Bootstrap components in your ```basics.html``` file.
 
 	*Just copy and paste the respective boilerplate codes and play around with the styles.*
 
@@ -456,9 +455,9 @@ These bonus activities are not required, but we recommend that you try them!
 
 You have now completed the activities of Lab 1 and should have a basic understanding of HTML, CSS, and how you can style your webpage based on CSS selectors and libraries like Bootstrap. This knowledge will enable you to complete Homework 1!
 
-If you are done early, please help others around your table. If your entire table is done, feel free to get started on the homework.
+Please submit your completed lab 1 together with your homework submission on Canvas. 
 
-Please submit your completed lab 1 together with your homework submission on Canvas.
+If you have worked on the lab with a pair partner, please specify your partner's name as a comment at the top of your html file.
 
 *See you next week!*
 
