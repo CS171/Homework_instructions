@@ -11,7 +11,7 @@ exclude: true
 
 In the first part of this homework, you will create a simple webpage with HTML and CSS.
 
-In the second part, you will do a design critique on an infographic visualization.
+In the second part, you will do a design critique on an infographic visualization and include it into your website.
 
 This homework assumes that you have read Chapter 3 (up to page 36) in *D3 - Interactive Data Visualization for the Web* (Second Edition!) by Scott Murray.
 
@@ -113,9 +113,9 @@ You should use the empty containers in the following exercise (*Infographic Desi
 
 *As a general rule, only use html `<table>` tags in an html layout to display data that can be well-represented in rows and columns (i.e., tabular data). Do not use it as a general layouting device!*
 
-#### Bonus (1 point)
+#### Extra Challenge - Bootstrap Carousel (optional, for fame and glory, not extra points)
 
-In case you've finished all the tasks above as well as the Infographic Design Critique you can earn a bonus point by also implementing a slideshow/carousel component. We'd recommend that you examine the bootstrap documentation for some helpful sample code. As for the content of the carousel, we'd like you to include your examples for good or bad visualizations in the slideshow that you identified in last week's HW (Week 1). Make sure to use a proper headline for the slideshow.
+If you've finished all the tasks above and want more programming practice, we recommend implementing a slideshow/carousel component. Examine the bootstrap documentation for some helpful sample code. As for the content of the carousel, we'd like you to include your examples for good or bad visualizations in the slideshow that you identified in last week's HW (Week 1). Make sure to use a proper headline for the slideshow.
 
 &nbsp;
 
@@ -133,7 +133,7 @@ c. **Extend your previously created** `index.html` **file and add the following:
   - What questions does it answer?
   - What is the data? be specific, including data types (N,O,Q).
   - For each data type, how is it visually encoded?
-  - Do you like this visualization? Why or why not?
+  - Do you consider this to be a 'good' visualization? Why or why not?
 
 
 ***Add this information to your two-column layout.*** *In the left column the screenshot and in the right column the answers to the questions above*
