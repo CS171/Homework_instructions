@@ -34,7 +34,13 @@ After completing this lab, you will be able to:
 
 
 ### Note
-This lab is designed to take you **longer than the available in-class time** to complete. However, it is important that you work through the entire lab, as this lab will cover the basic JavaScript skills you will need for the rest of the course. Do not skip over sections! Please complete this lab at home (we consider it as part of the homework) and also submit it together with your homework.
+This lab is designed to take you **longer than the available in-class time** to complete. However
+, it is important that you work through the entire lab, as this lab will cover the basic
+ JavaScript skills you will need for the rest of the course. Do not skip over sections! Please
+  complete this lab at home (we consider it as part of the homework) and also submit it together
+   with your homework. There will be a total of three activities. Before each activity
+    we will provide substantial code snippets that will equip you with all the concepts you need
+     to solve the task.
 
 &nbsp;
 
@@ -174,13 +180,17 @@ let course = {
 
 -----
 
-#### Activity I
+## Activity I
 
 1. **Use the JavaScript Web Console**
 
-	As we have already learned in the first lab, there are some developer tools in our web browsers that make programing a bit easier. Normally, we include JS code in HTML files and then open these files in the browser. But we can also use the *Console* to type JS code directy in the browser.
+	As we have already learned in the first lab, there are some developer tools in our web
+	 browsers that make programing a bit easier. Normally, we include JS code in HTML files and
+	  then open these files in the browser. But we can also use the *Console* to type JS code
+	   directy in the browser. We've also provided more information about the console, how to use
+	    it as a debugging tool and what's going on underneath the hood [here](####the-console).
 
-	* Open your developer-tools and switch to the tab ***Console***
+	* Open your developer-tools (in your browser) and switch to the tab ***Console***
 
 	* Create a few variables and try out some mathematical operators to see how it works. The console accepts one line of code at a time.
 
@@ -348,7 +358,7 @@ let temperature = "Current temperature: " + toCelsius(34) + " Celsius";
 
 -----
 
-#### Activity II
+## Activity II
 
 *In this exercise you should use your data structure from the previous activity (amusement rides) and add two short functions to the JS file.*
 
@@ -578,10 +588,61 @@ expensiveProducts // Returns: [{ name: "laptop", price: 1600 }, { name: "phone",
 
 
 &nbsp;
+-----
+
+
+### Debugging
+
+Last week, you've learned about how to use your browser's built-in web developer tools
+. However, so far you've only learned how to use these tools to inspect the DOM and analyze the tree
+ structure of HTML elements. Today, we want you to start using the **console** as well as the
+  **sources** panel of your dev tools. 
+   
+#### The console 
+   
+You've already used the console extensively in activity I. Every browser has a debugging console
+, which is a command line interface in your browser that can execute snippets
+   of code. JavaScript comes with a (window) console object, that allows you to interact with
+    this debugging console. The most prominent amongst many [methods](https://www.w3schools.com/jsref/obj_console.asp) is the .log() method that writes a message to the console. The reason why console.log
+    () is such a prominent line in JavaScript is because it allows you to double check that your variables and data structures are indeed
+       what you expect them to be - you can think of it like a sanity-check print-statement in
+        python. 
+     
+#### The sources panel 
+
+While for smaller architectures, it is very often more practical to use console.log()
+ to debug your code and get to the root of your bug, there is a much more powerful tool that
+  comes with the dev tools, which is particularly helpful when you first need to get an overview
+   and don't know where to start debugging. In your sources panel, you cannot only view files
+   , but i.a. also pause and explore your code using breakpoints and use **watch** to track
+    how variables change and get updated while running through your code breakpoint by breakpoint.
+
+![Breakpoints](sources_01.png?raw=true "Lab 2 - Preview")
+
+
+How to get set up breakpoints and explore using watch:
+- first, go to the sources panel
+- then open the js file that contains the code you want to debug (by clicking on it)
+- next, click on the line number where you would want to place a break - a blue arrow will appear
+ (see screenshots)
+- set as many stops as you want/as necessary
+- reload the page
+- Your debugger is now running. A message in a yellow box overlaying your browser window saying
+ "Paused in debugger" is indicating that. Also, the navigation arrows of your breakpoint tool are
+  now no longer grayed out and ready to be used
+ - next, you can either use the scope tab to explore the behavior of all local and global
+  variables while going through the breakpoints or
+- you could switch to the **Watch** tab and just name the variables you want to monitor
+- in order to watch just the variables you're interested, you can just start typing the name of the
+ variable and the dev tools will autocomplete the name (see screenshots)
+- the listed variables will now reflect the state of the webapp at the particular breakpoint.
+
+![Watch](sources_02.png?raw=true "Lab 2 - Preview")
+
 
 -----
 
-#### Activity III
+## Activity III
 
 This activity summarizes most of the learned concepts of the first two labs. It includes different aspects of HTML, CSS and JS and will result in a bar chart visualization.
 
@@ -614,20 +675,28 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 	In this exercise we're interested in finding the attractions with the most visitors. We've added some code that sorts the ```attractions``` array by the number of advisors. However, if you look at the console log that prints the sorted array, you'll notice that the sorting isn't working.
 
 	**We'll use the Chrome DevTools to debug this issue.**
+		
+	- Open the Chrome Developer Tools pane (View -> Developer -> Developer Tools)
+	- Click on the `Sources` tab . You'll notice that the HTML/JS/CSS files you're currently
+	 working on are listed here. 
+	 - Click on the ***week_03_lab.js*** file.
+        ![Watch](week-03_lab_sources_panel.png?raw=true "Lab 2 - Preview")
 
-	* 	Open the Chrome Developer Tools pane (View -> Developer -> Developer Tools)
-	* Click on the `Sources` tab . You'll notice that the HTML/JS/CSS files you're currently working on are listed here. Click on the ```week_03_lab.js`` file.
+	- From this file view, we are able to set [breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) that let you step through your code as it executes, which is an incredibly powerful debugging tool. **Add breakpoints on lines 14 and 15 as shown below and refresh the page.**
+        ![Watch](week-03_lab_breakpoint.png?raw=true "Lab 2 - Preview")
 
-	<img src="week-03_lab_sources_panel.png" alt="sources" width="400"/>
-
-	* From this file view, we are able to set [breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) that let you step through your code as it executes, which is an incredibly powerful debugging tool. **Add breakpoints on lines 14 and 15 as shown below and refresh the page.**
-	<img src="week-03_lab_breakpoint.png" alt="sources" width="400"/>
-	* You'll notice now that your code stops executing at line 14. If you hover over the ```attractions```, you can view the value assigned to the variable.
-	* If you press the blue resume button, you'll see that the execution jumped down to line 15, which is the next breakpoint. By hovering over ```a.visitors``` you can see that the value is undefined. This is our bug.
-	* You can also step forward line-by-line, disable all breakpoints, and step into, out of, and over functions through the buttons at the top right of the debugger by the resume button.
-	* If you switch to the Console tab and type in ```a``` and pressing enter, you'll notice you can also interact with the local variables from the console. This is a good tool for testing out code without having to reload the page.
-	* From the current value of ```a``` or ```b```, you'll notice there's a property that holds the number of visitors that's capitlized slightly differently than it is in line 15. This is the bug!
-	* Disable your breakpoints by clicking on them. Now go back to WebStorm and update your code so that visitors is capitalized correctly. When you refresh the page the log that prints the array should show that it's sorted.
+	- You'll notice now that your code stops executing at line 14. If you hover over the
+	 ```attractions```, you can view the value assigned to the variable.
+	- If you press the blue resume button, you'll see that the execution jumped down to line 15
+	, which is the next breakpoint. By hovering over ```a.visitors``` you can see that the value is undefined. This is our bug.
+	- You can also step forward line-by-line, disable all breakpoints, and step into, out of, and
+	 over functions through the buttons at the top right of the debugger by the resume button.
+	- If you switch to the Console tab and type in ```a``` and pressing enter, you'll notice you
+	 can also interact with the local variables from the console. This is a good tool for testing out code without having to reload the page.
+	- From the current value of ```a``` or ```b```, you'll notice there's a property that holds
+	 the number of visitors that's capitlized slightly differently than it is in line 15. This is the bug!
+	- Disable your breakpoints by clicking on them. Now go back to WebStorm and update your code
+	  so that visitors is capitalized correctly. When you refresh the page the log that prints the array should show that it's sorted.
 
 4. **Filter the array**
 	We want to show the *top five global attractions* with the most annual visitors in a bar chart. There are 60 attractions in the dataset, so you have to create a new array or modify the variable ```attractions```. *Suggestion: Filter your sorted array to get the first five rows.*
@@ -679,11 +748,12 @@ In the last activity you have implemented a function which reacts to the user in
 
 #### Submission of lab
 
-Congratulations, you have now completed the activities of Lab 2.
+Congratulations, you have now completed the activities of the second Lab.
 
 *See you next week!*
 
-Please upload the code of your completed lab on Canvas!
+Please include the code of your completed activity 3 in your homework submission. Read the homework
+ documentation for more detail.
 
 &nbsp;
 
