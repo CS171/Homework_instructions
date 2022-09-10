@@ -20,8 +20,8 @@ This homework assumes that you have read and programmed along with chapter 3 (up
 
 &nbsp;
 
-## 1. Complete this week's lab!
-Please complete the lab - ideally before you start with this homework. It is due with the rest of this homework, you can find the upload link on Canvas, in this weeks module.
+## 1. Complete this week's lab! (2 points)
+Please complete the lab before you start with this homework (it is actually worth 2 points of this homework submission). It is due with the rest of this homework, you can find the upload link on Canvas, in this weeks module.
 
 &nbsp;
 
@@ -95,21 +95,22 @@ The data (arrays with JSON objects) are already stored in these two global varia
 
 	→ You should do all of that (extracting numbers and adding labels to HTML) directly in JavaScript. Update the DOM dynamically with JavaScript!
 
+	*Make sure you test your code after you have implemented this part! Once your code is working
+	, consider your code structure and code design:*
+	- *If your code is already longer than a couple of lines, extract it into a separate
+	 function and call that function within *createVisualization()*.*
+	- *Think about calculating the above numbers at the same time (e.g., inside a single loop), if
+	 possible. That will make the code shorter and easier to read, as well as faster.*
+	- *Make sure you use consistent spacing, layout, self-explanatory variable names, and code
+	      comments! If you do this as you progress in your coding project, this will save you a
+	       lot of time later!*
 
-	>Make sure you test your code after you have implemented this part! Once your code is working, consider your code structure and code design:
-	>
-	> a) If your code is already longer than a couple of lines, extract it into a separate function and call that function within *createVisualization()*.
-	>  
-	> b) Think about calculating the above numbers at the same time (e.g., inside a single loop), if possible. That will make the code shorter and easier to read, as well as faster.
-	>
-	> c) Make sure you use consistent spacing, layout, self-explanatory variable names, and code comments! If you do this as you progress in your coding project, this will save you a lot of time later!
+	**Hint:** Javascript has a number of native methods and properties that make interacting with HTML elements easy. For instance
 
-	>**Hint:** Javascript has a number of native methods and properties that make interacting with HTML elements easy. For instance
-
-	> * ```document.getElementById('some_id')``` returns an element by its ID. You can then manipulate that element.
-	> * Once you've selected an element, you can get and set its text through the ```innerText``` property. So if you'd like to assign the current value to a variable do something like ```let elemText = document.getElementById('some_id').innerText``` and if you want to change that value do ```document.getElementById('some_id').innerText = 'New Value'```.
-	> * To add or retrieve the HTML within an element, use the ```innerHTML``` property (e.g. ```document.getElementById('some_id').innerHTML = '<h1>Title</h1>'```.)
-	> * The ```value``` property get and sets the value of ```input```, ```select```, and ```button``` elements.
+	* ```document.getElementById('some_id')``` returns an element by its ID. You can then manipulate that element.
+	* Once you've selected an element, you can get and set its text through the ```innerText``` property. So if you'd like to assign the current value to a variable do something like ```let elemText = document.getElementById('some_id').innerText``` and if you want to change that value do ```document.getElementById('some_id').innerText = 'New Value'```.
+	* To add or retrieve the HTML within an element, use the ```innerHTML``` property (e.g. ```document.getElementById('some_id').innerHTML = '<h1>Title</h1>'```.)
+	* The ```value``` property get and sets the value of ```input```, ```select```, and ```button``` elements.
 
 
 
@@ -161,38 +162,8 @@ The data (arrays with JSON objects) are already stored in these two global varia
 
 &nbsp;
 
-## 3. Finish up your Design Sprint tasks
 
-* Install Tableau Desktop and individually create 3 visualizations for your group's dataset
-* Create a screenshot of each of your visualizations and uppload them to your team's process book
-* Detailed instructions can be found in the [design sprint instructions](https://docs.google.com/document/d/1UuXf1ems-AjG-We8kdz2nxQ7WU1EzIJ7HY5RQ17USQI/edit).
-
-## 4. Bonus Task (1 points)
-
-Please make sure to finish all the previous tasks before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who already have more experience with HTML, CSS and JS.
-
-You are currently showing overall statistics and a bar chart on your website. Whenever the user changes a selection, the corresponding dataset will be filtered and the views are getting updated. In this bonus task you should extend the dashboard with a sortable table view to show the individual customer feedbacks.
-
-Column names:
-
-- Delivery ID
-- Area
-- Time [min]
-- Driver
-- Number of pizzas
-- Punctuality
-- Quality
-- Wrong Pizza
-
-You should also connect the table with the select-boxes and your update mechanism. If the user selects *Boston* and *Phone*, the rows should be filtered accordingly.
-
-You can use the same script as in HW1 to make your table sortable:
-
-[https://www.cs171.org/Homework_instructions/week-03/hw/sorttable.js](https://www.cs171.org/Homework_instructions/week-03/hw/sorttable.js) *(Hint: use the class name 'sortable')*
-
-
-
-## 5. Submit Homework in Canvas
+## 3. Submit Homework in Canvas
 a. Add your lab work in ```submission_FirstnameLastname/lab``` and add a text file telling us who your lab partner was called ```lab_partner.txt```
 
 b. Put your JS homework in the folder structure ```submission_FirstnameLastname/hw/implementation```.
