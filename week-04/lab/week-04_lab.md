@@ -244,6 +244,8 @@ Instead of returning just the regular selection, the *data()* operator returns *
 - **Update** contains existing elements bound to the data
 - **Exit** contains existing elements that are not bound to data anymore and should be removed
 
+These three methods, along with merge() and join(), are powerful concepts in d3 and open up the floodgates for us to dynamcially handle updates to data. We will learn more about how to use them during Week 6's lab, but in the meantime, feel free to preview this content in Chapter 9 of *D3 - Interactive Data Visualization for the Web*. 
+
 There are no "p"-elements on the page so the **enter** selection contains placeholders for all elements in the array. In this and the following examples we will concentrate only on the *enter* selection. You will learn more about the enter-update-exit sequence when we are working with interactive datasets.
 
 (4) ```.enter()``` - Creates new data-bound elements/placeholders
@@ -569,25 +571,6 @@ The callback function - the inner function of *d3.csv()* - is called only after 
 	- Font size = 11px
 	- Text anchor = middle
 	
-10. **Event Listener**
-
-    *Add a **D3 click listener** and write the population of the clicked city (i.e., circle) to the web console.*
-    
-    The d3 method .on() adds or removes a listener to each selected element for the specified event typenames. 
-    The typenames is a string event type, such as click, mouseover, or submit. When a specified event is dispatched 
-    on a selected element, the specified listener will be evaluated for the element, being passed the current event 
-    (event) and the current datum (d), with this as the current DOM element (event.currentTarget). In order to have access
-    to this, however, we cannot use arrow functions. Have a look at this event listener:
-    
-    ```javascript
-            .on("click", function(event, d){
-                console.log('check out what you have access to', event, d, this)
-            });
-    ```
-    
-    Of course, you can do more than just writing something to the console here. For example, you could call other functions and pass along
-    some information from the current selection.
-
 *Your result should look similar to this screenshot:*
 ![Activity 3 Result](cs171-activity-3.png?raw=true "Activity 3 Result")
 
@@ -602,9 +585,27 @@ Later in this course you will also learn how to create interactive maps.
 	
 -----
 
-#### Bonus Activities
+#### Bonus Activities (optional!)
 
-Change the **hover style** of the SVG circles. 
+- Add a **D3 click event listener**.
+
+    The d3 method .on() adds or removes a listener to each selected element for the specified event typenames.
+    The typenames is a string event type, such as click, mouseover, or submit. When a specified event is dispatched
+    on a selected element, the specified listener will be evaluated for the element, being passed the current event
+    (event) and the current datum (d), with this as the current DOM element (event.currentTarget). In order to have access
+    to this, however, we cannot use arrow functions. Have a look at this event listener:
+
+    ```javascript
+    .on("click", function(event, d){
+        console.log('check out what you have access to', event, d, this)
+    });
+    ```
+
+    Of course, you can do more than just writing something to the console here. For example, you could call other functions and pass along
+    some information from the current selection.
+
+
+- Change the **hover style** of the SVG circles. 
 
 &nbsp;
 	
