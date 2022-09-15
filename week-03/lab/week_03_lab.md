@@ -736,7 +736,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 - **Add custom styles (CSS)**
 
 	We have included *Bootstrap* and a couple of CSS rules to style the bar chart. Add a new stylesheet or modify ```style.css``` to create an individual design.
-	To change the style of the D3 components you will have to add new elements to your css. D3 uses ```<svg>``` tags in the DOM, and you might want to look up properties like *fill* or *stroke*. The tooltip has the class ```tooltip``` in the DOM.
+	To change the style of the D3 components you will have to add new elements to your css. D3 uses ```<svg>``` tags in the DOM, and you might want to look up properties like *fill* or *stroke*. We've also provided code for you to implement hover interactions in the form of a tooltip, which is classed ```tooltip``` in the DOM. In order to enable this functionality, you must add a placeholder div of id ```tooltip``` to your HTML file. Inside your newly minted div, create a span of id ```value```. We encourage you to play around with adding more content to the tooltip, as well as changing the tooltip's styling in CSS.
 &nbsp;
 
 -----
