@@ -13,7 +13,7 @@ This homework assumes that you have read and programmed along with chapter 3 (p.
 
 &nbsp;
 
-## 1) The World's Tallest Buildings (7 points)
+## 1) The World's Tallest Buildings (10 points)
 
 In this homework you will implement a horizontal bar chart with D3. Your bar chart will represent the ten tallest, fully-completed buildings in the world. Users will be able to click on a bar or label on the chart to get more information about a specific building.
 
@@ -80,7 +80,8 @@ The ```img``` folder contains an image in portrait format for each building.
 
 	*After selecting a specific building by clicking on the SVG labels or bars, 
 	more detailed information should be presented to the user. That information
-	should live in a separate column. Take a look at our solution to get some inspiration.*
+	should live in a separate column. Take a look at our solution screenshot to get some
+	 inspiration.*
 
 	Just like in the lab, you will have to use D3 *event listeners* to solve this task. 
 	However, in the homework, you're supposed to do more than just firing a console.log. 
@@ -92,7 +93,8 @@ The ```img``` folder contains an image in portrait format for each building.
 	
 	* Identify code that can easily be re-factored into separate functions. E.g. click event listeners for the rectangles and text currently behave the same way. That means you should probably have a single function that is called when clicking either on a rectangle or a building name.
 	* Document all your functions, and make note of important points in the code. However, don't go overboard by documenting every line of code.
-	* Use speaking variable names. Avoid using names like ```var temp_d``` or ```.div3```. Rather use names like ```var sorted_buildings``` or ```.barchart```. 
+	* Use speaking variable names. Avoid using names like ```let temp_d``` or ```.div3```. Rather
+	 use names like ```let sorted_buildings``` or ```.barchart```. 
 
 9. **Use CSS to design your page**
 
@@ -100,28 +102,25 @@ The ```img``` folder contains an image in portrait format for each building.
 	
 	> We have used the *Google Font "Roboto"* in our example. If you are interested in using different fonts, this page might be helpful: [https://www.google.com/fonts](https://www.google.com/fonts)
 	
-<!--## 2) Design Critique (3 points)
+10. **Check for bad practices**
+    * Congratulations, you are done with the main task. Before moving on, however, make sure to
+     skim your code for bad practices. This most and foremost means that your code is readable
+      and includes comments where necessary. For your HTML code, we don't wanna see <br> tags
+       anywhere in your code to space things out. Instead, make proper use of classes and ids
+       . In your java script code, try using a forEach loop where possible and get comfortable
+        with arrow functions.
+    
 
-![Homework 3 - Design Critique](cs171-w4hw-dashboard.png?raw=true "Homework 3 - Design Critique")
+## 2) Optional: `Dear Data' Competition: Collecting Personal Data
 
-*Source: ([http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/](http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/))*
-
-#### Task:
-
-Critique this dashboard using the design principles and terminology we discussed in class (C.R.A.P., Gestalt Principles, Tufte). 
-
-&nbsp;
--->
-
-## 2) Dear Data: Collecting Personal Data (3 points)
-
-Over the next two weeks you will observe, collect, and sketch a visualization inspired by the Dear Data project. This week, you will collect personal data, and next week you will sketch a visualization that encodes this data using creative, artistic, and whimsical visual encodings inspired by the work of Georgia Lupi and Staphanie Posavec. The student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
+You have already heard about the Dear Data project in class. We will run our own CS171 Dear Data competition this year. The winner will receive a copy of the Dear Data book (and bragging rights), but it is completely optional and up to you to join the competition or not.
+If you decide to join, we ask you to observe, collect, and sketch a visualization inspired by the Dear Data project over the next two weeks. This week, you will collect personal data, and next week you will sketch a visualization that encodes this data using creative, artistic, and whimsical visual encodings inspired by the work of Georgia Lupi and Staphanie Posavec. The student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
 
 <img src="dear_data_cover.png" width="400">
 <!--![Dear Data Book](dear_data_cover.png "Dear Data Book")-->
 
 
-Here are some pictures of last year's submissions:
+Here are some pictures of previous years' submissions:
 
 ![Dear Data Examples](dear_data_students1.png "Dear Data Student Examples")
 ![Dear Data Examples 2](dear_data_students2.png "Dear Data Student Examples 2")
@@ -142,7 +141,7 @@ Think about what personal data you want to collect this week. Anything that can 
 
 **How much data to collect**
 
-You must collect data for **at least 5 days** with **at least 3 observations** per day, so make sure to get started early. Each data item (i.e., rows in your data table) needs to have **at least 5 attributes** (i.e., columns in your data table), including the date and time when you collected each item. More attributes are better, especially if they are used to make connections between different data items (e.g., how people are connected, and who they are connected to).
+You must collect data for **at least 5 days** with **at least 3 observations** per day, so make sure to get started early. We recommend that each data item (i.e., rows in your data table) has **at least 5 attributes** (i.e., columns in your data table), including the date and time when you collected each item. More attributes are better, especially if they are used to make connections between different data items (e.g., how people are connected, and who they are connected to).
 
 *Example:* You decide to collect data about butterflies. Each row of your data table will be a butterfly sighting. The first attribute is the day and time of when you saw the butterfly. Other attributes (columns) in your table are where you saw it, its color, what mood you were in (using emojis), what kind of butterfly you think it was. You make sure to keep an eye out for butterflies to hopefully see at least three of them each day. If you don't, you can make a couple of sightings (but do not cheat too much). 
 
@@ -159,24 +158,10 @@ _Example: Below is a picture of an example data table for the butterfly data, in
 
 **How to submit your data**
 
-If you collected your data on paper, take a picture of your table and submit it with your homework. If you like, you can also transfer your data to a spreadsheet and submit it that way. A spreadsheet allows you to easily compute aggregate statistics, e.g., averages, medians, or percentages, although you can also do that with pen and paper.
-
-## 3) Finish up your Design Sprint tasks
-
-* Create Create at least 10 sketches (per group member) that answer some or all of the questions you came up with during the ‘map’ phase. Upload them to your team's process book.
-* Detailed instructions can be found in the [design sprint instructions](https://docs.google.com/document/d/1cPr0Thr63TwuH5fQevZ1XqMzT5d-emr70SFq7eF-qmI/edit).
+If you collected your data on paper, take a picture of your table and submit it with your homework. If you like, you can also transfer your data to a spreadsheet and submit it that way. A spreadsheet allows you to easily compute aggregate statistics, e.g., averages, medians, or percentages, although you can also do that with pen and paper. If you were not able to collect data over 5 days yet, don't worry, you can continue your data collection into next week (just submit the data that you have so far for this week).
 
 
-## 4) Bonus Task (1 point)
-
-Please make sure to finish all previous tasks before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who already have more experience with HTML, CSS and JS.
-
-When the user clicks on a bar or on a text label you are currently displaying, additional information about the selected building in the right column should appear. Include a link below the table that leads to the building's Wikipedia page. The URLs should be generated automatically from your data and the page should open in a new browser tab.
-
-&nbsp;
-
-
-## 5) Submit Homework in Canvas
+## 3) Submit Homework in Canvas
 
 Submission instructions:
 
