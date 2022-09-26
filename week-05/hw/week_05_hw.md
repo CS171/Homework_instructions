@@ -19,7 +19,7 @@ This homework requires that you have read and programmed along with chapters 7 a
 
 &nbsp;
 
-## 1) Za'atari Refugee Camp (7 points)
+## 1) Za'atari Refugee Camp (10 points)
 
 Zaâ€™atari is a refugee camp in Jordan that opened in 2011 to host people fleeing from the Syrian civil war. With around 80,000 refugees it is one of the largest UN-supported camps and over the past few years it transformed from a tent camp to a real city with water and sewage systems, markets, coffee shops etc.
 
@@ -48,7 +48,6 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 
 	Please download the CSV data: [zaatari-refugee-camp-population.csv](https://www.cs171.org/Homework_instructions/week-05/hw/assets/zaatari-refugee-camp-population.csv)
 
-
 2. **Set up a new D3 project and create a two-column layout in your HTML file**
 	During the course of this homework you will add an area chart to the left column and a bar chart to the right column.
 	
@@ -63,7 +62,6 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 4. **From now on, your charts should implement the D3 margin convention**
 
 	Create ```margin```, ```height```, and ```width``` variables and append a new SVG drawing space for the area chart to the HTML document via JavaScript.
-
 
 5. **Area chart: Before you create the actual area chart, create linear scales for the x- and y-axes**
 
@@ -84,14 +82,12 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 	b. Draw the area (using an SVG path element)
 	
 	```javascript
-	var path = svg.append("path")
+	let path = svg.append("path")
       .datum(data)
       .attr("class", "area")
       .attr("d", area);
 	```
 
-	
-	
 	c. Change the style with CSS 
 	
 	If any of these steps are unclear, study some D3 area chart examples online. Make sure you understand the code before you implement it yourself! 
@@ -105,7 +101,6 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 	
 	* Format the labeling of the x-axis to display the month and year in text format (e.g. April 2013). 
 	* Make sure that the labels don't overlap each other, by rotating the text labels of the x-axis. 
-	
 	
 8. **Create a compound JS data structure to store information about the shelter types** 
 
@@ -143,54 +138,48 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 	
 	Note: This step is relatively complex, compared to the earlier steps. Add individual elements step-by-step and make sure they are working before adding on more elements. Debugging tip: during development, add color to your elements through css styles to ensure they are being rendered properly. 
 
-
-	 * Create a group for all the tooltip elements and hide it by setting the style attribute 'display' to 'none' (Skip this step during development to make sure you are rendering things correctly). Save this element as a variable, which you will use to append text elemenet and later update the tooltip position. Give it a class name.
+	* Create a group for all the tooltip elements and hide it by setting the style attribute 'display' to 'none' (Skip this step during development to make sure you are rendering things correctly). Save this element as a variable, which you will use to append text elemenet and later update the tooltip position. Give it a class name.
 	 
     * Append a vertical tooltip line to the leftmost position of the group (x=0) and that spans the full height of the svg.  Don't forget to assign the 'stroke' attr for it to render properly!
 
-
 	* Append an empty SVG text element for the tooltip population value. place it 10px away from the top left corner of the group, and don't forget to give it a class or id! 
 	 
-
-	 *  Append an empty SVG text element for the tooltip date value. Position this text just below the population text holder. Give it a unique class or id name. 
+    *  Append an empty SVG text element for the tooltip date value. Position this text just below
+   the population text holder. Give it a unique class or id name. 
 	 
-
 	* Append a rectangle over the whole chart to capture 'mouse events'. Add listeners to 'mouseover', 'mouseout', and 'mousemove' events. On mouseover, set the display style of the tooltip group to 'null, on mouseout set it to 'none', and on mousemove, trigger a new 'mousemove' function that will handle the positioning of the tooltip. 
 
 	* ```d3.bisector```is a function that finds the closest index in an array for a given value, specifying an accessor function.  You can read more about it here: [https://github.com/d3/d3-array#bisector](https://github.com/d3/d3-array#bisector)
 
 	* For this homework, you will need to define a bisector that returns the date attribute, such as the example below. This can then be applied as bisectDate(array, d), returning the index of  the array which contains the closest value to 'd'. 
 
-	```javascript 
-	let bisectDate = d3.bisector(d=>d.date).left;
-	```
+        ```javascript 
+        let bisectDate = d3.bisector(d=>d.date).left;
+        ```
  
     * Write a mousemouve function with the following signature: 
 
-	```javascript
-	function mousemove(event){
-		//code goes here
-	}
-	```
+        ```javascript
+        function mousemove(event){
+            //code goes here
+        }
+        ```
 
 	* Inside this function implement the following steps: 
 
-		* a. Use d3.pointer(event)[0] to get the x position of the mouse pointer. 
+		* Use d3.pointer(event)[0] to get the x position of the mouse pointer. 
 
-		* b. Use .invert on the xscale to find the equivalent date value for the x position of the mouse pointer. 
+	    * Use .invert on the xscale to find the equivalent date value for the x position of the
+	     mouse pointer. 
 	    
-		* c. Call the previsously declared bisector function to get the index of the closest date in the original data array. 
+		* Call the previsously declared bisector function to get the index of the closest date in
+		 the original data array. 
 
-		* d. Use the index from the previous step to grab the data element at that location.  
+		* Use the index from the previous step to grab the data element at that location.  
 
-	    * e. Shift the whole tooltip group on the x-axis to the position of the mouse. 
+	    * Shift the whole tooltip group on the x-axis to the position of the mouse. 
 
 	    * Update the tooltip text properties with the date and population values 
-
-	
-
-
-
 
 13. **Use CSS to style the webpage**
 	
@@ -202,9 +191,10 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 
 Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view! 
 
-## 2) Dear Data: Week 2 - Sketching your data (3 points)
+## 2) Optional: `Dear Data' Competition: Visualizing Personal Data
 
-This week, you will sketch a visualization that encodes the personal data you collected last week using creative, artistic, and whimsical visual encodings inspired by the Dear Data project. Similar to Georgia Lupi and Staphanie Posavec, we want you to sketch your visualizations by hand, either using pen and paper or a tablet and electronic pencil. As you know from last week's homework, the student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
+
+If you collected data for your personal Dear Data project last week, you can sketch a visualization this week that encodes the personal data you collected last week using creative, artistic, and whimsical visual encodings inspired by the Dear Data project. Similar to Georgia Lupi and Staphanie Posavec, we want you to sketch your visualizations by hand, either using pen and paper or a tablet and electronic pencil. As you know from last week's homework, the student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
 
 **Why sketches?**
 
@@ -215,46 +205,16 @@ It makes me feel more human/normal to think that the people I admire also didnâ€
 
 Sketching allows you to reflect and refine your visualizations. Take a look at some of the blog posts that Nadieh and Shirley Wu wrote for their [Data Sketches](https://www.datasketch.es) project, and you will see many iterations of hand-drawn in addition to code sketches. As an aside, the Data Sketches book would also be a great addition to your visualization library.
 
-**Sketch initial ideas**
-
-In that spirit, we would like you to create **at least five** initial sketches of how to visualize the personal data that you collected. These sketches do not have to be very elaborate or refined. They can each be different, or they can be iterations on the same idea. For each sketch, we would like you to add a written **explanation of the visual encodings for each of your data attributes**.  That could be in the form of handwritten or typed text, a hand-drawn legend, or lines and arrows that make the connection from your visuals to your data. We would like you to use **at least five** of your collected or aggregate data attributes in your sketches.
-
-**Get inspired**
-
-As discussed in class, we hope that you will avoid design fixation by drawing inspiration for your sketches from paintings, sculptures, architecture, photography, music, advertisements, graphical designs, visualizations, etc. With the internet at your fingertips it should be relatively easy to find cool visuals that you find pleasing, interesting, intriguing, or that simply got your attention. Please **reference at least two inspirations for your sketches** in your writeup, including an image and, if applicable, the URL for each. For each source, let us know why it inspired you, and how you used ideas from it in your sketches.
-
 **Final sketch**
 
 Once you got your inspiration, sketched a few ideas, and iterated on them, it is time to create your final sketch. Again, you can use pen and paper or a tablet and electronic pencil for this. We do not want you to be constrained, so you can **use any page size or format** that you like. Please use thick strokes and bold colors that are easy to see from a distance and that will reproduce well once you take a photo of your sketch (assuming it was done on paper). As before, we want you to use **at least five** of your data attributes in your final sketch.
 
-Similar to the Dear Data project, we also want you to **create a legend that explains how each of your data attributes is visually encoded**. The legend can be drawn on a separate piece of real or electronic paper. Again, make sure to use thick strokes or large fonts to make the writing easy to read. If you like, you can also add the legend directly to your sketch using lines and arrows that make the connection from your visuals to your data.
-
-**Reflections**
-
-After you are finished with your final sketch we want you to reflect on the overall experience over the two weeks of this project. Some questions to consider include: How difficult was it to collect your data? Did you encounter issues you had not considered before? Was it easy to find inspiration for your initial sketches? Are you happy with the variety of ideas you explored? What insights into your data did you get from your visualizations? Did you learn anything that surprised you? Was this mini-project fun or a chore? Would you do this again for your personal use in the future? Of course you can also write about any other observations and thoughts. Write **at least two paragraphs** of reflections.
+Similar to the Dear Data project, we also want you to **create a legend that explains how each of your data attributes is visually encoded**. The legend can be drawn on a separate piece of real or electronic paper. Again, make sure to use thick strokes or large fonts to make the writing easy to read. If you like, you can also add the legend directly to your sketch using lines and arrows that make the connection from your visuals to your data. Please also add a paragraph (can be a separate .txt file) where you briefly explain your sketch to us (e.g., what data you collected, what you show, and why you chose that encoding).
 
 **How to submit your project**
 
 If you drew using pen and paper, take pictures of your sketches and legends, and if you used a tablet and electronic pencil you can export the electronic pages. Combine all of the images in a pdf and label them to make it clear what they show. You can use a google doc to collect everthing and then export it to a pdf). Please make sure that your images are big enough to make the visuals and text easily legible. You can include your reflection as typed text after the embedded images in your homework document.
-
-## 3) Finish up your Design Sprint tasks
-
-## 4) Bonus Task (1 point)
-
-Please make sure to finish all previous tasks completely before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who have already more experience with JS libraries.
-
-At this point your webpage should contain a static bar chart with shelter types and an area chart showing the total camp population from 2013 to 2015. You have also implemented dynamic tooltips for the area chart to show individual values when the mouse pointer is moved over the chart.
-
-In this bonus activity you should further extend your area chart and color two specified regions differently. Assume that the Za'atari refugee camp had a planned capacity of 100,000 people. This threshold was exceeded quickly. Show it in your visualization by coloring the critical region (> 100,000) and by adding a line at this point:
-
-![Bonus Activity](cs171-hw4-bonus.gif?raw=true "Bonus Activity")
-
-You can either draw two paths (d3 area function) and clip the defined regions or you can use one path with a *gradient fill*.
-
-Of course the mouse pointer and the dynamic tooltips should remain unchanged.
-
-
-## 5) Submit Homework in Canvas
+## 3) Submit Homework in Canvas
 
 Submission instructions:
 
@@ -264,14 +224,10 @@ Submission instructions:
 /submission_FirstnameLastname
 	lab_partner.txt 	
 	hw/
-    	dear_data/      ...folder for your dear data sketches   
 	    implementation/ ...folder for your code
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
-	    design/         ...folder for your sketches
-	        ...
-		...
 	lab/
 ```
 
