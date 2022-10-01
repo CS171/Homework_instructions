@@ -1,10 +1,12 @@
 
-// SVG drawing area
+// margin conventions & svg drawing area - since we only have one chart, it's ok to have these stored as global variables
+// ultimately, we will create dashboards with multiple graphs where having the margin conventions live in the global
+// variable space is no longer a feasible strategy.
 
 let margin = {top: 40, right: 40, bottom: 60, left: 60};
 
-let width = 600 - margin.left - margin.right,
-		height = 500 - margin.top - margin.bottom;
+let width = 600 - margin.left - margin.right;
+let height = 500 - margin.top - margin.bottom;
 
 let svg = d3.select("#chart-area").append("svg")
 		.attr("width", width + margin.left + margin.right)
@@ -27,19 +29,15 @@ let data;
 
 // Load CSV file
 function loadData() {
-	d3.csv("data/fifa-world-cup.csv").then(function(csv) {
-
-		csv.forEach(function(d){
-			// Convert string to 'date object'
-			d.YEAR = parseDate(d.YEAR);
-			
-			// Convert numeric values to 'numbers'
-			d.TEAMS = +d.TEAMS;
-			d.MATCHES = +d.MATCHES;
-			d.GOALS = +d.GOALS;
-			d.AVERAGE_GOALS = +d.AVERAGE_GOALS;
-			d.AVERAGE_ATTENDANCE = +d.AVERAGE_ATTENDANCE;
-		});
+	d3.csv("data/fifa-world-cup.csv", row => {
+		row.YEAR = parseDate(row.YEAR);
+		row.TEAMS = +row.TEAMS;
+		row.MATCHES = +row.MATCHES;
+		row.GOALS = +row.GOALS;
+		row.AVERAGE_GOALS = +row.AVERAGE_GOALS;
+		row.AVERAGE_ATTENDANCE = +row.AVERAGE_ATTENDANCE;
+		return row
+	}).then(csv => {
 
 		// Store csv data in global variable
 		data = csv;

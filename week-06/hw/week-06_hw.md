@@ -15,7 +15,7 @@ This homework requires that you have read Case 1 of the article:
 
 Optional reading: [Mike Bostock's 'Thinking with Joins'](http://bost.ocks.org/mike/join/), and chapters 9-10 in *D3 - Interactive Data Visualization for the Web*.
 
-## 1) FIFA World Cup™ - All Time Statistics (7 points)
+## 1) FIFA World Cup™ - All Time Statistics (10 points)
 
 > The FIFA World Cup™ is the biggest single-event sporting competition in the world and is played by the senior men's national teams from the 209 Member Associations of FIFA. The competition has been played every four years since the inaugural tournament in 1930, except in 1942 and 1946 when it was not held because of the Second World War.
 > 
@@ -56,7 +56,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 		
 		```javascript
 		let formatDate = d3.timeFormat("%Y");
-		let parseDate = d3.timeParse("%Y");
+		let parseDate = d3.timeFormat("%Y");
 		
 		let newDate = parseDate("2020");
 		newDate  // Returns: Wed Jan 01 2020 00:00:00 GMT-0500 (EST)
@@ -69,7 +69,6 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	- Create the inital scales and axes. Make sure to pick appropriate scales, especially for the x axis!
 	- Keep in mind that you should update the input domains each time the data changes.
 	- We recommend that you first implement the y-axis for showing the data attribute *"goals"*. After you have implemented the initial line chart, you will then connect your visualization with a select box to create a dynamic y-axis (in Activity II, part 6). This will allow the user to interactively change the attribute that is being visualized on the y axis.
-
 
 4. **Use the ```d3.line``` function to map the data to an SVG path and draw the line chart**
 
@@ -110,20 +109,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	Instead of jumping from one state to another, perform a smooth transition when the user selects a different mode (y-axis value). The duration of the transition should be *800ms*.
 	- Add transitions to the path, the overlayed circles, and the axes
 	
-
-9. **Implement a time period filter**
-
-	*Enable the user to limit the visible FIFA World Cups to a specific time frame.*
-	
-	- Create two HTML input fields (lower and upper bound) and a button to update the visualization. Optionally, if you feel confident in JavaScript and were able to finish the last steps quickly, you can also implement a range slider.
-	- The default values should cover the whole time period of the data (20 FIFA World Cups).
-	- After the user modifies the time frame you have to filter the dataset, update the scales/axes and redraw the SVG elements (```updateVisualization()```).
-	- You don't need to worry about error handling here. We expect that the user enters a valid time frame.
-	- Adjust the transition of the circles and the path in the line chart: Think about how you can best visually represent the filtering action in the transition. The transition should be intuitive and not break the mental model the user has of the data. Use the animation below as guidance.
-	
-	![Time Filtering](time_filtering.gif?raw=true "Time Filtering")
-
-10. **Show the details for a single FIFA World Cup edition**
+9. **Show the details for a single FIFA World Cup edition**
 
 	*If the user clicks on an SVG circle on the line graph, the invidual statistics for this specific event should be displayed in a separate container beside the chart.*
 	
@@ -132,42 +118,56 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	- We have prepared an empty function ```showEdition(d)```. You can call it with the data of the selected event and implement the logic there. Re-factoring code into separate functions is a crucial factor for maintaining the readability and extensibility of your programs. Your D3 update sequence remains compact and you can reuse the functions.
 	- Use *JS functions* and *D3* to update the HTML content with all the available information for a FIFA World Cup edition: *title, winner, goals, average goals, matches, teams, average attendance*.
 
+10. **Implement a time period filter using a slider**
+	- Create range slider that updates the visualization when used.
+	- The idea is to enable the user to limit the visible FIFA World Cups to a specific time frame.
+	- The default values should cover the whole time period of the data (20 FIFA World Cups).
+	- use NoUiSlider ([http://refreshless.com/nouislider/](http://refreshless.com/nouislider)) to complete this task.
+	- We've already imported the latest NoUiSlider js file in your index.html.
+	- Check out the code snippets below for some guidance
+	- The range of the slider should be extracted dynamically from the dataset. 
+	- Please use labels or tooltips for the slider to indicate the chosen time period.
+	- After the user modifies the time frame you have to filter the dataset, update the scales/axes and redraw the SVG elements (```updateVisualization()```).
+	- You don't need to worry about error handling here. We expect that the user enters a valid time frame.
+	- Adjust the transition of the circles and the path in the line chart: Think about how you can best visually represent the filtering action in the transition. The transition should be intuitive and not break the mental model the user has of the data. 
+
 11. **Create a proper style for your webpage**
 
 	Maintain good spacing between UI components, overall layout, font size, color scheme, etc. Also, make sure that transitions are intuitive and clear.
 
 
-## 2) Design Creation and Explanation (3 points)
+*Slider Example:* ![Homework 5 Range Slider](cs171-hw5-range-slider.gif?raw=true
+ "Homework 5 Range Slider")
 
-In a previous homework, you had a chance to familiarize yourself with the following infographic. This week, we want you to get creative!
+*Slider Code Snippets:* 
 
-![Creative Commons License](cs171-hw2-infographic.png)
+        // grab slider location in your DOM
+        slider = document.getElementById("...");
 
-- **Create 2 sketches that redesign the Google salary visualization.**
-- For each of your two sketches write down which questions your sketch answers
-- Both sketches should cover different aspects of the visual vocabulary (class material of week 5), explain your choices.
-- Name and justify all your changes you made using C.R.A.P. and Gestalt principles that you've learned class.
-- We expect you to write a text in the range of 200-400 words.
-- Write the text with your computer.
-- Take a picture of your sketch or scan it.
-- Create a PDF (creation.pdf) that contains both the sketch and your explanation/justification.
+        // define slider functionality - notice that you need to provide the slider's location 
+        noUiSlider.create(slider, {
+            start: [  ..first wc in the data set.. , ..last wc in the data set..],
+            connect: ..,
+            behaviour: ..,
+            step: ...,
+            margin: ..,
+            range: {
+                'min': ...,
+                'max': ...
+            }
 
+        });
 
-## 3) Finish up your Design Sprint tasks
+        // attach an event listener to the slider
+        slider.noUiSlider.on('slide', function (values, handle) {
+            ...
+            ...
+        });
+        
+*Final Deliverable Example:* ![Homework 5 Solution Screenshot](solution_w6_hw.png?raw=true
+                              "Homework 5 Range Slider")
 
-## 4) Bonus Task (1 point)
-
-Please make sure to finish all previous tasks before you start with the bonus activity. Extra credits are only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who have already more experience with web development and JS libraries.
-
-Implement a range slider in your project, instead or in addition to the input fields. The user should be able to select a specific time period and the line chart should get updated automatically. If you want to explore more facets of the powerful D3 library you can try to implement the slider either with D3 or you can use another JS library, such as NoUiSlider ([http://refreshless.com/nouislider/](http://refreshless.com/nouislider/)). The range of the slider should be extracted dynamically from the dataset. Please use labels or tooltips to indicate the chosen time period.
-
-*Example:*
-
-![Homework 5 Range Slider](cs171-hw5-range-slider.gif?raw=true "Homework 5 Range Slider")
-
-
-
-## 5) Submit Homework in Canvas
+## 2) Submit Homework in Canvas
 
 Submission instructions:
 

@@ -1,5 +1,51 @@
 
-/* ADD YOUR STYLES HERE */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f7f7f7;
+}
+
+h1 {
+  font-weight: 100;
+  margin-top: 50px;
+  color: #4B6D4A;
+}
+
+h1 sup {
+  font-size: 11px;
+  top: -18px;
+  font-weight: 400;
+  color: #5b835a;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 18px;
+  color: #91988B;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+
+/****************/
+/*  USER INPUT  */
+/****************/
+
+
+/***************/
+/*   DETAILS   */
+/***************/
+
+#world-cup-edition {
+  display: none;
+  background-color: #F5EFEF;
+  padding: 20px;
+  border: thin solid #4B6D4A; border-radius: 5px
+}
 
 
 /****************/
@@ -18,18 +64,14 @@
 
 .line {
   fill: none;
-  stroke: #1C9A3D;
-  stroke-width: 1.5px;
+  stroke: #86AC86;
+  stroke-width: 3px;
 }
 
 .tooltip-circle {
-  fill: #96AB96;
+  fill: #5C865B;
+  cursor: pointer;
 }
-
-
-/*********************/
-/*  TOOLTIP OVERLAY  */
-/*********************/
 
 .tooltip-title {
   display: block;
@@ -43,6 +85,7 @@
   background: rgba(0, 0, 0, 0.8);
   color: #fff;
   border-radius: 2px;
+  z-index: 100;
 }
 
 /* Creates a small triangle extender for the tooltip */
@@ -65,3 +108,29 @@
   left: 0;
 }
 
+
+/****************/
+/*    SLIDER    */
+/****************/
+
+#time-period-slider {
+  width: 200px;
+  display: inline-block;
+  margin: 0 15px;
+}
+
+.range-slider-value {
+  background-color: #EFE9E9;
+  color: #888;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 2px 10px;
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.noUi-connect {
+  background: #92B592;
+}
