@@ -195,6 +195,69 @@ This means, we can update the appropriate elements without having to delete and 
 If you are still unclear about the concept of key functions, we encourage you to look at [Carlos Scheidegger's explanation](http://cscheid.net/courses/spr15/cs444/lectures/week5.html) at home.
 
 
+
+### Extra Info: Enter, Update, Exit & Merge vs. Join
+
+When you see `selectAll()` followed by `.data()` we are selecting all matching elements, for each
+  one that exists, we bind an item from the data array to it. The use of `.data()` returns what is called the update selection: it contains existing elements (if any) with the newly supplied data bound to those existing items.
+   
+   However, if the number of selected elements does not match the number of items¹, then .data() creates an enter selection or an exit selection. If we have excess data items, then we have an enter selection with one element for every item we need to add in order to have an equal number of DOM elements and data array items. Conversely, if we have excess DOM elements, then we have an exit selection.
+   
+   Calling `.enter()` on the update selection returns the enter selection. This selection contains placeholders ("Conceptually, the enter selection’s placeholders are pointers to the parent element docs"), which we can use .append("tagname") with to add the elements we need.
+   
+   Conversely, calling `.exit()` on the update selection returns the exit selection, which often is simply removed with `.exit().remove()`;
+   
+   This pattern generally looks something like this:
+   
+    let circle = svg.selectAll("circle")
+       .data([1,2,3,4])
+   
+    circle.exit().remove();    
+   
+    circle.enter()
+       .append("circle") 
+       .attr...
+   
+     circle.attr(...
+   First we select the all the circles, let's say there are 2 circles to select.
+   
+   Second we remove excess elements using `selection.exit()` : however, since we have four data items and only two matching DOM elements there is nothing to remove, so the selection is empty and nothing is removed.
+   
+   Third we add elements as required to ensure that the number of matching DOM elements is the same as the number of data array items. As we have four data items and only two matching DOM elements the enter selection contains two placeholders (pointers to the parent). We append circles to them and style them as we want.
+   
+   Lastly we use the update selection containing the two pre-existing circles and style them as we want based on the new data.
+   
+   Often we want to style new elements and existing elements the same, so we could use the merge method to combine the enter and update selections:
+   
+    let circle = svg.selectAll("circle")
+       .data([1,2,3,4])
+   
+    circle.exit().remove();    
+   
+    circle.enter()
+       .append("circle") 
+       .merge(circle)
+       .attr(...
+   This simplifies our code a bit as we don't need to duplicate styling for both enter and update separately.
+   
+   ####Join
+   
+   So where does `.join()` come in? It's for convenience. In its simplest form: .join("elementTagName") .join replaces the above code with:
+   
+    let circle = svg.selectAll("circle")
+       .data([1,2,3,4])
+       .join("circle")
+       .attr(...
+       
+   Here the join method removes the exit selection and returns a merged update selection and enter selection (containing new circles), which we can now style as needed. It is essentially a short hand method that allows you to right more concise code, but is functionally the same as the 2nd code block.
+   
+   ***We recommend to use .enter() .merge() .exit() methods at this point to get fully familiar
+    with what's going on underneath the hood. Later on, feel free to play around with .join
+    ().***
+
+
+
+
 -----
 
 #### Activity I
