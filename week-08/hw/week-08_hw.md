@@ -11,12 +11,12 @@ exclude: true
 
 This homework requires that you have read and **programmed** along with:
 
-- [cs171-lab7-preReading.pdf](https://www.cs171.org/Homework_instructions/week-07/lab/cs171-lab7-preReading.pdf) (under week7 in the modules tab in canvas)
-- [https://www.w3schools.com/js/js_classes.asp](https://www.w3schools.com/js/js_classes.asp) (repetition of JS classes with more examples)
--  [Scope and *this* in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [cs171-lab8-preReading.pdf](https://www.cs171.org/Homework_instructions/week-08/lab/cs171-lab8-preReading.pdf) (under week 8 in the modules tab in canvas)
+- [https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance](https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance) (explanation of JS ES6 Classes with more examples)
 
 
-## 1) A survey about the diffusion of microfinance loans (7 points)
+
+## 1) A survey about the diffusion of microfinance loans (10 points)
 
 In this homework you will work with survey data on microfinance loans. Banerjee et al [1] collected the data in order to develop a model of information diffusion in social networks. To come right to the point: you don't need any knowledge or additional information on microfinance. We will only cover a very small part of the collected data to demonstrate you how to visualize survey results efficiently with JS and D3.
 
@@ -46,7 +46,7 @@ If you are interested in the study you can get the paper here:
 
 To help you get started with this homework assignment we have prepared a template that you can use. It is based on the front-end framework *Bootstrap* and it includes the JS libraries: *D3* and *jQuery*. Furthermore, a CSV file (```household_charateristics.csv```) is stored in the folder *"data"*. Of course, you can also start with an empty project and just copy the dataset.
 
-[Template.zip](https://www.cs171.org/Homework_instructions/week-07/hw/Template.zip)
+[Template.zip](https://www.cs171.org/Homework_instructions/week-08/hw/Template.zip)
 
 
 ### Overview
@@ -74,7 +74,7 @@ You should now apply what you have learned to create an interactive visualizatio
 
 1. **Download the resources**
 
-	Please download the template and the CSV file as a ZIP file: [Template.zip](Template.zip)
+	Please download the template and the CSV file as a ZIP file: [Template.zip](https://www.cs171.org/Homework_instructions/week-08/hw/Template.zip)
 
 2. **Familiarize yourself with the provided framework and the dataset**
 		
@@ -224,34 +224,18 @@ You should now apply what you have learned to create an interactive visualizatio
 
 	Maintain good spacing between UI components, overall layout, font size, color scheme, etc.
 
-## 2) Design Critique (3 points)
 
-![Homework 3 - Design Critique](cs171-w4hw-dashboard.png?raw=true "Homework 3 - Design Critique")
-
-*Source: ([http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/](http://ericagunn.com/2020/08/09/whitespace-in-dashboard-design/))*
-
-#### Task:
-
-Critique this dashboard using the [design critique rubrik](http://bit.ly/design-critique-rubric). 
-Make sure to use the concepts and terminology we discussed in class (C.R.A.P., Gestalt Principles, Tufte, etc.).
+## 2) Submit Homework in Canvas
 
 
-## 3) Finish up your design sprint tasks!
-
-## 4) Bonus Task (1 point)
-
-Please make sure to finish al previous tasks before you start with the bonus activity. Extra credit is only given if the rest of the homework has been completed and the full possible points have been received. This task is intended for those of you who have more experience with web development and JS.
-
-You have implemented multiple visualization components and made them responsive to different screen sizes so far. If you have followed our concept you may have noticed that the layout will break if you resize your browser window.
-
-Think about an efficient way how to handle this and implement it in your current webpage. 
-
-
-## 5) Submit Homework in Canvas
 
 Submission instructions:
 
-1. Use the following recommended folder structure:
+1. **Upload your D3 homework under 'submission_FirstnameLastname/hw/implementation'.** 
+
+2. **Upload the completed lab (activity I, II, and III) under 'submission_FirstnameLastname/lab'**
+
+3. **Use the following recommended folder structure:**
 
     ``` markdown
     /submission_FirstnameLastname	
@@ -259,9 +243,8 @@ Submission instructions:
     	hw/
     		implementation/ ...folder for your code
         		index.html
-	            	css/ 		...folder with all CSS files
-	            	js/ 		...folder with all JavaScript files
-            design/         ...folder for your sketches
+            	css/ 		...folder with all CSS files
+            	js/ 		...folder with all JavaScript files
         lab/ 
     
             ...

@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Week 07 | Lab
+# Week 08 | Lab
 
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas *before* the beginning of lab!
@@ -23,16 +23,16 @@ Please fill out the pre-reading quiz on Canvas *before* the beginning of lab!
 ### Prerequisites
 
 - You have read and **programmed** along with:
-	- [cs171-lab7-preReading.pdf](https://www.cs171.org/Homework_instructions/week-07/lab/cs171-lab7-preReading.pdf) (under week7 in the modules tab in canvas)
-	- [https://www.w3schools.com/js/js_classes.asp](https://www.w3schools.com/js/js_classes.asp) (repetition of JS classes with more examples)
-	- [Scope and *this* in JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+	- [cs171-lab8-preReading.pdf](https://www.cs171.org/Homework_instructions/week-08/lab/cs171-lab8-preReading.pdf) (under week 8 in the modules tab in canvas)
+	- [https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance](https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance) (explanation of JS ES6 Classes with more examples)
 
 
 In the last weeks you have learned the fundamentals of the JS library D3. You have also gained some implementation expertise during previous labs and homeworks. You should be comfortable with the major concepts and be able to implement common charts as well as interactive and more advanced visualizations with D3.
 
 In this lab you will work on a new problem set. It is continuous, a bit longer than the usual activities, and it will give you a better understanding of *linked views* and *system design*.
 
-We will provide a template and many additional code snippets so that your main tasks will focus on the structure and the event handling components. However, please make sure that you understand the code in the provided templates, and take your time to read through it!
+We will provide a [template](https://www.cs171.org/Homework_instructions/week-08/lab/Template.zip)
+ and many additional code snippets so that your main tasks will focus on the structure and the event handling components. However, please make sure that you understand the code in the provided templates, and take your time to read through it!
 
 
 ## Data
@@ -90,6 +90,8 @@ The data is part of the annual *Family Food Report*, it is published through UK'
 This lab will bring you a step closer to implementing more complex visualizations which makes it necessary to adapt the way how we organize our application. However, the provided template is quite similar to previous labs and homeworks. It is based on Bootstrap and it contains a basic HTML structure, some CSS rules and pieces of JS code.
 
 During this lab we will introduce a concept which will help you to structure a D3 project with multiple visualizations. For this reason, we will also describe the file structure in more detail. The main change is that each visualization is a separate JS object and the implementation of the different visualizations is moved into separate JS files.
+
+[Template.zip](https://www.cs171.org/Homework_instructions/week-08/lab/Template.zip)
 
 
 ## Preview
@@ -269,7 +271,7 @@ For simplicity reasons, in the example code below, we have not always included t
 
 1. **Download the template**
 
-	[Template.zip](https://www.cs171.org/Homework_instructions/week-07/lab/Template.zip)
+	[Template.zip](https://www.cs171.org/Homework_instructions/week-08/lab/Template.zip)
 	
 	Check the ```index.html``` file and get a quick overview of the template.
 
