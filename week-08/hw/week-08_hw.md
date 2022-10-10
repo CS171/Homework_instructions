@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Homework 7
+# Homework 8
 
 This homework requires that you have read and **programmed** along with:
 
