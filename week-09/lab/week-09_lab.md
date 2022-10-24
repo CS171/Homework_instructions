@@ -5,7 +5,7 @@ exclude: true
 
 <img src="cs171-logo.png" width="200">
 
-# Week 08 | Lab
+# Week 09 | Lab
 
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
@@ -26,7 +26,7 @@ Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
 
 ### Summary
 
-In this lab, you will learn how to use D3 layout methods to implement more complex svg shape elements (in contrast to rect or circle elements). 
+In this lab, you will learn how to use D3 layout methods to implement more complex svg shape elements (in contrast to rect or circle elements).
 After drawing an interactive pie-chart as a warm-up, the main task of the lab will be to create an interactive choropleth map.
 
 ### Useful links for this week's lab
@@ -43,12 +43,12 @@ After drawing an interactive pie-chart as a warm-up, the main task of the lab wi
 
 > The D3 shape methods have no direct visual output. Rather, D3 shapes take data that you provide and re-map or otherwise transform it, thereby generating new data that is more convenient for a specific task. (Scott Murray)
 
-Visualizations typically consist of discrete graphical marks, such as symbols, arcs, lines and areas. While the rectangles 
-of a bar chart may be easy enough to generate directly using SVG or Canvas, other shapes are complex, such as rounded annular 
+Visualizations typically consist of discrete graphical marks, such as symbols, arcs, lines and areas. While the rectangles
+of a bar chart may be easy enough to generate directly using SVG or Canvas, other shapes are complex, such as rounded annular
 sectors and centripetal Catmull–Rom splines. The D3 shape module provides a variety of shape generators for your convenience.
 
 ![D3 Shapes](cs171-d3-layouts.png?raw=true "D3 Shapes")
- 
+
 Each shape may have distinct features not shared by others, so make sure to consult the D3 documentation([https://github.com/d3/d3-shape/blob/master/README.md](https://github.com/d3/d3-shape/blob/master/README.md)) for implementation details. You will learn more about a few selected shapes in this lab.
 
 &nbsp;
@@ -77,9 +77,9 @@ pie(data);
 ![D3 Pie Shape Generator](cs171-d3-pie-console-output.png?raw=true "D3 Pie Shape Generator")
 
 The D3 pie shape takes a dataset and creates an array of objects. Each of those objects contains
- a value from the original dataset, along with additional data, like *startAngle* and *endAngle*. 
+ a value from the original dataset, along with additional data, like *startAngle* and *endAngle*.
  That's all there is to the D3 pie shape. It has no visual output, but transforms the input
-  data in a way that it is much more convenient for drawing a pie chart. 
+  data in a way that it is much more convenient for drawing a pie chart.
 
 &nbsp;
 
@@ -145,31 +145,31 @@ arcs.enter()
 
 1. **Download the template for this week's lab**
 
-    The provided [template](https://www.cs171.org/Homework_instructions/week-08/lab/Template.zip) includes:
-        
+    The provided [template](https://www.cs171.org/Homework_instructions/week-09/lab/Template.zip) includes:
+
     - a css folder with a very basic ```styles.css``` file that styles your tooltips
     - a data folder with files that we will need for Activity II.
-    - a js folder with 
+    - a js folder with
         - ```main.js``` that takes care of loading the data and initializing all the visualizations.
         - ```pieChart.js``` defining the class ```PieChart``` (already containing some code)
         - ```mapVis.js``` that contains some code for class ```MapVis``` that you will create
              in Activity II.  
     - the HTML file ```index.html``` with a basic document structure
-    
+
     &nbsp;
 
 2. **Familiarize yourself with the template**
-    
+
     Run ```index.html``` and inspect the DOM. Notice that you already created instances of the
-     class PieChart and MapVis. These instances are named ```myPieChart``` and ```myMapVis```; 
-     
+     class PieChart and MapVis. These instances are named ```myPieChart``` and ```myMapVis```;
+
    Next, explore the class ```PieChart```. By now, you should be familiar with the constructor
     method as well as our method pipeline initVis() -> wrangleData() -> updateVis() that allows
      us to trigger e.g the wrangleData() method externally, manipulate the data, and update the
       visualization.
-      
+
 3. **Complete the class PieChart and its methods**
-    
+
     Using the sample code for a pie chart that we provided, finish writing the class PieChart
     . Notice, that the code we provided works fine if you would copy-paste it in a plain js file
      and embed it in your website (feel free to try it out!) However, we want to do something
@@ -179,10 +179,10 @@ arcs.enter()
        ``` properly
        , i.e. that you store your key variables in properties so that your object can access them
         across methods.
-        
+
     In short, these are the steps that you probably want to do in initVis():
-    
-    - margin conventions are already defined, so 
+
+    - margin conventions are already defined, so
     - start by creating a pieChart group
     - define inner and outer radius
     - define pie layout
@@ -191,26 +191,26 @@ arcs.enter()
     **Note:** In the code snippet above, we call d3.pie and hand it an array of numbers. However, if you want to generate a pie slice for something more complex than an object, we can tell it how to determine that value by giving it a `value` function. For instance, if we have an array where each element is
  ``` {'name': name, 'value': value}```
  we can tell d3.pie where the value is stored like so
- 
+
  ```javascript
  d3.pie()
     .value(d => d.value);
 
  ```
- 
+
 This should be helpful for the data in the lab.
 
 Next up is wrangleData(). Here, you don't need to do anything except to understand what's going on. We are creating a very simple data structure for you. It is an array of objects. Each object has a random value (between 0-100) and a fixed color. This should help you when defining the fill attribute for the arcs.
-  
+
 Lastly, let's look at updateVis(). Here, you want to draw the arcs that make up the actual
-   pieChart. 
-       
+   pieChart.
+
 4. **Create a tooltip**
 
     When hovering over an arc, a tooltip should appear. First, add a ```div``` container for your
      tooltip to the DOM. Ideally, you do this in ```initVis()``` method of the class itself rather
       than in your ```index.html``` document. (odds are you want a tooltip for each instance).
-      
+
    ```javascript
    // append tooltip
    vis.tooltip = d3.select("body").append('div')
@@ -223,22 +223,22 @@ Lastly, let's look at updateVis(). Here, you want to draw the arcs that make up 
     ```javascript
     .on('mouseover', function(event, d){})
     ```
-   
+
    Make sure to use a regular ```function(){}``` rather than an arrow function so that the
         keyword ```this``` is bound to the actual arc, i.e. the selection. This will help you to
          manipulate the color of the selection on hover easily.  
-   
+
    ```javascript
    d3.select(this)
         .attr('stroke-width', '2px')
         .attr('stroke', 'black')
         .attr('fill', 'rgba(173,222,255,0.62)')
     ```
-    
+
     Inside your ```.on()``` event listener, change the attributes of your tooltip so that it
      moves to the current mouse position and displays the proper information. Here's a tooltip
       that should display all the information that you have access to:
-      
+
    ```javascript
    vis.tooltip
         .style("opacity", 1)
@@ -248,53 +248,53 @@ Lastly, let's look at updateVis(). Here, you want to draw the arcs that make up 
             <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
                 <h3>Arc with index #${d.index}<h3>
                 <h4> value: ${d.value}</h4>      
-                <h4> startAngle: ${d.startAngle}</h4> 
+                <h4> startAngle: ${d.startAngle}</h4>
                 <h4> endAngle: ${d.endAngle}</h4>   
                 <h4> data: ${JSON.stringify(d.data)}</h4>                         
             </div>`);
     ```
-    
+
     Now, the only thing that is missing is to define the ```mouseout``` behavior. It's just
      resetting everything:
-     
+
    ```javascript
    .on('mouseout', function(event, d){
                    d3.select(this)
                        .attr('stroke-width', '0px')
                        .attr("fill", d => d.data.color)
-   
+
                    vis.tooltip
                        .style("opacity", 0)
                        .style("left", 0)
                        .style("top", 0)
                        .html(``);
                })
-    ``` 
+    ```
 
 5. **Update pieChart when new data comes in**
 
-    You might have noticed the little ```update``` button on the website. Check out 
-    ```main.js``` to understand its behaviour. 
+    You might have noticed the little ```update``` button on the website. Check out
+    ```main.js``` to understand its behaviour.
 
     --
 
     Yes, you're right :) Clicking on it ```triggers``` the ```wrangleData()``` method of
      ```myPieChart```. Thus, ```displayData``` has changed. Make sure to include ```.merge
      ()``` when binding the data so that your pieChart updates accodingly.
-     
+
     &nbsp;
-    
+
 #### Congrats! You've finished Activity I!
 
 > **Important Notice**
-> 
+>
 > We have used a pie chart as an example because it is one of the most popular chart types, and
 > it demonstrates the concept of D3 shapes very well. However, it is also very important to
 > mention that pie charts are often not the best way to represent data! Humans are not very good
 > at comparing slices of a circle, and pie charts easily lead to misunderstandings or give false
 > impressions of the data. Usually, other visualization methods are more effective, so most of
 > the time you shouldn't use pie charts. If you do, make sure to compare only a very low number
-> of elements within these charts. 
+> of elements within these charts.
 
 &nbsp;
 
@@ -417,9 +417,9 @@ let usa = topojson.feature(data, data.objects.states).features
 
 In the second part of the lab, you will create a choropleth (world) map. You will implement a
  feature that updates the colors of the countries as well as a feature that allows users to
-  rotate the globe. Lastly, you'll also implement a tooltip that appears when a user hovers over a 
+  rotate the globe. Lastly, you'll also implement a tooltip that appears when a user hovers over a
    country.
-   
+
 &nbsp;
 
 #### Activities & Walkthrough
@@ -436,69 +436,69 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 	  : how do we load more than one csv file in JS? We were leveraging the idea of promises using
 	    e.g. d3.csv(), but how would this be done with multiple files? Check out ```main.js``` to
 	     find out.
-	     
+
 	Since functions are first class objects, we can store them in an array and then use Promise
 	.all to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
 	 all the data inside ```.then()```. Notice, that since we are loading two data sets, the data
 	  structure is an array with two elements. You have to access them by index if you want to
-	   pass on only one as an argument. 
-	
+	   pass on only one as an argument.
+
 	```javascript
     let promises = [
         d3.json("data/airports.json"),
         d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
     ];
-    
+
     Promise.all(promises)
         .then( function(data){ initMainPage(data) })
         .catch( function (err){console.log(err)} );
     ```
-	 
+
 	&nbsp;
-	
+
 2. **Think about the MapVis architecture**
 
     Now that you're familiar with ```class MapVis```, think about your pipeline and
      where to do what. What part of the map drawing can you 'outsource' into the ```initVis
-     ()``` method? 
-     
+     ()``` method?
+
     Start by assuming that, eventually, you want to be able to update the color of each country
     . Of course, you could append paths for each country every time you call updateVis() and make
      use of ```merge()``` but this is probably overkill. After all, the number of countries won't
       change. Thus, you should consider drawing
       the map already in initVis() with a transparent fill. In updateVis() you could then just
        grab that selection and change the fill attribute according to the data.
-       
+
     &nbsp;
-       
+
 3. **Write and complete initVis method**
 
     So, what to do in ```initVis()```. Here's a list of all the tasks:
-    
+
     1. create a projection.
-    
+
         ```javascript
         vis.projection = d3.geoOrthographic() // d3.geoStereographic()
             .translate([vis.width / 2, vis.height / 2])
         ```
-   
+
     2. define a geo generator and pass your projection to it
-    
+
         ```javascript
         vis.path = d3.geoPath()
                 .projection(vis.projection);
         ```
-       
+
     3. convert your TopoJSON data into GeoJSON data structure
-    
+
         ```javascript
        vis.world = topojson.feature(vis.geoData, vis.geoData.objects.countries).features
         ```
-       
+
         &nbsp;
-    
+
     4. draw countries
-    
+
         ```javascript
         vis.countries = vis.svg.selectAll(".country")
             .data(vis.world)
@@ -506,7 +506,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
             .attr('class', 'country')
             .attr("d", vis.path)
         ```
-    
+
     &nbsp;       
 
 4. **Define scale and include a zoom factor**
@@ -518,7 +518,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
         based on your ```vis.height``` and multiply the default value 249.5 by that. Solve this
          task however you want, but keep in mind that you want to make sure that a user on
           another machine and screen sees the same proportions as you.  
-          
+
     &nbsp;
 
 5. **Understand what's going on in wrangleData**
@@ -527,7 +527,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
      create a dictionary with all countries as keys and random colors from an array of 4 colours
       that we defined in the constructor. We will use this dictionary as lookup table when
        assigning colors to the countries in ```updateVis()```, which is your next task.
-       
+
     &nbsp;
 
 6. **Update the fill attribute of all countries in updateVis()**
@@ -535,10 +535,10 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
     Select all countries (or grab the selection if you already stored it as a property) and change
      the fill attribute of each country. Use the lookup table that is stored in the property
       ```countryInfo```.
-      
+
     The colors of the countries should now update. Also, when clicking on the ```update``` button
     , you should see the colors of the map update. Can you explain why?
-    
+
     &nbsp;
 
 7. **Add a tooltip and hover effects**
@@ -546,9 +546,9 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
     Similar to the pieChart, add a tooltip when hovering over a country path. Also, change the
      color while hovering to have a nice hover effect. If you don't know the code by heart, just
       look it up in Activity I. (Don't forget to append an actual tooltip div!)
-      
+
     &nbsp;
-          
+
 8. **Add sphere and graticule to mimic the ocean and the globe**
 
     You might have been playing around with the fill attribute and maybe you have wondered how to
@@ -556,7 +556,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
       paths for the countries. Of course, one could try to reverse/inverse-engineer the paths for the
        ocean but there's an easier way out. Let's just put a sphere behind the map. Here's the
         code for it:
-        
+
     ```javascript
    vis.svg.append("path")
         .datum({type: "Sphere"})
@@ -565,27 +565,27 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
         .attr("stroke","rgba(129,129,129,0.35)")
         .attr("d", vis.path);
     ```
-   
+
    &nbsp;
-        
+
 9. **Add legend**
 
     The map/globe looks nice now, but you are missing one important piece - a legend. For now, we
      would like you to implement a legend with four steps reflecting the four different colors in
       the color array in the constructor. Think of this task as producing a very small barchart
        with less complex data.
-       
+
     These are the steps to complete the task:
     - start by creating a legend group. translate it to wherever you want it to be.
-    
+
     ```javascript
     vis.legend = vis.svg.append("g")
         .attr('class', 'legend')
         .attr('transform', `translate(${vis.width * 2.8 / 4}, ${vis.height - 20})`)
     ```
-   
+
     - draw rectangles inside the legend group (they will already be translated!)
-    
+
     ```javascript
    vis.legend.selectAll().data(vis.colors)
         .enter()
@@ -595,10 +595,10 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
     - create a legend axis group
     - create a legend axis
     - call the legend axis inside the legend axis group
- 
+
    &nbsp;
- 
-10. **Make the map draggable / rotatable** 
+
+10. **Make the map draggable / rotatable**
 
     You made it this far! Now you've earned some free code. The following lines allow you to
      drag your map which will result in the globe to rotate. In short, what the code does is to
@@ -610,11 +610,11 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
     ```javascript
     let m0,
     o0;
-    
+
     vis.svg.call(
         d3.drag()
         .on("start", function (event) {
-        
+
             let lastRotationParams = vis.projection.rotate();
             m0 = [event.x, event.y];
             o0 = [-lastRotationParams[0], -lastRotationParams[1]];
@@ -625,7 +625,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
                     o1 = [o0[0] + (m0[0] - m1[0]) / 4, o0[1] + (m1[1] - m0[1]) / 4];
                 vis.projection.rotate([-o1[0], -o1[1]]);
             }
-        
+
             // Update the map
             vis.path = d3.geoPath().projection(vis.projection);
             d3.selectAll(".country").attr("d", vis.path)
@@ -633,9 +633,9 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
         })
     )
     ```
-    
+
     &nbsp;
-    
+
 11. **Play with other layouts**    
 
     OK, time for more fun with maps. Play around with other projections. Follow this [link](https://github.com/d3/d3-geo)
@@ -643,27 +643,27 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
     .geoStereographic()```, etc.
 
     &nbsp;
- 
-12. **BONUS: Draw airports and connections** 
-    
+
+12. **BONUS: Draw airports and connections**
+
     In case you haven't had enough, we challenge you to also display the airports in the map
     . Remember that your object ```myMapVis``` already has access to the airport data. Including
      the airports as circles shouldn't be too hard for you. The only thing new for you is how to
       set up the coordinates for both the airports as well as the connections. Here are some
        useful lines of code.
-      
+
     ```javascript
-    
+
     // airports
     .attr('cx', d => vis.projection([d.longitude, d.latitude])[0])
     .attr('cy', d => vis.projection([d.longitude, d.latitude])[1]
-    
+
     // connections
     .attr("x1", function(d) { return vis.projection([vis.airportData.nodes[d.source].longitude, vis.airportData.nodes[d.source].latitude])[0]; })
     .attr("y1", function(d) { return vis.projection([vis.airportData.nodes[d.source].longitude, vis.airportData.nodes[d.source].latitude])[1]; })
     .attr("x2", function(d) { return vis.projection([vis.airportData.nodes[d.target].longitude, vis.airportData.nodes[d.target].latitude])[0]; })
     .attr("y2", function(d) { return vis.projection([vis.airportData.nodes[d.target].longitude, vis.airportData.nodes[d.target].latitude])[1]; });
-        
+
     ```
      Almost done! Now you just need to make sure that the dragging behavior is fine. Check out
       how we handled updating the country and graticule paths in ```d3.drag().on('drag', function
@@ -674,7 +674,7 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 
 ### Congratulations! You've completed this week's lab!
 
-Submit your folder structure as part of your homework submission. 
+Submit your folder structure as part of your homework submission.
 
 &nbsp;
 
