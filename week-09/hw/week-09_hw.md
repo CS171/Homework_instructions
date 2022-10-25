@@ -45,7 +45,7 @@ You have access to the population for all the years from 2010-2019.
 
 ### Template & Scenario
 
-This week, we'll provide you with both a template as well as a scenario/story behind the template.
+This week, we'll provide you with both a template as well as a scenario/story behind the template. 
 
 #### Scenario
 You are a young aspiring data scientist with an expertise in data visualization. You decided recently to move to Thailand
@@ -57,7 +57,7 @@ applications in the healthcare sector. He tells you that he's got your number fr
  colleague Hanspeter Pfister.
 Wiesel is desperately looking for a data visualization expert with proficiency in the JavaScript library D3. Recently,
 his star senior developer Fraya Vogel has left his team, but Wiesel has promised to deliver a new Coronavirus dashboard to
-his client by **Wednesday, October 27, 11:59 am (EST)**.
+his client within a week**.
 
 #### Template
 
