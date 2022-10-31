@@ -10,7 +10,7 @@ exclude: true
 # Lab 10
 
 ### Pre-Reading Quiz
-No pre-reading quiz this week, just go ahead and get a head start on the lab so you have questions ready to go during lab time!
+On Canvas!
 
 ### Learning Objectives
 
