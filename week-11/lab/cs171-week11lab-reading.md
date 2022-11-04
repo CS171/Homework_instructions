@@ -1,4 +1,4 @@
-# Reading - Lab 10
+# Reading - Week 11 Lab
 
 Due to our limited time frame and the extensive example for the next lab - which is necessary to get a better understanding of system design and event handling - we would like you to get an overview of the upcoming topic and the dataset in advance.
 

@@ -8,10 +8,7 @@ exclude: true
 
 &nbsp;
 
-# Lab 10
-
-### Pre-Reading Quiz
-Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
+# Week 11 Lab
 
 ### Learning Objectives
 
@@ -22,7 +19,7 @@ Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
 
 ### Prerequisites
 
-- You already have an overview of the *My World 2015* project and the datasets we are going to use today ([cs171-lab10-reading.pdf](cs171-lab10-reading.pdf))
+- You already have an overview of the *My World 2015* project and the datasets we are going to use today ([cs171-week11lab-reading.pdf](cs171-week11lab-reading.pdf))
 
 
 In the last weeks you have learned how to implement common visualization types in D3. You have learned how to use brushing and you have linked multiple reusable views with each other by using a very basic event handler (global *brush* function). This lab is built on all these fundamentals. You will learn how to structure a larger visualization system and how to integrate an event handling mechanism, which you will very likely need for your final projects. Due to the extensive example, which is necessary to demonstrate how to structure larger systems, we will provide a template with many completed parts. Your main tasks will focus on the structure, the interactions and the event handling components. However, please make sure that you understand the code in the provided templates, and take your time to read through it!
@@ -491,7 +488,7 @@ You can read more about D3's zooming component here: [https://github.com/d3/d3-z
 		.append("rect")
 			.attr("width", width)
 			.attr("height", height);
-```
+	```
 
 Then you apply the clipping in ```updateVis()``` by adding a the clip-path attribute to your path:
 
@@ -505,7 +502,7 @@ Then you apply the clipping in ```updateVis()``` by adding a the clip-path attri
 ```
 
 
-----
+
 
 #### Bonus Activity (optional) - Implement a button to reset the zoom
 
@@ -521,13 +518,13 @@ To solve this problem you can also create a button to reset the view.
 
 *Great job, you have implemented a more complex visualization system with multiple visualization types, event handlers and state-of-the-art interaction techniques!*
 
------
 
-#### Submission of lab (activity I - III and optionally the bonus task)
 
-Congratulations, you have now completed the activities of Lab 9!
+### Submission of lab (activity I - III and optionally the bonus task)
 
-Please submit the code of your completed lab (the final interactive webpage), use the Lab 9 Submission link. 
+Congratulations, you have now completed the activities of this week's lab!
+
+Please submit the code of your completed lab (the final interactive webpage) on Canvas. 
 
 -----
 
