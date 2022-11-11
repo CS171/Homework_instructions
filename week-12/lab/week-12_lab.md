@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Lab 10
+# Week 12 Lab
 
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas at the beginning of class!
@@ -66,7 +66,7 @@ In the following activities you will have to create a basic overview map to help
 
 #### Preview
 
-![Lab 10 - Preview](cs171-lab10-preview.png?raw=true "Lab 10 - Preview")
+![Lab 12 - Preview](cs171-lab12-preview.png?raw=true "Lab 12 - Preview")
 
 
 
