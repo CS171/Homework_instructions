@@ -7,11 +7,11 @@ exclude: true
 
 &nbsp;
 
-# Homework 1 - Due Monday, Sept. 5, 2022 by noon EDT
+# Homework 1 - Due Monday, Sept. 11, 2023 by noon EDT
 
 In this homework, you will consider different visualizations and analyze their primary purpose, whether they succeed or not, and the critical aspects of what makes visualizations compelling, effective, and impactful.
 
-If you have not done so already, please also complete HW0 on Canvas (Canvas/Modules/Course Preview) as well.
+If you have not done so already, please also take the introductory class survey on Canvas, [here](https://canvas.harvard.edu/courses/123364/modules/items/1407007)
 
 &nbsp;
 
@@ -57,12 +57,6 @@ For each of these visualizations, tell us:
 
 ## 3. *Prepare for next Week* (2 points)
 
-* Create a Class Activity Notebook
-
-    * Create a Google Doc and add your name and email address at the top of it.
-    * Make the document sharable for everyone with the link but not the public. That way, TFs can access it without having to request access.
-    * Submit the URL of the Google Doc on Canvas as part of your homework (the assignment is in Module Week 1 - Homework - Class Activities).
-
 
 * Install Tableau and a first Dataset
 
@@ -72,7 +66,7 @@ For each of these visualizations, tell us:
 
   * STEP 2. REGISTER WITH TABLEAU PUBLIC (AND OPTION FOR A FREE, LIMITED, NON-ACADEMIC TABLEAU DESKTOP LICENSE)
 
-    Tableau Public is a platform that allows you to share your visualizations with others (e.g., your professors, TFs, and colleagues). I encourage you to sign up for it [here](https://public.tableau.com/s/) and signing up for a Tableau Public account. Click “Sign In” in the upper right and create an account.
+    Tableau Public is a platform that allows you to share your visualizations with others (e.g., your professors, TFs, and colleagues). We encourage you to sign up for it [here](https://public.tableau.com/s/) and signing up for a Tableau Public account. Click “Sign In” in the upper right and create an account.
 
     Note: While registering for Tableau Public, you will be offered the chance to download a Tableau Public Desktop license. If you do not qualify for a Tableau Academic License, go ahead and download this version which offers sufficient capabilities to fully participate in this workshop (please let me know if you end up using this license type for class, some of the instruction would need to be modified). If you were able to download the full-featured license in Step 1, above, you do not want this version. You want to use the version you already have downloaded.
 
@@ -92,7 +86,7 @@ For each of these visualizations, tell us:
 
 ## Lab Reading & Quiz Reminder
 
-Don't forget to complete the lab pre-reading and pre-quiz before each lab. Next Monday is a holiday, so we ask you to work on your lab alone. We will not have a class on Monday. Therefore, the pre-reading quiz will be open the entire week. Instructions for the lab will be posted on Canvas in the *Week 2* module.
+Don't forget to complete the lab pre-reading and pre-quiz before each lab, they are part of the homework instructions on Canvas. Instructions for the lab will be posted on Canvas in the *Week 2* module, but we will explain all about the lab next Monday.
 
 
 ## 4. Submit Homework on Canvas
