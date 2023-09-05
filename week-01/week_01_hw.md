@@ -68,7 +68,7 @@ For each of these visualizations, tell us:
 
     Tableau Public is a platform that allows you to share your visualizations with others (e.g., your professors, TFs, and colleagues). We encourage you to sign up for it [here](https://public.tableau.com/s/) and signing up for a Tableau Public account. Click “Sign In” in the upper right and create an account.
 
-    Note: While registering for Tableau Public, you will be offered the chance to download a Tableau Public Desktop license. If you do not qualify for a Tableau Academic License, go ahead and download this version which offers sufficient capabilities to fully participate in this workshop (please let me know if you end up using this license type for class, some of the instruction would need to be modified). If you were able to download the full-featured license in Step 1, above, you do not want this version. You want to use the version you already have downloaded.
+    Note: While registering for Tableau Public, you will be offered the chance to download a Tableau Public Desktop license. If you do not qualify for a Tableau Academic License, go ahead and download this version which offers sufficient capabilities to fully participate in this class. If you were able to download the full-featured license in Step 1, above, you do not want this version. You want to use the version you already have downloaded.
 
   * STEP 3. START LEARNING
 
