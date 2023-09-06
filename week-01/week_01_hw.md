@@ -57,31 +57,21 @@ For each of these visualizations, tell us:
 
 ## 3. *Prepare for next Week* (2 points)
 
+**Step 1: Install Tableau and Download a Dataset**
 
-* Install Tableau and a first Dataset
+* Download the latest version of [Tableau Desktop and Tableau Prep Builder](https://www.tableau.com/tft/activation)
+* Click the link above and select “Download Tableau Desktop” and “Download Tableau Prep Builder.” On the form, enter your school email address for Business E-mail and enter the name of your school for Organization.
+* Activate with your product key:  TCFO-1874-72D0-7A45-EE1D
+* Already have a copy of Tableau Desktop installed? Update your license in the application: Help menu → Manage Product Keys
+* If you have a .edu email address, you can apply for a free 1-year academic license for Tableau Desktop by completing the process [here](https://www.tableau.com/academic/students) (using your .edu email).
 
-  * STEP 1. DOWNLOADING AND INSTALLING A TABLEAU DESKTOP ACADEMIC LICENSE (REQUIRES AN .EDU EMAIL)
+**Step 2: Start Learning**
 
-    If you have a .edu email address, download and install the free 1-year academic license for Tableau Desktop by completing the process [here](https://www.tableau.com/academic/students) (using your .edu email). If you have problems getting this to work, see here
+Once you have installed Tableau, watch the videos and follow along at: [http://public.tableau.com/en-us/s/resources](http://public.tableau.com/en-us/s/resources). That page also links many datasets you can use to learn Tableau or for your final projects. You can also practice with the videos of the Tableau Starter Kit here to begin your journey. We will show you how to use Tableau in class as well.
 
-  * STEP 2. REGISTER WITH TABLEAU PUBLIC (AND OPTION FOR A FREE, LIMITED, NON-ACADEMIC TABLEAU DESKTOP LICENSE)
+**Step 3: Download the Dataset**
 
-    Tableau Public is a platform that allows you to share your visualizations with others (e.g., your professors, TFs, and colleagues). We encourage you to sign up for it [here](https://public.tableau.com/s/) and signing up for a Tableau Public account. Click “Sign In” in the upper right and create an account.
-
-    Note: While registering for Tableau Public, you will be offered the chance to download a Tableau Public Desktop license. If you do not qualify for a Tableau Academic License, go ahead and download this version which offers sufficient capabilities to fully participate in this class. If you were able to download the full-featured license in Step 1, above, you do not want this version. You want to use the version you already have downloaded.
-
-  * STEP 3. START LEARNING
-
-    Once you have installed Tableau, watch the videos and follow along at: [http://public.tableau.com/en-us/s/resources](http://public.tableau.com/en-us/s/resources). That page also provides links to many datasets you can use to learn Tableau or for your final projects. You can also practice with the videos of the Tableau Starter Kit here to begin your journey. We will show you how to use Tableau in class as well.
-
-    Note: Tableau offers free access to the Tableau E-Learning platform for one year to academic license holders. This is a fantastic resource; be on the lookout for an email from Tableau with credentials for this platform after you register!
-
-    In addition to the videos and resources highlighted in the Tableau Starter Kit, Tableau offers free instructor-led interactive web seminars to take you to the next level. See here
-
-  * STEP 4: Download the Dataset
-
-    The Excel file “SuperDrugsPrescriptionsV2.xlsx”, linked [here](https://bit.ly/superdrugsprescriptionsV2) , contains fictitious pharmaceutical sales information. Download the file onto your laptop as an Excel .xlsx file. Make sure that you can load the data into Tableau. If you like, start visualizing the data in Tableau.
-
+The Excel file “SuperDrugsPrescriptionsV2.xlsx”, linked [here](https://bit.ly/superdrugsprescriptionsV2), contains fictitious pharmaceutical sales information. Download the file onto your laptop as an Excel .xlsx file. Make sure that you can load the data into Tableau. If you like, start visualizing the data in Tableau.
 
 
 ## Lab Reading & Quiz Reminder
