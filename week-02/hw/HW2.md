@@ -121,7 +121,7 @@ If you've finished all the tasks above and want more programming practice, we re
 
 ## 2. Infographic Design Critique  (5 points)
 
-a. **First read the Design Critique Overview in Canvas.**
+a. **First read the Design Critique Overview in Canvas (under this weeks module).**
 
 b. **Then look at this visualization of the top 10 salaries at Google:**  [![Creative Commons License](cs171-hw2-infographic.png)](https://www.jobvine.co.za/what-does-it-take-to-get-a-job-at-google/)
 
@@ -141,9 +141,9 @@ c. **Extend your previously created** `index.html` **file and add the following:
 
 ## 3. Submit Homework on Canvas
 
-**First, create a folder containing a) your homework files b) your lab submission and c) a file where you tell us who your lab partner for this week was. Name your folder appropriately, as shown below and follow our naming conventions and file structure.**
+**First, create a folder containing your homework files. Name your folder appropriately, as shown below and follow our naming conventions and file structure.**
 
-**Next, go to Canvas and click on the `Submission - Week 2 HW & Lab` link in the week's modules. Zip your folder and upload it to Canvas.**
+**Next, go to Canvas and click on the `Week 2 | HW Submission` link in the week's modules. Zip your folder and upload it to Canvas.**
 
 ****
 
@@ -151,11 +151,6 @@ To upload an entire directory structure please compress your entire local direct
 
 ```
 /submission_week2_FirstnameLastname
-	  lab_partner.txt
-    lab/             
-        index.html
-        css/ 		...folder with all CSS files
-        js/ 		...folder with all JavaScript files\
     hw/
         index.html
         css/ 		...folder with all CSS files
