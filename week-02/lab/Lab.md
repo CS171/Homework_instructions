@@ -11,9 +11,6 @@ exclude: true
 
 Welcome to the first lab of CS171!
 
-***First step:***
-Please go to Canvas and fill in the pre-reading quiz. In the future, reading quizzes will be due Mondays at noon, prior to your lab meeting time.
-
 Our labs are designed as work-books in the style of a self-guided tutorial. We ask you to read and work through the given example problems, and to hand in the code of your completed lab at the end of each week, together with your homework.
 
 This week, you will work on the lab on your own, or in office hours. Usually, you will work on the lab in class and with a pair partner. This week, it is up to you if you want to work on the lab alone or with a pair partner.
@@ -455,7 +452,7 @@ These bonus activities are not required, but we recommend that you try them!
 
 You have now completed the activities of Lab 1 and should have a basic understanding of HTML, CSS, and how you can style your webpage based on CSS selectors and libraries like Bootstrap. This knowledge will enable you to complete Homework 1!
 
-Please submit your completed lab 1 together with your homework submission on Canvas. 
+Please submit your completed lab 1 on Canvas until next Monday. To do so, please zip the folder that contains all your lab code and upload the zip file.
 
 If you have worked on the lab with a pair partner, please specify your partner's name as a comment at the top of your html file.
 
