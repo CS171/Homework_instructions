@@ -11,7 +11,7 @@ exclude: true
 
 In the first part of this homework, you will create a simple webpage with HTML and CSS.
 
-In the second part, you will do a design critique on an infographic visualization and include it into your website.
+In the second part, you will consider how the question affects the kind of visualization that answers the question well.
 
 This homework assumes that you have read Chapter 3 (up to page 36) in *D3 - Interactive Data Visualization for the Web* (Second Edition!) by Scott Murray.
 
@@ -119,24 +119,35 @@ If you've finished all the tasks above and want more programming practice, we re
 
 &nbsp;
 
-## 2. Infographic Design Critique  (5 points)
+## 2. What's the Question (5 points)
 
-a. **First read the Design Critique Overview in Canvas (under this weeks module).**
+As we discussed in class, different questions about your data can lead to different visualization types. Statistician and visualization expert Nathan Yau writes: "You have to guide the conversation though. You must help the data focus and get to the point. Otherwise, it just ends up rambling about what it had for breakfast this morning and how the coffee wasn’t hot enough."
 
-b. **Then look at this visualization of the top 10 salaries at Google:**  [![Creative Commons License](cs171-hw2-infographic.png)](https://www.jobvine.co.za/what-does-it-take-to-get-a-job-at-google/)
+a. **Read the blog post "One Dataset, Visualized 25 Ways" by Nathan Yau:**  [https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/](https://flowingdata.com/2017/01/24/one-dataset-visualized-25-ways/)
+
+Yau writes about the data: "It’s life expectancy data by country, it’s from the World Health Organization and it spans 2000 to 2015." As you are looking at the 25 visualizations, consider:
+
+* What is the structure of the data?
+* Are there correlations, relationships, distributions, outliers?
+* Is the visualization easy to understand? Data dense? Opinionated?
+* Who is the audience? What questions might they have?
+
+b. **Pick a visualization and consider what questions it answers:**
+
+Come up with a question for one of the 25 visualizations and articulate why the visualization is best at answering the question. The obvious answer ("It shows life expectancy by country between 2000 and 2015.") will not get any points. Write down why you think the visualization answers the question well. 
+
+Then compare it to another visualization in the same set that is not as good. Write down why you think the second visualization is not as good as the first one answering the question.
 
 c. **Extend your previously created** `index.html` **file and add the following:**
-
-- A screenshot of the salary visualization in the left column.
-- An analysis of the visualization with answers to the following questions in the right column:
-  - Who is the audience?
-  - What questions does it answer?
-  - What is the data? be specific, including data types (N,O,Q).
+- Screenshots of your first and second visualizations in the left column.
+- The answers to the following questions in the right column:
+  - What is the question the first visualization answers well?
+  - Why does it answer that question well?
+  - What is the data it shows? Be specific, including data types (N, O, Q) and if they are discrete (D) or continuous (C).
   - For each data type, how is it visually encoded?
-  - Do you consider this to be a 'good' visualization? Why or why not?
+  - Why is the second visualization not as good at answering the question?
 
-
-***Add this information to your two-column layout.*** *In the left column the screenshot and in the right column the answers to the questions above*
+***Add this information to your two-column layout.*** *In the left column the screenshots, and in the right column the answers to the questions above*
 
 
 ## 3. Submit Homework on Canvas
