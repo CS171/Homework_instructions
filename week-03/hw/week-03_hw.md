@@ -178,20 +178,16 @@ c. **Extend your previously created** `index.html` **file and add the following:
 
 
 ## 3. Submit Homework in Canvas
-a. Add your lab work in ```submission_FirstnameLastname/lab``` and add a text file telling us who your lab partner was called ```lab_partner.txt```
-
-b. Put your JS homework in the folder structure ```submission_FirstnameLastname/hw/implementation```.
+a. Put your JS homework in the folder structure ```submission_FirstnameLastname/hw/implementation```.
 
 
-c. Zip your folder and upload it on Canvas for your homework submission.
+b. Zip your folder and upload it on Canvas for your homework submission.
 
 
 Use the following recommended folder structure:
 
 ```
 /submission_FirstnameLastname
-	lab_partner.txt
-	lab/
 	hw/
 	    implementation/
    	        index.html
