@@ -20,7 +20,7 @@ This homework assumes that you have read and programmed along with chapter 3 (up
 
 &nbsp;
 
-## 1. PizzaWorld - Insights & Statistics (4 points)
+## 1. PizzaWorld - Insights & Statistics (6 points)
 
 ### Template
 
@@ -157,7 +157,7 @@ The data (arrays with JSON objects) are already stored in these two global varia
 
 &nbsp;
 
-## 2. Infographic Design Critique  (5 points)
+## 2. Infographic Design Critique  (4 points)
 
 a. **First read the Design Critique Overview in Canvas.**
 
