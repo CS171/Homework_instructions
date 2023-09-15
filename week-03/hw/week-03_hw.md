@@ -20,12 +20,7 @@ This homework assumes that you have read and programmed along with chapter 3 (up
 
 &nbsp;
 
-## 1. Complete this week's lab! (2 points)
-Please complete the lab before you start with this homework (it is actually worth 2 points of this homework submission). It is due with the rest of this homework, you can find the upload link on Canvas, in this weeks module.
-
-&nbsp;
-
-## 2. PizzaWorld - Insights & Statistics (6 points)
+## 1. PizzaWorld - Insights & Statistics (4 points)
 
 ### Template
 
@@ -161,6 +156,25 @@ The data (arrays with JSON objects) are already stored in these two global varia
 	```   
 
 &nbsp;
+
+## 2. Infographic Design Critique  (5 points)
+
+a. **First read the Design Critique Overview in Canvas.**
+
+b. **Then look at this visualization of the top 10 salaries at Google:**  [![Creative Commons License](cs171-hw2-infographic.png)](https://www.jobvine.co.za/what-does-it-take-to-get-a-job-at-google/)
+
+c. **Extend your previously created** `index.html` **file and add the following:**
+
+- A screenshot of the salary visualization in the left column.
+- An analysis of the visualization with answers to the following questions in the right column:
+  - Who is the audience?
+  - What questions does it answer?
+  - What is the data? be specific, including data types (N,O,Q).
+  - For each data type, how is it visually encoded?
+  - Do you consider this to be a 'good' visualization? Why or why not?
+
+
+***Add this information at the bottom of the website you created in step 1, below the Pizza World Visualization.*** *Use a two-column layout, where in the left column you show the screenshot and in the right column you add the answers to the questions above.*
 
 
 ## 3. Submit Homework in Canvas
