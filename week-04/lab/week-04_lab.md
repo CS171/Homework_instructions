@@ -17,16 +17,16 @@ Please fill out the pre-reading quiz on Canvas at the beginning of class!
 - Know how to use basic shape elements in SVG
 - Advanced JS: *method chaining*; *anonymous functions*; first intuition about asynchronous execution & callbacks
 - Know how to include D3 in your project
-- Know the structure and syntax of a basic D3 visualization 
+- Know the structure and syntax of a basic D3 visualization
 - Know how to load data into D3
 - Know how to bind data to visual elements
 
 ### Prerequisites
 
 - You have read chapter 3 (p. 52-62) and chapter 5 (p. 67-72, p. 79-87)  in *D3 - Interactive Data Visualization for the Web*.
-- You have downloaded the template for this week's lab on canvas. This [link](https://www.cs171.org/Homework_instructions/week-04/lab/week-04_lab_template.zip) should get you there quickly. 
+- You have downloaded the template for this week's lab on canvas. This [link](https://www.cs171.org/Homework_instructions/week-04/lab/week-04_lab_template.zip) should get you there quickly.
 
-&nbsp; 
+&nbsp;
 
 In the previous weeks you have learned a lot about the fundamentals of web development. Now, you should be well prepared for the upcoming phase where you will work on interactive data visualizations with D3.  
 
@@ -34,7 +34,7 @@ In the previous weeks you have learned a lot about the fundamentals of web devel
 ## D3 - First Steps
 
 > ***D3.js (Document-Driven-Data) is a powerful JavaScript library for manipulating documents based on data.***
-> 
+>
 > "D3 allows you to bind arbitrary data to a Document Object Model (DOM), and then apply data-driven transformations to the document. For example, you can use D3 to generate an HTML table from an array of numbers. Or, use the same data to create an interactive SVG bar chart with smooth transitions and interaction." *(d3.js, Mike Bostock*)
 
 A summary of D3's features and key aspects by *Scott Murray*:
@@ -54,10 +54,10 @@ A summary of D3's features and key aspects by *Scott Murray*:
 **CS171 is using D3 version 7!**
 
 Right before the start of the semester, Mike Bostock released D3 v7. Many of the changes in v5 - v7 address very
-specific issues that are not of relevance for you, and thus, the examples in the textbook (D3 v.4) still serve as 
+specific issues that are not of relevance for you, and thus, the examples in the textbook (D3 v.4) still serve as
 excellent references. Also, when looking up code online, be aware that many examples still use older versions and, as
 a consequence, you might not be able to just copy paste the entire code -  you will need to make some changes! (The most
-common one probably being the data loading part - since version 5, D3 uses promises, which makes things a lot smoother!) Check out 
+common one probably being the data loading part - since version 5, D3 uses promises, which makes things a lot smoother!) Check out
 the different versions here:  [https://github.com/d3/d3/releases](https://github.com/d3/d3/releases)
 
 
@@ -70,7 +70,7 @@ Before working with D3 you need to include the D3 JavaScript library first. When
 Your file and folder structure for D3 projects should look like the following:
 
 ```
-project/	
+project/
     index.html
     data/
         data.csv
@@ -91,7 +91,7 @@ project/
 - SVG is defined using markup code similar to HTML
 - SVG elements don't lose any quality if they are resized
 - SVG elements can be included directly within any HTML document or dynamically inserted into the DOM with JavaScript
-- Before you can draw SVG elements you have to add an ```<svg>```-element with a specific width and height to your HTML document, for example: ```<svg width="500" height="500"></svg>``` 
+- Before you can draw SVG elements you have to add an ```<svg>```-element with a specific width and height to your HTML document, for example: ```<svg width="500" height="500"></svg>```
 - The SVG coordinate system places the origin (0/0) in the top-left corner of the svg element.
 - SVG has no layering concept or depth property. The order in which elements are coded determines their depth order.
 
@@ -139,19 +139,19 @@ Our JS script (main_presentation.js) consists actually only of one line of code:
 d3.select("body").append("p").text("Hello World!");
 ```
 
-In this example we have used D3 to add a paragraph with the text "Hello World!" to a basic webpage. 
+In this example we have used D3 to add a paragraph with the text "Hello World!" to a basic webpage.
 
 ![D3 - Add element to DOM](cs171-d3-generate-element.png?raw=true "D3 - Add element to DOM")
 
 Before going into further details we want to introduce the JS concept of *Method Chaining* briefly:
 
 > **Method Chaining**
-> 
+>
 > Method or function chaining is a common technique in JS, especially when working with D3. It can be used to simplify code in scenarios that involve calling multiple methods on the same object consecutively.
-> 
+>
 > - The functions are "chained" together with periods.
 > - The output type of one method has to match the input type expected by the next method in the chain.
-> 
+>
 > Alternative code without method chaining:
 >
 > ```javascript
@@ -195,8 +195,8 @@ d3.select("body")
 -----
 
 #### Activity I
- 
-1. **Download the Template for this week.** 
+
+1. **Download the Template for this week.**
 
 2. **Navigate to 'activity_1' and create a new D3 project inside the folder.**
 
@@ -207,7 +207,7 @@ d3.select("body")
 	*CSS: width: 400px; height: 200px; color: green*
 
 4. **Use D3 to add a ```div```-container with the text "Dynamic Content" to the DOM**
-    
+
     *do this task in a separate JS file (e.g. main_presentation.js) that you embed in your HTML document*
 
 -----
@@ -244,7 +244,7 @@ Instead of returning just the regular selection, the *data()* operator returns *
 - **Update** contains existing elements bound to the data
 - **Exit** contains existing elements that are not bound to data anymore and should be removed
 
-These three methods, along with merge() and join(), are powerful concepts in d3 and open up the floodgates for us to dynamcially handle updates to data. We will learn more about how to use them during Week 6's lab, but in the meantime, feel free to preview this content in Chapter 9 of *D3 - Interactive Data Visualization for the Web*. 
+These three methods, along with merge() and join(), are powerful concepts in d3 and open up the floodgates for us to dynamcially handle updates to data. We will learn more about how to use them during Week 6's lab, but in the meantime, feel free to preview this content in Chapter 9 of *D3 - Interactive Data Visualization for the Web*.
 
 There are no "p"-elements on the page so the **enter** selection contains placeholders for all elements in the array. In this and the following examples we will concentrate only on the *enter* selection. You will learn more about the enter-update-exit sequence when we are working with interactive datasets.
 
@@ -268,17 +268,17 @@ If you want access to the corresponding values from the dataset you have to use 
 In this example we have included a JS function in the *text()* operator.
 
 > **Anonymous Functions**
-> 
+>
 > A simple JS function looks like the following:
-> 
+>
 > ```javascript
 > function doSomething (d) {
 >   return d;
 > }
 > ```
-> It has a function name, an input and an output variable. If the function name is missing, then it is called an *anonymous function*. 
+> It has a function name, an input and an output variable. If the function name is missing, then it is called an *anonymous function*.
 > If you want to use the function only in one place, an *anonymous function* like the one below is more concise than declaring a function and then doing something with it as two separate steps. We will use them very often in D3 to access individual values and to create interactive properties.
-> 
+>
 > ```javascript
 > .text( function (d) { return d; } );
 > ```
@@ -286,15 +286,15 @@ In this example we have included a JS function in the *text()* operator.
 &nbsp;
 
 > **Arrow Functions (ES6)**
-> 
->As mentioned above, ES6 introduced arrow functions, which allow us to write very neat anonymous functions. With regard to the syntax an arrow function replaces the word 'function' with an arrow: 
+>
+>As mentioned above, ES6 introduced arrow functions, which allow us to write very neat anonymous functions. With regard to the syntax an arrow function replaces the word 'function' with an arrow:
 > ```javascript
 > .text( (d) => { return d; } );
-> ``` 
+> ```
 > There are tons of implications if you change an anonymous ES5 function to an ES6 function. We encourage you to read up on the differences [here](https://www.w3schools.com/js/js_arrow_function.asp). One useful feature of arrow functions is their default return value if the function only has one statement. This allows us to shorten our anonymous function even more:
 > ```javascript
 > .text( d => d );
-> ``` 
+> ```
 >
 
 &nbsp;
@@ -302,23 +302,23 @@ In case you coded along with the example, this is how your website should look n
 ![D3 - Bind Data 2](cs171-d3-bind-data-2.png?raw=true "D3 - Bind Data 2")
 
 In our case we are using the function to access individual values of the loaded array. That is one feature of D3: It can pass array/data elements and corresponding data indices to an anonymous function (which is called for each array element individually).
-Generally in D3 documentation and tutorials, you'll see the parameter ```d``` used for the current data element and ```i```  (or ```index```) used for the index of the current data element. The index is passed in as the second element to the function calls and is optional. 
+Generally in D3 documentation and tutorials, you'll see the parameter ```d``` used for the current data element and ```i```  (or ```index```) used for the index of the current data element. The index is passed in as the second element to the function calls and is optional.
 
 Example for an anonymous function (in ES5) that passes the data element and index. Notice, that we are using ` for the return string rather than ' or " to make use of [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals):
 
 ```javascript
-.text( function(d, i){ 
+.text( function(d, i){
     console.log('examining the parameters', d, i);
-	return `element: ${d} at position: ${i}`; 
+	return `element: ${d} at position: ${i}`;
 });
 ```
 
 Example for an anonymous function (in ES6) that passes the data element and index:
 
 ```javascript
-.text( (d, i) => { 
+.text( (d, i) => {
     console.log('examining the parameters', d, i);
-	return `element: ${d} at position: ${i}`; 
+	return `element: ${d} at position: ${i}`;
 });
 ```
 
@@ -420,7 +420,7 @@ svg.selectAll("rect")
 	- Radius: *large sandwiches* should be twice as big as small ones
 	- Colors: use two different circle colors. One color (```fill```) for cheap products < 7.00 USD and one for more expensive products
 	- Add a border to every circle (SVG property: ```stroke```)
-	
+
 	*The result might look like the following:*
 	![D3 - Result Activity 2](cs171-d3-activity-2.png?raw=true "Result Activity 2")
 
@@ -431,17 +431,17 @@ svg.selectAll("rect")
 
 ### Loading external data
 
-Instead of typing the data in a local variable, which is also only convenient for small datasets, 
-we can use d3 fetches to load data from external files using promises. The D3 built-in methods make it 
+Instead of typing the data in a local variable, which is also only convenient for small datasets,
+we can use d3 fetches to load data from external files using promises. The D3 built-in methods make it
 easy to load JSON, CSV and other files.
 
 You should already be familiar with the JSON format from the previous lab and you have probably
  worked with CSV files in the past, too.
 
 > **CSV (Comma Separated Values)**
-> 
+>
 > Similar to JSON, CSV is a file format which is often used to exchange data. Each line in a CSV file represents a table row and as the name indicates, the values/columns are separated by a comma.
-> 
+>
 > In a nutshell: The use of the right file format depends on the data - JSON should be used for hierarchical data and CSV is usually a proper way to store tabular data.
 
 We'll store the same sandwich price information in a CSV file. Most of the time CSV files are generated by exporting data from other applications, but for this example you should manually copy the data shown below into a blank file and save it as .CSV:
@@ -467,16 +467,16 @@ d3.csv("data/sandwiches.csv").then(function(data) {
 ```
 
 > **Promises & Callbacks**
-> 
-> *What are promises and why are they so useful?* → The page should be visible while data is loading and scripts that do not depend on the data should run immediately, while scripts that do depend on the data should only run once the data has been loaded! Promises allow for exactly that. The browser doesn't have to wait for the data to load but can continue to interpret the code because it can now rely on the promise that it'll get the data eventually. 
-> 
+>
+> *What are promises and why are they so useful?* → The page should be visible while data is loading and scripts that do not depend on the data should run immediately, while scripts that do depend on the data should only run once the data has been loaded! Promises allow for exactly that. The browser doesn't have to wait for the data to load but can continue to interpret the code because it can now rely on the promise that it'll get the data eventually.
+>
 > *OK, but what about callbacks. Why do I need those?* A callback function is a function that is passed to another function. It can be anonymous or named. We have used them multiple times before, for example to set the content:
-> 
+>
 > ```javascript
 > .text(d => d)
 > ```
 > The *text()* method executes the anonymous callback function we have passed to it. That means, we don't call the anonymous function directly and it is also not getting executed immediately. It is invoked after some kind of event and usually it is "called back" once its parent function is complete.
-> 
+>
 
 
 *Updated main_presentation.js*
@@ -500,30 +500,30 @@ The callback function - the inner function of *d3.csv()* - is called only after 
 #### Activity III
 
 1. **Navigate to 'activity_3' and create a new D3 project inside the folder.**
-    
+
     *notice that there's already a folder called 'data' that contains your dataset for this exercies, i.e. `cities.csv`*
 
 2. **Use D3 to load the CSV file**
 
 	Write the data to the *web console* and inspect it in your browser:
-	
+
 	- In which format is the information stored now?
 	- Which properties are available?
 	- Check the types of the variables in the console
-	
+
 3. **Prepare the data**
 
     *You might have noticed that each value of the CSV file is stored as a string, including numerical values.*
-    
+
     - Convert all numerical values to *numbers*. (Otherwise you might see unexpected behavior when making calculations.)
     - We recommend iterating over each row to convert strings into floats. You can use this neat line of code:
-    
+
     ```javascript
             d.age = +d.age;
    ```
-    
+
    - Formerly, you had to write an actual loop to iterate over each element in the array, i.e. each row in the csv. However, ever since switching to promises in d3 v5, [d3.csv](https://github.com/d3/d3-fetch) also allows for a callback during the process of loading the csv row by row. Thus, Mike Bostock, calls this an 'optional row conversion function':
-    
+
    ```javascript
    d3.csv(url, (row) => {
    		// convert
@@ -552,7 +552,7 @@ The callback function - the inner function of *d3.csv()* - is called only after 
 7. **Dynamic circle properties**
 
 	Change your default radius to a data-dependent value:
-	
+
 	- The radius should be **4px** for all cities with a population lower than 1.000.000.
 	- The radius for all the other cities should be **8px**.
 
@@ -565,12 +565,12 @@ The callback function - the inner function of *d3.csv()* - is called only after 
 9. **Styling**
 
 	*Create a new external stylesheet if you have not done it yet.*
-	
+
 	Add proper styles to your webpage but include at least these CSS rules for the class ```city-label```:
-	
+
 	- Font size = 11px
 	- Text anchor = middle
-	
+
 *Your result should look similar to this screenshot:*
 ![Activity 3 Result](cs171-activity-3.png?raw=true "Activity 3 Result")
 
@@ -582,7 +582,7 @@ Next week you will learn how to create real scales for different types of data, 
 Later in this course you will also learn how to create interactive maps.
 
 &nbsp;
-	
+
 -----
 
 #### Bonus Activities (optional!)
@@ -605,18 +605,18 @@ Later in this course you will also learn how to create interactive maps.
     some information from the current selection.
 
 
-- Change the **hover style** of the SVG circles. 
+- Change the **hover style** of the SVG circles.
 
 &nbsp;
-	
+
 
 -----
 
 #### Submission of lab (only activity_3)
 
-Congratulations, you have now completed the activities of Lab 3! 
+Congratulations, you have now completed the activities of Lab 3!
 
-Please upload the code of your completed lab (only activity_3) on Canvas together with this week's homework. More instructions in the homework manual! 
+Please upload the code of your completed lab (only activity_3) on Canvas.
 
 
 -----

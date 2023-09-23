@@ -36,18 +36,17 @@ After completing this lab, you will be able to:
 ### Note
 This lab is designed to take you **longer than the available in-class time** to complete. However
 , it is important that you work through the entire lab, as this lab will cover the basic
- JavaScript skills you will need for the rest of the course. Do not skip over sections! Please
-  complete this lab at home (we consider it as part of the homework) and also submit it together
-   with your homework. There will be a total of three activities. Before each activity
-    we will provide substantial code snippets that will equip you with all the concepts you need
-     to solve the task.
+JavaScript skills you will need for the rest of the course. Do not skip over sections! Please
+complete this lab at home. There will be a total of three activities. Before each activity
+we will provide substantial code snippets that will equip you with all the concepts you need
+to solve the task.
 
 &nbsp;
 
 > **PLEASE NOTE**
 >
 > In this course you will learn how to implement interactive, web-based visualizations. We are introducing several techniques and concepts that have a challenging learning curve. We assume that you have taken CS 50 or an equivalent class before and have basic programming knowledge already. If you have little programming experience or had trouble following this week's pre-reading, we strongly encourage you to work through some additional JavaScript tutorials and try out your own examples.
->  
+>
 > Here are some additional resources for learning JavaScript
 >
 > - [W3 Schools](http://www.w3schools.com/)
@@ -184,11 +183,11 @@ let course = {
 
 1. **Use the JavaScript Web Console**
 
-	As we have already learned in the first lab, there are some developer tools in our web
-	 browsers that make programing a bit easier. Normally, we include JS code in HTML files and
-	  then open these files in the browser. But we can also use the *Console* to type JS code
-	   directy in the browser. We've also provided more information about the console, how to use
-	    it as a debugging tool and what's going on underneath the hood [here](####the-console).
+   As we have already learned in the first lab, there are some developer tools in our web
+   browsers that make programing a bit easier. Normally, we include JS code in HTML files and
+   then open these files in the browser. But we can also use the *Console* to type JS code
+   directy in the browser. We've also provided more information about the console, how to use
+   it as a debugging tool and what's going on underneath the hood [here](####the-console).
 
 	* Open your developer-tools (in your browser) and switch to the tab ***Console***
 
@@ -196,27 +195,27 @@ let course = {
 
 	* Type in the examples below, line by line.
 
-		Examples:
+	  Examples:
 
-		```javascript		
-		(1) let message = "I am learning JS"
-		(2) message
+	  ```javascript		
+      (1) let message = "I am learning JS"
+      (2) message
 
-		(1) let cities = ["Tokio", "Berlin", "San Francisco"]
-		(2) cities[0]
-		(3) cities [2]
+      (1) let cities = ["Tokio", "Berlin", "San Francisco"]
+      (2) cities[0]
+      (3) cities [2]
 
-		(1) let numeric = 12
-		(2) numeric / (1 + 2)
-		```
+      (1) let numeric = 12
+      (2) numeric / (1 + 2)
+      ```
 
-	*If you need multiple lines (e.g. JSON object) you can write the code in an editor and copy it into the console. This is an easy and quick way to test out code. Furthermore, the console is an essential tool for debugging. We will give it a try soon, but first continue with step (2).*
+   *If you need multiple lines (e.g. JSON object) you can write the code in an editor and copy it into the console. This is an easy and quick way to test out code. Furthermore, the console is an essential tool for debugging. We will give it a try soon, but first continue with step (2).*
 
 2. **JS data structure**
 
-	Now it is your turn to apply your acquired knowledge! Come up with a *proper compound JS data structure* to store the following information and make sure that its values are simple and efficient.
+   Now it is your turn to apply your acquired knowledge! Come up with a *proper compound JS data structure* to store the following information and make sure that its values are simple and efficient.
 
-	We have data for **three attractions** in an amusement park that we want to store. Each amusement ride has several attributes:
+   We have data for **three attractions** in an amusement park that we want to store. Each amusement ride has several attributes:
 
 	- ID
 	- Name
@@ -229,32 +228,32 @@ let course = {
 
 3. **Create a new HTML file and JS file and implement the data structure**
 
-	JS can be included directly in HTML or in a separate file with *.js* suffix and then referenced. Generally, including JS in a separate file is the preferred method:
+   JS can be included directly in HTML or in a separate file with *.js* suffix and then referenced. Generally, including JS in a separate file is the preferred method:
 
-	```javascript
-	// Included directly
-	<script type="text/javascript">
-		let message = "test";
-	</script>
+   ```javascript
+   // Included directly
+   <script type="text/javascript">
+       let message = "test";
+   </script>
 
-	// Referenced (at the bottom of the <body> tag, below other included javascript libraries)
-	<script type="text/javascript" src="js/myscript.js"></script>
-	```
+   // Referenced (at the bottom of the <body> tag, below other included javascript libraries)
+   <script type="text/javascript" src="js/myscript.js"></script>
+   ```
 
-	Make up some example data (3 amusement rides, with the above described attributes) and implement your data structure in JS.
+   Make up some example data (3 amusement rides, with the above described attributes) and implement your data structure in JS.
 
 4. **Write messages to the web console**
 
-	The console is an essential tool for debugging. It shows logged security alerts, warnings, errors, informational messages etc. When you are creating scripts, you can write your own debug messages to the console:
+   The console is an essential tool for debugging. It shows logged security alerts, warnings, errors, informational messages etc. When you are creating scripts, you can write your own debug messages to the console:
 
-	```javascript
-	console.log("My debug message");
+   ```javascript
+   console.log("My debug message");
 
-	let debugId = 12;
-	console.log("Another debug message with id: " + debugId);
-	```
+   let debugId = 12;
+   console.log("Another debug message with id: " + debugId);
+   ```
 
-	Use ```console.log()``` to print some information of your dataset:
+   Use ```console.log()``` to print some information of your dataset:
 
 	* Name of the first amusement ride
 	* All days when the second attraction is open
@@ -321,7 +320,7 @@ for (let property in person) {
 // That's definitely a lot to wrap your head around, but once you get used to it, this loop is pure magic.
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # #
-arrayWithNames.forEach( (element, index) => {
+		arrayWithNames.forEach( (element, index) => {
 	console.log(index + ": " + element);
 });
 # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -364,72 +363,72 @@ let temperature = "Current temperature: " + toCelsius(34) + " Celsius";
 
 1. **Create a new function: doublePrices()**
 
-	This function takes your data structure as an input variable. You should loop through all the amusement rides, and modify their prices (*2). (Note: You will be modifying the original data here, but that is fine. You do not need to create a deep copy of the data.)
+   This function takes your data structure as an input variable. You should loop through all the amusement rides, and modify their prices (*2). (Note: You will be modifying the original data here, but that is fine. You do not need to create a deep copy of the data.)
 
-	```javascript
-	// Calling the function
-	let amusementRidesDouble = doublePrices(amusementRides);
+   ```javascript
+   // Calling the function
+   let amusementRidesDouble = doublePrices(amusementRides);
 
-	// Implementation of the function
-	function doublePrices(amusementRides) {
+   // Implementation of the function
+   function doublePrices(amusementRides) {
 
-		// TODO: Modify data here ...
+       // TODO: Modify data here ...
 
-	}
-	```
+   }
+   ```
 
-	You can add a ```console.log(amusementRidesDouble);``` at the end to look at the result of your code.
+   You can add a ```console.log(amusementRidesDouble);``` at the end to look at the result of your code.
 
-	> Pro tip: In JS, when you pass a primitive type variable (e.g., string or number) to a function, it is passed by value. On the other hand, if you pass an object, it is passed by reference. To try out the difference, check out this [JSFiddle code snippet](https://jsfiddle.net/ywn5vno5/). If you don't know the difference between pass-by-value and pass-by-reference, don't worry about it for now. But you might want to come back to this eventually.
+   > Pro tip: In JS, when you pass a primitive type variable (e.g., string or number) to a function, it is passed by value. On the other hand, if you pass an object, it is passed by reference. To try out the difference, check out this [JSFiddle code snippet](https://jsfiddle.net/ywn5vno5/). If you don't know the difference between pass-by-value and pass-by-reference, don't worry about it for now. But you might want to come back to this eventually.
 
-	&nbsp;
+   &nbsp;
 
 2. **Modify the function doublePrices() to double all prices, except for the second item in your list of amusement rides**
 
-	&nbsp;
+   &nbsp;
 
 3. **Create a second function: debugAmusementRides()**
 
-	In this function, loop through the modified list of attractions and write the **name** and the new **price** for each item to the console.
+   In this function, loop through the modified list of attractions and write the **name** and the new **price** for each item to the console.
 
-	```javascript
-	// The + operator can be used to concatenate strings/variables.
-	let firstName = "John";
-	let lastName = "Doe";
-	let name = firstName + " " + lastName;
+   ```javascript
+   // The + operator can be used to concatenate strings/variables.
+   let firstName = "John";
+   let lastName = "Doe";
+   let name = firstName + " " + lastName;
 
-	console.log(name); 	// Returns: John Doe
-	```
-	&nbsp;
+   console.log(name); 	// Returns: John Doe
+   ```
+   &nbsp;
 
 4. **Changing the DOM with JS**
 
-	Now we want to display some attributes of our amusement rides directly on the website, not just the JS console. To do this, we first have to create a new HTML element and then fill the content of this element dynamically with JS.
+   Now we want to display some attributes of our amusement rides directly on the website, not just the JS console. To do this, we first have to create a new HTML element and then fill the content of this element dynamically with JS.
 
-	The easiest way to modify the content of an HTML element is by using its *innerHTML* property. This implies that you have to create a string for the HTML snippet you want to insert first, and then set the *innerHTML* property. For example, you can create a new string variable and extend it in a for-loop, before you assign it to the *innerHTML property*.
+   The easiest way to modify the content of an HTML element is by using its *innerHTML* property. This implies that you have to create a string for the HTML snippet you want to insert first, and then set the *innerHTML* property. For example, you can create a new string variable and extend it in a for-loop, before you assign it to the *innerHTML property*.
 
-	Here is an example that you can copy and paste into your HTML file:
+   Here is an example that you can copy and paste into your HTML file:
 
-	```javascript
-	<div id="content-1"></div>
-	<div id="content-2"></div>
+   ```javascript
+   <div id="content-1"></div>
+   <div id="content-2"></div>
 
-	<script type="text/javascript">
-		// Write HTML with JS
-		document.getElementById("content-1").innerHTML = '<h1>Headline</h1>...and some text';
+   <script type="text/javascript">
+       // Write HTML with JS
+       document.getElementById("content-1").innerHTML = '<h1>Headline</h1>...and some text';
 
-		// Loop through array, build HTML block and finally display it on the page
-		let fruits = ["Orange", "Banana", "Apple"];
-		let result = '';
-		for (let i = 0; i < fruits.length; i++) {
-			result += fruits[i] + "<br/>";
-		}
-		document.getElementById("content-2").innerHTML = result;
-	</script>
-	```
-	Note that this example includes the JS code directly in the HTML file. Usually it's preferrable to link to an external javascript file. Try it out!
+       // Loop through array, build HTML block and finally display it on the page
+       let fruits = ["Orange", "Banana", "Apple"];
+       let result = '';
+       for (let i = 0; i < fruits.length; i++) {
+           result += fruits[i] + "<br/>";
+       }
+       document.getElementById("content-2").innerHTML = result;
+   </script>
+   ```
+   Note that this example includes the JS code directly in the HTML file. Usually it's preferrable to link to an external javascript file. Try it out!
 
-	Now it's your turn! Update the HTML with the following content:
+   Now it's your turn! Update the HTML with the following content:
 
 	* **Add a new HTML element to your document with a specific ID** (e.g. ```div```).
 	* **Create a new function** or duplicate debugAmusementRides() that loops through all amusement rides and **displays the name and the new prices on the website**.
@@ -453,7 +452,7 @@ There is an alternative way of defining functions:
 ```javascript
 // We assign a function to the variable 'message'
 let message = function(firstName) {
-    return "Hello, I'm " + firstName + ".";
+	return "Hello, I'm " + firstName + ".";
 }
 
 // We can call the function to get the expected message
@@ -499,7 +498,7 @@ let filteredCities = cities.filter(checkCity);
 
 // Implementation of passed function
 function checkCity(value) {
-  return value != "London";
+	return value != "London";
 }
 
 filteredCities // Returns: ["Vienna", "Paris"]
@@ -595,27 +594,27 @@ expensiveProducts // Returns: [{ name: "laptop", price: 1600 }, { name: "phone",
 
 Last week, you've learned about how to use your browser's built-in web developer tools
 . However, so far you've only learned how to use these tools to inspect the DOM and analyze the tree
- structure of HTML elements. Today, we want you to start using the **console** as well as the
-  **sources** panel of your dev tools. 
-   
-#### The console 
-   
+structure of HTML elements. Today, we want you to start using the **console** as well as the
+**sources** panel of your dev tools.
+
+#### The console
+
 You've already used the console extensively in activity I. Every browser has a debugging console
 , which is a command line interface in your browser that can execute snippets
-   of code. JavaScript comes with a (window) console object, that allows you to interact with
-    this debugging console. The most prominent amongst many [methods](https://www.w3schools.com/jsref/obj_console.asp) is the .log() method that writes a message to the console. The reason why console.log
-    () is such a prominent line in JavaScript is because it allows you to double check that your variables and data structures are indeed
-       what you expect them to be - you can think of it like a sanity-check print-statement in
-        python. 
-     
-#### The sources panel 
+of code. JavaScript comes with a (window) console object, that allows you to interact with
+this debugging console. The most prominent amongst many [methods](https://www.w3schools.com/jsref/obj_console.asp) is the .log() method that writes a message to the console. The reason why console.log
+() is such a prominent line in JavaScript is because it allows you to double check that your variables and data structures are indeed
+what you expect them to be - you can think of it like a sanity-check print-statement in
+python.
+
+#### The sources panel
 
 While for smaller architectures, it is very often more practical to use console.log()
- to debug your code and get to the root of your bug, there is a much more powerful tool that
-  comes with the dev tools, which is particularly helpful when you first need to get an overview
-   and don't know where to start debugging. In your sources panel, you cannot only view files
-   , but i.a. also pause and explore your code using breakpoints and use **watch** to track
-    how variables change and get updated while running through your code breakpoint by breakpoint.
+to debug your code and get to the root of your bug, there is a much more powerful tool that
+comes with the dev tools, which is particularly helpful when you first need to get an overview
+and don't know where to start debugging. In your sources panel, you cannot only view files
+, but i.a. also pause and explore your code using breakpoints and use **watch** to track
+how variables change and get updated while running through your code breakpoint by breakpoint.
 
 ![Breakpoints](sources_01.png?raw=true "Lab 2 - Preview")
 
@@ -624,17 +623,17 @@ How to get set up breakpoints and explore using watch:
 - first, go to the sources panel
 - then open the js file that contains the code you want to debug (by clicking on it)
 - next, click on the line number where you would want to place a break - a blue arrow will appear
- (see screenshots)
+  (see screenshots)
 - set as many stops as you want/as necessary
 - reload the page
 - Your debugger is now running. A message in a yellow box overlaying your browser window saying
- "Paused in debugger" is indicating that. Also, the navigation arrows of your breakpoint tool are
+  "Paused in debugger" is indicating that. Also, the navigation arrows of your breakpoint tool are
   now no longer grayed out and ready to be used
- - next, you can either use the scope tab to explore the behavior of all local and global
+- next, you can either use the scope tab to explore the behavior of all local and global
   variables while going through the breakpoints or
 - you could switch to the **Watch** tab and just name the variables you want to monitor
 - in order to watch just the variables you're interested, you can just start typing the name of the
- variable and the dev tools will autocomplete the name (see screenshots)
+  variable and the dev tools will autocomplete the name (see screenshots)
 - the listed variables will now reflect the state of the webapp at the particular breakpoint.
 
 ![Watch](sources_02.png?raw=true "Lab 2 - Preview")
@@ -660,46 +659,46 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 1. **Download template for 'week 03 lab', unzip it and open it as a new project in Webstorm:**
 
-	[download week-03_lab.zip](https://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
+   [download week-03_lab.zip](https://www.cs171.org/Homework_instructions/week-03/lab/week-03_lab_template.zip)
 
 2. **Familiarize yourself with the provided HTML document: ```index.html```**
 
-	Look at the source code, its HTML elements, and which files (JS, CSS) are included.
+   Look at the source code, its HTML elements, and which files (JS, CSS) are included.
 
 3. **Array sorting and using the Chrome DevTools**
 
-	Open the JS file ```week03_lab.js``` (*js* folder). Most of the tasks you need to complete should be implemented in the function: *dataFiltering()*.
+   Open the JS file ```week03_lab.js``` (*js* folder). Most of the tasks you need to complete should be implemented in the function: *dataFiltering()*.
 
-	We have included a template of the function, and have created a local variable ```attractions``` from the global variable and we have called the function right before. You should work with the local variable ```attractions``` - don't override the global one.
+   We have included a template of the function, and have created a local variable ```attractions``` from the global variable and we have called the function right before. You should work with the local variable ```attractions``` - don't override the global one.
 
-	In this exercise we're interested in finding the attractions with the most visitors. We've added some code that sorts the ```attractions``` array by the number of advisors. However, if you look at the console log that prints the sorted array, you'll notice that the sorting isn't working.
+   In this exercise we're interested in finding the attractions with the most visitors. We've added some code that sorts the ```attractions``` array by the number of advisors. However, if you look at the console log that prints the sorted array, you'll notice that the sorting isn't working.
 
-	**We'll use the Chrome DevTools to debug this issue.**
-		
+   **We'll use the Chrome DevTools to debug this issue.**
+
 	- Open the Chrome Developer Tools pane (View -> Developer -> Developer Tools)
 	- Click on the `Sources` tab . You'll notice that the HTML/JS/CSS files you're currently
-	 working on are listed here. 
-	 - Click on the ***week_03_lab.js*** file.
-        ![Watch](week-03_lab_sources_panel.png?raw=true "Lab 2 - Preview")
+	  working on are listed here.
+	- Click on the ***week_03_lab.js*** file.
+	  ![Watch](week-03_lab_sources_panel.png?raw=true "Lab 2 - Preview")
 
 	- From this file view, we are able to set [breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) that let you step through your code as it executes, which is an incredibly powerful debugging tool. **Add breakpoints on lines 14 and 15 as shown below and refresh the page.**
-        ![Watch](week-03_lab_breakpoint.png?raw=true "Lab 2 - Preview")
+	  ![Watch](week-03_lab_breakpoint.png?raw=true "Lab 2 - Preview")
 
 	- You'll notice now that your code stops executing at line 14. If you hover over the
-	 ```attractions```, you can view the value assigned to the variable.
+	  ```attractions```, you can view the value assigned to the variable.
 	- If you press the blue resume button, you'll see that the execution jumped down to line 15
-	, which is the next breakpoint. By hovering over ```a.visitors``` you can see that the value is undefined. This is our bug.
+	  , which is the next breakpoint. By hovering over ```a.visitors``` you can see that the value is undefined. This is our bug.
 	- You can also step forward line-by-line, disable all breakpoints, and step into, out of, and
-	 over functions through the buttons at the top right of the debugger by the resume button.
+	  over functions through the buttons at the top right of the debugger by the resume button.
 	- If you switch to the Console tab and type in ```a``` and pressing enter, you'll notice you
-	 can also interact with the local variables from the console. This is a good tool for testing out code without having to reload the page.
+	  can also interact with the local variables from the console. This is a good tool for testing out code without having to reload the page.
 	- From the current value of ```a``` or ```b```, you'll notice there's a property that holds
-	 the number of visitors that's capitlized slightly differently than it is in line 15. This is the bug!
+	  the number of visitors that's capitlized slightly differently than it is in line 15. This is the bug!
 	- Disable your breakpoints by clicking on them. Now go back to WebStorm and update your code
 	  so that visitors is capitalized correctly. When you refresh the page the log that prints the array should show that it's sorted.
 
 4. **Filter the array**
-	We want to show the *top five global attractions* with the most annual visitors in a bar chart. There are 60 attractions in the dataset, so you have to create a new array or modify the variable ```attractions```. *Suggestion: Filter your sorted array to get the first five rows.*
+   We want to show the *top five global attractions* with the most annual visitors in a bar chart. There are 60 attractions in the dataset, so you have to create a new array or modify the variable ```attractions```. *Suggestion: Filter your sorted array to get the first five rows.*
 
 5. **Call the function: renderBarChart(attractions)**
 
@@ -710,22 +709,22 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 6. **Extend array filtering**
 
-	As you might have seen already, there is a *select-box* in the HTML document. You can select different categories but right now, nothing happens.
+   As you might have seen already, there is a *select-box* in the HTML document. You can select different categories but right now, nothing happens.
 
-	In the next task you should call a function *dataManipulation()* if someone changes the select-box and then, inside the function, filter the attractions by the selected category:
+   In the next task you should call a function *dataManipulation()* if someone changes the select-box and then, inside the function, filter the attractions by the selected category:
 
 	* Add the attribute ```onchange="dataManipulation()"``` to the select-box (in the HTML file). The function ```dataManipulation()``` will be automatically called whenever the user changes the value of the select box. However, you will need to create that function!
 	* In your JS file you can use the following code snippet to get the selected category. Make sure to change "SELECT-ID" to the ID of the select-box.
 
-		```javascript
-		let selectBox = document.getElementById("SELECT-ID");
-		let selectedValue = selectBox.options[selectBox.selectedIndex].value;
-		```
-		Make sure this part is working, by printing out *selectedValue* in the console whenever the select-box selection has changed, before continuing.
+	  ```javascript
+      let selectBox = document.getElementById("SELECT-ID");
+      let selectedValue = selectBox.options[selectBox.selectedIndex].value;
+      ```
+	  Make sure this part is working, by printing out *selectedValue* in the console whenever the select-box selection has changed, before continuing.
 
 	* Before searching for the top attractions and calling *renderBarChart()*: check if the selected category is "all", otherwise filter the attractions by category.
 
-	*If everything has been configured correctly, the bar chart will be updated automatically after selecting a category.*
+   *If everything has been configured correctly, the bar chart will be updated automatically after selecting a category.*
 
 &nbsp;
 
@@ -735,9 +734,9 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 - **Add custom styles (CSS)**
 
-	We have included *Bootstrap* and a couple of CSS rules to style the bar chart. Add a new stylesheet or modify ```style.css``` to create an individual design.
-	To change the style of the D3 components you will have to add new elements to your css. D3 uses ```<svg>``` tags in the DOM, and you might want to look up properties like *fill* or *stroke*. We've also provided code for you to implement hover interactions in the form of a tooltip, which is classed ```tooltip``` in the DOM. In order to enable this functionality, you must add a placeholder div of id ```tooltip``` to your HTML file. Inside your newly minted div, create a span of id ```value```. We encourage you to play around with adding more content to the tooltip, as well as changing the tooltip's styling in CSS.
-&nbsp;
+  We have included *Bootstrap* and a couple of CSS rules to style the bar chart. Add a new stylesheet or modify ```style.css``` to create an individual design.
+  To change the style of the D3 components you will have to add new elements to your css. D3 uses ```<svg>``` tags in the DOM, and you might want to look up properties like *fill* or *stroke*. We've also provided code for you to implement hover interactions in the form of a tooltip, which is classed ```tooltip``` in the DOM. In order to enable this functionality, you must add a placeholder div of id ```tooltip``` to your HTML file. Inside your newly minted div, create a span of id ```value```. We encourage you to play around with adding more content to the tooltip, as well as changing the tooltip's styling in CSS.
+  &nbsp;
 
 -----
 
@@ -752,8 +751,7 @@ Congratulations, you have now completed the activities of the second Lab.
 
 *See you next week!*
 
-Please include the code of your completed activity 3 in your homework submission. Read the homework
- documentation for more detail.
+Please include the code of your completed activity 3 in your submission.
 
 &nbsp;
 
