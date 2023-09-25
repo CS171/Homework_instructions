@@ -13,7 +13,7 @@ This homework assumes that you have read and programmed along with chapter 3 (p.
 
 &nbsp;
 
-## 1) The World's Tallest Buildings (10 points)
+## 1) The World's Tallest Buildings (8 points)
 
 In this homework you will implement a horizontal bar chart with D3. Your bar chart will represent the ten tallest, fully-completed buildings in the world. Users will be able to click on a bar or label on the chart to get more information about a specific building.
 
@@ -109,12 +109,16 @@ The ```img``` folder contains an image in portrait format for each building.
        anywhere in your code to space things out. Instead, make proper use of classes and ids
        . In your java script code, try using a forEach loop where possible and get comfortable
         with arrow functions.
-    
 
-## 2) Optional: `Dear Data' Competition: Collecting Personal Data
+## 2) Sketching (2 points)
+Go back to the pharmaceutical data that we use with Tableau. Take 15 minutes to sketch several ideas for possible visualizations to answer your questions about the pharmaceutical data. Make sure to label your axes and add titles to the visualizations. You are encouraged to use colored pens. You can sketch either with pen and paper or with a digital pen on a tablet. However, it must look like a hand-drawn sketch. Take pictures of your sketches and add them at the bottom of your website. 
+
+## 3) Extra Credit: `Dear Data' Competition: Collecting Personal Data 
 
 You have already heard about the Dear Data project in class. We will run our own CS171 Dear Data competition this year. The winner will receive a copy of the Dear Data book (and bragging rights), but it is completely optional and up to you to join the competition or not.
 If you decide to join, we ask you to observe, collect, and sketch a visualization inspired by the Dear Data project over the next two weeks. This week, you will collect personal data, and next week you will sketch a visualization that encodes this data using creative, artistic, and whimsical visual encodings inspired by the work of Georgia Lupi and Staphanie Posavec. The student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
+
+You can receive up to 2 points of extra credit for data collection, but only if you complete the second part of the dear data project next week.
 
 <img src="dear_data_cover.png" width="400">
 <!--![Dear Data Book](dear_data_cover.png "Dear Data Book")-->
@@ -169,26 +173,18 @@ Submission instructions:
 
 ```
 /submission_week-04_FirstnameLastname
-	lab_partner.txt	
     dear_data/      ...folder for your data that you collected for dear_data    
     implementation/ ...folder for your code
-        lab/             
-                index.html
-                css/ 		...folder with all CSS files
-                js/ 		...folder with all JavaScript files\
-                ..
-            hw/
-                index.html
-                css/ 		...folder with all CSS files
-                js/ 		...folder with all JavaScript files\
-                ..
+    	hw/
+         	index.html
+            css/ 		...folder with all CSS files
+            js/ 		...folder with all JavaScript files\
+            ..
     
 ```
 
 2. Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
 
 3. Upload a single .zip file.
-
-4. Also submit the completed lab on Canvas.
 
 **Congratulations for finishing the Homework! See you in class!**
