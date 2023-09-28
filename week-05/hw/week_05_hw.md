@@ -50,13 +50,13 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 
 2. **Set up a new D3 project and create a two-column layout in your HTML file**
 	During the course of this homework you will add an area chart to the left column and a bar chart to the right column.
-	
+
 	![Homework 5 - Preview](cs171-hw5-preview.png?raw=true "Homework 5 - Preview")
-	
+
 3. **Load the CSV file and prepare the data for the area chart**
-	
+
 	The *dates* are loaded as string values. Similar to numeric values (e.g. ```d.price = +d.price```) you have to convert these values. You will need *Date Objects* to create flexible *time scales* later.
-	
+
 	*This website should help you to convert the data into the right format: [https://github.com/d3/d3-time-format/blob/master/README.md](https://github.com/d3/d3-time-format/blob/master/README.md). Make sure to test your results before continuing.*
 
 4. **From now on, your charts should implement the D3 margin convention**
@@ -72,15 +72,15 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 6. **Area chart: Map the population data to the area (using SVG path)**
 
 	*Compared to a simple line chart you should fill the whole area between the data points and the x-axis.*
-	
+
 	To create an area chart, follow the steps below:
-	
+
 	a. Define a function that generates the area:
-	
+
 	See [https://github.com/d3/d3-shape/blob/master/README.md#areas](https://github.com/d3/d3-shape/blob/master/README.md#areas) (```d3.area()```) for details.
-	
+
 	b. Draw the area (using an SVG path element)
-	
+
 	```javascript
 	let path = svg.append("path")
       .datum(data)
@@ -88,21 +88,21 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
       .attr("d", area);
 	```
 
-	c. Change the style with CSS 
-	
-	If any of these steps are unclear, study some D3 area chart examples online. Make sure you understand the code before you implement it yourself! 
-	
+	c. Change the style with CSS
+
+	If any of these steps are unclear, study some D3 area chart examples online. Make sure you understand the code before you implement it yourself!
+
 	d. Bonus (optional): Render the actual boundary (upper line of the area chart) as line, with different visual properties.
 
 7. **Area chart: Append the x- and y-axes and add a chart title**
 
 	From now on, we expect that you will always label your charts, display meaningful axes, and provide a legend if necessary. Also, make sure your axes start at appropriate values.
 	In data visualization we aim to create meaningful, easy-to-understand visualizations to provide insight into the data. Missing labels or axes are often a main cause for misunderstanding data!
-	
-	* Format the labeling of the x-axis to display the month and year in text format (e.g. April 2013). 
-	* Make sure that the labels don't overlap each other, by rotating the text labels of the x-axis. 
-	
-8. **Create a compound JS data structure to store information about the shelter types** 
+
+	* Format the labeling of the x-axis to display the month and year in text format (e.g. April 2013).
+	* Make sure that the labels don't overlap each other, by rotating the text labels of the x-axis.
+
+8. **Create a compound JS data structure to store information about the shelter types**
 
 	Store the information you have about the different shelter types in your own data structure. (As a reminder, 79.68% of households were recorded as living in caravans. 10.81% of households live in a combination of tents and caravans, while 9.51% live in tents only.)
 
@@ -113,14 +113,14 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 
 	* Append a new SVG drawing area for the bar chart (using D3 margin conventions) to the right column of your webpage.
 	* Map the data from your new dataset to SVG rectangles to create a vertical bar chart (refer to the screenshot in Section Implementation.1 for how it should look). The y-axis represents the percentage of people living in one of the three shelter types.
-	* Usa a linear scale for the y axis. 
+	* Usa a linear scale for the y axis.
 	* For the x dimension you may choose to use either an ordinal scale or no explicit D3 scale function, as there are only 3 categories. (Note, however, that in one of the next steps you will have to add labels for each bar. Your scale implementation here affect the way you add labels later.)
 	* Add a chart title.
 
 10. **Bar chart: Draw x- and y-axes**
 
 	*The ticks of the y-axis should be formatted as percentages.*
-	
+
 	[https://github.com/d3/d3-axis/blob/master/README.md](https://github.com/d3/d3-axis/blob/master/README.md)
 
 11. **Bar chart: Append labels at the top of each bar to indicate the actual percentages**
@@ -133,31 +133,31 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 	![Area Chart Tooltips](cs171-hw4-tooltips.gif?raw=true "Area Chart Tooltips")
 
 	*There are many different ways to include tooltips. Follow the steps below for one approach, but feel free to experiment with others*
-	
+
 	Make sure the tooltip shows the camp's population for the current mouse position, as shown in the above animation.
-	
-	Note: This step is relatively complex, compared to the earlier steps. Add individual elements step-by-step and make sure they are working before adding on more elements. Debugging tip: during development, add color to your elements through css styles to ensure they are being rendered properly. 
+
+	Note: This step is relatively complex, compared to the earlier steps. Add individual elements step-by-step and make sure they are working before adding on more elements. Debugging tip: during development, add color to your elements through css styles to ensure they are being rendered properly.
 
 	* Create a group for all the tooltip elements and hide it by setting the style attribute 'display' to 'none' (Skip this step during development to make sure you are rendering things correctly). Save this element as a variable, which you will use to append text elemenet and later update the tooltip position. Give it a class name.
-	 
+
     * Append a vertical tooltip line to the leftmost position of the group (x=0) and that spans the full height of the svg.  Don't forget to assign the 'stroke' attr for it to render properly!
 
-	* Append an empty SVG text element for the tooltip population value. place it 10px away from the top left corner of the group, and don't forget to give it a class or id! 
-	 
+	* Append an empty SVG text element for the tooltip population value. place it 10px away from the top left corner of the group, and don't forget to give it a class or id!
+
     *  Append an empty SVG text element for the tooltip date value. Position this text just below
-   the population text holder. Give it a unique class or id name. 
-	 
-	* Append a rectangle over the whole chart to capture 'mouse events'. Add listeners to 'mouseover', 'mouseout', and 'mousemove' events. On mouseover, set the display style of the tooltip group to 'null, on mouseout set it to 'none', and on mousemove, trigger a new 'mousemove' function that will handle the positioning of the tooltip. 
+   the population text holder. Give it a unique class or id name.
+
+	* Append a rectangle over the whole chart to capture 'mouse events'. Add listeners to 'mouseover', 'mouseout', and 'mousemove' events. On mouseover, set the display style of the tooltip group to 'null, on mouseout set it to 'none', and on mousemove, trigger a new 'mousemove' function that will handle the positioning of the tooltip.
 
 	* ```d3.bisector```is a function that finds the closest index in an array for a given value, specifying an accessor function.  You can read more about it here: [https://github.com/d3/d3-array#bisector](https://github.com/d3/d3-array#bisector)
 
-	* For this homework, you will need to define a bisector that returns the date attribute, such as the example below. This can then be applied as bisectDate(array, d), returning the index of  the array which contains the closest value to 'd'. 
+	* For this homework, you will need to define a bisector that returns the date attribute, such as the example below. This can then be applied as bisectDate(array, d), returning the index of  the array which contains the closest value to 'd'.
 
-        ```javascript 
+        ```javascript
         let bisectDate = d3.bisector(d=>d.date).left;
         ```
- 
-    * Write a mousemouve function with the following signature: 
+
+    * Write a mousemouve function with the following signature:
 
         ```javascript
         function mousemove(event){
@@ -165,31 +165,31 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
         }
         ```
 
-	* Inside this function implement the following steps: 
+	* Inside this function implement the following steps:
 
-		* Use d3.pointer(event)[0] to get the x position of the mouse pointer. 
+		* Use d3.pointer(event)[0] to get the x position of the mouse pointer.
 
 	    * Use .invert on the xscale to find the equivalent date value for the x position of the
-	     mouse pointer. 
-	    
+	     mouse pointer.
+
 		* Call the previsously declared bisector function to get the index of the closest date in
-		 the original data array. 
+		 the original data array.
 
 		* Use the index from the previous step to grab the data element at that location.  
 
-	    * Shift the whole tooltip group on the x-axis to the position of the mouse. 
+	    * Shift the whole tooltip group on the x-axis to the position of the mouse.
 
-	    * Update the tooltip text properties with the date and population values 
+	    * Update the tooltip text properties with the date and population values
 
 13. **Use CSS to style the webpage**
-	
+
 	*Spacing between charts, font size, color scheme, ...*
-	
+
 	This is your space to be creative! Please use at least 3 CSS styles, and keep the design guidelines you have learned so far in lecture in mind. But you don't need to go overboard. (Required are 3 different CSS styles)
 
 &nbsp;
 
-Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view! 
+Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view!
 
 ## 2) Optional: `Dear Data' Competition: Visualizing Personal Data
 
@@ -218,17 +218,15 @@ If you drew using pen and paper, take pictures of your sketches and legends, and
 
 Submission instructions:
 
-*  Use the following recommended folder structure to submit your hw and lab:
+*  Use the following recommended folder structure to submit your hw:
 
 ```
-/submission_FirstnameLastname
-	lab_partner.txt 	
+/submission_FirstnameLastname 	
 	hw/
 	    implementation/ ...folder for your code
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
-	lab/
 ```
 
 *  Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
