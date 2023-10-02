@@ -194,7 +194,8 @@ Congratulations on finishing your homework! Up until now, all your visualization
 ## 2) Visual Vocabulary (2 points)
 Use the [visual vocabulary](bit.ly/miro-visual-vocabulary) to decide which visualization types would best fit the following prompt:
 
-```Compare available houses on the market in regards to size, price, number of amenities, and distance to the closest supermarket.
+```
+Compare available houses on the market in regards to size, price, number of amenities, and distance to the closest supermarket.
 ```
 
 * Pick 3 visualizations that you could use to answer parts or all of the above prompt.
