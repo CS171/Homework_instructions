@@ -185,7 +185,7 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 
 	*Spacing between charts, font size, color scheme, ...*
 
-	This is your space to be creative! Please use at least 3 CSS styles, and keep the design guidelines you have learned so far in lecture in mind. But you don't need to go overboard. (Required are 3 different CSS styles)
+	This is your space to be creative! Please use at least 5 CSS styles, and keep the design guidelines you have learned so far in lecture in mind. We will actually deduct points for bad visual design, so be mindful of your fonts, colors, etc. 
 
 &nbsp;
 
