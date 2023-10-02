@@ -192,7 +192,7 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view!
 
 ## 2) Visual Vocabulary (2 points)
-Use the [visual vocabulary](bit.ly/miro-visual-vocabulary) to decide which visualization types would best fit the following prompt:
+Use the [visual vocabulary](https://bit.ly/miro-visual-vocabulary) to decide which visualization types would best fit the following prompt:
 
 ```
 Compare available houses on the market in regards to size, price, number of amenities, and distance to the closest supermarket.
