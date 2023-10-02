@@ -201,6 +201,7 @@ Compare available houses on the market in regards to size, price, number of amen
 * Pick 3 visualizations that you could use to answer parts or all of the above prompt.
 * Create a hand-drawn sketch for each of the 3 visualizations (3 sketches overall). Make sure to add titles, axes, axis labels, and labels.
 * Add a short paragraph for each visualization where you describe why you picked a certain visualization, why it works well for the above prompt, and how you encode the data in the visualization.
+* Bla
 
 ## 3) Optional: `Dear Data' Competition: Visualizing Personal Data
 
