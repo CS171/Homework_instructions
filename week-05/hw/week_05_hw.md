@@ -21,7 +21,7 @@ This homework requires that you have read and programmed along with chapters 7 a
 
 ## 1) Za'atari Refugee Camp (8 points)
 
-Za’atari is a refugee camp in Jordan that opened in 2011 to host people fleeing from the Syrian civil war. With around 80,000 refugees it is one of the largest UN-supported camps and over the past few years it transformed from a tent camp to a real city with water and sewage systems, markets, coffee shops etc.
+Za’atari is a refugee camp in Jordan that opened in 2011 to host people fleeing from the Syrian civil war. With around 80,000 refugees it is one of the largest UN-supported camps, and over the past few years, it transformed from a tent camp to a real city with water and sewage systems, markets, coffee shops etc.
 
 
 *In this homework you will create two charts to present data from Za'atari in a meaningful way.*
