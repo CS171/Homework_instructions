@@ -19,7 +19,7 @@ This homework requires that you have read and programmed along with chapters 7 a
 
 &nbsp;
 
-## 1) Za'atari Refugee Camp (10 points)
+## 1) Za'atari Refugee Camp (8 points)
 
 Za’atari is a refugee camp in Jordan that opened in 2011 to host people fleeing from the Syrian civil war. With around 80,000 refugees it is one of the largest UN-supported camps and over the past few years it transformed from a tent camp to a real city with water and sewage systems, markets, coffee shops etc.
 
@@ -191,7 +191,17 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 
 Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view!
 
-## 2) Optional: `Dear Data' Competition: Visualizing Personal Data
+## 2) Visual Vocabulary (2 points)
+Use the [visual vocabulary](bit.ly/miro-visual-vocabulary) to decide which visualization types would best fit the following prompt:
+
+```Compare available houses on the market in regards to size, price, number of amenities, and distance to the closest supermarket.
+```
+
+* Pick 3 visualizations that you could use to answer parts or all of the above prompt.
+* Create a hand-drawn sketch for each of the 3 visualizations (3 sketches overall). Make sure to add titles, axes, axis labels, and labels.
+* Add a short paragraph for each visualization where you describe why you picked a certain visualization, why it works well for the above prompt, and how you encode the data in the visualization.
+
+## 3) Optional: `Dear Data' Competition: Visualizing Personal Data
 
 
 If you collected data for your personal Dear Data project last week, you can sketch a visualization this week that encodes the personal data you collected last week using creative, artistic, and whimsical visual encodings inspired by the Dear Data project. Similar to Georgia Lupi and Staphanie Posavec, we want you to sketch your visualizations by hand, either using pen and paper or a tablet and electronic pencil. As you know from last week's homework, the student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
@@ -209,12 +219,13 @@ Sketching allows you to reflect and refine your visualizations. Take a look at s
 
 Once you got your inspiration, sketched a few ideas, and iterated on them, it is time to create your final sketch. Again, you can use pen and paper or a tablet and electronic pencil for this. We do not want you to be constrained, so you can **use any page size or format** that you like. Please use thick strokes and bold colors that are easy to see from a distance and that will reproduce well once you take a photo of your sketch (assuming it was done on paper). As before, we want you to use **at least five** of your data attributes in your final sketch.
 
-Similar to the Dear Data project, we also want you to **create a legend that explains how each of your data attributes is visually encoded**. The legend can be drawn on a separate piece of real or electronic paper. Again, make sure to use thick strokes or large fonts to make the writing easy to read. If you like, you can also add the legend directly to your sketch using lines and arrows that make the connection from your visuals to your data. Please also add a paragraph (can be a separate .txt file) where you briefly explain your sketch to us (e.g., what data you collected, what you show, and why you chose that encoding).
+Similar to the Dear Data project, we also want you to **create a legend that explains how each of your data attributes is visually encoded**. The legend can be drawn on a separate piece of real or electronic paper. Again, make sure to use thick strokes or large fonts to make the writing easy to read. If you like, you can also add the legend directly to your sketch using lines and arrows that make the connection from your visuals to your data. Please also **add a paragraph where you briefly explain your sketch to us** (e.g., what data you collected, what you show, and why you chose that encoding).
 
 **How to submit your project**
 
-If you drew using pen and paper, take pictures of your sketches and legends, and if you used a tablet and electronic pencil you can export the electronic pages. Combine all of the images in a pdf and label them to make it clear what they show. You can use a google doc to collect everthing and then export it to a pdf). Please make sure that your images are big enough to make the visuals and text easily legible. You can include your reflection as typed text after the embedded images in your homework document.
-## 3) Submit Homework in Canvas
+If you drew using pen and paper, take pictures of your sketches and legends, and if you used a tablet and electronic pencil you can export the electronic pages. Combine all of the images in a pdf and label them to make it clear what they show. You can use a google doc to collect everything and then export it to a pdf). Please make sure that your images are big enough to make the visuals and text easily legible. You can include your reflection as typed text after the embedded images in your homework document.
+
+## 4) Submit Homework in Canvas
 
 Submission instructions:
 
@@ -227,6 +238,9 @@ Submission instructions:
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
+			dear_data/
+					dear_data_submission.pdf
+
 ```
 
 *  Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
