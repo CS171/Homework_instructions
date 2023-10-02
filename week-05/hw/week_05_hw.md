@@ -192,16 +192,19 @@ The REACH initiative and Unicef evaluated the type of shelters in the Za'atari r
 Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view!
 
 ## 2) Visual Vocabulary (2 points)
-Use the [visual vocabulary](https://bit.ly/miro-visual-vocabulary) to decide which visualization types would best fit the following prompt:
+Utilize the [visual vocabulary](https://bit.ly/miro-visual-vocabulary) to determine which types of visualizations are most suitable for the following scenario:
 
 ```
 Compare available houses on the market in regards to size, price, number of amenities, and distance to the closest supermarket.
 ```
 
-* Pick 3 visualizations that you could use to answer parts or all of the above prompt.
-* Create a hand-drawn sketch for each of the 3 visualizations (3 sketches overall). Make sure to add titles, axes, axis labels, and labels.
-* Add a short paragraph for each visualization where you describe why you picked a certain visualization, why it works well for the above prompt, and how you encode the data in the visualization.
-* Bla
+* Select three visualizations that can effectively represent parts or the entirety of the given scenario.
+* For each chosen visualization, create a hand-drawn sketch (totaling three sketches). Ensure to include titles, axes, and axis labels.
+* Add a legend that provides a visual explanation of the symbols, colors, or patterns used to represent the different data within the visualization.
+* Accompany each sketch with a concise paragraph explaining your choice of visualization and its effectiveness for the given scenario.
+* Rank your three sketches in terms of effectiveness by adding the numbers 1 (most effective) to 3 (least effective) to the sketches.
+
+Take a photo(s) of your sketches and write up and create a PDF that you will upload with your homework submission. 
 
 ## 3) Optional: `Dear Data' Competition: Visualizing Personal Data
 
@@ -236,12 +239,12 @@ Submission instructions:
 ```
 /submission_FirstnameLastname 	
 	hw/
-	    implementation/ ...folder for your code
+	    implementation/ 		...folder for your code
    	        index.html
-	        css/ 		...folder with all CSS files
-	        js/ 		...folder with all JavaScript files
-			dear_data/
-					dear_data_submission.pdf
+	        css/ 			...folder with all CSS files
+	        js/ 			...folder with all JavaScript files
+	    dear_data/			dear_data_submission.pdf
+	    visual_vocabulary/		vis_vocab_submission.pdf
 
 ```
 
