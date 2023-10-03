@@ -44,7 +44,7 @@ You will first learn about Tableau dashboards and then design your own dashboard
 
 ## 2) Submit Homework in Canvas
 
-Please submit your homework as a single zip file (including twbx workbook).
+Please submit your homework as a single zip file (including the twbx workbook and a pdf of your sketches).
 
 
 **Congratulations for finishing this week's homework! See you in class!**
