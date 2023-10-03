@@ -26,8 +26,8 @@ You will first learn about Tableau dashboards and then design your own dashboard
 ### Task 1.2: Design your dashboard
 
 - First, decide which visualizations you want to include in your dashboard. You should include at least 3 visualizations that you have worked on before in class.
-- Design an *advanced visualization* that will also become a part of your dashboard. Advanced means that the visualization should not be part of the "show me" feature in Tableau. Feel free to get inspired by the visual vocabulary Tableau workbook that we have posted on Canvas.
-- Sketch a preliminary layout of your envisioned dashboard on paper. Hint: You can use sticky notes for the individual visualizations, which allows you to move the individual visualizations around and arrange them onto the dashboard sketch as you like. Make sure to include legends, titles, axes, etc.
+- Design an *advanced visualization* that will also become a part of your dashboard. Advanced means that the visualization should not be part of the "show me" feature in Tableau. Feel free to get inspired by the visual vocabulary Tableau workbook that we have posted on Canvas. Create a **sketch of your advanced visualization** on pen and paper. 
+- **Sketch a preliminary** layout of your envisioned dashboard on paper. Hint: You can use sticky notes for the individual visualizations, which allows you to move the individual visualizations around and arrange them onto the dashboard sketch as you like. Make sure to include legends, titles, axes, etc.
 
 ### Task 1.3: Implement your visualizations
 
@@ -44,7 +44,7 @@ You will first learn about Tableau dashboards and then design your own dashboard
 
 ## 2) Submit Homework in Canvas
 
-Please submit your homework as a single zip file (including the twbx workbook and a pdf of your sketches).
+Please submit your homework as a single zip file (including the twbx workbook and a pdf of your dashboard sketch).
 
 
 **Congratulations for finishing this week's homework! See you in class!**

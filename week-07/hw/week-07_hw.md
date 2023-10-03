@@ -28,7 +28,7 @@ Optional reading: [Mike Bostock's 'Thinking with Joins'](http://bost.ocks.org/mi
 To help you get started with this homework assignment we have prepared a template that you can use. It is based on the front-end framework *Bootstrap* and it includes *D3*,
 Furthermore, a CSV file (```fifa-world-cup.csv```) is stored in the folder *"data"*. Of course, you can also start with an empty project and just copy the dataset.
 
-[week-6\_hw\_template.zip](https://www.cs171.org/Homework_instructions/week-07/hw/week-07_hw_template.zip)
+[week-07\_hw\_template.zip](https://www.cs171.org/Homework_instructions/week-07/hw/week-07_hw_template.zip)
 
 ### Overview
 
@@ -42,7 +42,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 
 1. **Download the resources**
 
-	Please download the template and the CSV file as a ZIP file: [week-6\_hw\_template.zip](https://www.cs171.org/Homework_instructions/week-07/hw/week-07_hw_template.zip)
+	Please download the template and the CSV file as a ZIP file: [week-07\_hw\_template.zip](https://www.cs171.org/Homework_instructions/week-07/hw/week-07_hw_template.zip)
 
 2. **Familiarize yourself with the provided framework and the FIFA World Cup data**
 
@@ -175,15 +175,11 @@ Submission instructions:
 
 ```
 /submission_FirstnameLastname
-	lab_partner.txt
 	hw/
 	    implementation/ ...folder for your code
    	        index.html
 	        css/ 		...folder with all CSS files
 	        js/ 		...folder with all JavaScript files
-		design/ ... folder for your design partß
-
-	lab/
 	    ...
 ```
 
@@ -191,4 +187,4 @@ Submission instructions:
 3. Upload a single .zip file.
 
 
-**Congratulations for finishing Homework 6! See you in class!**
+**Congratulations for finishing Homework 7! See you in class!**
