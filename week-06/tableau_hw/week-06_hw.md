@@ -12,6 +12,8 @@ exclude: true
 
 Your task is to design an interactive, exploratory Tableau dashboard, focusing on the Pharmaceutical Data, that helps users discover insights or trends.
 
+**It is best if you start this homework AFTER Wednesday's lecture! (In the lecture, you will still work on some of your Tableau visualizations that you can then directly use in this homework).**
+
 
 ## 1) Tableau Dashboard of the Pharmaceutical Data
 
