@@ -266,7 +266,7 @@ In this activity you will visualize how customer orders are processed at a coffe
 
 1. **Download the framework**
 
-	[template1.zip](https://www.cs171.org/Homework_instructions/week-06/lab/template1.zip)
+	[template1.zip](https://www.cs171.org/Homework_instructions/week-07/lab/template1.zip)
 
 	The framework includes:
 
@@ -434,7 +434,7 @@ In this activity you will create an interactive bar chart showing a ranking of l
 ß
 1. **Download the framework**
 
-	[template2.zip](https://www.cs171.org/Homework_instructions/week-06/lab/template2.zip)
+	[template2.zip](https://www.cs171.org/Homework_instructions/week-07/lab/template2.zip)
 
 	The framework is based on Bootstrap and D3. You should use it for the remainder of this lab. The template includes:
 	
