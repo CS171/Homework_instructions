@@ -11,7 +11,7 @@ exclude: true
 
 This homework requires that you have read and **programmed** along with:
 
-- [cs171-lab8-preReading.pdf](https://www.cs171.org/Homework_instructions/week-08/lab/cs171-lab8-preReading.pdf) (under week 8 in the modules tab in canvas)
+- [cs171-lab8-preReading.pdf](https://www.cs171.org/Homework_instructions/week-08/lab/cs171-lab8-preReading.pdf) 
 - [https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance](https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance) (explanation of JS ES6 Classes with more examples)
 
 
@@ -231,22 +231,15 @@ You should now apply what you have learned to create an interactive visualizatio
 
 Submission instructions:
 
-1. **Upload your D3 homework under 'submission_FirstnameLastname/hw/implementation'.** 
-
-2. **Upload the completed lab (activity I, II, and III) under 'submission_FirstnameLastname/lab'**
-
-3. **Use the following recommended folder structure:**
+1. **Upload your D3 homework using the following recommended folder structure:**
 
     ``` markdown
-    /submission_FirstnameLastname	
-    	lab_partner.txt
+    /submission_FirstnameLastname
     	hw/
     		implementation/ ...folder for your code
         		index.html
             	css/ 		...folder with all CSS files
             	js/ 		...folder with all JavaScript files
-        lab/ 
-    
             ...
     ```
 
