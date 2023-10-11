@@ -8,10 +8,10 @@ exclude: true
 
 &nbsp;
 
-<img src="cs171-lab5-banner.png" width="600" alt="Lab 5">
+<img src="cs171-lab7-banner.png" width="600" alt="Lab 5">
 
 
-# Lab 6
+# Week 07 | Lab
 
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
@@ -663,18 +663,17 @@ data analysis. In this case, use a static comparison of several charts/images (e
 	
 4. **Use a key function for the data-join and opacity during the transition**
 
-	
-	```javascript
+
+```javascript
 	svg.selectAll("circle")
    		.style("opacity", 0.5)
     	.transition()
     	.duration(1000)
-    	...
-   ```
+		...
+```
+Make sure to not only lower the opacity during a transition, but to also re-set it after the transition (in another transition). Don't forget: You can chain transitions together!
 
-	Make sure to not only lower the opacity during a transition, but to also re-set it after the transition (in another transition). Don't forget: You can chain transitions together!
-
-	During the last activities you have probably used the default key function to bind data to the rectangles. This leads to a distorted and difficult to follow transition. As you have learned at the beginning of this lab you can add a key function (callback-function) to the ```.data()``` property to specify a custom key, instead of an index.
+During the last activities you have probably used the default key function to bind data to the rectangles. This leads to a distorted and difficult to follow transition. As you have learned at the beginning of this lab you can add a key function (callback-function) to the ```.data()``` property to specify a custom key, instead of an index.
 
 *Result (basic: assign keys by index):*
 
@@ -691,7 +690,7 @@ data analysis. In this case, use a static comparison of several charts/images (e
 
 #### Submission of lab (activity II, and III)
 
-Congratulations, you have now completed the activities of Lab 6!
+Congratulations, you have now completed the activities of the week 7 lab!
 
 Please submit the code of your completed lab (the final interactive bar chart of activities II and III).
 

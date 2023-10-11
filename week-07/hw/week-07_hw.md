@@ -8,7 +8,7 @@ exclude: true
 
 &nbsp;
 
-# Homework 7
+# Week 07 | Homework
 
 This homework requires that you have read Case 1 of the article:
 [https://medium.com/@mbostock/what-makes-software-good-943557f8a488](https://medium.com/@mbostock/what-makes-software-good-943557f8a488)
@@ -36,7 +36,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 
 *You can use the following mockup as a guide:*
 
-![Homework 5 Mockup](cs171-hw5-mockup.png?raw=true "Homework 5 Mockup")
+![Homework Mockup](cs171-hw7-mockup.png?raw=true "Homework Mockup")
 
 ### Implementation
 
@@ -136,8 +136,8 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 	Maintain good spacing between UI components, overall layout, font size, color scheme, etc. Also, make sure that transitions are intuitive and clear.
 
 
-*Slider Example:* ![Homework 5 Range Slider](cs171-hw5-range-slider.gif?raw=true
- "Homework 5 Range Slider")
+*Slider Example:* ![Range Slider](cs171-hw7-range-slider.gif?raw=true
+ "Range Slider")
 
 *Slider Code Snippets:*
 
@@ -164,8 +164,8 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
             ...
         });
 
-*Final Deliverable Example:* ![Homework 5 Solution Screenshot](solution_w6_hw.png?raw=true
-                              "Homework 5 Range Slider")
+*Final Deliverable Example:* ![Homework 7 Example Screenshot](solution_w7_hw.png?raw=true
+                              "Homework Example")
 
 ## 2) Submit Homework in Canvas
 
@@ -187,4 +187,4 @@ Submission instructions:
 3. Upload a single .zip file.
 
 
-**Congratulations for finishing Homework 7! See you in class!**
+**Congratulations for finishing the homework! See you in class!**
