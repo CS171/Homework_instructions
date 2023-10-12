@@ -340,7 +340,7 @@ Submission instructions:
                 index.html
                 css/ 		...folder with all CSS files
                 js/ 		...folder with all JavaScript files
-            ...
+        ...
     ```
 
 2. Make sure to keep the overall size of your submission under 5MB!

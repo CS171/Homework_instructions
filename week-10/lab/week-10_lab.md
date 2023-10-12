@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Lab 10
+# Week 10 Lab
 
 ### Pre-Reading Quiz
 On Canvas!
@@ -460,7 +460,7 @@ Listen to mouse events: If the user hovers over a cell highlight all elements th
 
 Congratulations, you have now completed Lab 10!
 
-Please submit the code of your completed lab (the sortable matrix visualization and optionally the bonus activities) on Canvas.
+Please submit the code of your completed lab (the sortable matrix visualization and optionally the bonus activities) on Canvas!
 
 -----
 

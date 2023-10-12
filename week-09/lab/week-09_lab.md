@@ -672,9 +672,9 @@ In the second part of the lab, you will create a choropleth (world) map. You wil
 
 -----
 
-### Congratulations! You've completed this week's lab!
+### Congratulations! You've completed this week's lab! 
 
-Please submit a zip file of your folder structure and files.
+Please submit a zip file of your folder structure and files!
 
 &nbsp;
 
