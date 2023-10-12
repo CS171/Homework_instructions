@@ -23,7 +23,7 @@ Please fill out the pre-reading quiz on Canvas *before* the beginning of lab!
 ### Prerequisites
 
 - You have read and **programmed** along with:
-	- [cs171-lab8-preReading.pdf](https://www.cs171.org/Homework_instructions/week-08/lab/cs171-lab8-preReading.pdf) (under week 8 in the modules tab in canvas)
+	- [cs171-lab8-preReading.pdf](https://www.cs171.org/Homework_instructions/week-08/lab/cs171-lab8-preReading.pdf)
 	- [https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance](https://scotch.io/tutorials/demystifying-es6-classes-and-prototypal-inheritance) (explanation of JS ES6 Classes with more examples)
 
 

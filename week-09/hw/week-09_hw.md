@@ -335,14 +335,11 @@ Submission instructions:
 
     ``` markdown
     /submission_FirstnameLastname
-       	lab_partner.txt
         hw/
             implementation/ ...folder for your code
                 index.html
                 css/ 		...folder with all CSS files
                 js/ 		...folder with all JavaScript files
-        lab/
-
             ...
     ```
 
