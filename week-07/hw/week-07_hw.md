@@ -56,7 +56,7 @@ A D3 line chart will be the core component of your visualization. The x-axis rep
 
 		```javascript
 		let formatDate = d3.timeFormat("%Y");
-		let parseDate = d3.timeFormat("%Y");
+		let parseDate = d3.timeParse("%Y");
 
 		let newDate = parseDate("2020");
 		newDate  // Returns: Wed Jan 01 2020 00:00:00 GMT-0500 (EST)
