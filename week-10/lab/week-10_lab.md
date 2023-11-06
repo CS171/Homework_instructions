@@ -10,7 +10,7 @@ exclude: true
 # Week 10 Lab
 
 ### Pre-Reading Quiz
-On Canvas!
+Please fill out the pre-reading quiz on Canvas before the beginning of class!
 
 ### Learning Objectives
 
