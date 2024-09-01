@@ -1,7 +1,7 @@
-<!-----
+3---
 layout: lab
 exclude: true
------>
+---
 
 <img src="cs171-logo.png" width="200">
 
@@ -9,18 +9,19 @@ exclude: true
 
 # Homework 0 - Course Enrollment
 
-Welcome to CS171!  This initial homework intends to get you acquainted with the structure and set-up of CS171 to ensure that everything goes smoothly moving forward. Please complete this homework to gain a spot in the enrollment lottery! And do not worry, future homework will be a lot more exciting and focused on creating interactive web-based visualizations! :-)
+Welcome to CS1710!  This initial homework intends to get you acquainted with the structure and set-up of CS171 to ensure that everything goes smoothly moving forward. Please complete this homework to gain a spot in the enrollment lottery! And do not worry, future homework will be a lot more exciting and focused on creating interactive web-based visualizations! :-)
 
 To complete this homework, you will have to do the following steps (which will be explained in more detail below):
 
 1. Get acquainted with the general course structure.
 2. Take the initial programming quiz.
-3. Introduce yourself in our online forum Ed.
+3. Familiarize yourself with our online forum Ed.
 4. Set-up Webstorm.
 5. Fill out our enrollment survey.
 
 ## 1. Course Structure
-**Before you continue, please take a look at our syllabus and our weekly schedule overview on our [Canvas site](https://canvas.harvard.edu/courses/108108)! The syllabus will answer most of your questions!**
+**Before you continue, please take a look at our syllabus and our weekly schedule overview on our [Canvas site](https://canvas.harvard.edu/courses/137203)! The syllabus will answer most of your questions!**
+
 
 We will always post all materials and assignments for each week as a single module on Canvas (by Saturday of the preceding week).
 
@@ -28,19 +29,22 @@ We will always post all materials and assignments for each week as a single modu
 
 All class meetings will be held live for college students and in Zoom for DCE (Harvard Extension School) students. For zoom, please make sure that you have a working microphone, have turned on your video, and are in a safe and quiet environment.
 
-**Lab:** Monday 2:15pm-3:30pm.
-
-**Class:** Wednesday 2:15pm-3:30pm. Our classes are quite interactive and include many group activities. Please make sure that you arrive on time so you can contribute and participate.
+**Class:** Monday 2:15pm-3:30pm. Our classes are quite interactive and include many group activities. Please make sure that you arrive on time so you can contribute and participate.
 DCE students: You can either watch the lecture live on zoom, or watch a recording of it at a later time.  
+
+**Lab:** Wednesday 2:15pm-3:30pm.
 
 Classes start on time!
 
-**DCE (Harvard Extension School) Meeting Times**:
+[//]: # (**DCE &#40;Harvard Extension School&#41; Meeting Times**:)
 
-Virtual Lab: Mondays, 7:00 PM - 8:30 PM ET.
-Virtual Section: Thursdays, 7:00 PM - 7:45 PM ET.
+[//]: # ()
+[//]: # (Virtual Section: Mondays, 7:00 PM - 7:45 PM ET.)
 
-The virtual meetings are for DCE students! However, college students that could not attend the lab in person should attend the virtual lab.
+[//]: # (Virtual Lab: Thursdays, 7:00 PM - 8:30 PM ET.)
+
+[//]: # ()
+[//]: # (The virtual meetings are for DCE students only!)
 
 
 
@@ -62,7 +66,7 @@ If you have any questions (administrative or visualization-related), there are s
 
 1. Use our online message board Ed, which is linked in Canvas. Your message can be published either just to the teaching fellows or the entire course.
 2. If you can wait until the next class meeting, ask course staff at the end of class.
-3. Attend office hours. Office hours will be posted on [Canvas](https://canvas.harvard.edu/courses/108108/pages/schedule).
+3. Attend office hours. Office hours will be posted on [Canvas](https://canvas.harvard.edu/courses/137203/pages/office-hours-2024).
 4. Email course staff, either the TF that is mentoring your project team or staff@cs171.org.
 
 **Where to find help**
@@ -86,10 +90,11 @@ DCE students will be assigned into studio groups by us and will get an email fro
 -->
 
 ## 3. Ed Discussion Forum
-Click on the Ed Discussion link on our Canvas page or go to [Ed Discussion](https://canvas.harvard.edu/courses/108108/external_tools/78506?display=borderless) and introduce yourself.
+Click on the Ed Discussion link on our Canvas page or go to [Ed Discussion](https://edstem.org/us/courses/64491/discussion/5184398) and introduce yourself.
 
-<!-- [DCE]
-If you are a DCE student and don't have a Harvard e-mail address, please sign up for one [here](http://g.harvard.edu/extension-school-and-summer-school-faq/extension_opt_in).-->
+[//]: # (<!-- [DCE])
+
+[//]: # (If you are a DCE student and don't have a Harvard e-mail address, please sign up for one [here]&#40;http://g.harvard.edu/extension-school-and-summer-school-faq/extension_opt_in&#41;.-->)
 
 We will use Ed as a forum to discuss, find team members, arrange appointments, and ask questions. Ed should be your primary form of communication with the staff. Use the staff e-mail only for individual requests, e.g., to excuse yourself from a mandatory guest lecture. We will also use Ed to announce important information like room changes, etc.
 
@@ -109,4 +114,4 @@ Please complete the enrollment survey on Canvas (shopping week). It should only 
 **DCE students:** You are already enrolled in the course, but please still complete HW 0, including the enrollment survey.
 
 
-## Well done, welcome to CS 171!
+## Well done, welcome to CS 1710!
