@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Homework 1 - Due Monday, Sept. 11, 2023 by noon EDT
+# Homework 1
 
 In this homework, you will consider different visualizations and analyze their primary purpose, whether they succeed or not, and the critical aspects of what makes visualizations compelling, effective, and impactful.
 
