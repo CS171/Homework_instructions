@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Homework 1
+# Homework 1 - Due Monday, Sept. 9, 2024 by noon EDT
 
 In this homework, you will consider different visualizations and analyze their primary purpose, whether they succeed or not, and the critical aspects of what makes visualizations compelling, effective, and impactful.
 
@@ -59,11 +59,20 @@ For each of these visualizations, tell us:
 
 **Step 1: Install Tableau and Download a Dataset**
 
-* Download the latest version of [Tableau Desktop and Tableau Prep Builder](https://www.tableau.com/tft/activation)
-* Click the link above and select “Download Tableau Desktop” and “Download Tableau Prep Builder.” On the form, enter your school email address for Business E-mail and enter the name of your school for Organization.
-* Activate with your product key:  TCFO-1874-72D0-7A45-EE1D
-* Already have a copy of Tableau Desktop installed? Update your license in the application: Help menu → Manage Product Keys
-* If you have a .edu email address, you can apply for a free 1-year academic license for Tableau Desktop by completing the process [here](https://www.tableau.com/academic/students) (using your .edu email).
+[//]: # (* Download the latest version of [Tableau Desktop and Tableau Prep Builder]&#40;https://www.tableau.com/tft/activation&#41;)
+
+[//]: # (* Click the link above and select “Download Tableau Desktop” and “Download Tableau Prep Builder.” On the form, enter your school email address for Business E-mail and enter the name of your school for Organization.)
+
+[//]: # (* Activate with your product key:  TCFO-1874-72D0-7A45-EE1D)
+
+[//]: # (* Already have a copy of Tableau Desktop installed? Update your license in the application: Help menu → Manage Product Keys)
+
+[//]: # (* If you have a .edu email address, you can apply for a free 1-year academic license for Tableau Desktop by completing the process [here]&#40;https://www.tableau.com/academic/students&#41; &#40;using your .edu email&#41;.)
+
+* Download the latest version of [Tableau Desktop for Students](https://www.tableau.com/academic/students)
+* Click the link above and select “GET TABLEAU FOR FREE”. On the form, enter your school email address
+* As long as you provided your .edu email address, you can apply for a free 1-year academic license for Tableau Desktop
+
 
 **Step 2: Start Learning**
 
