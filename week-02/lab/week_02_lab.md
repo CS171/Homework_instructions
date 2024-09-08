@@ -144,6 +144,7 @@ After learning the basics of CSS and seeing how it can be used to style HTML ele
 
 - **Setting Up Bootstrap**:
 To incorporate Bootstrap into your project, you need to include its CSS and JavaScript files. This can be done by linking to the Bootstrap Content Delivery Network (CDN) in your HTML files. Place the `<link>` tag in the `<head>` to embed bootstrap's CSS, and the `<script>` tag for bootstrap JavaScript bundle (including Popper for positioning dropdowns, poppers, and tooltips) before the closing `</body>`.
+
 ```html
 <!doctype html>
 <html lang="en">
@@ -161,6 +162,7 @@ To incorporate Bootstrap into your project, you need to include its CSS and Java
 ```
 
 - **The Grid System**: One of Bootstrap's most powerful features is its grid system, which uses a series of containers, rows, and columns to layout and align content. This grid system is built with flexbox and is fully responsive, meaning it adjusts your web page layout dynamically to fit different screen sizes and orientations. The grid divides the screen into up to 12 equal columns, making it easy to create sophisticated layouts that are consistent across devices.
+
 ```html
 <!-- Example of a simple Bootstrap grid layout -->
 <div class="container">
