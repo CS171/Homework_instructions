@@ -146,8 +146,6 @@ After learning the basics of CSS and seeing how it can be used to style HTML ele
 To incorporate Bootstrap into your project, you need to include its CSS and JavaScript files. This can be done by linking to the Bootstrap Content Delivery Network (CDN) in your HTML files. Place the `<link>` tag in the `<head>` to embed bootstrap's CSS, and the `<script>` tag for bootstrap JavaScript bundle (including Popper for positioning dropdowns, poppers, and tooltips) before the closing `</body>`.
 
 ```html
-<!doctype html>
-<html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
