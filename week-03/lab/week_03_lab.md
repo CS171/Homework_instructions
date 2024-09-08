@@ -667,7 +667,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 
 3. **Array sorting and using the Chrome DevTools**
 
-   Open the JS file ```week03_lab.js``` (*js* folder). Most of the tasks you need to complete should be implemented in the function: *dataFiltering()*.
+   Open the JS file ```activity_3.js``` (*js* folder). Most of the tasks you need to complete should be implemented in the function: *dataFiltering()*.
 
    We have included a template of the function, and have created a local variable ```attractions``` from the global variable and we have called the function right before. You should work with the local variable ```attractions``` - don't override the global one.
 
@@ -678,7 +678,7 @@ We will provide a template with a basic *HTML structure*, a *dataset* (stored in
 	- Open the Chrome Developer Tools pane (View -> Developer -> Developer Tools)
 	- Click on the `Sources` tab . You'll notice that the HTML/JS/CSS files you're currently
 	  working on are listed here.
-	- Click on the ***week_03_lab.js*** file.
+	- Click on the ***activity_3.js*** file.
 	  ![Watch](week-03_lab_sources_panel.png?raw=true "Lab 2 - Preview")
 
 	- From this file view, we are able to set [breakpoints](https://developer.chrome.com/docs/devtools/javascript/breakpoints/) that let you step through your code as it executes, which is an incredibly powerful debugging tool. **Add breakpoints on lines 14 and 15 as shown below and refresh the page.**
