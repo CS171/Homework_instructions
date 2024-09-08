@@ -23,7 +23,7 @@ This homework assumes that you have read and programmed along with Chapter 3 (up
 ### Template
 
 A small template with *Bootstrap* already included is provided for this homework. It is similar to the framework used in this week's lab and should help you get started. You can download the framework for this week's homework from Canvas:
-[here's the link](https://www.cs171.org/Homework_instructions/week-03/hw/week-03_hw_template.zip)
+[here's the link](https://www.cs171.org/Homework_instructions/week-02/hw/week_02_hw_template.zip)
 
 Upon exploring the folder structure and its contents, you will find that all necessary files are provided. Your tasks are to understand the code and extend the following files:
 
@@ -69,7 +69,7 @@ The data (arrays with JSON objects) are pre-loaded into these two global variabl
 
 1. **Download template**
 
-   If you haven't done so already, please download the template [here](https://www.cs171.org/Homework_instructions/week-03/hw/week-03_hw_template.zip)
+   If you haven't done so already, please download the template [here](https://www.cs171.org/Homework_instructions/week-02/hw/week_02_hw_template.zip)
 
 2. **Display dataset summary**
 
