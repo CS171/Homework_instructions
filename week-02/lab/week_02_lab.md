@@ -231,10 +231,12 @@ week-02/lab/
 1. **Download the Template**: Start by downloading the [template](https://www.cs171.org/Homework_instructions/week-02/lab/week_02_lab_template.zip) for this week's lab.
 2. **Explore `index.html`**: Open and review the `index.html` file included in the template to familiarize yourself with the basic structure.
 3. **Include Bootstrap**: Integrate Bootstrap's CSS and JS into your `index.html` to facilitate responsive design and utilize utility classes.
-    ```html
+    
+   ```html
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     ```
+   
 4. **Create a 3-Column Layout**: Set up a grid layout with three columns using Bootstrap grid classes. The central column should have a width ratio of 8, while the two side columns should each have a ratio of 2. Make sure to follow the hierarchy: container -> row -> column
 
 5. **Design Three Rows in the Center Column**:
@@ -244,7 +246,8 @@ week-02/lab/
 	- Directly underneath, add an `<h1>` heading "Global Attractions Attendance".
 7. **Insert Dropdown Menu**:
 	- In the second row, add a dropdown menu to enable category selection for attractions:
-    ```html
+    
+   ```html
     <div class="row">
         <div class="col text-center user-control">
             <div class="form-group">
@@ -261,13 +264,15 @@ week-02/lab/
     ```
 8. **Prepare Chart Area**:
 	- Designate an area for displaying the chart in the third row, setting a background color for distinction.
-    ```html
+    
+   ```html
     <div class="row" style="background: #e0e4e8">
         <div class="col">
             <div id="chart-area"></div>
         </div>
     </div>
     ```
+   
 9. **Create and Style `style.css`**:
 	- Create a `style.css` file in the `css` folder.
 	- Apply styles to your headings and rows. Set `font-family`, `font-weight`, `font-size` for headings and `height`, `background` for rows to visually organize your layout.
