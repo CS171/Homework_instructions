@@ -232,10 +232,8 @@ week-02/lab/
 2. **Explore `index.html`**: Open and review the `index.html` file included in the template to familiarize yourself with the basic structure.
 3. **Include Bootstrap**: Integrate Bootstrap's CSS and JS into your `index.html` to facilitate responsive design and utilize utility classes.
     ```html
-    <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     ```
 4. **Create a 3-Column Layout**: Set up a grid layout with three columns using Bootstrap grid classes. The central column should have a width ratio of 8, while the two side columns should each have a ratio of 2. Make sure to follow the hierarchy: container -> row -> column
 
