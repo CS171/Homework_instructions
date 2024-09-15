@@ -7,209 +7,184 @@ exclude: true
 
 &nbsp;
 
-# Week 03 | Homework
+# Week 04 | Homework
 
-In this assignment, you’ll use HTML, CSS and JavaScript to create a small dashboard for a local pizza delivery company. It should help the company to get meaningful insights into their collected data and to evaluate their performance. We provide a template that will serve as your point of departure code.
-
-
-This homework assumes that you have read and programmed along with chapter 3 (up to page 53) in *D3 - Interactive Data Visualization for the Web* (Second Edition) by Scott Murray.
-
-![Homework Week 03](week-03-hw-banner.png?raw=true)
+This homework assumes that you have read and programmed along with chapter 3 (p. 53-62) and chapter 5 in *D3 - Interactive Data Visualization for the Web*.
 
 &nbsp;
 
-&nbsp;
+## 1) The World's Tallest Buildings (8 points)
 
-## 1. PizzaWorld - Insights & Statistics (6 points)
+In this homework you will implement a horizontal bar chart with D3. Your bar chart will represent the ten tallest, fully-completed buildings in the world. Users will be able to click on a bar or label on the chart to get more information about a specific building.
 
-### Template
+*During development you can base your work on the following screenshot, but the design decisions (colors, fonts, ...) are principally up to you:*
 
-We are providing a small template (*Bootstrap* already included) for this homework. It is quite similar to the framework which we have used in this week's lab and should help you to get started. You can download the framework for this week's homework via canvas:
- [here's the link](https://www.cs171.org/Homework_instructions/week-03/hw/week-03_hw_template.zip)
-
-When exploring the folder structure and its contents you will notice that we are providing all the files you need. Your only job is to 1) understand the code and 2) to extend the following files:
-
-- ```index.html```
-- ```css/style.css```
-- ```js/main.js```
-
+![Homework Preview](assets/cs171-week-3-hw-preview.png "Homework Preview")
 
 ### Data
 
-We have included two datasets from *PizzaWorld* in the framework. One table has 1198 rows with pizza deliveries and the other table has 200 rows with corresponding customer feedback.
+We have provided a dataset with the world's tallest buildings. The CSV file (```buildings.csv```) includes a header row, which should help you to identify the different values, and a list of ten buildings.
 
-The data (arrays with JSON objects) are already stored in these two global variables:
-
-- ```deliveryData```
-- ```feedbackData```
-
-*The variables are accesible in the JS file ```main.js```*
-
-*To get started, write the variables to the web console and inspect them.*
-
-#### Delivery Data
-
-- ```delivery_id```
-- ```date```
-- ```area``` (Boston | Cambridge | Somerville)
-- ```price``` (in USD)
-- ```count``` (number of delivered pizzas)
-- ```driver```
-- ```delivery_time``` (minutes)
-- ```temperature```
-- ```drinks_ordered``` (true | false)
-- ```order_type``` (web | phone)
-
-
-#### Feedback Data
-
-- ```delivery_id``` (matches the deliveries)
-- ```punctuality``` (medium | low | high)
-- ```quality ``` (medium | low | high)
-- ```wrong_pizza ``` (true | false)
-
-
+The ```img``` folder contains an image in portrait format for each building.
 
 ### Implementation
 
-1. **Download template**
+1. **Download the resources**
 
-	If you haven't done so already, please download the template [here](https://www.cs171.org/Homework_instructions/week-03/hw/week-03_hw_template.zip)
+	Please download the data (buildings.csv file) as well as the images. You'll find all files in the template ZIP for this week's hw on Canvas. This [link](https://www.cs171.org/Homework_instructions/week-03/hw/week-03_hw_template.zip) should get you there quickly.
+	
+2. **Set up a new D3 project and load the CSV file**
+	
+3. **Create a multi-column layout (HTML/CSS)**
 
-2. **Display dataset summary**
+	Split your page into multiple columns. The bar chart will be placed on the left side of the page while the right side will consist of a container that displays the dynamic content when the user selects a building in the bar chart. We strongly encourage you to use the *Bootstrap* [grid system](https://getbootstrap.com/docs/5.3/layout/grid).
+	
+4. **Draw the SVG bar chart with D3**
 
-	Open ```main.js```. You'll find an empty function ```createVisualization()``` that you'll populate in order to update the DOM dynamically.
-	Start by extracting the following numbers from the provided data and append them with
-	meaningful labels to the HTML document:
-	* Number of pizza deliveries
-	* Number of all delivered pizzas (*count*)
-	* Average delivery time
-	* Total sales in USD
-	* Number of all feedback entries
-	* Number of feedback entries per quality category: *low*, *medium*, *high*
+	- Create a drawing area with at least 500 x 500px
+	- Bind the loaded data to SVG rectangles (and place them correctly)
+	- The bars should be left-aligned
+	- Similar this week's lab, the different heights are given in pixels, so you don't have to use dynamic scales (data column: ```height_px```). That's something we'll cover in the next week.
 
-	→ You should do all of that (extracting numbers and adding labels to HTML) directly in JavaScript. Update the DOM dynamically with JavaScript!
+5. **Add labels for** ***building names*** **and** ***height measures*** **to the bar chart**
+	
+	- The *building names* should be placed left of the bar chart and be right aligned (use the SVG text property ```text-anchor: end```). That means that you will have to shift your rectangles to the right, to avoid overlapping of text and rectangles. (Take a look at our example screenshot above to see how it should look.)
+	- The labels for the *building heights* should be displayed inside the rectangles, at the right end of the bars.
+	- Use proper font colors and sizes
 
-	*Make sure you test your code after you have implemented this part! Once your code is working
-	, consider your code structure and code design:*
-	- *If your code is already longer than a couple of lines, extract it into a separate
-	 function and call that function within *createVisualization()*.*
-	- *Think about calculating the above numbers at the same time (e.g., inside a single loop), if
-	 possible. That will make the code shorter and easier to read, as well as faster.*
-	- *Make sure you use consistent spacing, layout, self-explanatory variable names, and code
-	      comments! If you do this as you progress in your coding project, this will save you a
-	       lot of time later!*
-
-	**Hint:** Javascript has a number of native methods and properties that make interacting with HTML elements easy. For instance
-
-	* ```document.getElementById('some_id')``` returns an element by its ID. You can then manipulate that element.
-	* Once you've selected an element, you can get and set its text through the ```innerText``` property. So if you'd like to assign the current value to a variable do something like ```let elemText = document.getElementById('some_id').innerText``` and if you want to change that value do ```document.getElementById('some_id').innerText = 'New Value'```.
-	* To add or retrieve the HTML within an element, use the ```innerHTML``` property (e.g. ```document.getElementById('some_id').innerHTML = '<h1>Title</h1>'```.)
-	* The ```value``` property get and sets the value of ```input```, ```select```, and ```button``` elements.
-
-
-
-3. **Call the function:** ***renderBarChart(deliveryData)***
-
-	So far, you should have done all your DOM manipulation inside of ```createVisualization()```. If you call *renderBarChart()* our script will automatically group (and count) the deliveries per day. Subsequently a bar chart will be added to the container: ```#chart-area```.
-
-	Requirements:
-	- You need a div-container with the id ```#chart-area``` in your HTML document
-	- As a **function parameter**, you have to include a JSON array with deliveries (each delivery is an object and must include at least the property: ```date```). Try to call *renderBarChart()* (inside ```createVisualization```) with the argument ```deliveryData```.
-
-	→ You should now see a basic bar chart on your page.
-
-4. **Filter the data before drawing the bar chart**
-
-	In the next task, you should filter the ```deliveryData``` array depending on the selected options, before calling *renderBarChart()*.
-
-	a. Add two **select-boxes** to your HTML document. The user should be able to select:
-
-	- ```area``` (*All*, *Boston*, *Cambridge* or *Somerville*)
-	- ```order type``` (*All*, *Web* or *Phone*).
-
-	Make sure to set the callback function of the select boxes to the function that updates and creates our visualization!
-
-	b. If the user selects an option, filter the variable ```deliveryData``` accordingly and then call *renderBarChart()* again. Every time you call this function, it will analyze all changes in your array and update the chart with D3.
-
-	>It is good practice to do a sanity check on the result you get after filtering or processing data. Take a look at the original data, do the numbers make sense? Are there missing values? This is especially important when dealing with real-world data that has not been cleaned and prepared for easy use in a homework ;-)
-
-5. **Global data filtering**
-
-	In the previous step you have implemented a function which reacts to the user input (change of a select-box value) and updates the chart immediately.
-
-	Additionally, these filter options should also affect the displayed dataset summary that you implemented earlier.
-
-	→ If the user filters the data by a specific ```area``` or ```order type``` you should **update the bar chart and the display of the summary data** from step (2).
-
-	*Hint: The data are stored in two separate variables. Make sure your filtering algorithm influences customer feedback as well as order data.*
-
-6. **Style your webpage using CSS.**
-
-	We already provided a simple css file in our template. Adjust either the CSS or the html elements you dynamically generate to create a visually pleasing and easy to read webpage.
-	Lastly, make sure to include a tooltip ```div``` in your DOM. Check out  ```barchart.js``` and  ```style.css``` to understand why ```#tooltip``` is already working.
+	Note: If you are using the same HTML tags for different selections you have to work with *class attributes*. Here's an example:
+	
+	```javascript
+	svg.selectAll("span.firstName")
+		.data(data)
+    	.enter()
+    	.append("span")
+    	.attr("class", "firstName")
+		...
+		
+	svg.selectAll("span.age")
+		.data(data)
+    	.enter()
+    	.append("span")
+    	.attr("class", "age")
+		...
 	```
-        <div id="tooltip" class="hidden">
-            <p><strong>Deliveries</strong></p>
-            <p><span id="value"></span></p>
-        </div>
-	```   
+	
+	We generally recommend that you use *class attributes*, and to add styling rules - which should affect the whole selection - to your external stylesheet.
 
-&nbsp;
+6. **Sort the buildings in descending order by height**
 
-## 2. Infographic Design Critique  (4 points)
+	*Include your sorting algorithm directly after loading the data.*
 
-a. **First read the Design Critique Overview in Canvas.**
+7. **Make it interactive**
 
-b. **Then look at this visualization of the top 10 salaries at Google:**  [![Creative Commons License](cs171-hw2-infographic.png)](https://www.jobvine.co.za/what-does-it-take-to-get-a-job-at-google/)
+	*After selecting a specific building by clicking on the SVG labels or bars, 
+	more detailed information should be presented to the user. That information
+	should live in a separate column. Take a look at our solution screenshot to get some
+	 inspiration.*
 
-c. **Extend your previously created** `index.html` **file and add the following:**
+	Just like in the lab, you will have to use D3 *event listeners* to solve this task. 
+	However, in the homework, you're supposed to do more than just firing a console.log. 
+	We recommend writing a separate function that you call to take care of the task.
+	
+8. **Use good programming practices to structure your code**
 
-- A screenshot of the salary visualization in the left column.
-- An analysis of the visualization with answers to the following questions in the right column:
-  - Who is the audience?
-  - What questions does it answer?
-  - What is the data? be specific, including data types (N,O,Q).
-  - For each data type, how is it visually encoded?
-  - Do you consider this to be a 'good' visualization? Why or why not?
+	This is a good point to take a couple of minutes to think about your code. Is everything clear, well structured, and documented? Oftentimes moving a block of code into its own separate function goes a long way toward improving readability! Your code should be concise and easy to read. That not only reduces debugging time, but will allow you to understand your code when you come back to it in a couple of months.  Be kind to your future self!
+	
+	* Identify code that can easily be re-factored into separate functions. E.g. click event listeners for the rectangles and text currently behave the same way. That means you should probably have a single function that is called when clicking either on a rectangle or a building name.
+	* Document all your functions, and make note of important points in the code. However, don't go overboard by documenting every line of code.
+	* Use speaking variable names. Avoid using names like ```let temp_d``` or ```.div3```. Rather
+	 use names like ```let sorted_buildings``` or ```.barchart```. 
+
+9. **Use CSS to design your page**
+
+	*Take care of an adequate spacing between your elements.*
+	
+	> We have used the *Google Font "Roboto"* in our example. If you are interested in using different fonts, this page might be helpful: [https://www.google.com/fonts](https://www.google.com/fonts)
+	
+10. **Check for bad practices**
+    * Congratulations, you are done with the main task. Before moving on, however, make sure to
+     skim your code for bad practices. This most and foremost means that your code is readable
+      and includes comments where necessary. For your HTML code, we don't wanna see <br> tags
+       anywhere in your code to space things out. Instead, make proper use of classes and ids
+       . In your java script code, try using a forEach loop where possible and get comfortable
+        with arrow functions.
+
+## 2) Sketching (2 points)
+Go back to the pharmaceutical data that we use with Tableau. Take 15 minutes to sketch several ideas for possible visualizations to answer your questions about the pharmaceutical data. Make sure to label your axes and add titles to the visualizations. You are encouraged to use colored pens. You can sketch either with pen and paper or with a digital pen on a tablet. However, it must look like a hand-drawn sketch. Take pictures of your sketches and add them at the bottom of your website. 
+
+## 3) Extra Credit: `Dear Data' Competition: Collecting Personal Data 
+
+You have already heard about the Dear Data project in class. We will run our own CS171 Dear Data competition this year. The winner will receive a copy of the Dear Data book (and bragging rights), but it is completely optional and up to you to join the competition or not.
+If you decide to join, we ask you to observe, collect, and sketch a visualization inspired by the Dear Data project over the next two weeks. This week, you will collect personal data, and next week you will sketch a visualization that encodes this data using creative, artistic, and whimsical visual encodings inspired by the work of Georgia Lupi and Staphanie Posavec. The student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
+
+You can receive up to 2 points of extra credit for data collection, but only if you complete the second part of the dear data project next week.
+
+<img src="assets/dear_data_cover.png" width="400">
+<!--![Dear Data Book](dear_data_cover.png "Dear Data Book")-->
 
 
-***Add this information at the bottom of the website you created in step 1, below the Pizza World Visualization.*** *Use a two-column layout, where in the left column you show the screenshot and in the right column you add the answers to the questions above.*
+Here are some pictures of previous years' submissions:
+
+![Dear Data Examples](assets/dear_data_students1.png "Dear Data Student Examples")
+![Dear Data Examples 2](assets/dear_data_students2.png "Dear Data Student Examples 2")
+
+<!--<img src="dear_data_students1.png" width="600">
+<img src="dear_data_students2.png" width="600">-->
 
 
-## 3. Submit Homework in Canvas
-a. Put your JS homework in the folder structure ```submission_FirstnameLastname/hw/implementation```.
+In determining the winner, the TFs look for creativity (in the type of data you collect, as well in your visual sketch), solid data collection, and good design.
+
+**Why collect personal data?**
+
+There are several reasons for collecting personal data. Spending time with your data will help you better understand yourself. It helps you reflect on what makes you you. The data you collect and the choices you make reflect your personality. It is a way to figure out what is really important to you, since measuring something means that it matters. Finally, collecting personal data is another way to document your life, just as words in a journal and images you capture are documenting your human experience.
+
+**What data to collect**
+
+Think about what personal data you want to collect this week. Anything that can be measured is data, and any measurement that relates to you and your life is personal data. Examples include drinks, sounds, transportation, fitness, indecision, compliments, relationships, mirrors, emotions, workspaces, sports, apologies, things you buy, laughter, complaints, food, etc. In your homework document, write down several options, and then make a final decision. Tell us why you chose to collect this particular data.
+
+**How much data to collect**
+
+You must collect data for **at least 5 days** with **at least 3 observations** per day, so make sure to get started early. We recommend that each data item (i.e., rows in your data table) has **at least 5 attributes** (i.e., columns in your data table), including the date and time when you collected each item. More attributes are better, especially if they are used to make connections between different data items (e.g., how people are connected, and who they are connected to).
+
+*Example:* You decide to collect data about butterflies. Each row of your data table will be a butterfly sighting. The first attribute is the day and time of when you saw the butterfly. Other attributes (columns) in your table are where you saw it, its color, what mood you were in (using emojis), what kind of butterfly you think it was. You make sure to keep an eye out for butterflies to hopefully see at least three of them each day. If you don't, you can make a couple of sightings (but do not cheat too much). 
+
+**How to collect your data**
+
+To collect your data we strongly suggest to use pen and paper. You can easily carry them around with you all week long, they never need power, and they are easier and more fun to use. When you are done, transfer your data into a table if it is not already in table form. Put the data items into rows and the attributes into columns.
+
+Make sure to label each column and to **provide additional explanations for your data attributes** below your table, including at least what they mean, how you collected them, and their data type (categorical, ordinal, or quantitative).
+
+_Example: Below is a picture of an example data table for the butterfly data, including a legend that explains each attribute._
+
+![Data Collection Examples](assets/data_collection.png "Dear Data Data Collection Example")
 
 
-b. Zip your folder and upload it on Canvas for your homework submission.
+**How to submit your data**
+
+If you collected your data on paper, take a picture of your table and submit it with your homework. If you like, you can also transfer your data to a spreadsheet and submit it that way. A spreadsheet allows you to easily compute aggregate statistics, e.g., averages, medians, or percentages, although you can also do that with pen and paper. If you were not able to collect data over 5 days yet, don't worry, you can continue your data collection into next week (just submit the data that you have so far for this week).
 
 
-Use the following recommended folder structure:
+## 3) Submit Homework in Canvas
+
+Submission instructions:
+
+1. Use the following recommended folder structure:
 
 ```
-/submission_FirstnameLastname
-	hw/
-	    implementation/
-   	        index.html
-	        css/ 		...folder with all CSS files
-	        js/ 		...folder with all JavaScript files
-	    ...
+/submission_week-04_FirstnameLastname
+    dear_data/      ...folder for your data that you collected for dear_data    
+    implementation/ ...folder for your code
+    	hw/
+         	index.html
+            css/ 		...folder with all CSS files
+            js/ 		...folder with all JavaScript files\
+            ..
+    
 ```
-Note that you should add your name to the filename using CamelCase style, e.g., `submission_JohnDoe.zip` if your name is John Doe.
 
-**Congratulations for finishing the homework for this week! See you in class!**
+2. Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
 
-<!--
+3. Upload a single .zip file.
 
-For your final submission you will have to:
-
-- Click the 'submit' button
-Double-check your 'latest submission', check that all the visualizations are working as you expect. You can run them directly in Vocareum and look at them in a new window
-- Upload a teaser image of your homework (under 'Action'/'upload gallery thumbnail'. This teaser will show up in the classes gallery and should motivate other students to look at your solution in more detail.
-
-After the homework deadline you will be able to:
-
-- Look at the gallery with all other student submissions
-- Give peer feedback or comments to other students (Please use proper manners and constructive criticism!)
-- Give stars to other students' work (this will not influence grading!)
--->
+**Congratulations for finishing the Homework! See you in class!**
