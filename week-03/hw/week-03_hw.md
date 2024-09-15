@@ -110,81 +110,31 @@ The ```img``` folder contains an image in portrait format for each building.
        . In your java script code, try using a forEach loop where possible and get comfortable
         with arrow functions.
 
-## 2) Sketching (2 points)
-Go back to the pharmaceutical data that we use with Tableau. Take 15 minutes to sketch several ideas for possible visualizations to answer your questions about the pharmaceutical data. Make sure to label your axes and add titles to the visualizations. You are encouraged to use colored pens. You can sketch either with pen and paper or with a digital pen on a tablet. However, it must look like a hand-drawn sketch. Take pictures of your sketches and add them at the bottom of your website. 
+## 2) Submit Homework in Canvas
 
-## 3) Extra Credit: `Dear Data' Competition: Collecting Personal Data 
+Use the following recommended folder structure & create a single .zip file:
 
-You have already heard about the Dear Data project in class. We will run our own CS171 Dear Data competition this year. The winner will receive a copy of the Dear Data book (and bragging rights), but it is completely optional and up to you to join the competition or not.
-If you decide to join, we ask you to observe, collect, and sketch a visualization inspired by the Dear Data project over the next two weeks. This week, you will collect personal data, and next week you will sketch a visualization that encodes this data using creative, artistic, and whimsical visual encodings inspired by the work of Georgia Lupi and Staphanie Posavec. The student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
-
-You can receive up to 2 points of extra credit for data collection, but only if you complete the second part of the dear data project next week.
-
-<img src="assets/dear_data_cover.png" width="400">
-<!--![Dear Data Book](dear_data_cover.png "Dear Data Book")-->
-
-
-Here are some pictures of previous years' submissions:
-
-![Dear Data Examples](assets/dear_data_students1.png "Dear Data Student Examples")
-![Dear Data Examples 2](assets/dear_data_students2.png "Dear Data Student Examples 2")
-
-<!--<img src="dear_data_students1.png" width="600">
-<img src="dear_data_students2.png" width="600">-->
-
-
-In determining the winner, the TFs look for creativity (in the type of data you collect, as well in your visual sketch), solid data collection, and good design.
-
-**Why collect personal data?**
-
-There are several reasons for collecting personal data. Spending time with your data will help you better understand yourself. It helps you reflect on what makes you you. The data you collect and the choices you make reflect your personality. It is a way to figure out what is really important to you, since measuring something means that it matters. Finally, collecting personal data is another way to document your life, just as words in a journal and images you capture are documenting your human experience.
-
-**What data to collect**
-
-Think about what personal data you want to collect this week. Anything that can be measured is data, and any measurement that relates to you and your life is personal data. Examples include drinks, sounds, transportation, fitness, indecision, compliments, relationships, mirrors, emotions, workspaces, sports, apologies, things you buy, laughter, complaints, food, etc. In your homework document, write down several options, and then make a final decision. Tell us why you chose to collect this particular data.
-
-**How much data to collect**
-
-You must collect data for **at least 5 days** with **at least 3 observations** per day, so make sure to get started early. We recommend that each data item (i.e., rows in your data table) has **at least 5 attributes** (i.e., columns in your data table), including the date and time when you collected each item. More attributes are better, especially if they are used to make connections between different data items (e.g., how people are connected, and who they are connected to).
-
-*Example:* You decide to collect data about butterflies. Each row of your data table will be a butterfly sighting. The first attribute is the day and time of when you saw the butterfly. Other attributes (columns) in your table are where you saw it, its color, what mood you were in (using emojis), what kind of butterfly you think it was. You make sure to keep an eye out for butterflies to hopefully see at least three of them each day. If you don't, you can make a couple of sightings (but do not cheat too much). 
-
-**How to collect your data**
-
-To collect your data we strongly suggest to use pen and paper. You can easily carry them around with you all week long, they never need power, and they are easier and more fun to use. When you are done, transfer your data into a table if it is not already in table form. Put the data items into rows and the attributes into columns.
-
-Make sure to label each column and to **provide additional explanations for your data attributes** below your table, including at least what they mean, how you collected them, and their data type (categorical, ordinal, or quantitative).
-
-_Example: Below is a picture of an example data table for the butterfly data, including a legend that explains each attribute._
-
-![Data Collection Examples](assets/data_collection.png "Dear Data Data Collection Example")
-
-
-**How to submit your data**
-
-If you collected your data on paper, take a picture of your table and submit it with your homework. If you like, you can also transfer your data to a spreadsheet and submit it that way. A spreadsheet allows you to easily compute aggregate statistics, e.g., averages, medians, or percentages, although you can also do that with pen and paper. If you were not able to collect data over 5 days yet, don't worry, you can continue your data collection into next week (just submit the data that you have so far for this week).
-
-
-## 3) Submit Homework in Canvas
-
-Submission instructions:
-
-1. Use the following recommended folder structure:
 
 ```
-/submission_week-04_FirstnameLastname
-    dear_data/      ...folder for your data that you collected for dear_data    
-    implementation/ ...folder for your code
-    	hw/
-         	index.html
-            css/ 		...folder with all CSS files
-            js/ 		...folder with all JavaScript files\
-            ..
-    
+/submission_week_03_FirstnameLastname
+    hw/
+        css/ 		...folder with all CSS files
+        js/ 		...folder with all JavaScript files\
+        index.html
+    lab/
+        activity_1
+            index.html
+        activity_2
+            js/ 		
+            index.html
+        activity_3
+            css/ 		
+            js/ 
+            index.html
+    class_activity/
+    	[either pdf or link to gdrive that contains your running doc with class activities]
+    	[latest Tableau workbook (either added here separately or within the gdrive)]
+
 ```
 
-2. Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
-
-3. Upload a single .zip file.
-
-**Congratulations for finishing the Homework! See you in class!**
+**Congratulations on finishing the Homework! See you in class!**

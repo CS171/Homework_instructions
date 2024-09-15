@@ -178,8 +178,10 @@ Ensure your document clearly contrasts the two visualizations, providing insight
         css/ 		...folder with all CSS files
         js/ 		...folder with all JavaScript files\
         index.html
-    class_activity/
-    	[either pdf or link to gdrive that contains class activity]
+   class_activity/
+    	[either pdf or link to gdrive that contains your running doc with class activities]
+    	[latest Tableau workbook (either added here separately or within the gdrive)]
+
 ```
 Note that you should add your name to the filename using CamelCase style, e.g., ```submission_week2_JohnDoe.zip``` if your name is John Doe. The folder structure and the naming convention is mandatory and crucial for our semi-automated grading process!
 
