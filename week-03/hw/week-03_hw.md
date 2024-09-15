@@ -13,7 +13,7 @@ This homework assumes that you have read and programmed along with chapter 3 (p.
 
 &nbsp;
 
-## 1) The World's Tallest Buildings (8 points)
+## 1) The World's Tallest Buildings (10 points)
 
 In this homework you will implement a horizontal bar chart with D3. Your bar chart will represent the ten tallest, fully-completed buildings in the world. Users will be able to click on a bar or label on the chart to get more information about a specific building.
 
