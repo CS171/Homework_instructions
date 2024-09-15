@@ -48,6 +48,8 @@ After completing this lab you will be able to:
 
 In today's session ([download template](https://www.cs171.org/Homework_instructions/week-02/lab/week_02_lab_template.zip)), we will be working with a dataset that provides global attractions data to build a themed website.
 
+![Lab 2 - Preview](assets/week-02_lab_preview.png?raw=true "Lab 2 - Preview")
+
 - **Activity 1: HTML & CSS Foundations**
 	- Learn the basics of HTML and CSS to start laying out our attractions website. (5 mins intro, 15 mins lab)
 
