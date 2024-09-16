@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Week 04 | Homework
+# Week 03 | Homework
 
 This homework assumes that you have read and programmed along with chapter 3 (p. 53-62) and chapter 5 in *D3 - Interactive Data Visualization for the Web*.
 
