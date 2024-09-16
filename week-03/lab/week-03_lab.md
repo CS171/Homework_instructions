@@ -7,7 +7,7 @@ exclude: true
 
 &nbsp;
 
-# Week 04 | Lab
+# Week 03 | Lab
 
 ### Pre-Reading Quiz
 Please fill out the pre-reading quiz on Canvas at the beginning of class!
