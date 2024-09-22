@@ -9,125 +9,203 @@ exclude: true
 
 # Week 04 | Homework
 
-This homework assumes that you have read and programmed along with chapter 3 (p. 53-62) and chapter 5 in *D3 - Interactive Data Visualization for the Web*.
+&nbsp;
+
+![Week 04 - HW - Preview](assets/cs171-hw5-preview.png?raw=true "Week 04 - HW - Preview")
+
+This homework requires that you have read and programmed along with chapters 7 and 8 in *D3 - Interactive Data Visualization for the Web*.
 
 &nbsp;
 
-## 1) The World's Tallest Buildings (8 points)
+## 1) Za'atari Refugee Camp (8 points)
 
-In this homework you will implement a horizontal bar chart with D3. Your bar chart will represent the ten tallest, fully-completed buildings in the world. Users will be able to click on a bar or label on the chart to get more information about a specific building.
+Za’atari is a refugee camp in Jordan that opened in 2011 to host people fleeing from the Syrian civil war. With around 80,000 refugees it is one of the largest UN-supported camps, and over the past few years, it transformed from a tent camp to a real city with water and sewage systems, markets, coffee shops etc.
 
-*During development you can base your work on the following screenshot, but the design decisions (colors, fonts, ...) are principally up to you:*
 
-![Homework Preview](cs171-w4hw-preview.png "Homework Preview")
+*In this homework you will create two charts to present data from Za'atari in a meaningful way.*
 
 ### Data
 
-We have provided a dataset with the world's tallest buildings. The CSV file (```buildings.csv```) includes a header row, which should help you to identify the different values, and a list of ten buildings.
+#### Population
 
-The ```img``` folder contains an image in portrait format for each building.
+As part of this homework assignment we provide a CSV file with population statistics between January 2013 and November 2015. The statistics are based on active registrations in the UNHCR database.
+
+[zaatari-refugee-camp-population.csv](https://www.cs171.org/Homework_instructions/week-04/hw/assets/zaatari-refugee-camp-population.csv)
+
+#### Type of Shelter
+
+The REACH initiative and Unicef evaluated the type of shelters in the Za'atari refugee camp. Although, the camp is gradually transforming into a real city, a lot of people still have to live in tents:
+
+> The vast majority of households (79.68%) were recorded as living in caravans. That number was followed by 10.81% of households recorded as living in a combination of tents and caravans, while 9.51% were observed to be living in tents only.
+
+&nbsp;
 
 ### Implementation
 
-1. **Download the resources**
+1. **Download the data**
 
-	Please download the data (buildings.csv file) as well as the images. You'll find all files in the template ZIP for this week's hw on Canvas. This [link](https://www.cs171.org/Homework_instructions/week-04/hw/week-04_hw_template.zip) should get you there quickly.
-	
-2. **Set up a new D3 project and load the CSV file**
-	
-3. **Create a multi-column layout (HTML/CSS)**
+	Please download the CSV data: [zaatari-refugee-camp-population.csv](https://www.cs171.org/Homework_instructions/week-04/hw/assets/zaatari-refugee-camp-population.csv)
 
-	Split your page into multiple columns. The bar chart will be placed on the left side of the page while the right side will consist of a container that displays the dynamic content when the user selects a building in the bar chart. We strongly encourage you to use the *Bootstrap* [grid system](https://getbootstrap.com/docs/5.1/layout/grid/).
-	
-4. **Draw the SVG bar chart with D3**
+2. **Set up a new D3 project and create a two-column layout in your HTML file**
+	During the course of this homework you will add an area chart to the left column and a bar chart to the right column.
 
-	- Create a drawing area with at least 500 x 500px
-	- Bind the loaded data to SVG rectangles (and place them correctly)
-	- The bars should be left-aligned
-	- Similar this week's lab, the different heights are given in pixels, so you don't have to use dynamic scales (data column: ```height_px```). That's something we'll cover in the next week.
+3. **Load the CSV file and prepare the data for the area chart**
 
-5. **Add labels for** ***building names*** **and** ***height measures*** **to the bar chart**
-	
-	- The *building names* should be placed left of the bar chart and be right aligned (use the SVG text property ```text-anchor: end```). That means that you will have to shift your rectangles to the right, to avoid overlapping of text and rectangles. (Take a look at our example screenshot above to see how it should look.)
-	- The labels for the *building heights* should be displayed inside the rectangles, at the right end of the bars.
-	- Use proper font colors and sizes
+	The *dates* are loaded as string values. Similar to numeric values (e.g. ```d.price = +d.price```) you have to convert these values. You will need *Date Objects* to create flexible *time scales* later.
 
-	Note: If you are using the same HTML tags for different selections you have to work with *class attributes*. Here's an example:
-	
+	*This website should help you to convert the data into the right format: [https://github.com/d3/d3-time-format/blob/master/README.md](https://github.com/d3/d3-time-format/blob/master/README.md). Make sure to test your results before continuing.*
+
+4. **From now on, your charts should implement the D3 margin convention**
+
+	Create ```margin```, ```height```, and ```width``` variables and append a new SVG drawing space for the area chart to the HTML document via JavaScript.
+
+5. **Area chart: Before you create the actual area chart, create linear scales for the x- and y-axes**
+
+	Use the ***D3 time scale function*** for the x-axis.  It is an extension of *d3.scaleLinear()* that uses JS date objects as the domain representation.
+
+	*Read more about D3's time scales: [https://github.com/d3/d3-scale/blob/master/README.md#time-scales](https://github.com/d3/d3-scale/blob/master/README.md#time-scales). You can (and should) always google for additional examples, if you are still unclear on the usage of D3 elements we require you to include.*
+
+6. **Area chart: Map the population data to the area (using SVG path)**
+
+	*Compared to a simple line chart you should fill the whole area between the data points and the x-axis.*
+
+	To create an area chart, follow the steps below:
+
+	a. Define a function that generates the area:
+
+	See [https://github.com/d3/d3-shape/blob/master/README.md#areas](https://github.com/d3/d3-shape/blob/master/README.md#areas) (```d3.area()```) for details.
+
+	b. Draw the area (using an SVG path element)
+
 	```javascript
-	svg.selectAll("span.firstName")
-		.data(data)
-    	.enter()
-    	.append("span")
-    	.attr("class", "firstName")
-		...
-		
-	svg.selectAll("span.age")
-		.data(data)
-    	.enter()
-    	.append("span")
-    	.attr("class", "age")
-		...
+	let path = svg.append("path")
+      .datum(data)
+      .attr("class", "area")
+      .attr("d", area);
 	```
-	
-	We generally recommend that you use *class attributes*, and to add styling rules - which should affect the whole selection - to your external stylesheet.
 
-6. **Sort the buildings in descending order by height**
+	c. Change the style with CSS
 
-	*Include your sorting algorithm directly after loading the data.*
+	If any of these steps are unclear, study some D3 area chart examples online. Make sure you understand the code before you implement it yourself!
 
-7. **Make it interactive**
+	d. Bonus (optional): Render the actual boundary (upper line of the area chart) as line, with different visual properties.
 
-	*After selecting a specific building by clicking on the SVG labels or bars, 
-	more detailed information should be presented to the user. That information
-	should live in a separate column. Take a look at our solution screenshot to get some
-	 inspiration.*
+7. **Area chart: Append the x- and y-axes and add a chart title**
 
-	Just like in the lab, you will have to use D3 *event listeners* to solve this task. 
-	However, in the homework, you're supposed to do more than just firing a console.log. 
-	We recommend writing a separate function that you call to take care of the task.
-	
-8. **Use good programming practices to structure your code**
+	From now on, we expect that you will always label your charts, display meaningful axes, and provide a legend if necessary. Also, make sure your axes start at appropriate values.
+	In data visualization we aim to create meaningful, easy-to-understand visualizations to provide insight into the data. Missing labels or axes are often a main cause for misunderstanding data!
 
-	This is a good point to take a couple of minutes to think about your code. Is everything clear, well structured, and documented? Oftentimes moving a block of code into its own separate function goes a long way toward improving readability! Your code should be concise and easy to read. That not only reduces debugging time, but will allow you to understand your code when you come back to it in a couple of months.  Be kind to your future self!
-	
-	* Identify code that can easily be re-factored into separate functions. E.g. click event listeners for the rectangles and text currently behave the same way. That means you should probably have a single function that is called when clicking either on a rectangle or a building name.
-	* Document all your functions, and make note of important points in the code. However, don't go overboard by documenting every line of code.
-	* Use speaking variable names. Avoid using names like ```let temp_d``` or ```.div3```. Rather
-	 use names like ```let sorted_buildings``` or ```.barchart```. 
+	* Format the labeling of the x-axis to display the month and year in text format (e.g. April 2013).
+	* Make sure that the labels don't overlap each other, by rotating the text labels of the x-axis.
 
-9. **Use CSS to design your page**
+8. **Create a compound JS data structure to store information about the shelter types**
 
-	*Take care of an adequate spacing between your elements.*
-	
-	> We have used the *Google Font "Roboto"* in our example. If you are interested in using different fonts, this page might be helpful: [https://www.google.com/fonts](https://www.google.com/fonts)
-	
-10. **Check for bad practices**
-    * Congratulations, you are done with the main task. Before moving on, however, make sure to
-     skim your code for bad practices. This most and foremost means that your code is readable
-      and includes comments where necessary. For your HTML code, we don't wanna see <br> tags
-       anywhere in your code to space things out. Instead, make proper use of classes and ids
-       . In your java script code, try using a forEach loop where possible and get comfortable
-        with arrow functions.
+	Store the information you have about the different shelter types in your own data structure. (As a reminder, 79.68% of households were recorded as living in caravans. 10.81% of households live in a combination of tents and caravans, while 9.51% live in tents only.)
+
+	* Store the *type of shelter* and *percentage values*.
+	* You will have to use your data structure for your bar chart afterwards, so make sure that it is as simple and efficient as possible. The actual implementation is up to you.
+
+9. **Create a vertical bar chart for the camp's three shelter types**
+
+	* Append a new SVG drawing area for the bar chart (using D3 margin conventions) to the right column of your webpage.
+	* Map the data from your new dataset to SVG rectangles to create a vertical bar chart (refer to the screenshot in Section Implementation.1 for how it should look). The y-axis represents the percentage of people living in one of the three shelter types.
+	* Usa a linear scale for the y axis.
+	* For the x dimension you may choose to use either an ordinal scale or no explicit D3 scale function, as there are only 3 categories. (Note, however, that in one of the next steps you will have to add labels for each bar. Your scale implementation here affect the way you add labels later.)
+	* Add a chart title.
+
+10. **Bar chart: Draw x- and y-axes**
+
+	*The ticks of the y-axis should be formatted as percentages.*
+
+	[https://github.com/d3/d3-axis/blob/master/README.md](https://github.com/d3/d3-axis/blob/master/README.md)
+
+11. **Bar chart: Append labels at the top of each bar to indicate the actual percentages**
+
+	* Each bar should have a label to indicate the percentage, directly above the bar.
+	* Each bar should also have a label with the name of the shelter type. This can be done either by using a categorical x axis, or by manually adding text labels.
+
+12. **Create dynamic tooltips for your area chart**
+
+	![Area Chart Tooltips](assets/cs171-hw4-tooltips.gif?raw=true "Area Chart Tooltips")
+
+	*There are many different ways to include tooltips. Follow the steps below for one approach, but feel free to experiment with others*
+
+	Make sure the tooltip shows the camp's population for the current mouse position, as shown in the above animation.
+
+	Note: This step is relatively complex, compared to the earlier steps. Add individual elements step-by-step and make sure they are working before adding on more elements. Debugging tip: during development, add color to your elements through css styles to ensure they are being rendered properly.
+
+	* Create a group for all the tooltip elements and hide it by setting the style attribute 'display' to 'none' (Skip this step during development to make sure you are rendering things correctly). Save this element as a variable, which you will use to append text elemenet and later update the tooltip position. Give it a class name.
+
+    * Append a vertical tooltip line to the leftmost position of the group (x=0) and that spans the full height of the svg.  Don't forget to assign the 'stroke' attr for it to render properly!
+
+	* Append an empty SVG text element for the tooltip population value. place it 10px away from the top left corner of the group, and don't forget to give it a class or id!
+
+    *  Append an empty SVG text element for the tooltip date value. Position this text just below
+   the population text holder. Give it a unique class or id name.
+
+	* Append a rectangle over the whole chart to capture 'mouse events'. Add listeners to 'mouseover', 'mouseout', and 'mousemove' events. On mouseover, set the display style of the tooltip group to 'null, on mouseout set it to 'none', and on mousemove, trigger a new 'mousemove' function that will handle the positioning of the tooltip.
+
+	* ```d3.bisector```is a function that finds the closest index in an array for a given value, specifying an accessor function.  You can read more about it here: [https://github.com/d3/d3-array#bisector](https://github.com/d3/d3-array#bisector)
+
+	* For this homework, you will need to define a bisector that returns the date attribute, such as the example below. This can then be applied as bisectDate(array, d), returning the index of  the array which contains the closest value to 'd'.
+
+        ```javascript
+        let bisectDate = d3.bisector(d=>d.date).left;
+        ```
+
+    * Write a mousemouve function with the following signature:
+
+        ```javascript
+        function mousemove(event){
+            //code goes here
+        }
+        ```
+
+	* Inside this function implement the following steps:
+
+		* Use d3.pointer(event)[0] to get the x position of the mouse pointer.
+
+	    * Use .invert on the xscale to find the equivalent date value for the x position of the
+	     mouse pointer.
+
+		* Call the previsously declared bisector function to get the index of the closest date in
+		 the original data array.
+
+		* Use the index from the previous step to grab the data element at that location.  
+
+	    * Shift the whole tooltip group on the x-axis to the position of the mouse.
+
+	    * Update the tooltip text properties with the date and population values
+
+13. **Use CSS to style the webpage**
+
+	*Spacing between charts, font size, color scheme, ...*
+
+	This is your space to be creative! Please use at least 5 CSS styles, and keep the design guidelines you have learned so far in lecture in mind. We will actually deduct points for bad visual design, so be mindful of your fonts, colors, etc. 
+
+&nbsp;
+
+Congratulations on finishing your homework! Up until now, all your visualizations have been static (i.e., the initial visualization did not change after first rendering). Over the next couple of weeks you will learn how to dynamically update visualizations, and how to create dynamic transitions. You will also learn how to link two or more visualizations together, so that the interaction in one view will automatically trigger an update of the second view!
 
 ## 2) Sketching (2 points)
-Go back to the pharmaceutical data that we use with Tableau. Take 15 minutes to sketch several ideas for possible visualizations to answer your questions about the pharmaceutical data. Make sure to label your axes and add titles to the visualizations. You are encouraged to use colored pens. You can sketch either with pen and paper or with a digital pen on a tablet. However, it must look like a hand-drawn sketch. Take pictures of your sketches and add them at the bottom of your website. 
+Go back to the pharmaceutical data that we use with Tableau. Take 15 minutes to sketch several ideas for possible visualizations to answer your questions about the pharmaceutical data. Make sure to label your axes and add titles to the visualizations. You are encouraged to use colored pens. You can sketch either with pen and paper or with a digital pen on a tablet. However, it must look like a hand-drawn sketch. Take pictures of your sketches and submit them as all in ***sketches.pdf*** as part of your HW submission.
 
-## 3) Extra Credit: `Dear Data' Competition: Collecting Personal Data 
+
+## 3) Extra Credit: 'Dear Data' Competition: Collecting Personal Data
 
 You have already heard about the Dear Data project in class. We will run our own CS171 Dear Data competition this year. The winner will receive a copy of the Dear Data book (and bragging rights), but it is completely optional and up to you to join the competition or not.
 If you decide to join, we ask you to observe, collect, and sketch a visualization inspired by the Dear Data project over the next two weeks. This week, you will collect personal data, and next week you will sketch a visualization that encodes this data using creative, artistic, and whimsical visual encodings inspired by the work of Georgia Lupi and Staphanie Posavec. The student with the best Dear Data visualization, as determined by our TFs, will **win a copy of the Dear Data book**!
 
-You can receive up to 2 points of extra credit for data collection, but only if you complete the second part of the dear data project next week.
+You can receive up to 2 points of extra credit for data collection, but only if you also complete the second part of the dear data project next week.
 
-<img src="dear_data_cover.png" width="400">
+<img src="assets/dear_data_cover.png" width="400">
 <!--![Dear Data Book](dear_data_cover.png "Dear Data Book")-->
 
 
 Here are some pictures of previous years' submissions:
 
-![Dear Data Examples](dear_data_students1.png "Dear Data Student Examples")
-![Dear Data Examples 2](dear_data_students2.png "Dear Data Student Examples 2")
+![Dear Data Examples](assets/dear_data_students1.png "Dear Data Student Examples")
+![Dear Data Examples 2](assets/dear_data_students2.png "Dear Data Student Examples 2")
 
 <!--<img src="dear_data_students1.png" width="600">
 <img src="dear_data_students2.png" width="600">-->
@@ -147,7 +225,7 @@ Think about what personal data you want to collect this week. Anything that can 
 
 You must collect data for **at least 5 days** with **at least 3 observations** per day, so make sure to get started early. We recommend that each data item (i.e., rows in your data table) has **at least 5 attributes** (i.e., columns in your data table), including the date and time when you collected each item. More attributes are better, especially if they are used to make connections between different data items (e.g., how people are connected, and who they are connected to).
 
-*Example:* You decide to collect data about butterflies. Each row of your data table will be a butterfly sighting. The first attribute is the day and time of when you saw the butterfly. Other attributes (columns) in your table are where you saw it, its color, what mood you were in (using emojis), what kind of butterfly you think it was. You make sure to keep an eye out for butterflies to hopefully see at least three of them each day. If you don't, you can make a couple of sightings (but do not cheat too much). 
+*Example:* You decide to collect data about butterflies. Each row of your data table will be a butterfly sighting. The first attribute is the day and time of when you saw the butterfly. Other attributes (columns) in your table are where you saw it, its color, what mood you were in (using emojis), what kind of butterfly you think it was. You make sure to keep an eye out for butterflies to hopefully see at least three of them each day. If you don't, you can make a couple of sightings (but do not cheat too much).
 
 **How to collect your data**
 
@@ -157,34 +235,42 @@ Make sure to label each column and to **provide additional explanations for your
 
 _Example: Below is a picture of an example data table for the butterfly data, including a legend that explains each attribute._
 
-![Data Collection Examples](data_collection.png "Dear Data Data Collection Example")
+![Data Collection Examples](assets/data_collection.png "Dear Data Data Collection Example")
 
 
 **How to submit your data**
 
 If you collected your data on paper, take a picture of your table and submit it with your homework. If you like, you can also transfer your data to a spreadsheet and submit it that way. A spreadsheet allows you to easily compute aggregate statistics, e.g., averages, medians, or percentages, although you can also do that with pen and paper. If you were not able to collect data over 5 days yet, don't worry, you can continue your data collection into next week (just submit the data that you have so far for this week).
 
+## 4) Submit Homework in Canvas
 
-## 3) Submit Homework in Canvas
+Use the following recommended folder structure & create a single .zip file:
 
-Submission instructions:
-
-1. Use the following recommended folder structure:
 
 ```
-/submission_week-04_FirstnameLastname
-    dear_data/      ...folder for your data that you collected for dear_data    
-    implementation/ ...folder for your code
-    	hw/
-         	index.html
-            css/ 		...folder with all CSS files
-            js/ 		...folder with all JavaScript files\
-            ..
-    
+/submission_week_04_FirstnameLastname
+    hw/
+        css/ 		...folder with all CSS files
+        js/ 		...folder with all JavaScript files\
+        index.html
+        sketches.pdf 
+        
+    lab/
+		css/ 		
+		js/ 
+		index.html
+		
+    class_activity/
+    	[either pdf or link to gdrive that contains your running doc with class activities]
+    	[latest Tableau workbook (either added here separately or within the gdrive)]
+    	
+    dear_data/ (optionl)
+        [picture or spreadhseet with data]
+		
 ```
 
-2. Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
+*  Make sure to keep the overall size of your submission under 5MB! Sketches don't have to be in the highest resolution, but should still be readable.
 
-3. Upload a single .zip file.
+*  Upload a single .zip file.
 
-**Congratulations for finishing the Homework! See you in class!**
+**Congratulations on finishing this week's homework! See you in class!**

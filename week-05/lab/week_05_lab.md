@@ -43,7 +43,7 @@ That is not very flexible and only feasible for static data. What if our data at
 
 *Example:* We want to visualize the monthly sales of an ice cream store. The input data are numbers between 0 and 20,000 USD and the maximum height of the chart is 400px. We take an input inverval (called ***Domain***) and transform it into a new output interval (called ***Range***).
 
-![Scales](cs171-scales.png?raw=true "Scales")
+![Scales](assets/cs171-scales.png?raw=true "Scales")
 
 We could transform the numbers from one domain into the other manually but what if the sales rise above 20.000 and the interval changes? That means a lot of manual work. Thankfully, we can use D3's built-in scaling methods to do this automatically.
 
@@ -99,7 +99,7 @@ In this lab you will work on a scatterplot with flexible scales and axes. You wi
 
 *Result:*
 
-![Lab 5 - Preview](cs171-lab4-preview.png?raw=true "Lab 5 - Preview")
+![Lab 5 - Preview](assets/cs171-lab4-preview.png?raw=true "Lab 5 - Preview")
 
 ***Data:*** ```Country``` | ```Income``` | ```LifeExpectancy``` | ```Population``` | ```Region```
  
@@ -108,7 +108,7 @@ In this lab you will work on a scatterplot with flexible scales and axes. You wi
 
 	[template](https://www.cs171.org/Homework_instructions/week-05/lab/week-05_lab_template.zip)
 	
-	We have included *Bootstrap*, *D3* and the dataset *wealth-health-2014.csv*. The HTML document contains an empty *div* container for the scatterplot and the CSV import is implemented in the JS file ```main_presentation.js```.
+	We have included *Bootstrap*, *D3* and the dataset *wealth_health_data.csv*. The HTML document contains an empty *div* container for the scatterplot and the CSV import is implemented in the JS file ```main_presentation.js```.
  
 2. **Analyze and prepare the data**
 
@@ -199,7 +199,7 @@ let group = svg.append("g")
 	.attr("transform", "translate(70, 50)");
 ```
 
-![SVG Groups](cs171-svg-groups.png?raw=true "SVG Groups")
+![SVG Groups](assets/cs171-svg-groups.png?raw=true "SVG Groups")
 
 
 
@@ -236,7 +236,7 @@ svg.append("g")
 	.attr("class", "axis x-axis")
 	.call(xAxis);
 ```
-![D3 Axis 1](cs171-d3-axis-1.png?raw=true "D3 Axis 1")
+![D3 Axis 1](assets/cs171-d3-axis-1.png?raw=true "D3 Axis 1")
 
 Recall that we can use the *transform* attribute to change the position and move the axis to the bottom. 
 
@@ -266,7 +266,7 @@ Additionally, you can use the HTML *class* property as a selector and modify the
 
 *```shape-rendering``` is an SVG property which specifies how the SVG elements are getting rendered. We have used it in this example to make sure that we don't get blurry axes.*
 
-![D3 Axis 2](cs171-d3-axis-2.png?raw=true "D3 Axis 2")
+![D3 Axis 2](assets/cs171-d3-axis-2.png?raw=true "D3 Axis 2")
 
 
 ### Refine the axis
@@ -384,7 +384,7 @@ linearColor(0)		// Returns: #006400
 linearColor(50)		// Returns: #48a948
 linearColor(100) 	// Returns: #90ee90
 ```
-![D3 Linear Color Scale](cs171-linear-color-scale.png?raw=true "Linear Color Scale")
+![D3 Linear Color Scale](assets/cs171-linear-color-scale.png?raw=true "Linear Color Scale")
 
 
 &nbsp;
@@ -416,7 +416,7 @@ linearColor(100) 	// Returns: #90ee90
 	*Most likely you also have to modify the axis ticks.*
 
 
-![Different Axis Scales](cs171-different-axis-scales.png?raw=true "Different Axis Scales")
+![Different Axis Scales](assets/cs171-different-axis-scales.png?raw=true "Different Axis Scales")
 
 
 -----
@@ -430,7 +430,7 @@ Positioning the axes or defining the correct spacing between the components can 
 
 > By convention, margins in D3 are specified as an object with top, right, bottom and left properties. Then, the outer size of the chart area, which includes the margins, is used to compute the inner size available for graphical marks by subtracting the margins. *(Mike Bostock)*
 
-![D3 Margin Convention](cs171-margin-convention.png?raw=true "Margin Convention")
+![D3 Margin Convention](assets/cs171-margin-convention.png?raw=true "Margin Convention")
 
 *Please take some time to look at the recommended sequence by Mike Bostock:*
 
@@ -473,11 +473,29 @@ The code snippets above should help you to easily modify your current solution.
 
 -----
 
-#### Submission of lab (activity I, II, and III) 
 
-Congratulations, you have now completed the activities of Lab 5!
+## Submission
 
-Please upload the code of your completed lab (the final scatter plot of activities I, II, and III)! 
+Congratulations, you have now completed this week's lab!
+
+Please submit your completed lab together with this week's homework until next Monday and use the following folder structure:
+
+
+```
+/submission_week_04_FirstnameLastname
+    hw/
+        css/ 		...folder with all CSS files
+        js/ 		...folder with all JavaScript files\
+        index.html
+        design_critique.pdf
+    lab/
+		css/ 		
+		js/ 
+		index.html
+    class_activity/
+    	[either pdf or link to gdrive that contains your running doc with class activities]
+    	[latest Tableau workbook (either added here separately or within the gdrive)]
+```
 
 -----
 

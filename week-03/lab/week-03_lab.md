@@ -651,7 +651,6 @@ Please submit your completed lab together with this week's homework until next M
     class_activity/
     	[either pdf or link to gdrive that contains your running doc with class activities]
     	[latest Tableau workbook (either added here separately or within the gdrive)]
-
 ```
 *See you next week!*
 
