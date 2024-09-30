@@ -4,7 +4,7 @@ layout: lab
 exclude: true
 ----->
 
-<img src="cs171-logo.png" width="200">
+<img src="assets/cs171-logo.png" width="200">
 
 &nbsp;
 
@@ -15,7 +15,7 @@ This homework requires that you have read Case 1 of the article:
 
 Optional reading: [Mike Bostock's 'Thinking with Joins'](http://bost.ocks.org/mike/join/), and chapters 9-10 in *D3 - Interactive Data Visualization for the Web*.
 
-## 1) FIFA World Cup™ - All Time Statistics (10 points)
+## 1) FIFA World Cup™ - All Time Statistics (8 points)
 
 > The FIFA World Cup™ is the biggest single-event sporting competition in the world and is played by the senior men's national teams from the 209 Member Associations of FIFA. The competition has been played every four years since the inaugural tournament in 1930, except in 1942 and 1946 when it was not held because of the Second World War.
 >
