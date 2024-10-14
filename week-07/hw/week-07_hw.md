@@ -11,9 +11,6 @@ exclude: true
 
 Your task is to design an interactive, exploratory Tableau dashboard of the pharmaceutical data that helps users discover insights or trends.
 
-**Start this homework AFTER you finish Wednesday's lecture activities! In the lecture activities, you will finalize your sketches and then decide which sketches you will implement in Tableau.**
-
-
 ## 1) Tableau Dashboard of the Pharmaceutical Data
 
 You will first learn about Tableau dashboards and then design your dashboard. You will have to fine-tune some of the visualizations you have created during class over the last weeks and then combine them into an interactive dashboard. Your dashboard must use some [filters](https://help.tableau.com/current/pro/desktop/en-us/actions_filter.htm), [filter actions](https://help.tableau.com/current/pro/desktop/en-us/actions_filter.htm), [highlight actions](https://help.tableau.com/current/pro/desktop/en-us/actions_highlight.htm), and at least one [embedded tooltip visualization](https://help.tableau.com/current/pro/desktop/en-us/viz_in_tooltip.htm). You must also implement an advanced Tableau visualization that requires more work and is not part of Tableau's "Show Me" feature.
