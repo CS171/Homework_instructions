@@ -7,9 +7,6 @@ exclude: true
 
 # Week 08 | Lab
 
-### Pre-Reading Quiz
-Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
-
 ### Learning Objectives
 
 - Understand the concept of D3 layouts and be able to use D3 layouts for advanced visualizations
