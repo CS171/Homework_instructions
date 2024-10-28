@@ -3,686 +3,532 @@ layout: lab
 exclude: true
 --->
 
-<img src="cs171-logo.png" width="200">
+
+<img src="assets/cs171-logo.png" width="200">
+
+&nbsp;
 
 # Week 09 | Lab
 
-### Pre-Reading Quiz
-Please fill out the pre-reading quiz on Canvas *before* the beginning of class!
-
 ### Learning Objectives
 
-- Understand the concept of D3 layouts and be able to use D3 layouts for advanced visualizations
-- Know how to work with the GeoJSON and TopoJSON file format
-- Have a basic understanding of geographical projections
-- Know how to load multiple files sequential and parallel
-- Know how to convert geodata to screen coordinates with D3 in order to create interactive maps
+- Know how to integrate a sophisticated *event handling mechanism* to connect multiple visualizations components and UI elements with each other
+- Get more experience with *brushing* and *zooming* in D3
+- Get a better understanding of *system design* and *code structure* in order to be able to create larger visualization system
 
 
 ### Prerequisites
 
-- You have read and **programmed** along with chapter 13, and 14 (p. 281-295) in *D3 - Interactive Data Visualization for the Web*.
-- Optional reading: p. 295-322 in *D3 - Interactive Data Visualization for the Web*.
+In the last weeks you have learned how to implement common visualization types in D3. You have learned how to use brushing and you have linked multiple reusable views with each other by using a very basic event handler (global *brush* function). This lab is built on all these fundamentals. You will learn how to structure a larger visualization system and how to integrate an event handling mechanism, which you will very likely need for your final projects. Due to the extensive example, which is necessary to demonstrate how to structure larger systems, we will provide a template with many completed parts. Your main tasks will focus on the structure, the interactions and the event handling components. However, please make sure that you understand the code in the provided templates, and take your time to read through it!
 
-### Summary
 
-In this lab, you will learn how to use D3 layout methods to implement more complex svg shape elements (in contrast to rect or circle elements).
-After drawing an interactive pie-chart as a warm-up, the main task of the lab will be to create an interactive choropleth map.
+## United Nations - My World 2015
 
-### Useful links for this week's lab
+You will build a system that allows interactive selection of time slices of the poll data from the years 2012 and 2013. For the selected time period, the visualization will show the amount of votes per priority/choice from the poll data in addition to a histogram of participant's age for the given selection.
 
-- Comprehensive overview for [SVG Elements and Attributes](https://oreillymedia.github.io/Using_SVG/guide/markup.html)
-- https://github.com/d3/d3-geo
+*Preview of the final system:*
+
+![Lab 9 - Preview](assets/cs171-lab9-preview.gif?raw=true "Lab 9 - Preview")
+
+
+### Data
+
+We have already aggregated and transformed the original datasets to make the data format a better fit to the tasks we want to perform. You should know the rough structure and the contained information from the pre-reading.
+
+
+- ```perDayData.json```
+- ```myWorldFields.json``` *(= metadata about the 15 priorities)*
+
+
+### Template
+
+This lab combines many concepts that we have introduced during the last weeks and gives you all the tools you need to build a larger visualization system on the web. The provided template is similar to the template from an earlier lab where we worked with multiple coordinated views for the first time. It is based on Bootstrap and it contains a basic HTML structure, some CSS rules and pieces of JS code.
+
+The controller and the data loading scripts are in the ```main.js``` file.
+
+You will implement the visualizations again as reusable components (JS objects) in separate files:
+
+- ```agevis.js```
+- ```countvis.js```
+- ```priovis.js```
+
+We have also included all the other usual files (index.html, style.css, etc) and libraries (Bootstrap, D3), like in our previous labs and homeworks.
+
+## Implementation
+
+The following image shows the visualization components of the system we are going to build. The core of the webpage and the main interaction point is *CountVis* (```countvis.js```). The area chart in the second row (*AgeVis*) gives an overview of the participants age and the bar chart shows the number of votes for each priority. If you consider this as a focus+context visualization, the *CountVis* component provides the context and the other two views display detailed information for the selected time frame.
+
+![Lab 9 - Components](assets/cs171-lab9-vis-components.png?raw=true "Lab 9 - Components")
+
+
+### Data loading and pre-processing
+
+When you start to work on your final project or on other larger visualization systems you will probably find out that the data is not every time available in the desired format. Sometimes you have to transpose the data, aggregate values or combine datasets from multiple sources. In the course of the last weeks you have already learned how to handle most of it. In the following we want to introduce a new D3 technique that we have used in the *My World 2015* example and that helps you to extract/generate data.
+
+We can use the ```d3.range()``` function to generate a range of numeric values:
+
+```javascript
+let arithmeticProgression = d3.range(0,10);
+arithmeticProgression    // Returns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+(The arguments specify the *start* and *end* of our sequence. If you start with 0 the second parameter is equal to the length of the array. You can test some examples in your web console.)
+
+And we can use ```map()``` to execute a custom function for each value in a given array:
+
+```javascript
+let result = arithmeticProgression.map(function(d){
+	return d * 2;
+});
+result    // Returns: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+Finally, the combination of these methods allows us to generate arrays with custom values:
+
+```javascript
+let twelveZeros = d3.range(0,12).map(function(){
+	return 0;
+});
+twelveZeros     // Returns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+```
+
+Or to transform data that is stored in key-value format to arrays:
+
+```javascript
+let data = {
+	"sum-0": 10,
+	"sum-1": 20,
+	"sum-2": 30,
+	"sum-3": 40
+};
+
+let result = d3.range(0,4).map(function(counter){
+	return data["sum-" + counter];
+});
+
+result      // Returns: [10, 20, 30, 40]
+```
+
+----
+
+#### Activity I - Load the template and complete the charts
+
+1. **Download the template**
+
+	[TemplateEasy.zip](TemplateEasy.zip)
+
+2. **Open the file ```main.js``` and get an overview of the data loading and cleaning procedure**
+
+	At the beginning of the file we have used promises to load the two datasets asynchronously.
+
+	If you have a look at the function ```createVis()``` you will recognize the mentioned technique ```d3.range(n).map()```. We use it to clean the main dataset ```perDayData.json``` and to prepare it for the use in the visualization objects.
+
+	The basic implementation of the CountVis object is completed too. You should already know how to draw an area chart in D3. If you open ```index.html``` in your web browser you should see the graph showing the number of votes for a specific time period.
+
+3. **Implement the *AgeVis* component** (the second visualization)
+
+	The second area chart visualizes the number of votes per age. We have also provided many code snippets in the file ```agevis.js``` but one further step is required.
+
+	The dataset ```perDayData.json``` currently groups all votes per day and age, but for this view we have to aggregate the values for each age group without the temporal information.
+
+	*Example:*
+
+	```javascript
+	// Raw data - aggregated by date
+	let days = [
+		{ "date": "2017-08-07", "cat-0": 1, "cat-1": 4, "cat-2": 3 },
+		{ "date": "2017-08-08", "cat-0": 2, "cat-1": 0, "cat-2": 1 },
+		{ "date": "2017-08-09", "cat-0": 7, "cat-1": 11, "cat-2": 1 }
+	];
+
+	// Result array should be aggregated by category (cat-0 to cat-2)
+	// Prepare empty array
+	let countPerCategory = d3.range(0,3).map(function() {
+		return 0;
+	});
+
+	// Aggegrate by category:
+	// Iterate over each day and fill array
+	days.forEach(function(day){
+		d3.range(0,3).forEach(function(i){
+			countPerCategory[i] += day["cat-" + i];
+		});
+	});
+
+	countPerCategory    // Returns: [10, 15, 5]
+	```
+
+	Read the above code snipped carefully, and understand what it is doing before you continue!
+	
+	→ In ```main.js```: Create an instance of the AgeVis component. The code snippet is already there, just remove the comment. Note: Since the AgeVis component is not fully implemented yet, you might get errors or warnings when you create an instance of that class.
+	
+	→ In ```agevis.js```: Adopt this code snippet for the aggregation of votes, following our visualization pipeline, in the ```wrangleData()``` function. The My World 2015 project collects votes for all ages <= 99. You can use the web console in between to debug your code and to better understand the data transformation.
+
+
+
+	→ Open the webpage in your browser! If everything worked, you should see both area charts. If you get an error message in the web console you should fix it before going further.
+
+
+4. **Implement the *PrioVis* component**
+
+	The bar chart (```priovis.js```) shows how many people voted (y-axis) for which of the 15 priorities (x-axis). Similar to the *AgeVis* component, the data is grouped by day and you have to aggregate it first.
+
+	→ Create an instance of the PrioVis component in ```main.js```. Pay attention what parameters PrioVis expects at creation.
+	
+	→ Aggregate the votes for each priority in the ```wrangleData()``` function (basically the same procedure as before in AgeVis, but this time you aggregate over priorities instead of ages).
+
+	→ Open the webpage in your browser and check if all three charts are visible
+
+
+5. **Update the x-axis of the bar chart**
+
+	If you have finished all the previous steps, the user can see a bar chart with the number of votes for each priority on your webpage. Unfortunately, the numbers 0-14 have little meaning to the user and it would be helpful if you could display the names of the priorities on the x-axis instead.
+
+	You can modify the axis text after calling the axis component, like in this example, where we add the string "Cat-" as a prefix for every y-axis label:
+
+	```javascript
+	svg.select(".y-axis")
+		.call(yAxis)
+		.selectAll("text")
+			.text(function(d){
+				return "Cat-" + d;
+			});
+	```
+
+	(Alternatively, you can use D3's ```tickFormat``` function)
+
+	→ In ```updateVis()```: Modify the code where the x-axis is being called, to adjust the labels (```.text```) of the x-axis. Use the values from the dataset *metaData* and display the full title for each priority. 
+	
+	*Hint:* We already included the second dataset in the object constructor function and, due to the length of the titles, we rotated all x-axis labels by 45 degrees. You can use ```console.log(vis.metaData)``` to find out how to access the data you are looking for.)
+
+----
+
+### Event handling
+
+At the moment, the views display votes for the full time period (whole dataset) and they are not linked to each other.
+
+Similar to lab 6 we will use *brushing* to enable the user to select a specific time frame and to filter the votes by time. *CountVis* is the main interaction point and the other two charts are getting updated accordingly.
+
+To connect the three views we will make use of an event handler. Instead of being directly connected with each other, the views talk to each other via a mediator. A popular analogy of this principle is the Twitter service. For example, Homer follows (binds himself to) Bart. Once he has done that, Homer will be notified every time Bart tweets (triggers a message event), Homer and all other followers get notified. However, Bart is only notified of Homer's tweets when he also explicitly subscribes to Homer. Applied to our visualizations that can be imagined as:
+
+![Lab 9 - Event Handler](assets/cs171-lab9-event-handler.png?raw=true "Lab 9 - Event Handler")
+
+
+#### Brushing (review)
+
+In D3, a brush is an interactive area where clicking and dragging on the mouse is interpreted as a selection of a range. The range selection can be used to make changes to the visualization. The extent of the selection is shown as illustrated in the following image. Note that the area where you can click and drag to initiate a brush is shown in blue, while the visible representation of the brush is shown in grey.
+
+<img src="assets/cs171-lab9-brush-region.png" width="300">
+
+
+There are three types of D3 brushes: ```brushX```, ```brushY```, and ```brush```. You have to initialize the brush and assign an extent, which (most of the time) is the same size as the visualization itself.
+
+The property **```on```** must be used to set an event listener, whereby you can choose between three different events:
+
+- ```start``` - on mousedown
+- ```brush``` - on mousemove, if the brush selection has changed
+- ```end``` - on mouseup
+
+```javascript
+// Initialize time scale (x-axis)
+let x = d3.scaleTime()
+	.range([0, width])
+	.domain(d3.extent(displayData, function(d) { return d.Year; }));
+
+// Initialize brush
+let brush = d3.brushX()
+	.on("brush", brushed)
+	.extent([[0,0],[width,height]]);
+
+// Append brush
+svg.append("g")
+	.attr("class", "brush")
+	.call(brush);
+```
+
+Up to now we have always created a global function ```brushed()``` in the ```main.js``` file that was triggered every time when the brush region changed. In this file we can access and update all the other views. Although this solution is easy to understand and can be implemented quickly, it is not ideal for larger visualization systems. In this lab we will interchange it with an event handler.
+
+#### Event handler
+
+In Javascript, events are bound to DOM elements. In this lab we propose a global event handler, which binds custom events to the `body` of our HTML document. This event handler has special methods to bind a custom handler to an event (defined by a string) and then trigger that event. 
+
+```javascript
+let eventHandler = {
+	bind: (eventName, handler) => {
+	    document.body.addEventListener(eventName, handler);
+	},
+	trigger: (eventName, extraParameters) => {
+	    document.body.dispatchEvent(new CustomEvent(eventName, {
+	        detail: extraParameters
+	    }));
+	}
+}
+```
+
+```.bind(eventName, handler)``` - binds the function ```handler``` to an event (the event is specified as the name of the event, as a string ```eventName```). That means, when a certain event occurs (e.g., ```bartTweeted```) the handler function (e.g. ```readBartsTweet```) is being called.
+- ```.trigger(eventName, extraParameters)``` - triggers an event ```eventType``` and calls all functions that are bound to this event. Here, eventType is a string (see above) and extraParameter is an object representing extra data, like e.g., the current location of Bart. The extraParameters added to an object named `detail` within the event (`event.detail`).
+
+-->
+
+The event handler must be initialized in the controller (```main.js```). We have prepared a small example for a better understanding:
+
+```javascript
+// 1. Create event handler
+let eventHandler = {
+	bind: (eventName, handler) => {
+	    document.body.addEventListener(eventName, handler);
+	},
+	trigger: (eventName, extraParameters) => {
+	    document.body.dispatchEvent(new CustomEvent(eventName, {
+	        detail: extraParameters
+	    }));
+	}
+}
+
+// 2. Create visualization instances
+let contextVis = new ContextVis("context-vis", data, eventHandler);
+let focusVis = new FocusVis("focus-vis", data);
+```
+
+In the brushing component (```contextvis.js```) we can listen to changes and trigger the event handler accordingly:
+
+```javascript
+let brush = d3.brushX()
+	.extent([[0,0],[width, height]])
+	.on("brush", function(event){
+		// User just selected a specific region
+		vis.currentBrushRegion = event.selection;
+		vis.currentBrushRegion = vis.currentBrushRegion.map(x.invert);
+		
+		// 3. Trigger the event 'selectionChanged' of our event handler
+		vis.eventHandler.trigger("selectionChanged", vis.currentBrushRegion);
+	});
+```
+
+*Hint:* Use the console to see what ```vis.currentBrushRegion``` is - you may need to convert it into its corresponding range in your domain, e.g., using ```x.invert```. 
+
+And back in the controller we can bind our event handler to other visualization components:
+
+```javascript
+// 4. Bind event handler
+// when 'selectionChanged' is triggered, specified function is called
+eventHandler.bind("selectionChanged", function(event){
+	let rangeStart = event.detail[0];
+	let rangeEnd = event.detail[1];
+	focusVis.onSelectionChange(rangeStart, rangeEnd);
+});
+```
+
+In the final step (i.e., in the function that we call from our event handler, after ```selectionChanged``` has been triggered) we just filter the data based on the brush and update the visualization component (```focusvis.js```):
+
+```javascript
+onSelectionChange(selectionStart, selectionEnd){
+	let vis = this;
+
+	// vis.filteredData = vis.data.filter(function(d){
+	// ...
+
+	vis.wrangleData();
+}
+```
+
+Now it's your turn to implement event handling! Please get started on Activity II.
 
 
 ----
 
+#### Activity II - Implement *brushing* and an *event handling* mechanism
 
+*Hint:* For the next steps, keep in mind, that whenever we are inside an object (e.g., Countvis), to use the ```this``` keyword for storing or accessing variables of that class. More importantly, we usually call ```vis = this```, in that case use ```vis.``` to access object variables.
 
-## D3 Shapes
+1. **Initialize the event handler and pass it to the *CountVis* object** (in ```main.js```). Make sure that you store the event handler in the constructor of ```CountVis```.
 
-> The D3 shape methods have no direct visual output. Rather, D3 shapes take data that you provide and re-map or otherwise transform it, thereby generating new data that is more convenient for a specific task. (Scott Murray)
+2. **Initialize the *brush* component, append it to your SVG area (in ```initVis()```) and call it (in ```updateVis()```)** (all in ```countvis.js```)
 
-Visualizations typically consist of discrete graphical marks, such as symbols, arcs, lines and areas. While the rectangles
-of a bar chart may be easy enough to generate directly using SVG or Canvas, other shapes are complex, such as rounded annular
-sectors and centripetal Catmull–Rom splines. The D3 shape module provides a variety of shape generators for your convenience.
+3. **Trigger the event handler whenever the user changes the brush region** (in ```initVis()``` in ```countvis.js```)
 
-![D3 Shapes](cs171-d3-layouts.png?raw=true "D3 Shapes")
+4. **Bind the event handler** (in ```main.js```). Start by binding the event to an anonymous function that gives you console output whenever you brush. Once that is working, when handling the event in the anonymous function, you should update the *AgeVis* and *PrioVis* component by calling the ```onSelectionChange()``` functions in both compontents. (See next point).
 
-Each shape may have distinct features not shared by others, so make sure to consult the D3 documentation([https://github.com/d3/d3-shape/blob/master/README.md](https://github.com/d3/d3-shape/blob/master/README.md)) for implementation details. You will learn more about a few selected shapes in this lab.
+5. **Implement the *onSelectionChange()* methods in**```agevis.js``` **and** ```priovis.js```
 
-&nbsp;
+	These methods get called when the user changes the brush selection. You should filter the dataset (new start and end date) and update the visual elements in the SVG areas. Keep in mind that you need to store the original, unfiltered dataset.
 
-### Pie Shape
+	Open the webpage in your browser. You should be able to select a brush region in the context visualization and the other two visualizations should be updated automatically.
 
-In this week's lab, we will introduce you to D3 shapes by creating a simple pie chart. We will
- make use of the pie shape generator, i.e. the ***d3.pie()*** method, which computes
-  the start and end angles of arcs that comprise a pie or donut chart.
+6. **Show the selected time period**
+
+	→ Create additional elements in the ```index.html``` file to display the current time period. At the beginning it should cover the whole dataset and after the user changes the selection (brush) the dates should be updated immediately.
+
+	You can implement the function to update these text labels as part of the *CountVis* object. Similar to *AgeVis* or *PrioVis* in a new function, e.g. ```onSelectionChange()```. 
+	
+	*Hint:* One line in that function could look something like this ```d3.select("#time-period-min").text(dateFormatter(rangeStart));```)
+
+	*Example how it can look like:*
+
+	![Lab 9 - Time Period](assets/cs171-lab9-time-period.gif?raw=true "Lab 9 - Time Period")
+
+----
+
+### D3 Zoom Behavior
+
+Besides many drawing functionalities, the D3 library allows us to include interaction mechanisms into our visualizations. We can create event listeners for clicks and mouse gestures in order to improve the usability and to keep users engaged. In the previous examples we have used input fields and select-boxes to filter our datasets, we have implemented functions to change the sorting of SVG elements and most recently we have integrated D3's brushing component to select specific regions visually. Now we will introduce another interaction mechanism in D3 - the zoom behavior.
+
+Panning & zooming in visualizations allow users to move in and narrow down on the visible data points or to move out and to get a broader view of the data. The focus+context visualization, that you have implemented in an earlier lab, was basically also a certain type of zooming behavior, with the difference that we have used an additional chart for the interaction. However, in many scenarios it is useful to zoom in directly (scroll on zoom) on the x-axis, y-axis or on both simultaneously.
 
 *Example:*
 
 ```javascript
-// Initialize data
-let data = [45,30,10];
+// Original scale
+let xScaleOrig = 1.0;
 
-// Define a default pie layout
-let pie = d3.pie();
+// Initialize the zoom component
+let zoom = d3.zoom()
 
-// Call the pie function
-pie(data);
+	// Subsequently, you can listen to all zooming events
+	.on("zoom", function(event){
+		// Do something
+	})
+
+	// Specify the zoom scale's allowed range
+	.scaleExtent([1,20]);
+
+// Get the modified version of the scale when zooming.
+// You have to make sure you use the modified scale to update your visualization. 
+// Notice that 'event' is the default argument to the function callback for .on('zoom',function(event){})
+ 
+let xScaleModified = event.transform.rescaleX(xScaleOrig);
 ```
 
-*Console Output:*
-
-![D3 Pie Shape Generator](cs171-d3-pie-console-output.png?raw=true "D3 Pie Shape Generator")
-
-The D3 pie shape takes a dataset and creates an array of objects. Each of those objects contains
- a value from the original dataset, along with additional data, like *startAngle* and *endAngle*.
- That's all there is to the D3 pie shape. It has no visual output, but transforms the input
-  data in a way that it is much more convenient for drawing a pie chart.
-
-&nbsp;
-
-Now that we understood how the pie generator works, let's draw the actual pie chart. We'll use an
- arc generator ***d3.arc()*** to generate the paths for the pie segments. Take a few minutes to
-  look through the following code example:
+Similar to axes or the brush component you have to apply the behavior to selected elements using ```selection.call()```. Usually  you would draw an invisible rectangle over the full height and width of the visualization and bind the zoom behavior to it. But if you are additionally using the brush component you should apply it directly to it:
 
 ```javascript
-
-// SVG drawing area
-let width = 300,
-    height = 300;
-
-// Position the pie chart (currently only a placeholder) in the middle of the SVG area
-let svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("g")
-
-// pie chart setup
-let pieChartGroup = svg
-    .append('g')
-    .attr('class', 'pie-chart')
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-// Initialize the data
-let data = [45,30,10];
-
-// Define a default pie layout
-let pie = d3.pie();
-
-// Ordinal color scale (10 default colors)
-let color = d3.scaleOrdinal(d3.schemeCategory10);
-
-// Pie chart settings
-let outerRadius = width / 2;
-let innerRadius = 0;      // Relevant for donut charts
-
-// Path generator for the pie segments
-let arc = d3.arc()
-    .innerRadius(innerRadius)
-    .outerRadius(outerRadius);
-
-// Bind data
-let arcs = pieChartGroup.selectAll(".arc")
-    .data(pie(data))
-
-// Append paths
-arcs.enter()
-    .append("path")
-    .attr("d", arc)
-    .style("fill", function(d, index) { return color(index); });
+let brushGroup = svg.select(".brush")
+brushGroup.call(zoom);
 ```
 
-&nbsp;
+Further details:
 
-## Activity I
+- The D3 zoom component actually consists of the zoom and pan behavior. The panning behavior, that makes you able to pan along the x and y axis, is needed when you want to zoom in to a specific point
+- You can also define an y-scale for the zoom
+- If you don't specify the attribute ```scaleExtent()```, the zoom component will default to [0, *Infinity*].
 
-![Preview Activity I](cs171_w8_lab_activity1.png?raw=true "D3 Projections")
+You can read more about D3's zooming component here: [https://github.com/d3/d3-zoom/blob/master/README.md](https://github.com/d3/d3-zoom/blob/master/README.md)
 
+----
 
-#### Activities & Walkthrough
+#### Activity III - Make the *CountVis* component zoomable along the x-axis
 
-1. **Download the template for this week's lab**
+*Preview:*
 
-    The provided [template](https://www.cs171.org/Homework_instructions/week-09/lab/Template.zip) includes:
+![Lab 9 - Zoom](assets/cs171-lab9-zoom.gif?raw=true "Lab 9 - Zoom")
 
-    - a css folder with a very basic ```styles.css``` file that styles your tooltips
-    - a data folder with files that we will need for Activity II.
-    - a js folder with
-        - ```main.js``` that takes care of loading the data and initializing all the visualizations.
-        - ```pieChart.js``` defining the class ```PieChart``` (already containing some code)
-        - ```mapVis.js``` that contains some code for class ```MapVis``` that you will create
-             in Activity II.  
-    - the HTML file ```index.html``` with a basic document structure
+1. **Add the zoom component and initialize the D3 zoom behavior**
 
-    &nbsp;
-
-2. **Familiarize yourself with the template**
-
-    Run ```index.html``` and inspect the DOM. Notice that you already created instances of the
-     class PieChart and MapVis. These instances are named ```myPieChart``` and ```myMapVis```;
-
-   Next, explore the class ```PieChart```. By now, you should be familiar with the constructor
-    method as well as our method pipeline initVis() -> wrangleData() -> updateVis() that allows
-     us to trigger e.g the wrangleData() method externally, manipulate the data, and update the
-      visualization.
-
-3. **Complete the class PieChart and its methods**
-
-    Using the sample code for a pie chart that we provided, finish writing the class PieChart
-    . Notice, that the code we provided works fine if you would copy-paste it in a plain js file
-     and embed it in your website (feel free to try it out!) However, we want to do something
-      more sophisticated by using classes. Thus, you might want to go through the sample code
-       line by line and adapt the code snippets in the appropriate methods, i.e. ```initVis
-       ()```   vs. ```updateVis()```. Make sure that you are using the keyword ```this/vis
-       ``` properly
-       , i.e. that you store your key variables in properties so that your object can access them
-        across methods.
-
-    In short, these are the steps that you probably want to do in initVis():
-
-    - margin conventions are already defined, so
-    - start by creating a pieChart group
-    - define inner and outer radius
-    - define pie layout
-    - set up your path generator
-
-    **Note:** In the code snippet above, we call d3.pie and hand it an array of numbers. However, if you want to generate a pie slice for something more complex than an object, we can tell it how to determine that value by giving it a `value` function. For instance, if we have an array where each element is
- ``` {'name': name, 'value': value}```
- we can tell d3.pie where the value is stored like so
-
- ```javascript
- d3.pie()
-    .value(d => d.value);
-
- ```
-
-This should be helpful for the data in the lab.
-
-Next up is wrangleData(). Here, you don't need to do anything except to understand what's going on. We are creating a very simple data structure for you. It is an array of objects. Each object has a random value (between 0-100) and a fixed color. This should help you when defining the fill attribute for the arcs.
-
-Lastly, let's look at updateVis(). Here, you want to draw the arcs that make up the actual
-   pieChart.
-
-4. **Create a tooltip**
-
-    When hovering over an arc, a tooltip should appear. First, add a ```div``` container for your
-     tooltip to the DOM. Ideally, you do this in ```initVis()``` method of the class itself rather
-      than in your ```index.html``` document. (odds are you want a tooltip for each instance).
-
-   ```javascript
-   // append tooltip
-   vis.tooltip = d3.select("body").append('div')
-       .attr('class', "tooltip")
-       .attr('id', 'pieTooltip')
-    ```
-
-    Next, add an event listener to your arcs.
-
-    ```javascript
-    .on('mouseover', function(event, d){})
-    ```
-
-   Make sure to use a regular ```function(){}``` rather than an arrow function so that the
-        keyword ```this``` is bound to the actual arc, i.e. the selection. This will help you to
-         manipulate the color of the selection on hover easily.  
-
-   ```javascript
-   d3.select(this)
-        .attr('stroke-width', '2px')
-        .attr('stroke', 'black')
-        .attr('fill', 'rgba(173,222,255,0.62)')
-    ```
-
-    Inside your ```.on()``` event listener, change the attributes of your tooltip so that it
-     moves to the current mouse position and displays the proper information. Here's a tooltip
-      that should display all the information that you have access to:
-
-   ```javascript
-   vis.tooltip
-        .style("opacity", 1)
-        .style("left", event.pageX + 20 + "px")
-        .style("top", event.pageY + "px")
-        .html(`
-            <div style="border: thin solid grey; border-radius: 5px; background: lightgrey; padding: 20px">
-                <h3>Arc with index #${d.index}<h3>
-                <h4> value: ${d.value}</h4>      
-                <h4> startAngle: ${d.startAngle}</h4>
-                <h4> endAngle: ${d.endAngle}</h4>   
-                <h4> data: ${JSON.stringify(d.data)}</h4>                         
-            </div>`);
-    ```
-
-    Now, the only thing that is missing is to define the ```mouseout``` behavior. It's just
-     resetting everything:
-
-   ```javascript
-   .on('mouseout', function(event, d){
-                   d3.select(this)
-                       .attr('stroke-width', '0px')
-                       .attr("fill", d => d.data.color)
-
-                   vis.tooltip
-                       .style("opacity", 0)
-                       .style("left", 0)
-                       .style("top", 0)
-                       .html(``);
-               })
-    ```
-
-5. **Update pieChart when new data comes in**
-
-    You might have noticed the little ```update``` button on the website. Check out
-    ```main.js``` to understand its behaviour.
-
-    --
-
-    Yes, you're right :) Clicking on it ```triggers``` the ```wrangleData()``` method of
-     ```myPieChart```. Thus, ```displayData``` has changed. Make sure to include ```.merge
-     ()``` when binding the data so that your pieChart updates accodingly.
-
-    &nbsp;
-
-#### Congrats! You've finished Activity I!
-
-> **Important Notice**
->
-> We have used a pie chart as an example because it is one of the most popular chart types, and
-> it demonstrates the concept of D3 shapes very well. However, it is also very important to
-> mention that pie charts are often not the best way to represent data! Humans are not very good
-> at comparing slices of a circle, and pie charts easily lead to misunderstandings or give false
-> impressions of the data. Usually, other visualization methods are more effective, so most of
-> the time you shouldn't use pie charts. If you do, make sure to compare only a very low number
-> of elements within these charts.
-
-&nbsp;
-
-Now that you have been introduced to
-[D3 shapes](https://github.com/d3/d3-shape/blob/master/README.md), feel free to explore the
- different layouts, their features, and their differences to each other! Pie charts are just the
-  beginning!
-
-
------
-
-&nbsp;
-
-
-## Geomapping
-
-In the second part of this lab we will focus on a different topic: We want to show you how to convert geographical data to screen coordinates, in order to create interactive maps. These maps can show specific regions, countries or whole continents. You will learn how to render geographic data as paths, how to assign colors and how to draw data points on top of the map.
-
-
-### GeoJSON
-
-GeoJSON is a JSON-based standard for encoding a variety of geographic data structures. We need the data (e.g., country boundaries, points of interests) in a proper format to generate visualizations of geographic data. Web browsers and especially D3 are not able to render traditional shapefiles, which are used by experts in geographic information systems (GIS). Therefore, GeoJSON has been established as a common way to store this information for use in web browsers.
-
-The sub-units in GeoJSON files are called ***Features***. They contain the geodata (points, polygons, lines, ...) and very often additional information about the objects, for example, the names and the ISO codes of countries. All the features are part of the main object, the ***FeatureCollection***.
-
-*Example:*
-
-```javascript
-{
-	"type" : "FeatureCollection",
-	"features" : [
-		{
-		  "type": "Feature",
-		  "geometry": {
-		    "type": "Point",
-		    "coordinates": [51.507351, -0.127758]
-		  },
-		  "properties": {
-		    "name": "London"
-		  }
-		},
-		{
-			...
-		}
-	]
-}
-```
-
-In this example we have a feature which represents a single geographical point. The coordinates of the point are specified as an array with longitude and latitude values (```[-0.127758, 51.507351]```). In GeoJSON the first element indicates the longitude, the second element the latitude value.
-
-In many more cases, GeoJSON files contain complex polygon data that represent the boundaries of multiple regions or countries instead of a plain list of points:
-
-```javascript
-"geometry": {
-	"type": "MultiPolygon",
-	"coordinates": [[[[-131.602021,55.117982],
-		[-131.569159,55.28229],[-131.355558,55.183705],
-		[-131.38842,55.01392],[-131.645836,55.035827], ...
-    ]]]
-}
-```
-
-Depending on the resolution of the dataset, each feature will include more or less longitude/latitude pairs. As you can imagine, the size of a GeoJSON file becomes tremendously high if you store the boundaries of a whole continent in high resolution.
-
-
-### TopoJSON
-
-TopoJSON is an extension of GeoJSON that encodes topology. The generated geographical data is substantially more compact than GeoJSON and results in a file size reduction of roughly 80%.
-
-Depending on your needs, you will probably find appropriate TopoJSON files online. You can also generate custom TopoJSON files from various formats with the TopoJSON command-line tool.
-
-→ ***Whenever you want to use a TopoJSON file in D3, you will need the TopoJSON JavaScript library to convert the data to GeoJSON for display in a web browser:*** [http://d3js.org/topojson.v1.min.js](http://d3js.org/topojson.v1.min.js)
-
-In addition to the GeoJSON conversion, the JS library provides further methods, for example, to get the neighbors of objects or to combine multiple regions (*topojson.mesh()*).
-
-### Workflow to implement a map with D3
-
-***Create projection ⇒ Create D3 geo path ⇒ Map TopoJSON data to the screen***
-
-#### D3 projections
-
-Drawing a geographical map in D3 requires the mapping of geographical coordinates (longitude, latitude) to screen coordinates (x, y). The functions to process the mapping are called projection methods. D3 already includes a set of the most common geo projections.
-
-*This image shows four different projections in D3:*
-
-![D3 Projections](cs171-d3-projections.png?raw=true "D3 Projections")
-
-*(You can take a look at the [documentation](https://github.com/d3/d3-geo/blob/master/README.md) to see more examples of geo projections.)*
-
-When projecting positions from a sphere (i.e., the world) to a 2D plane, these different projection methods can have very different results. Different projection methods have different characteristics (e.g., distance, direction, shape, area) and show different levels of distortion.
-
-
-#### D3 geo path
-
-The path generator takes the projected 2D geometry from the last step and formats it appropriately for SVG. Or in other words, the generator maps the GeoJSON coordinates to SVG paths by using the projection function.
-
-```javascript
-let path = d3.geoPath()
-    .projection(projection);
-```
-
-
-#### Map TopoJSON data to geo path elements
-
-After defining the SVG area, the projection and the path generator, we can load the TopoJSON
- data, convert it to GeoJSON and finally map it to SVG paths. Here's a one-liner converting
-  TopoJSON data for the US to GeoJSON. The data structure you end up with will allow you to draw a
-   path for each state in the US.
-
-```javascript
-// Convert TopoJSON to GeoJSON (target object = 'states')
-let usa = topojson.feature(data, data.objects.states).features
-```
-
------
-
-## Activity II
-
-![Preview Activity II](cs171_w8_lab_activity2.png?raw=true "D3 Projections")
-
-In the second part of the lab, you will create a choropleth (world) map. You will implement a
- feature that updates the colors of the countries as well as a feature that allows users to
-  rotate the globe. Lastly, you'll also implement a tooltip that appears when a user hovers over a
-   country.
-
-&nbsp;
-
-#### Activities & Walkthrough
-
-1. **Familiarize yourself with the constructor of the class MapVis**
-
-    First, notice that we've already created an instance of MapVis for you. In fact, margin
-     conventions are already set up for you and even a heading is included. Also, the constructor
-      method has been predefined.
-
-	So, let's check out the constructor of class MapVis: Notice, that it has three parameters, i.e
-	. expects three arguments. In addition to the parent element in which the visualization should sit in, it
-	  also wants both data to display as well as geogaphical data. This leads us to the question
-	  : how do we load more than one csv file in JS? We were leveraging the idea of promises using
-	    e.g. d3.csv(), but how would this be done with multiple files? Check out ```main.js``` to
-	     find out.
-
-	Since functions are first class objects, we can store them in an array and then use Promise
-	.all to execute all of them. Very similar to our ```d3.csv()``` method, we have access to
-	 all the data inside ```.then()```. Notice, that since we are loading two data sets, the data
-	  structure is an array with two elements. You have to access them by index if you want to
-	   pass on only one as an argument.
+	→ You should first save the original scale in a variable. 
+	
+	→ Initialize the zoom component and store it in the variable ```vis.zoom```. Define the zoom extent, and register the zoom event listener in ```.on("zoom", zoomFunction)```.
+	
+	→ Set the zoom extent to 1-20
+	
+2. **Implement ```zoomFunction()``` to handle zoom events**
+	
+	Your event listener is called every time the user zooms in or out. In your event listener you should:
+	
+	→ Apply the zoom to the x-axis scale.
+	You can use something like the following:
 
 	```javascript
-    let promises = [
-        d3.json("data/airports.json"),
-        d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json")
-    ];
+	let xScaleModified = event.transform.rescaleX(xScaleOrig);
+	```
+	But make sure you use the scales you have defined (e.g., vis.x, vis.xOrig)
+	
+	→ Call the ```updateVis()``` function. 
+	
+	→ You should check if the brush component is active (user selected a specific time frame) and update it using ```brush.move``` before calling the ```updateVis()``` function. Otherwise the user zooms on the x-axis and the brush window remains unchanged.
 
-    Promise.all(promises)
-        .then( function(data){ initMainPage(data) })
-        .catch( function (err){console.log(err)} );
-    ```
+	```javascript
+	if(vis.currentBrushRegion) {
+		vis.brushGroup.call(vis.brush.move, vis.currentBrushRegion.map(vis.x));
+	}
+	```
 
-	&nbsp;
 
-2. **Think about the MapVis architecture**
+3. **Activate the zoom behavior**
 
-    Now that you're familiar with ```class MapVis```, think about your pipeline and
-     where to do what. What part of the map drawing can you 'outsource' into the ```initVis
-     ()``` method?
+	→ Apply the zoom behavior to your brush by using vis.brushGroup.call()
 
-    Start by assuming that, eventually, you want to be able to update the color of each country
-    . Of course, you could append paths for each country every time you call updateVis() and make
-     use of ```merge()``` but this is probably overkill. After all, the number of countries won't
-      change. Thus, you should consider drawing
-      the map already in initVis() with a transparent fill. In updateVis() you could then just
-       grab that selection and change the fill attribute according to the data.
+	→ Disable clicking and dragging events for the zoom
 
-    &nbsp;
+	Due to the use of *brushing* we have to deal with a special case. We already use the clicking and dragging events for specifying the size of the brush window. Therefore we can't use panning and we have to block these events in the zoom component:
 
-3. **Write and complete initVis method**
+	```javascript
+	selection.call(zoom)
+		.on("mousedown.zoom", null)
+		.on("touchstart.zoom", null);
+	```
 
-    So, what to do in ```initVis()```. Here's a list of all the tasks:
+	For testing you can omit this and open the webpage in your browser. You will notice the *bumpy* interaction.
 
-    1. create a projection.
+4. **Clip all elements that go beyond the borders of your chart area**
 
-        ```javascript
-        vis.projection = d3.geoOrthographic() // d3.geoStereographic()
-            .translate([vis.width / 2, vis.height / 2])
-        ```
+	At the moment we don't filter our data while zooming and we also don't draw a different path. We are just modifying the domain of our x-axis and determine thereby which part is visible and which not. This means that parts of our elements (path or brush rectangle) overlap others and go beyond the borders.
 
-    2. define a geo generator and pass your projection to it
+	To avoid this, you have to clip the elements:
 
-        ```javascript
-        vis.path = d3.geoPath()
-                .projection(vis.projection);
-        ```
+	First you define a clipping region in ```initVis()```:
+	
+	```javascript
+	// Define the clipping region 
+	svg.append("defs")
+		.append("clipPath")
+		.attr("id", "clip")
+		.append("rect")
+			.attr("width", width)
+			.attr("height", height);
+	```
 
-    3. convert your TopoJSON data into GeoJSON data structure
+Then you apply the clipping in ```updateVis()``` by adding a the clip-path attribute to your path:
 
-        ```javascript
-       vis.world = topojson.feature(vis.geoData, vis.geoData.objects.countries).features
-        ```
+```
+	// And apply it to the path, brush and all other elements you want to clip
+	areaPath
+		.datum(data)
+		.attr("d", area)
+		.attr("clip-path", "url(#clip)");
+		
+```
 
-        &nbsp;
 
-    4. draw countries
 
-        ```javascript
-        vis.countries = vis.svg.selectAll(".country")
-            .data(vis.world)
-            .enter().append("path")
-            .attr('class', 'country')
-            .attr("d", vis.path)
-        ```
 
-    &nbsp;       
+#### Bonus Activity (optional) - Implement a button to reset the zoom
 
-4. **Define scale and include a zoom factor**
+Due to the use of *brushing* and *zooming* in one view we can't use the panning behavior. It may happen that the user zooms in and out and the x-axis gets shifted in one direction. The user can't see the full path and has to reposition the mouse multiple times (while zooming) to return to the starting point. With panning, for example, we could move the camera/viewport from left to right.
 
-    Hopefully, you just had a 'wow'-moment. But you're not done, yet. Depending on your browser
-     window size, the map/globe might be a little too big. So, we ask you to scale your
-      projection. ```d3.geoOrthographic()``` has a default scale value of 249.5. Thus, you could
-       just manipulate that by setting ```.scale(230)```. Or, you could calculate a zoom variable
-        based on your ```vis.height``` and multiply the default value 249.5 by that. Solve this
-         task however you want, but keep in mind that you want to make sure that a user on
-          another machine and screen sees the same proportions as you.  
+To solve this problem you can also create a button to reset the view.
 
-    &nbsp;
+→ Add a reset-button to your HTML file
 
-5. **Understand what's going on in wrangleData**
+→ Listen to "clicks" on the button and reset the zoom (scale = 1)
 
-    Just like in the pieChart, we use wrangleData to create some random data. in this case, we
-     create a dictionary with all countries as keys and random colors from an array of 4 colours
-      that we defined in the constructor. We will use this dictionary as lookup table when
-       assigning colors to the countries in ```updateVis()```, which is your next task.
+→ Show the button only if zooming is active or if the x-axis has been shifted
 
-    &nbsp;
+*Great job, you have implemented a more complex visualization system with multiple visualization types, event handlers and state-of-the-art interaction techniques!*
 
-6. **Update the fill attribute of all countries in updateVis()**
 
-    Select all countries (or grab the selection if you already stored it as a property) and change
-     the fill attribute of each country. Use the lookup table that is stored in the property
-      ```countryInfo```.
 
-    The colors of the countries should now update. Also, when clicking on the ```update``` button
-    , you should see the colors of the map update. Can you explain why?
-
-    &nbsp;
-
-7. **Add a tooltip and hover effects**
-
-    Similar to the pieChart, add a tooltip when hovering over a country path. Also, change the
-     color while hovering to have a nice hover effect. If you don't know the code by heart, just
-      look it up in Activity I. (Don't forget to append an actual tooltip div!)
-
-    &nbsp;
-
-8. **Add sphere and graticule to mimic the ocean and the globe**
-
-    You might have been playing around with the fill attribute and maybe you have wondered how to
-     change the color of the ocean. Well, that is actually not that easy because we only have the
-      paths for the countries. Of course, one could try to reverse/inverse-engineer the paths for the
-       ocean but there's an easier way out. Let's just put a sphere behind the map. Here's the
-        code for it:
-
-    ```javascript
-   vis.svg.append("path")
-        .datum({type: "Sphere"})
-        .attr("class", "graticule")
-        .attr('fill', '#ADDEFF')
-        .attr("stroke","rgba(129,129,129,0.35)")
-        .attr("d", vis.path);
-    ```
-
-   &nbsp;
-
-9. **Add legend**
-
-    The map/globe looks nice now, but you are missing one important piece - a legend. For now, we
-     would like you to implement a legend with four steps reflecting the four different colors in
-      the color array in the constructor. Think of this task as producing a very small barchart
-       with less complex data.
-
-    These are the steps to complete the task:
-    - start by creating a legend group. translate it to wherever you want it to be.
-
-    ```javascript
-    vis.legend = vis.svg.append("g")
-        .attr('class', 'legend')
-        .attr('transform', `translate(${vis.width * 2.8 / 4}, ${vis.height - 20})`)
-    ```
-
-    - draw rectangles inside the legend group (they will already be translated!)
-
-    ```javascript
-   vis.legend.selectAll().data(vis.colors)
-        .enter()
-        ...
-    ```
-    - create a legendScale (linear, band, time - whatever you need)
-    - create a legend axis group
-    - create a legend axis
-    - call the legend axis inside the legend axis group
-
-   &nbsp;
-
-10. **Make the map draggable / rotatable**
-
-    You made it this far! Now you've earned some free code. The following lines allow you to
-     drag your map which will result in the globe to rotate. In short, what the code does is to
-      get the values of where you started dragging and where you ended dragging. It then computes the change in
-       pixel values. Together with the information from the projection, we can then update the
-        path for each country accordingly. We do that both for the countries as well as for the
-         graticule. This code can sit in initVis().
-
-    ```javascript
-    let m0,
-    o0;
-
-    vis.svg.call(
-        d3.drag()
-        .on("start", function (event) {
-
-            let lastRotationParams = vis.projection.rotate();
-            m0 = [event.x, event.y];
-            o0 = [-lastRotationParams[0], -lastRotationParams[1]];
-        })
-        .on("drag", function (event) {
-            if (m0) {
-                let m1 = [event.x, event.y],
-                    o1 = [o0[0] + (m0[0] - m1[0]) / 4, o0[1] + (m1[1] - m0[1]) / 4];
-                vis.projection.rotate([-o1[0], -o1[1]]);
-            }
-
-            // Update the map
-            vis.path = d3.geoPath().projection(vis.projection);
-            d3.selectAll(".country").attr("d", vis.path)
-            d3.selectAll(".graticule").attr("d", vis.path)
-        })
-    )
-    ```
-
-    &nbsp;
-
-11. **Play with other layouts**    
-
-    OK, time for more fun with maps. Play around with other projections. Follow this [link](https://github.com/d3/d3-geo)
-    and scroll down to the various projections. Swap out ```d3.geoOrthographic()``` for e.g. ```d3
-    .geoStereographic()```, etc.
-
-    &nbsp;
-
-12. **BONUS: Draw airports and connections**
-
-    In case you haven't had enough, we challenge you to also display the airports in the map
-    . Remember that your object ```myMapVis``` already has access to the airport data. Including
-     the airports as circles shouldn't be too hard for you. The only thing new for you is how to
-      set up the coordinates for both the airports as well as the connections. Here are some
-       useful lines of code.
-
-    ```javascript
-
-    // airports
-    .attr('cx', d => vis.projection([d.longitude, d.latitude])[0])
-    .attr('cy', d => vis.projection([d.longitude, d.latitude])[1]
-
-    // connections
-    .attr("x1", function(d) { return vis.projection([vis.airportData.nodes[d.source].longitude, vis.airportData.nodes[d.source].latitude])[0]; })
-    .attr("y1", function(d) { return vis.projection([vis.airportData.nodes[d.source].longitude, vis.airportData.nodes[d.source].latitude])[1]; })
-    .attr("x2", function(d) { return vis.projection([vis.airportData.nodes[d.target].longitude, vis.airportData.nodes[d.target].latitude])[0]; })
-    .attr("y2", function(d) { return vis.projection([vis.airportData.nodes[d.target].longitude, vis.airportData.nodes[d.target].latitude])[1]; });
-
-    ```
-     Almost done! Now you just need to make sure that the dragging behavior is fine. Check out
-      how we handled updating the country and graticule paths in ```d3.drag().on('drag', function
-      (){....})``` and combine that with your knowledge of setting up the x & y coordinates using
-       longitude & latitude values.
 
 -----
 
-### Congratulations! You've completed this week's lab! 
+### Lab Submission
 
-Please submit a zip file of your folder structure and files!
+Congratulations, you have now completed the activities of this week's lab!
 
-&nbsp;
+Please submit the code of your completed lab together with this week's homework until next Monday - exact instructions are in the homework markdown as always!
 
-### Resource
+-----
 
-- Chapters 13 (p. 267-289) and 14 (p. 291-325) in *D3 - Interactive Data Visualization for the Web* by Scott Murray
-- [http://bost.ocks.org/mike/map/](http://bost.ocks.org/mike/map/)
-- [https://github.com/d3/d3-geo/blob/master/README.mdd](https://github.com/d3/d3-geo/blob/master/README.md)
-- [https://github.com/mbostock/topojson](https://github.com/mbostock/topojson)
-- [https://www.jasondavies.com/maps/rotate/](https://www.jasondavies.com/maps/rotate/)
-- [https://codeasart.com/globe/](https://codeasart.com/globe/)
+**Resources**
+
+- [https://github.com/d3/d3-zoom/blob/master/README.md](https://github.com/d3/d3-zoom/blob/master/README.md)
+- [https://bl.ocks.org/rutgerhofste/5bd5b06f7817f0ff3ba1daa64dee629d](https://bl.ocks.org/rutgerhofste/5bd5b06f7817f0ff3ba1daa64dee629d)
