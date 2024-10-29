@@ -75,7 +75,7 @@ While the data wrangling algorithms Fraya wrote are very helpful, Helmuth Wiesel
  ugly table. He is hoping that you could implement a choropleth map for him.
 
 Having attended a D3 choropleth bootcamp recently, you think that you're well-equipped for the
- task and agree to help Wiesel. He cries tears of happiness and sends you a [.zip](https://www.cs171.org/Homework_instructions/week-09/hw/Template.zip) file with the code
+ task and agree to help Wiesel. He cries tears of happiness and sends you a [.zip](https://www.cs171.org/Homework_instructions/week-08/hw/Template.zip) file with the code
   that Fraya has written so far.
 
 
@@ -85,7 +85,7 @@ Having attended a D3 choropleth bootcamp recently, you think that you're well-eq
 
 1. **Download the resources**
 
-	Download the template: [Template.zip](https://www.cs171.org/Homework_instructions/week-09/hw/Template.zip)
+	Download the template: [Template.zip](https://www.cs171.org/Homework_instructions/week-08/hw/Template.zip)
 
 	&nbsp;
 
