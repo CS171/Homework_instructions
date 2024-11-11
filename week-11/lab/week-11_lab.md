@@ -1,536 +1,606 @@
 <!---
-layout: lab
+layout: labold
 exclude: true
 --->
 
-
-<img src="cs171-logo.png" width="200">
+<img src="assets/cs171-logo.png" width="200">
 
 &nbsp;
 
-# Week 11 Lab
+# Week 12 Lab
+
+### Pre-Reading Quiz
+Please fill out the pre-reading quiz on Canvas at the beginning of class!
 
 ### Learning Objectives
 
-- Know how to integrate a sophisticated *event handling mechanism* to connect multiple visualizations components and UI elements with each other
-- Get more experience with *brushing* and *zooming* in D3
-- Get a better understanding of *system design* and *code structure* in order to be able to create larger visualization system
+- Know how to use data APIs
+- Know how to use the Fetch API, i.e. `fetch()`
+- Know how to create interactive maps with the JS framework *Leaflet.js*
+	- Load tiles from different providers
+	- Draw markers, polygons, circles, etc.
+	- Import GeoJSON data and render it on the map 
 
 
 ### Prerequisites
 
-- You already have an overview of the *My World 2015* project and the datasets we are going to use today ([cs171-week11lab-reading.pdf](cs171-week11lab-reading.pdf))
+- You have read the documentation of and know how to use **fetch()** - [link](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
 
 
-In the last weeks you have learned how to implement common visualization types in D3. You have learned how to use brushing and you have linked multiple reusable views with each other by using a very basic event handler (global *brush* function). This lab is built on all these fundamentals. You will learn how to structure a larger visualization system and how to integrate an event handling mechanism, which you will very likely need for your final projects. Due to the extensive example, which is necessary to demonstrate how to structure larger systems, we will provide a template with many completed parts. Your main tasks will focus on the structure, the interactions and the event handling components. However, please make sure that you understand the code in the provided templates, and take your time to read through it!
+### Data Sources
+
+In the past few weeks you have worked only with *static* datasets. Either with small arrays or
+ external CSV, JSON or GeoJSON files. While we were using online resources in some cases, you
+  could have stored all the files we've used so fare locally. The advantage of storing data
+   locally is that your application is independent and that the data will not change.
+
+Very often, however, the data sources of visualizations are *dynamic* and you have to deal with a
+ *data stream* instead of a static dataset (just think of election data on election night for
+  example). Also, the overall dataset might be very large, and you just want a subset. In both
+   examples, you might just want to send a query to an external service (data API) to get the specific
+    information that is currently needed.
+
+Data APIs allow you to programmatically access a wealth of open data resources from governments
+, NGO's and companies. Especially with the evolution of e-government and open data initiatives
+ worldwide, more and more APIs are made available to the general public.
+
+During this lab you will learn how to access these web services and how to visualize the
+ requested data. In contrast to the last weeks you don't have to deal with D3 today. Instead,you
+  will learn how to create interactive maps with the JavaScript library *Leaflet*. This powerful library has been established as an open source alternative to *Google Maps* to create zoomable, interactive maps. But you can also render D3 on top of a Leaflet map or create linked D3/Leaflet views for a more comprehensive visualizations.
+
+### Example
+
+The activities of today's lab will guide you through the implementation of an interactive map. You will have to visualize *stations* of Boston's bike-sharing network *Blue Bikes* (formerly known as Hubway).
+
+A major aspect of these bike-sharing networks is the dynamic "fill level" of the individual
+ stations. The number of bikes available in a station is important for the network operator, who
+  must take care of a balanced network, as well as for the consumer, who wants to rent a bike. While the operator is probably more interested in the *big picture*, the consumer wants to know if there is an available bike at the start and an avaialable docking station at the end of the route.
+
+In the following activities you will have to create a basic overview map to help the user get a rough impression of the local bike-sharing network.
+
+*Blue Bikes has a compex API that provides lots of information:*  [API Documentation](https://www.bluebikes.com/system-data), [System Information JSON](https://gbfs.bluebikes.com/gbfs/en/system_information.json)
 
 
-## United Nations - My World 2015
-
-You will build a system that allows interactive selection of time slices of the poll data from the years 2012 and 2013. For the selected time period, the visualization will show the amount of votes per priority/choice from the poll data in addition to a histogram of participant's age for the given selection.
-
-*Preview of the final system:*
-
-![Lab 9 - Preview](cs171-lab9-preview.gif?raw=true "Lab 9 - Preview")
 
 
-### Data
 
-We have already aggregated and transformed the original datasets to make the data format a better fit to the tasks we want to perform. You should know the rough structure and the contained information from the pre-reading.
+#### Preview
 
-
-- ```perDayData.json```
-- ```myWorldFields.json``` *(= metadata about the 15 priorities)*
+![Lab 12 - Preview](assets/cs171-lab12-preview.png?raw=true "Lab 12 - Preview")
 
 
-### Template
 
-This lab combines many concepts that we have introduced during the last weeks and gives you all the tools you need to build a larger visualization system on the web. The provided template is similar to the template from an earlier lab where we worked with multiple coordinated views for the first time. It is based on Bootstrap and it contains a basic HTML structure, some CSS rules and pieces of JS code.
+## What is `fetch()` and why is it useful?
 
-The controller and the data loading scripts are in the ```main.js``` file.
-
-You will implement the visualizations again as reusable components (JS objects) in separate files:
-
-- ```agevis.js```
-- ```countvis.js```
-- ```priovis.js```
-
-We have also included all the other usual files (index.html, style.css, etc) and libraries (Bootstrap, D3), like in our previous labs and homeworks.
-
-## Implementation
-
-The following image shows the visualization components of the system we are going to build. The core of the webpage and the main interaction point is *CountVis* (```countvis.js```). The area chart in the second row (*AgeVis*) gives an overview of the participants age and the bar chart shows the number of votes for each priority. If you consider this as a focus+context visualization, the *CountVis* component provides the context and the other two views display detailed information for the selected time frame.
-
-![Lab 9 - Components](cs171-lab9-vis-components.png?raw=true "Lab 9 - Components")
-
-
-### Data loading and pre-processing
-
-When you start to work on your final project or on other larger visualization systems you will probably find out that the data is not every time available in the desired format. Sometimes you have to transpose the data, aggregate values or combine datasets from multiple sources. In the course of the last weeks you have already learned how to handle most of it. In the following we want to introduce a new D3 technique that we have used in the *My World 2015* example and that helps you to extract/generate data.
-
-We can use the ```d3.range()``` function to generate a range of numeric values:
-
-```javascript
-let arithmeticProgression = d3.range(0,10);
-arithmeticProgression    // Returns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-```
-
-(The arguments specify the *start* and *end* of our sequence. If you start with 0 the second parameter is equal to the length of the array. You can test some examples in your web console.)
-
-And we can use ```map()``` to execute a custom function for each value in a given array:
+You have already worked with the d3-fetch module in the past. We have been using `d3.csv` and `d3.json` in almost 
+every single lab and homework. Here's some sample code to remind you of the syntax:
 
 ```javascript
-let result = arithmeticProgression.map(function(d){
-	return d * 2;
-});
-result    // Returns: [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
-```
-
-Finally, the combination of these methods allows us to generate arrays with custom values:
-
-```javascript
-let twelveZeros = d3.range(0,12).map(function(){
-	return 0;
-});
-twelveZeros     // Returns: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-```
-
-Or to transform data that is stored in key-value format to arrays:
-
-```javascript
-let data = {
-	"sum-0": 10,
-	"sum-1": 20,
-	"sum-2": 30,
-	"sum-3": 40
-};
-
-let result = d3.range(0,4).map(function(counter){
-	return data["sum-" + counter];
+// loading csv
+d3.csv("/path/to/file.csv").then(function(data) {
+  console.log(data); // [{"Hello": "world"}, …]
 });
 
-result      // Returns: [10, 20, 30, 40]
+
+// loading json
+d3.json("/path/to/file.json").then(function(data) {
+  console.log(data); // [{"Hello": "world"}, …]
+});
 ```
 
-----
+The [d3-fetch](https://github.com/d3/d3-fetch) module is built on top of the javascript fetch API. As a consequence, you would be able to complete all the 
+tasks of this lab by using d3.json, but we would like to teach you what's going on underneath the hood. 
 
-#### Activity I - Load the template and complete the charts
+When you make an HTTP request from a URL, the fetch() method will return an object. In the first `.then()` method 
+of fetch, you can pass in a call-back function that takes as an argument the body of the response object. 
+You can then call a method on the body of the return object (i.e. `.json()`, `.text()`, etc.) to convert it accordingly. This is what d3 is doing for you as long as you select 
+the right method (i.e. d3.csv, d3.json, ... etc. ). Apart from that, the JavaScript fetch API works exactly like the d3-fetch module.
+   
+```javascript
+fetch('http://example.com/movies.json')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+## APIs
+
+Lastly, we need to talk about APIs. Modern APIs adhere to standards (typically HTTP and REST), that are 
+developer-friendly, easily accessible and understood broadly
+
+---
+
+#### Activity I - Request station data from *Blue Bikes*
+
+You will notice that in this activity we do not give you as many helpful pointers as in previous labs. We do this with the goal to prepare you for your final projects, where you will have to develop D3 code independently in your groups. 
 
 1. **Download the template**
 
-	[TemplateEasy.zip](TemplateEasy.zip)
-
-2. **Open the file ```main.js``` and get an overview of the data loading and cleaning procedure**
-
-	At the beginning of the file we have used promises to load the two datasets asynchronously.
-
-	If you have a look at the function ```createVis()``` you will recognize the mentioned technique ```d3.range(n).map()```. We use it to clean the main dataset ```perDayData.json``` and to prepare it for the use in the visualization objects.
-
-	The basic implementation of the CountVis object is completed too. You should already know how to draw an area chart in D3. If you open ```index.html``` in your web browser you should see the graph showing the number of votes for a specific time period.
-
-3. **Implement the *AgeVis* component** (the second visualization)
-
-	The second area chart visualizes the number of votes per age. We have also provided many code snippets in the file ```agevis.js``` but one further step is required.
-
-	The dataset ```perDayData.json``` currently groups all votes per day and age, but for this view we have to aggregate the values for each age group without the temporal information.
-
-	*Example:*
-
-	```javascript
-	// Raw data - aggregated by date
-	let days = [
-		{ "date": "2017-08-07", "cat-0": 1, "cat-1": 4, "cat-2": 3 },
-		{ "date": "2017-08-08", "cat-0": 2, "cat-1": 0, "cat-2": 1 },
-		{ "date": "2017-08-09", "cat-0": 7, "cat-1": 11, "cat-2": 1 }
-	];
-
-	// Result array should be aggregated by category (cat-0 to cat-2)
-	// Prepare empty array
-	let countPerCategory = d3.range(0,3).map(function() {
-		return 0;
-	});
-
-	// Aggegrate by category:
-	// Iterate over each day and fill array
-	days.forEach(function(day){
-		d3.range(0,3).forEach(function(i){
-			countPerCategory[i] += day["cat-" + i];
-		});
-	});
-
-	countPerCategory    // Returns: [10, 15, 5]
-	```
-
-	Read the above code snipped carefully, and understand what it is doing before you continue!
+	[Template.zip](Template.zip)
 	
-	→ In ```main.js```: Create an instance of the AgeVis component. The code snippet is already there, just remove the comment. Note: Since the AgeVis component is not fully implemented yet, you might get errors or warnings when instancing that component.
+	The template is based on *Bootstrap*	
+	- ```index.html``` contains references to the JS and CSS files. There is also an empty *div* element (ID: ```station-map```) that should be used as parent container for your map.
+
+	- ```main.js``` and ```stationMap.js``` contain only a basic boilerplate. The structure is similar to our previous lab, but with less provided code.
+
+2. **Request data from the Blue Bikes API** 
 	
-	→ In ```agevis.js```: Adopt this code snippet for the aggregation of votes, following our visualization pipeline, in the ```wrangleData()``` function. The My World 2015 project collects votes for all ages <= 99. You can use the web console in between to debug your code and to better understand the data transformation.
+	Write the response to the web console and analyze the data. 	
 
+3. **Extract an array with stations (JSON objects) from the response object**
 
-
-	→ Open the webpage in your browser! If everything worked, you should see both area charts. If you get an error message in the web console you should fix it before going further.
-
-
-4. **Implement the *PrioVis* component**
-
-	The bar chart (```priovis.js```) shows how many people voted (y-axis) for which of the 15 priorities (x-axis). Similar to the *AgeVis* component, the data is grouped by day and you have to aggregate it first.
-
-	→ Create an instance of the PrioVis component in ```main.js```. Pay attention what parameters PrioVis expects at creation.
+	Use the dot-notation to navigate and select the necessary data from the tree. 
 	
-	→ Aggregate the votes for each priority in the ```wrangleData()``` function (basically the same procedure as before in AgeVis, but this time you aggregate over priorities instead of ages).
-
-	→ Open the webpage in your browser and check if all three charts are visible
-
-
-5. **Update the x-axis of the bar chart**
-
-	If you have finished all the previous steps, the user can see a bar chart with the number of votes for each priority on your webpage. Unfortunately, the numbers 0-14 have little meaning to the user and it would be helpful if you could display the names of the priorities on the x-axis instead.
-
-	You can modify the axis text after calling the axis component, like in this example, where we add the string "Cat-" as a prefix for every y-axis label:
-
-	```javascript
-	svg.select(".y-axis")
-		.call(yAxis)
-		.selectAll("text")
-			.text(function(d){
-				return "Cat-" + d;
-			});
-	```
-
-	(Alternatively, you can use D3's ```tickFormat``` function)
-
-	→ In ```updateVis()```: Modify the code where the x-axis is being called, to adjust the labels (```.text```) of the x-axis. Use the values from the dataset *metaData* and display the full title for each priority. 
 	
-	*Hint:* We already included the second dataset in the object constructor function and, due to the length of the titles, we rotated all x-axis labels by 45 degrees. You can use ```console.log(vis.metaData)``` to find out how to access the data you are looking for.)
+4. **Create a new, empty data structure called `displayData` and populate it with all the stations Information**
+    
+    Look at the format of the data, what are the fields or data attributes? Then, iterate over all the stations, 
+    convert the data where necessary, and push each station into your final data structure `displayData`
 
-----
+   Specifically, the data we're interested in are station name (`name`), capacity (`capacity`), latitude (`lat`), and longitude (`lon`).
 
-### Event handling
+5. **Show the number of stations on the website using Javascript**
 
-At the moment, the views display votes for the full time period (whole dataset) and they are not linked to each other.
+	*We have integrated an HTML element ```(id="station-count")``` which should contain the number of stations of Boston's bike-sharing network.*
+	
+	Update the `innerText` of this element to reflect the number of stations.	
+5. **Create an instance of ```StationMap```**
+	
+	*In addition to the ```main.js``` file we have also included a template for the "visualization object".*
+	
+	→ Create an instance of this object and pass over the data and the ID of the parent container (*"station-map"*)
 
-Similar to lab 6 we will use *brushing* to enable the user to select a specific time frame and to filter the votes by time. *CountVis* is the main interaction point and the other two charts are getting updated accordingly.
+	You don't need to implement a map for now, but you can output the data to the web console, to see if it works.
 
-To connect the three views we will make use of an event handler. Instead of being directly connected with each other, the views talk to each other via a mediator. A popular analogy of this principle is the Twitter service. For example, Homer follows (binds himself to) Bart. Once he has done that, Homer will be notified every time Bart tweets (triggers a message event), Homer and all other followers get notified. However, Bart is only notified of Homer's tweets when he also explicitly subscribes to Homer. Applied to our visualizations that can be imagined as:
+---
 
-![Lab 9 - Event Handler](cs171-lab9-event-handler.png?raw=true "Lab 9 - Event Handler")
+### Leaflet
 
+*Leaflet* is a lightweight JavaScript library for mobile-friendly interactive maps. It is open source, which means that there are no costs or dependencies for incorporating it into your visualization. Leaflet works across all major browsers, can be extended with a huge amount of plugins, and the implementation is straight-forward. The library provides a technical basis that is comparable to *Google Maps*, which means that most users are already familiar with it.
 
-#### Brushing (review)
+*Downloads, Tutorials & Docs: [http://leafletjs.com/](http://leafletjs.com/)*
 
-In D3, a brush is an interactive area where clicking and dragging on the mouse is interpreted as a selection of a range. The range selection can be used to make changes to the visualization. The extent of the selection is shown as illustrated in the following image. Note that the area where you can click and drag to initiate a brush is shown in blue, while the visible representation of the brush is shown in grey.
+#### Implementation
 
-<img src="cs171-lab9-brush-region.png" width="300">
+*Before continuing with the next activity we will give you a short overview of the required steps for creating a Leaflet map.*
 
+After downloading and including the necessary files you will just need a few lines of code to create a basic map.
 
-There are three types of D3 brushes: ```brushX```, ```brushY```, and ```brush```. You have to initialize the brush and assign an extent, which (most of the time) is the same size as the visualization itself.
+*Parent HTML container for the map:* (note that this is just an example!)
 
-The property **```on```** must be used to set an event listener, whereby you can choose between three different events:
-
-- ```start``` - on mousedown
-- ```brush``` - on mousemove, if the brush selection has changed
-- ```end``` - on mouseup
-
-```javascript
-// Initialize time scale (x-axis)
-let x = d3.scaleTime()
-	.range([0, width])
-	.domain(d3.extent(displayData, function(d) { return d.Year; }));
-
-// Initialize brush
-let brush = d3.brushX()
-	.on("brush", brushed)
-	.extent([[0,0],[width,height]]);
-
-// Append brush
-svg.append("g")
-	.attr("class", "brush")
-	.call(brush);
+```html
+<div id="ny-map"></div>
 ```
 
-Up to now we have always created a global function ```brushed()``` in the ```main.js``` file that was triggered every time when the brush region changed. In this file we can access and update all the other views. Although this solution is easy to understand and can be implemented quickly, it is not ideal for larger visualization systems. In this lab we will interchange it with an event handler.
-
-#### Event handler
-
-In Javascript, events are bound to DOM elements. In this lab we propose a global event handler, which binds custom events to the `body` of our HTML document. This event handler has special methods to bind a custom handler to an event (defined by a string) and then trigger that event. 
+*Initialize the map object:*
 
 ```javascript
-let eventHandler = {
-	bind: (eventName, handler) => {
-	    document.body.addEventListener(eventName, handler);
-	},
-	trigger: (eventName, extraParameters) => {
-	    document.body.dispatchEvent(new CustomEvent(eventName, {
-	        detail: extraParameters
-	    }));
-	}
+let map = L.map('ny-map').setView([40.712784, -74.005941], 13);
+```
+*[40.712784, -74.005941]* ...corresponds to the geographical center of the map (*[latitdue, longitude]*). In this example we have specfied the center to be in New York City.
+
+If you want to know the latitude-longitude pair of a specific city or address you can use a web service, for instance: [http://www.latlong.net](http://www.latlong.net)
+
+Additionaly, we have defined a default zoom-level (*13*). All further specifications are optional and described in the [Leaflet documentation](http://leafletjs.com/reference.html).
+
+*Add a tile layer to the map:*
+
+```javascript
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+```
+In this code snippet, the URL *"http://{s}.tile.osm.org/{z}/{x}/{y}.png"* is particularly important. Leaflet provides only the *"infrastructure"* but it does not contain any map imagery. For this reason, the data - called tiles - must be implemented by map data providers. That means that we have to choose a provider and specify the source of the map tiles (see URL).
+
+A list of many *tile layer* examples (that work with Leaflet) is available on this webpage: [https://leaflet-extras.github.io/leaflet-providers/preview/](https://leaflet-extras.github.io/leaflet-providers/preview/)
+
+Some of the map providers (e.g., *OpenStreetMap*, *Stamen*) made their data completely available for free, while others require the registration of an API key (*Google*, *MapBox*, ...) and charge fees after exceeding a specific limit.
+
+*Examples:*
+
+![Map Tiles - Examples](assets/cs171-map-tiles-provider.png?raw=true "Map Tiles - Examples")
+
+For now, we will use tiles from *OpenStreetMap* (*"http://{s}.tile.osm.org/{z}/{x}/{y}.png"*).
+
+After adding a tile layer to the map object, the page still remains empty. You have to make sure that the map container has a defined height.
+
+*Specify the size of the map container in CSS:*
+
+```css
+#ny-map {
+	width: 100%;
+	height: 600px;
 }
 ```
 
-```.bind(eventName, handler)``` - binds the function ```handler``` to an event (the event is specified as the name of the event, as a string ```eventName```). That means, when a certain event occurs (e.g., ```bartTweeted```) the handler function (e.g. ```readBartsTweet```) is being called.
-- ```.trigger(eventName, extraParameters)``` - triggers an event ```eventType``` and calls all functions that are bound to this event. Here, eventType is a string (see above) and extraParameter is an object representing extra data, like e.g., the current location of Bart. The extraParameters added to an object named `detail` within the event (`event.detail`).
-
--->
-
-The event handler must be initialized in the controller (```main.js```). We have prepared a small example for a better understanding:
+*You can add a marker with the following line of code:*
 
 ```javascript
-// 1. Create event handler
-let eventHandler = {
-	bind: (eventName, handler) => {
-	    document.body.addEventListener(eventName, handler);
-	},
-	trigger: (eventName, extraParameters) => {
-	    document.body.dispatchEvent(new CustomEvent(eventName, {
-	        detail: extraParameters
-	    }));
+let marker = L.marker([40.713008, -74.013169]).addTo(map);
+```
+
+The array (```[40.713008, -74.013169]```) refers again to a latitude-longitude pair, in our example to the position of *One World Trade Center*.
+
+*You have many more options. For example, you can bind a popup to a marker:*
+
+```javascript
+let popupContent =  "<strong>One World Trade Center</strong><br/>";
+	popupContent += "New York City";
+
+// Create a marker and bind a popup with a particular HTML content
+let marker = L.marker([40.713008, -74.013169])
+	.bindPopup(popupContent)
+	.addTo(map);
+```
+
+*Result:*
+
+![Leaflet - Example](assets/cs171-leaflet-map.png?raw=true "Leaflet - Example")
+
+**LayerGroups**
+
+Leaflet provides some features to organize markers and other objects that we would like to draw. Basically, it is a layering concept, which means that each marker, circle, polygon etc. is a single layer. These layers can be grouped into *LayerGroups* which makes the handling of these objects easier.
+	
+Suppose we want to create an interactive map for a hotel in New York City. We want to show the hotel location, the most popular sights, the nearest subway stations and so on. Now, we could create several LayerGroups for these elements. The advantage of this additional step is, that it is much easier to filter or highlight objects (e.g. show only *sights*).
+
+```javascript
+// Add empty layer groups for the markers / map objects
+nySights = L.layerGroup().addTo(map);
+subwayStations = L.layerGroup().addTo(map);
+```
+
+```javascript
+// Create marker
+let centralPark = L.marker([40.771133,-73.974187]).bindPopup("Central Park");
+
+// Add marker to layer group
+nySights.addLayer(centralPark);
+```
+
+Now you have a *sights* layer that combines these markers into one layer and that you can add or remove from the map in one single operation.
+
+This was just a small example to help you get started with *Leaflet*. The library provides many more features and allows you to create powerful applications, especially if it is linked to D3 or other visualization components.
+
+In the course of this lab we will show you a few more features but we encourage you to have a look at the Leaflet website for further implementation details and tutorials: [http://leafletjs.com/](http://leafletjs.com/)
+
+---
+
+#### Activity II - Create an interactive map with Leaflet.js
+
+1. **Download Leaflet** *(latest stable version)*
+
+	[http://leafletjs.com/download.html](http://leafletjs.com/download.html)
+
+2. **Integrate the library into your project**
+
+	*Unzip the downloaded archive to your website’s directory and reference the JS and CSS files in your HTML document.*
+	
+	```html
+	<link rel="stylesheet" href="css/leaflet.css">
+	```
+	```html
+	<script src="js/leaflet.js"></script>
+	```
+	
+	Leaflet assumes that the directory ```images``` (with leaflet images, e.g. markers) is in the same directory as ```leaflet.css```.
+	
+	We would recommend you to separate the images from your css directory and stick to this structure:
+	
+	- **index.html** is the default file that appears when a user invokes your webpage. It includes a basic structure and a placeholder for your interactive map. 
+	- **/js** contains the JS libraries (Bootstrap, D3, leaflet) and your JS files ```main.js``` and ```stationMap.js```
+	- **/data** contains the data files
+	- **/css** contains the stylesheet files (libraries and custom styles)
+	- **/img** contains all the images
+
+3. **Instantiate a new Leaflet map object**
+
+	You should implement all the map related functionality in *stationMap.js*.
+	
+	*General pipeline:*
+	
+	- ```initVis()``` - Initialize static components
+	- ```wrangleData()``` - Can be used later to filter/modify the data
+	- ```updateVis()``` - Draw the markers, objects etc. on top of the map
+	
+	→ Create an instance of the Leaflet map, specify Boston as the geographical center and choose a proper zoom-level.
+	
+	→ It would make sense to include the parameter for the *map center* in the object constructor method. As a result, the visualization would be more flexible, we could create several instances of ```StationMap``` and define an individual location every time. Please adjust your code accordingly:
+	
+	For example, for a New York City map:
+	
+	```javascript
+	nyMap = new StationMap("ny-map", alldata, [40.712784, -74.005941]);
+	```
+	
+	Likewise, for our map of bike stations, we would use:
+	
+	```javascript
+	stationMap = new StationMap("station-map", displayData, [???, ???]);
+	```
+	
+	→ Specify the path to the Leaflet images (in ```initVis()```)
+	
+	```javascript
+	// If the images are in the directory "/img":
+	L.Icon.Default.imagePath = 'img/';
+	```
+	
+4. **Load and display a tile layer on the map (in ```initVis()```)**
+
+	OpenStreetMap: ```http://{s}.tile.osm.org/{z}/{x}/{y}.png``` 
+
+	*Don't forget to define a container height in css.*
+	
+	After reloading your webpage you should see the map. Currently, there are no markers visible but you should be able to zoom and pan. 
+
+5. **Draw a marker (in 	```updateVis()```)**
+
+	At the position of the *SEC* at Harvard University:
+	Latitude | Longitude
+	-------- | ---------
+	42.363230492629455 | -71.12731607927883
+	*Preview:*
+
+	![Leaflet - Marker](assets/cs171-leaflet-single-marker.png?raw=true "Leaflet - Marker")
+
+6. **Draw a marker for each station of the Blue Bikes bike-sharing network (in ```updateVis()```)**
+
+	*If the creation of the single marker worked, reuse the code for this step. You don't necessarily need the SEC marker anymore.*
+	
+	→ Loop through the dataset and append a marker for each station. Instead of fixed coordinates, use the individual latitude-longitude pairs of the stations to position the markers. Make sure, the map visualization stays as flexible as possible. For example, it should be easy to reuse the *StationMap* implementation for other bike-sharing networks.
+	
+	*It would also be a good opportunity to try the ```LayerGroup```.* You can create a new, empty LayerGroup in ```initVis()```, then in ```updateVis()``` you will need to clear the LayerGroup, and add all new elements to it.
+	
+	→ Bind a popup to each station marker that indicates the *station name* and *capacity*.
+
+---
+
+#### Circles, lines and polygons
+
+Besides markers, you can easily add other things to your map, including circles, lines and polygons.
+
+*Adding a circle is similar to drawing markers but you need a radius (units in meters) and you can specify some additional visual attributes:*
+
+```javascript
+let circle = L.circle([40.762188, -73.971606], 500, {
+    color: 'red',
+    fillColor: '#ddd',
+    fillOpacity: 0.5
+}).addTo(map);
+```
+
+This piece of code creates a circle, centered at the *Four Seasons New York* with a radius of 500 meters.
+
+*Result:*
+
+![Leaflet - Circle](assets/cs171-leaflet-map-2.png?raw=true "Leaflet - Circle")
+
+If you want to draw a line, you can use the Leaflet class ```Polyline```. It follows the same concept. First you define the coordinates (in this case a list of latitude-longitude pairs) and then, optionally, you can define an object with visual attributes.
+
+*Draw a polyline between three points:* 
+
+```javascript
+let polyline = L.polyline(
+	[
+		[40.711277, -74.003314],
+		[40.699890, -73.988851],
+		[40.696344, -73.988765]
+	],
+	{ 
+		color: 'black',
+		opacity: 0.6,
+		weight: 8
 	}
+).addTo(map);
+```
+
+*Adding a polygon is as easy. You just need to specify the corner points as a list of latitude-longitude pairs:*
+
+```javascript
+let polygon = L.polygon(
+	[
+	    [40.728328, -74.002868],
+	    [40.721937, -74.005443],
+	    [40.718961, -74.001280],
+	    [40.725287, -73.995916]
+	],
+	{ 
+		color: "red",
+		fillOpacity: 0.5,
+		weight: 3
+	}
+).addTo(map);
+```
+
+*You can bind popups to these objects too:*
+
+```javascript
+polygon.bindPopup("SoHo, Manhattan");
+```
+
+![Leaflet - Layers](assets/cs171-leaflet-map-3.png?raw=true "Leaflet - Layers")
+
+
+#### GeoJSON Layer
+
+Leaflet has also built-in methods to support GeoJSON objects. You are already familiar with this special JSON format. 
+
+GeoJSON support becomes very important if you want to draw complex shapes or many objects on a map.
+
+*After loading the GeoJSON objects (usually external files) you can add them to the map through a GeoJSON layer:*
+
+```javascript
+L.geoJson(geojsonFeature).addTo(map);
+```
+
+Leaflet automatically detects the features and maps them to circles, lines, polygons etc on the map.
+
+*In this example we have loaded a GeoJSON file with the five boroughs of New York City:*
+
+![Leaflet - GeoJSON](assets/cs171-leaflet-geojson-1.png?raw=true "Leaflet - GeoJSON")
+
+The library provides also a method to style individual features of the GeoJSON layer. You can assign a callback function to the option ```style``` which styles individual features based on their properties.
+
+```javascript
+let boroughs = L.geoJson(data, {
+	style: styleBorough,
+	weight: 5,
+	fillOpacity: 0.7
+}).addTo(map);
+
+function styleBorough(feature) {
+	console.log(feature);
 }
-
-// 2. Create visualization instances
-let contextVis = new ContextVis("context-vis", data, eventHandler);
-let focusVis = new FocusVis("focus-vis", data);
 ```
 
-In the brushing component (```contextvis.js```) we can listen to changes and trigger the event handler accordingly:
+*The output in the web console shows that the function ```styleBorough()``` is getting called for each borough (= GeoJSON feature):*
+
+![Leaflet - GeoJSON Features](assets/cs171-leaflet-geojson-2.png?raw=true "Leaflet - GeoJSON Features")
+
+That means, we can access the properties of each borough (e.g. ```boroName```) and style the shapes individually:
 
 ```javascript
-let brush = d3.brushX()
-	.extent([[0,0],[width, height]])
-	.on("brush", function(event){
-		// User just selected a specific region
-		vis.currentBrushRegion = event.selection;
-		vis.currentBrushRegion = vis.currentBrushRegion.map(x.invert);
-		
-		// 3. Trigger the event 'selectionChanged' of our event handler
-		vis.eventHandler.trigger("selectionChanged", vis.currentBrushRegion);
-	});
+function styleBorough(feature) {
+  switch (feature.properties.BoroName) {
+      case 'Staten Island': 	return { color: "#895f9f" };
+      case 'Manhattan': 		return { color: "#71a552" };
+      case 'Queens': 			return { color: "#ea8441" };
+      case 'Brooklyn': 			return { color: "#fff560" };
+      case 'Bronx': 			return { color: "#cb3f3c" };
+  }
+}
 ```
 
-*Hint:* Use the console to see what ```vis.currentBrushRegion``` is - you may need to convert it into its corresponding range in your domain, e.g., using ```x.invert```. 
+> **JavaScript Switch**
+> 
+> The switch expression is similar to an IF-ELSE statement. The value of the expression (e.g. borough name) is compared with the values of each case. If there is a match, the associated block of code is executed.
+> 
+> *Example with IF-statement:*
+> 
+> ```javascript
+if(feature.properties.BoroName == 'Staten Island')
+	return { color: "#895f9f" };
+else if(feature.properties.BoroName == 'Manhattan')
+	return { color: "#71a552" };
+else if(feature.properties.BoroName == 'Queens')
+	return { color: "#ea8441" };
+else if(feature.properties.BoroName == 'Brooklyn')
+	return { color: "#fff560" };
+else
+	return { color: "#cb3f3c" };
+```
+> The switch block is compact and much easier to read.
 
-And back in the controller we can bind our event handler to other visualization components:
+*After implementing the individual styles for the GeoJSON layer, the result looks like the following:*
+
+![Leaflet - GeoJSON Result](cs171-leaflet-geojson-3.png?raw=true "Leaflet - GeoJSON Result")
+
+If you want to add popups to each feature of a GeoJSON layer, you have to loop through them too. Leaflet provides the option ```onEachFeature``` that gets called on each feature before adding it to a GeoJSON layer:
+
 
 ```javascript
-// 4. Bind event handler
-// when 'selectionChanged' is triggered, specified function is called
-eventHandler.bind("selectionChanged", function(event){
-	let rangeStart = event.detail[0];
-	let rangeEnd = event.detail[1];
-	focusVis.onSelectionChange(rangeStart, rangeEnd);
+let boroughs = L.geoJson(data, {
+	style: styleBorough,
+	onEachFeature: onEachBorough
+});
+
+function onEachBorough(feature, layer) {
+	layer.bindPopup(feature.properties.BoroName);
+}
+```
+
+---
+
+#### Activity III - Create a GeoJSON layer
+
+1. **Check out the GeoJSON data** 
+
+    The geoJSON data of the MBTA Lines is stored in the data folder in your 'Template' folder**
+
+2. **Load the data and render the GeoJSON objects on your map**
+
+	Here, feel free to make use of the `d3.json()` method.
+	
+	*Once your done with this task, you should see the MBTA subway lines on your map now.*
+
+3. **Add styles to the GeoJSON layer**
+	
+	→ Access the properties of each feature (e.g. ```LINE```) and style the subway lines individually. Also play around with different parameters such as *weight* or *opacity*.
+	
+	*Instead of a switch/if-statement you can use the name of the lines (red, green, ...) directly for styling the features.*
+
+---
+
+#### Additional Information - Custom markers
+
+This information is not needed for the lab but may help in your final projects.
+
+In the following example we will show you how to assign custom icons to Leaflet markers.
+
+The built-in styles of the marker class are rather sparse. There is only one marker style and you can't choose the color dynamically. In the event that you need different markers, which might happen in the future, you can either create your own images or use a Leaflet extension ([https://github.com/lvoogdt/Leaflet.awesome-markers](https://github.com/lvoogdt/Leaflet.awesome-markers)).
+
+We continue with our NYC map and add a custom marker (with our own image) at the position of the Four Seasons Hotel.
+
+A simple method for integrating custom icons is to modify the Leaflet images or to search for proper icons online. Make sure that the background of the images are transparent. 
+
+![Leaflet - Custom Marker Icon](assets/cs171-marker-icons.png?raw=true "Leaflet - Custom Marker Icon")
+
+
+*If we want to create several icons that have a lot in common, we can define our own icon class:*
+
+```javascript
+// Defining an icon class with general options
+let LeafIcon = L.Icon.extend({
+	options: {
+		shadowUrl: 'img/marker-shadow.png',
+		iconSize: [25, 41],
+		iconAnchor: [12, 41],
+		popupAnchor: [0, -28]
+    }
 });
 ```
 
-In the final step (i.e., in the function that we call from our event handler, after ```selectionChanged``` has been triggered) we just filter the data based on the brush and update the visualization component (```focusvis.js```):
+*Next, we can use this class to create individual icons:*
 
 ```javascript
-onSelectionChange(selectionStart, selectionEnd){
-	let vis = this;
-
-	// vis.filteredData = vis.data.filter(function(d){
-	// ...
-
-	vis.wrangleData();
-}
+let redMarker = new LeafIcon({ iconUrl:  'img/marker-icon-red.png' });
+let blueMarker = new LeafIcon({ iconUrl:  'img/marker-icon-blue.png' });
 ```
 
-Now it's your turn to implement event handling! Please get started on Activity II.
-
-
-----
-
-#### Activity II - Implement *brushing* and an *event handling* mechanism
-
-*Hint:* For the next steps, keep in mind, that whenever we are inside an object (e.g., Countvis), to use the ```this``` keyword for storing or accessing variables of that class. More importantly, we usually call ```vis = this```, in that case use ```vis.``` to access object variables.
-
-1. **Initialize the event handler and pass it to the *CountVis* object** (in ```main.js```). Make sure that you store the event handler in constructor of ```CountVis```.
-
-2. **Initialize the *brush* component, append it to your SVG area (in ```initVis()```) and call it (in ```updateVis()```)** (all in ```countvis.js```)
-
-3. **Trigger the event handler whenever the user changes the brush region** (in ```initVis()``` in ```countvis.js```)
-
-4. **Bind the event handler** (in ```main.js```). Start by binding the event to an anonymous function that gives you console output whenever you brush. Once that is working, when handling the event in the anonymous function, you should update the *AgeVis* and *PrioVis* component by calling the ```onSelectionChange()``` functions in both compontents. (See next point).
-
-5. **Implement the *onSelectionChange()* functions in**```agevis.js``` **and** ```priovis.js```
-
-	These functions get called when the user changes the brush selection. You should filter the dataset (new start and end date) and update the visual elements in the SVG areas. Keep in mind that you need to store the original, unfiltered dataset.
-
-	Open the webpage in your browser. You should be able to select a brush region in the context visualization and the other two visualizations should be updated automatically.
-
-6. **Show the selected time period**
-
-	→ Create additional elements in the ```index.html``` file to display the current time period. At the beginning it should cover the whole dataset and after the user changes the selection (brush) the dates should be updated immediately.
-
-	You can implement the function to update these text labels as part of the *CountVis* object. Similar to *AgeVis* or *PrioVis* in a new function, e.g. ```onSelectionChange()```. 
-	
-	*Hint:* One line in that function could look something like this ```d3.select("#time-period-min").text(dateFormatter(rangeStart));```)
-
-	*Example how it can look like:*
-
-	![Lab 9 - Time Period](cs171-lab9-time-period.gif?raw=true "Lab 9 - Time Period")
-
-----
-
-### D3 Zoom Behavior
-
-Besides many drawing functionalities, the D3 library allows us to include interaction mechanisms into our visualizations. We can create event listeners for clicks and mouse gestures in order to improve the usability and to keep users engaged. In the previous examples we have used input fields and select-boxes to filter our datasets, we have implemented functions to change the sorting of SVG elements and most recently we have integrated D3's brushing component to select specific regions visually. Now we will introduce another interaction mechanism in D3 - the zoom behavior.
-
-Panning & zooming in visualizations allow users to move in and narrow down on the visible data points or to move out and to get a broader view of the data. The focus+context visualization, that you have implemented in an earlier lab, was basically also a certain type of zooming behavior, with the difference that we have used an additional chart for the interaction. However, in many scenarios it is useful to zoom in directly (scroll on zoom) on the x-axis, y-axis or on both simultaneously.
-
-*Example:*
+*And finally we can use these icons for our markers:*
 
 ```javascript
-// Original scale
-let xScaleOrig = 1.0;
-
-// Initialize the zoom component
-let zoom = d3.zoom()
-
-	// Subsequently, you can listen to all zooming events
-	.on("zoom", function(event){
-		// Do something
-	})
-
-	// Specify the zoom scale's allowed range
-	.scaleExtent([1,20]);
-
-// Get the modified version of the scale when zooming.
-// You have to make sure you use the modified scale to update your visualization. 
-// Notice that 'event' is the default argument to the function callback for .on('zoom',function(event){})
- 
-let xScaleModified = event.transform.rescaleX(xScaleOrig);
+let marker = L.marker([40.762188, -73.971606], { icon: redMarker }).addTo(map);
 ```
 
-Similar to axes or the brush component you have to apply the behavior to selected elements using ```selection.call()```. Usually  you would draw an invisible rectangle over the full height and width of the visualization and bind the zoom behavior to it. But if you are additionally using the brush component you should apply it directly to it:
+*Result:*
 
-```javascript
-let brushGroup = svg.select(".brush")
-brushGroup.call(zoom);
-```
+![Leaflet - Custom Marker](cs171-leaflet-custom-marker.png?raw=true "Leaflet - Custom Marker")
 
-Further details:
+---
 
-- The D3 zoom component actually consists of the zoom and pan behavior. The panning behavior, that makes you able to pan along the x and y axis, is needed when you want to zoom in to a specific point
-- You can also define an y-scale for the zoom
-- If you don't specify the attribute ```scaleExtent()```, the zoom component will default to [0, *Infinity*].
-
-You can read more about D3's zooming component here: [https://github.com/d3/d3-zoom/blob/master/README.md](https://github.com/d3/d3-zoom/blob/master/README.md)
-
-----
-
-#### Activity III - Make the *CountVis* component zoomable along the x-axis
-
-*Preview:*
-
-![Lab 9 - Zoom](cs171-lab9-zoom.gif?raw=true "Lab 9 - Zoom")
-
-1. **Add the zoom component and initialize the D3 zoom behavior**
-
-	→ You should first save the original scale in a variable. 
-	
-	→ Initialize the zoom component and store it in the variable ```vis.zoom```. Define the zoom extent, and register the zoom event listener in ```.on("zoom", zoomFunction)```.
-	
-	→ Set the zoom extent to 1-20
-	
-2. **Implement ```zoomFunction()``` to handle zoom events**
-	
-	Your event listener is called every time the user zooms in or out. In your event listener you should:
-	
-	→ Apply the zoom to the x-axis scale.
-	You can use something like the following:
-
-	```javascript
-	let xScaleModified = event.transform.rescaleX(xScaleOrig);
-	```
-	But make sure you use the scales you have defined (e.g., vis.x, vis.xOrig)
-	
-	→ Call the ```updateVis()``` function. 
-	
-	→ You should check if the brush component is active (user selected a specific time frame) and update it using ```brush.move``` before calling the ```updateVis()``` function. Otherwise the user zooms on the x-axis and the brush window remains unchanged.
-
-	```javascript
-	if(vis.currentBrushRegion) {
-		vis.brushGroup.call(vis.brush.move, vis.currentBrushRegion.map(vis.x));
-	}
-	```
-
-
-3. **Activate the zoom behavior**
-
-	→ Apply the zoom behavior to your brush by using vis.brushGroup.call()
-
-	→ Disable clicking and dragging events for the zoom
-
-	Due to the use of *brushing* we have to deal with a special case. We already use the clicking and dragging events for specifying the size of the brush window. Therefore we can't use panning and we have to block these events in the zoom component:
-
-	```javascript
-	selection.call(zoom)
-		.on("mousedown.zoom", null)
-		.on("touchstart.zoom", null);
-	```
-
-	For testing you can omit this and open the webpage in your browser. You will notice the *bumpy* interaction.
-
-4. **Clip all elements that go beyond the borders of your chart area**
-
-	At the moment we don't filter our data while zooming and we also don't draw a different path. We are just modifying the domain of our x-axis and determine thereby which part is visible and which not. This means that parts of our elements (path or brush rectangle) overlap others and go beyond the borders.
-
-	To avoid this, you have to clip the elements:
-
-	First you define a clipping region in ```initVis()```:
-	
-	```javascript
-	// Define the clipping region 
-	svg.append("defs")
-		.append("clipPath")
-		.attr("id", "clip")
-		.append("rect")
-			.attr("width", width)
-			.attr("height", height);
-	```
-
-Then you apply the clipping in ```updateVis()``` by adding a the clip-path attribute to your path:
-
-```
-	// And apply it to the path, brush and all other elements you want to clip
-	areaPath
-		.datum(data)
-		.attr("d", area)
-		.attr("clip-path", "url(#clip)");
-		
-```
-
-
-
-
-#### Bonus Activity (optional) - Implement a button to reset the zoom
-
-Due to the use of *brushing* and *zooming* in one view we can't use the panning behavior. It may happen that the user zooms in and out and the x-axis gets shifted in one direction. The user can't see the full path and has to reposition the mouse multiple times (while zooming) to return to the starting point. With panning, for example, we could move the camera/viewport from left to right.
-
-To solve this problem you can also create a button to reset the view.
-
-→ Add a reset-button to your HTML file
-
-→ Listen to "clicks" on the button and reset the zoom (scale = 1)
-
-→ Show the button only if zooming is active or if the x-axis has been shifted
-
-*Great job, you have implemented a more complex visualization system with multiple visualization types, event handlers and state-of-the-art interaction techniques!*
-
-
-
-### Submission of lab (activity I - III and optionally the bonus task)
-
-Congratulations, you have now completed the activities of this week's lab!
-
-Please submit the code of your completed lab (the final interactive webpage) on Canvas. 
 
 -----
 
-&nbsp;
+#### Submission of lab (activity I, II, and III)
+
+Please submit the code of your completed lab (the final map visualization you created in activities I-III) using 
+the submission link in this week's module on Canvas. Upload a zipped folder with your implementation:
+
+```
+	/submission_week_11_lab_FirstnameLastname  
+    lab/
+        css/ 		
+        js/ 
+        index.html
+```
+
+-----
 
 **Resources**
 
-- [https://github.com/d3/d3-zoom/blob/master/README.md](https://github.com/d3/d3-zoom/blob/master/README.md)
-- [https://bl.ocks.org/rutgerhofste/5bd5b06f7817f0ff3ba1daa64dee629d](https://bl.ocks.org/rutgerhofste/5bd5b06f7817f0ff3ba1daa64dee629d)
+- Leaflet Quick-Start: [http://leafletjs.com/examples/quick-start.html](http://leafletjs.com/examples/quick-start.html)
+- Leaflet Tile-Providers: [https://leaflet-extras.github.io/leaflet-providers/preview/](https://leaflet-extras.github.io/leaflet-providers/preview/)
+- JavaScript Fetch API - [https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch)
+  
+
+

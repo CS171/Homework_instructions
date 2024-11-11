@@ -1,5 +1,5 @@
 <!---
-layout: lab
+layout: labold
 exclude: true
 --->
 
