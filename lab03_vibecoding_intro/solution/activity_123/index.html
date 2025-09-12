@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grocery Prices — Multi-Store Comparison (2010, 2016, 2022, 2025)</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --ink: #e8edff;
+      --muted: #9fb1ff;
+      --grid: #2a335a;
+      --accent: #a2ffcd;
+    }
+    html, body { height: 100%; }
+    body {
+      margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink); background: radial-gradient(1200px 900px at 10% -10%, #17224c 0%, var(--bg) 55%);
+    }
+    .wrap { max-width: 1200px; margin: 24px auto; padding: 0 16px; }
+    header { display: grid; gap: 8px; margin-bottom: 16px; }
+    h1 { font-size: 1.6rem; line-height: 1.2; margin: 0; }
+    p { margin: 0; color: var(--muted); }
+
+    .controls {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 16px 0 20px;
+      background: rgba(255,255,255,0.03); border: 1px solid #1f2a52; border-radius: 14px; padding: 12px;
+    }
+    .controls label { font-size: .9rem; color: var(--muted); }
+    .controls select, .controls button, .controls input[type="file"] {
+      background: var(--card); border: 1px solid #26315a; color: var(--ink);
+      padding: 8px 10px; border-radius: 10px; font-size: .95rem;
+    }
+    .controls button { cursor: pointer; }
+
+    .grid { display: grid; grid-template-columns: repeat(1, minmax(0, 1fr)); gap: 16px; }
+    @media (min-width: 820px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 1100px) {
+      .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border: 1px solid #1e2953; border-radius: 16px; padding: 12px 12px 6px 12px; box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    }
+    .card h3 { margin: 0 0 6px; font-weight: 600; font-size: 1rem; letter-spacing: .2px; }
+    .chart { width: 100%; height: 260px; }
+
+    .legend { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 4px 4px; }
+    .legend-item { display: inline-flex; align-items: center; gap: 6px; font-size: .85rem; color: var(--muted);
+      background: rgba(0,0,0,.2); border: 1px solid #26315a; padding: 4px 8px; border-radius: 999px; }
+    .legend-swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+
+    .axis path, .axis line { stroke: var(--grid); }
+    .axis text { fill: #bdc7ff; font-size: .78rem; }
+    .gridline line { stroke: var(--grid); }
+
+    .tooltip {
+      position: fixed; pointer-events: none; background: #101836; color: var(--ink);
+      border: 1px solid #28366e; padding: 8px 10px; border-radius: 10px; font-size: .9rem; box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transform: translate(-50%, -120%); white-space: nowrap; z-index: 10; display: none;
+    }
+    .callout { font-size: .85rem; color: var(--muted); margin: 4px 0 0; }
+    footer { margin: 20px 0 40px; font-size: .85rem; color: var(--muted); }
+    a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Grocery Prices — Aldi, Kroger, Publix, Trader Joe's, Walmart</h1>
+      <p>Line charts compare prices for five items across four years: 2010, 2016, 2022, and 2025. Drop <code>groceries_all.csv</code> in the same folder, then click “Load CSV”. If your browser blocks local file loads, use the file picker.</p>
+    </header>
+
+    <div class="controls">
+      <button id="btn-load">Load CSV (groceries_all.csv)</button>
+      <input id="file-input" type="file" accept=".csv" />
+      <label>
+        Stores:
+        <select id="store-filter" multiple size="5" title="Hold Ctrl/⌘ to select multiple">
+          <option selected>Aldi</option>
+          <option selected>Kroger</option>
+          <option selected>Publix</option>
+          <option selected>Trader Joe's</option>
+          <option selected>Walmart</option>
+        </select>
+      </label>
+      <label>
+        Products:
+        <select id="product-filter" multiple size="5" title="Hold Ctrl/⌘ to select multiple">
+          <option selected>Aluminum Foil</option>
+          <option selected>Apple Juice</option>
+          <option selected>Apple Sauce</option>
+          <option selected>Bacon</option>
+          <option selected>Bagels</option>
+        </select>
+      </label>
+    </div>
+
+    <div id="status" class="callout"></div>
+
+    <div id="charts" class="grid"></div>
+
+    <footer>
+      <div class="callout">Tip: If you open this file directly in a browser as <code>file://</code>, the “Load CSV” button may be blocked by CORS. In that case, either use the file picker or run a local server (e.g., <code>python -m http.server</code>) in the folder.</div>
+    </footer>
+  </div>
+
+  <div id="tooltip" class="tooltip"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script>
+  (function(){
+    const YEARS = new Set([2010, 2016, 2022, 2025]);
+    const PRODUCTS = [
+      'Aluminum Foil',
+      'Apple Juice',
+      'Apple Sauce',
+      'Bacon',
+      'Bagels' // The prompt says "Bagles"; we normalize to "Bagels".
+    ];
+    const STORES = ["Aldi", "Kroger", "Publix", "Trader Joe's", "Walmart"];
+    const PRICE_COL = (store) => `${store}.Price`;
+
+    const elCharts = document.getElementById('charts');
+    const elStatus = document.getElementById('status');
+    const elTooltip = document.getElementById('tooltip');
+    const elStoreFilter = document.getElementById('store-filter');
+    const elProductFilter = document.getElementById('product-filter');
+
+    // Color scale per store
+    const color = d3.scaleOrdinal()
+      .domain(STORES)
+      .range(d3.schemeTableau10.slice(0, STORES.length));
+
+    // Utilities
+    const parsePrice = (v) => {
+      if (v == null) return null;
+      if (typeof v !== 'string') { const n = +v; return isFinite(n) ? n : null; }
+      const s = v.trim();
+      if (!s) return null;
+      const cleaned = s.replace(/\$/g, '').replace(/,/g, '').trim();
+      const num = parseFloat(cleaned);
+      return isFinite(num) ? num : null;
+    };
+
+    function normalizeProductName(name){
+      if (!name) return name;
+      const n = String(name).trim();
+      if (/^bagles$/i.test(n)) return 'Bagels';
+      return n;
+    }
+
+    function getSelectedStores(){
+      return Array.from(elStoreFilter.selectedOptions).map(o => o.value);
+    }
+
+    function getSelectedProducts(){
+      if (!elProductFilter) return PRODUCTS;
+      const vals = Array.from(elProductFilter.selectedOptions).map(o => o.value);
+      return vals.length ? vals : PRODUCTS;
+    }
+
+    function setStatus(msg, isError=false){
+      elStatus.textContent = msg || '';
+      elStatus.style.color = isError ? '#ffb4c1' : 'var(--muted)';
+    }
+
+    // Data prep: convert tidy-ish CSV to nested structure { product -> { store -> [{year, price}] } }
+    function shapeData(rows){
+      const wantedProducts = new Set(PRODUCTS);
+      const out = new Map(); // product -> Map(store -> Array<{year, price}> )
+
+      for (const row of rows){
+        const product = normalizeProductName(row.Product);
+        const year = +row.Year;
+        if (!wantedProducts.has(product)) continue;
+        if (!YEARS.has(year)) continue;
+
+        for (const store of STORES){
+          const col = PRICE_COL(store);
+          if (Object.prototype.hasOwnProperty.call(row, col)){
+            const price = parsePrice(row[col]);
+            if (price != null){
+              if (!out.has(product)) out.set(product, new Map());
+              if (!out.get(product).has(store)) out.get(product).set(store, []);
+              out.get(product).get(store).push({ year, price });
+            }
+          }
+        }
+      }
+
+      // Sort series by year and ensure unique year entries (last one wins if duped)
+      for (const [product, storeMap] of out){
+        for (const [store, series] of storeMap){
+          const byYear = new Map();
+          for (const d of series) byYear.set(d.year, d.price);
+          const sorted = Array.from(byYear.entries()).sort((a,b)=>a[0]-b[0]).map(([year, price])=>({year, price}));
+          storeMap.set(store, sorted);
+        }
+      }
+
+      return out; // Map
+    }
+
+    function renderCharts(nested){
+      elCharts.innerHTML = '';
+      const selectedStores = new Set(getSelectedStores());
+
+      const selectedProducts = new Set(getSelectedProducts());
+      const products = Array.from(selectedProducts).filter(p => nested.has(p));
+      if (products.length === 0){
+        setStatus('No matching rows found for the requested products/years.');
+        return;
+      }
+
+      for (const product of products){
+        const card = document.createElement('div');
+        card.className = 'card';
+
+        const h3 = document.createElement('h3');
+        h3.textContent = product;
+        card.appendChild(h3);
+
+        const chartDiv = document.createElement('div');
+        chartDiv.className = 'chart';
+        card.appendChild(chartDiv);
+
+        const legend = document.createElement('div');
+        legend.className = 'legend';
+        card.appendChild(legend);
+
+        elCharts.appendChild(card);
+
+        drawChart(chartDiv, legend, nested.get(product), selectedStores);
+      }
+    }
+
+    function drawChart(container, legendEl, storeMap, selectedStores){
+      const margin = { top: 14, right: 18, bottom: 36, left: 46 };
+      const width = container.clientWidth - margin.left - margin.right;
+      const height = container.clientHeight - margin.top - margin.bottom;
+
+      const svg = d3.select(container)
+        .append('svg')
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.top + margin.bottom)
+        .append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      const years = Array.from(YEARS).sort((a,b)=>a-b);
+      const x = d3.scalePoint().domain(years).range([0, width]).padding(0.5);
+
+      // Compute y domain from selected store series
+      let yMin = Infinity, yMax = -Infinity;
+      for (const [store, series] of storeMap){
+        if (!selectedStores.has(store)) continue;
+        for (const d of series){
+          if (d.price < yMin) yMin = d.price;
+          if (d.price > yMax) yMax = d.price;
+        }
+      }
+      if (!isFinite(yMin) || !isFinite(yMax)) { yMin = 0; yMax = 10; }
+      const pad = (yMax - yMin) * 0.12 || 1;
+      const y = d3.scaleLinear().domain([Math.max(0, yMin - pad), yMax + pad]).nice().range([height, 0]);
+
+      // Gridlines
+      svg.append('g')
+        .attr('class', 'gridline')
+        .call(d3.axisLeft(y).tickSize(-width).tickFormat(''));
+
+      // Axes
+      svg.append('g').attr('class', 'axis').attr('transform', `translate(0,${height})`).call(d3.axisBottom(x).tickValues(years));
+      svg.append('g').attr('class', 'axis').call(d3.axisLeft(y).ticks(5).tickFormat(d=> `$${d.toFixed(2)}`));
+
+      // Line generator (with gaps for missing data)
+      const line = d3.line()
+        .defined(d => d.price != null)
+        .x(d => x(d.year))
+        .y(d => y(d.price));
+
+      // Points for hit-testing/tooltip
+      const points = [];
+
+      for (const [store, series] of storeMap){
+        if (!selectedStores.has(store)) continue;
+        if (!series || series.length === 0) continue;
+
+        svg.append('path')
+          .datum(series)
+          .attr('fill', 'none')
+          .attr('stroke', color(store))
+          .attr('stroke-width', 2)
+          .attr('d', line);
+
+        // Points
+        svg.selectAll(`.pt-${cssSafe(store)}`)
+          .data(series)
+          .enter()
+          .append('circle')
+          .attr('class', `pt-${cssSafe(store)}`)
+          .attr('cx', d => x(d.year))
+          .attr('cy', d => y(d.price))
+          .attr('r', 3.5)
+          .attr('fill', color(store))
+          .style('cursor', 'default')
+          .on('mousemove', (event, d) => showTooltip(event, store, d))
+          .on('mouseleave', hideTooltip);
+
+        points.push(...series.map(d => ({...d, store})));
+      }
+
+      // Build legend
+      legendEl.innerHTML = '';
+      for (const [store] of storeMap){
+        if (!selectedStores.has(store)) continue;
+        const item = document.createElement('div');
+        item.className = 'legend-item';
+        const sw = document.createElement('span'); sw.className = 'legend-swatch'; sw.style.background = color(store);
+        const label = document.createElement('span'); label.textContent = store;
+        item.appendChild(sw); item.appendChild(label);
+        legendEl.appendChild(item);
+      }
+    }
+
+    function cssSafe(s){ return String(s).replace(/[^a-z0-9_-]+/gi, '-'); }
+
+    function showTooltip(evt, store, d){
+      const { clientX, clientY } = evt;
+      elTooltip.style.display = 'block';
+      elTooltip.style.left = clientX + 'px';
+      elTooltip.style.top = clientY + 'px';
+      elTooltip.innerHTML = `<strong>${store}</strong><br/>Year ${d.year}: <strong>$${d.price.toFixed(2)}</strong>`;
+    }
+    function hideTooltip(){ elTooltip.style.display = 'none'; }
+
+    function onStoreFilter(){
+      if (!window.__DATA__) return;
+      renderCharts(window.__DATA__);
+    }
+    elStoreFilter.addEventListener('change', onStoreFilter);
+    function onProductFilter(){
+      if (!window.__DATA__) return;
+      renderCharts(window.__DATA__);
+    }
+    if (elProductFilter) elProductFilter.addEventListener('change', onProductFilter);
+
+    async function loadDefault(){
+      setStatus('Loading groceries_all.csv…');
+      try {
+        const text = await (await fetch('groceries_all.csv', {cache: 'no-store'})).text();
+        const rows = d3.csvParse(text);
+        hydrate(rows);
+        setStatus('Loaded groceries_all.csv');
+      } catch (err){
+        console.error(err);
+        setStatus('Could not fetch groceries_all.csv. Use the file picker or run a local server.', true);
+      }
+    }
+
+    function handleFile(e){
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const text = reader.result;
+          const rows = d3.csvParse(text);
+          hydrate(rows);
+          setStatus(`Loaded ${file.name}`);
+        } catch (err){
+          console.error(err);
+          setStatus('Failed to parse CSV. Ensure it uses commas and a header row.', true);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function hydrate(rows){
+      // Defensive: normalize keys for quirky headers like "Trader Joe's.Price"
+      // d3.csvParse keeps headers as-is; we’ll just access via bracket notation.
+      const nested = shapeData(rows);
+      window.__DATA__ = nested; // cache for re-rendering on store filter changes
+      renderCharts(nested);
+    }
+
+    document.getElementById('btn-load').addEventListener('click', loadDefault);
+    document.getElementById('file-input').addEventListener('change', handleFile);
+
+    // Auto-attempt to load by default file name once, but don’t error-spam
+    // Comment out next line if you prefer manual loading only.
+    // loadDefault();
+  })();
+  </script>
+</body>
+</html>
