@@ -1,5 +1,5 @@
 <!-----
-layout: labold
+layout: lab
 exclude: true
 ----->
 
@@ -20,7 +20,7 @@ exclude: true
 
 ### Prerequisites
 
-- You have downloaded the [groceries dataset](template/groceries_all.csv) for this week's lab.
+- You have downloaded the [groceries dataset](template/activity_123/groceries_all.csv) for this week's lab.
 - You have set up an account for some LLM (Claude, ChatGPT, Gemini etc.)
 
 ---
@@ -49,7 +49,7 @@ You can then open the file in any browser to see your animation. (No sparkles ):
 
 ## Activity 1: Writing a Visualization Prompt
 
-The file [groceries_all.csv](template/groceries_all.csv) contains historic grocery prices from years 2010, 2016, 2022, and 2025.
+The file [groceries_all.csv](template/activity_123/groceries_all.csv) contains historic grocery prices from years 2010, 2016, 2022, and 2025.
 
 Each row includes the name of the Product, the Year the price was recorded, and the Price and Weight of the product at four stores: Aldi, Kroger, Publix, Trader Joe's, and Walmart.
 
