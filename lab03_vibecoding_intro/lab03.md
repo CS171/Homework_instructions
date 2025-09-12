@@ -1,3 +1,12 @@
+<!-----
+layout: labold
+exclude: true
+----->
+
+<img src="assets/cs171-logo.png" width="200">
+
+&nbsp;
+
 # Week 3 - Lab
 
 ## Learning Objectives
@@ -11,7 +20,7 @@
 
 ### Prerequisites
 
-- You have downloaded the template for this week's lab on canvas. This [link]() should get you there quickly.
+- You have downloaded the [groceries dataset](template/groceries_all.csv) for this week's lab.
 - You have set up an account for some LLM (Claude, ChatGPT, Gemini etc.)
 
 ---
@@ -40,7 +49,7 @@ You can then open the file in any browser to see your animation. (No sparkles ):
 
 ## Activity 1: Writing a Visualization Prompt
 
-The file [groceries_all.csv](https://github.com/CS171/Labs_Homeworks/blob/master/2025/lab03_vibecoding_intro/template/groceries_all.csv) contains historic grocery prices from years 2010, 2016, 2022, and 2025.
+The file [groceries_all.csv](template/groceries_all.csv) contains historic grocery prices from years 2010, 2016, 2022, and 2025.
 
 Each row includes the name of the Product, the Year the price was recorded, and the Price and Weight of the product at four stores: Aldi, Kroger, Publix, Trader Joe's, and Walmart.
 
@@ -101,7 +110,7 @@ For this example, let's do this with the output from ChatGPT.
 The folder structure should look something like this:
 
 ```plaintext
-template
+folder
 │
 ├── index.html                  # Main HTML file
 │
