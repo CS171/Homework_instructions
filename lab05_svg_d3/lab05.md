@@ -21,7 +21,7 @@ exclude: true
 
 ## Prerequisites
 
-- You have downloaded the template for this week's lab. This [link](week_05_lab_template.zip) should get you there quickly.
+- You have downloaded the template for this week's lab. This [link](week-05_lab_template.zip) should get you there quickly.
 - Understanding of basic HTML, CSS, and JavaScript concepts from previous weeks
 
 ---
@@ -160,7 +160,7 @@ SVG elements can be styled using:
 ![SVG Examples](assets/cs171-svg-example.png?raw=true "SVG Examples")
 
 
-Be sure to also check out Josh W. Comeau's ![A Friendly Introduction to SVG](https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/) which offers a more extensive and comprehensive overview of SVG.
+Be sure to also check out Josh W. Comeau's [A Friendly Introduction to SVG](https://www.joshwcomeau.com/svg/friendly-introduction-to-svg/) which offers a more extensive and comprehensive overview of SVG.
 
 
 ---
